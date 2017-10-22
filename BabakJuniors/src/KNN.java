@@ -31,14 +31,13 @@ public class KNN {
 	*-an integer k representing the number of neighbors looked at to determine price of new house
 	*-an object of type House, called newHouse which will be compared against other houses
 	*
-	*1. Reset list of nearestNeighbors
+	*1. Reset list of nearestNeighbors right before function call*smelly needs fixing
 	*2. Iterate through the collection of houses and append the one with shortest distance to the new house
 	*3.	Repeat the process on the same collection less the appended house
 	*4. Repeat k times
 	*		
 	*/
 	public void findKNN (int k, House newHouse, ArrayList<House> potentialNN){
-		nearestNeighbors=null; //finding nearestNeighbors, must clear previous calculated NN
 		House nearestNeighbor = new House(); 
 		if(k>0){ //if K>1 then must find nearestNeighbor and append to list of NN
 			float distance = -1;
