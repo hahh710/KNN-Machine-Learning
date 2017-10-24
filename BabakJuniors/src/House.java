@@ -14,13 +14,17 @@ import java.util.List;
 *	getPrice
 *	setPrice
 *	getHouse
+*	getCorx
+*	getCorY
+*	getAge
+*	getSqrFt
 */
 public class House {
 	private List<Object> houseAttributes = new ArrayList<Object>();
 	private int price ;
 	
 	public House(Coordinates c, Age a, SqrFt s, int p) {
-		//index 0 of arraylist has coordinates
+		//index 0 of Arraylist has coordinates
 		//index 1, Age
 		//index 2, sqrFt 
 		//index 3, price
@@ -52,5 +56,17 @@ public class House {
 	}
 	public List<Object> getHouse(){
 		return houseAttributes; 
+	}
+	public int getCorX(){
+		return ((Coordinates) houseAttributes.get(0)).getX();
+	}
+	public int getCorY(){
+		return ((Coordinates) houseAttributes.get(0)).getY();
+	}
+	public float getAge(){
+		return (((Age) houseAttributes.get(1)).getNormalizedValue());
+	}
+	public float getSqrFt(){
+		return (((SqrFt) houseAttributes.get(1)).getNormalizedValue());
 	}
 }
