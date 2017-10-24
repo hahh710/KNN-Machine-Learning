@@ -1,4 +1,23 @@
+/**
+*Coordinates
+*
+*@Authors: Ahmed Khattab
+*@Purpose: Determine the coordinates of a house given its x and y positions.
+*
+*@field variables
+*	x: The x coordinate
+*	y: The y coordinate
+*	
+*@methods
+*	getY
+*	getX
+*	setY
+*	setX
+*	getNormalizedValue
+*
+*/
 public class Coordinates implements HouseAttributes {
+
 	
 private int x;
 private int y;
