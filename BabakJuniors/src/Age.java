@@ -1,10 +1,20 @@
 /**
- * Write a description of class 	Age here.
- *
- */
+*Age
+*
+*@Authors: Ahmed Khattab
+*@Purpose: Determine the age of a house given whether its old or new
+*
+*@field variables
+*	ageValue: A String to hold the Age entered
+*	Old: A String which holds the Age Old
+*	New: A String which holds the Age New
+*	
+*@methods
+*	getNormalizedValue
+*
+*/
 public class Age implements HouseAttributes{
 	
-
 /*
 public enum age{
 	Old,New;		
@@ -24,7 +34,7 @@ private String New = "New";
 		if(Old.equals(ageValue)) {
 			return (float) 0.5;
 		}
-		else if(New.equals(ageValue) ) {
+		else if(New.equals(ageValue)) {
 			return (float) 1.5;
 		}
 		else {
