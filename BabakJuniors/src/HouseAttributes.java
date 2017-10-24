@@ -2,7 +2,9 @@
 *House Attributes
 *
 *@Authors: Ahmed Khattab
-*@Purpose: An interface for the method getNormalizedValue
+*@Purpose: An interface for the method getNormalizedValue used in the following classes:
+*1. SqrFt
+*2. Age
 *
 *	
 *@methods

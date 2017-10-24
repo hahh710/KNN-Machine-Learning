@@ -29,6 +29,10 @@ private String New = "New";
 		this.ageValue=ageValue;
 	}
 	
+	/**
+	 * Method for Coordinates used to return the y coordinates
+	 * @return y
+	 */
 	public float getNormalizedValue() {
 		
 		if(Old.equals(ageValue)) {

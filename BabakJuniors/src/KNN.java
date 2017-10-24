@@ -103,11 +103,11 @@ public class KNN {
 	public float findSqrFtDistance(House h1, House h2) {
 		return h1.getSqrFt()-h2.getSqrFt();
 	}
-	public void addHouse(Coordinates c, SqrFt sf, Age a, int p) {
-		houses.add(new house(c, sf, a, p));
+	public void addHouse(Coordinates c, Age a , SqrFt sf, int p) {
+		houses.add(new House(c, a, sf, p));
 	}
-	public void setNewHouse(Coordinates c, SqrFt sf, Age a) {
-		newHouse= new House(c, sf, a);
+	public void setNewHouse(Coordinates c, Age a , SqrFt sf) {
+		newHouse= new House(c, a,sf);
 	}
 	public void resetNN() {
 		nearestNeighbors=null;
@@ -120,10 +120,10 @@ public class KNN {
  */
 	public static void main(){
 		KNN running = new KNN();
-		running.addHouse(new Coordinates(12,25),new SqrFt(1200), new Age("New"), 500000);
-		running.addHouse(new Coordinates(10,50),new SqrFt(1000), new Age("Old"), 300000);
-		running.addHouse(new Coordinates(30,100),new SqrFt(800), new Age("New"), 400000);
-		running.setNewHouse(new Coordinates(15, 20), new SqrFt(1000), new Age("New"));		
+		running.addHouse(new Coordinates(12,25),new Age("New"),new SqrFt(1200), 500000);
+		running.addHouse(new Coordinates(10,50), new Age("Old"),new SqrFt(1000), 300000);
+		running.addHouse(new Coordinates(30,100), new Age("New"), new SqrFt(800),400000);
+		running.setNewHouse(new Coordinates(15, 20),  new Age("New"),new SqrFt(1000));		
 		running.resetNN();
 		running.findKNN(1, newHouse, houses);
 		running.setNewHousePrice();

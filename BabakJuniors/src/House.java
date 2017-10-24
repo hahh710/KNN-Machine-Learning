@@ -21,7 +21,7 @@ import java.util.List;
 */
 public class House {
 	private List<Object> houseAttributes = new ArrayList<Object>();
-	private int price ;
+	private float price ;
 	
 	public House(Coordinates c, Age a, SqrFt s, int p) {
 		/*
@@ -60,13 +60,13 @@ public class House {
 	/*
 	 * Getter and setter for price.
 	 */
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 	
-	public void setPrice(int p) {
-		price=p;
-		houseAttributes.set(3,p);
+	public void setPrice(float f) {
+		price=f;
+		houseAttributes.set(3,f);
 	}
 	/*
 	 * getter for House. 
