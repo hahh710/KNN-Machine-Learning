@@ -67,6 +67,6 @@ public class House {
 		return (((Age) houseAttributes.get(1)).getNormalizedValue());
 	}
 	public float getSqrFt(){
-		return (((SqrFt) houseAttributes.get(1)).getNormalizedValue());
+		return (((SqrFt) houseAttributes.get(2)).getNormalizedValue());
 	}
 }
