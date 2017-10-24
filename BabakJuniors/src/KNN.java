@@ -69,14 +69,14 @@ public class KNN {
 	*-returns price of new house -> simply calculated by averaging nearest neighbors for the purposes of milestone 1
 	*
 	*/
-	public float findPrice(){
+	public int findPrice(){
 		float sum=0;
 		int count=0;
 		for(House h:nearestNeighbors){
 			sum+=h.getPrice();
 			count++;
 		}
-		return sum/count;
+		return (int) sum/count;
 	}
 	/**
 	*findDistance (House h1, House h2)
@@ -126,6 +126,12 @@ public class KNN {
 	public void setNewHousePrice() {
 		newHouse.setPrice(findPrice());
 	}
+	public ArrayList<House> getHouses(){
+		return (ArrayList<House>) houses;
+	}
+	public House getNewHouse() {
+		return newHouse;
+	}
 /**
  * (Coordinates c, Age a, SqrFt s, int p)
  */
@@ -136,8 +142,8 @@ public class KNN {
 		running.addHouse(new Coordinates(30,100), new Age("New"), new SqrFt(800),400000);
 		running.setNewHouse(new Coordinates(15, 20),  new Age("New"),new SqrFt(1000));		
 		running.resetNN();
-		running.findKNN(1, newHouse, houses);
+		running.findKNN(1, running.getNewHouse(), running.getHouses());
 		running.setNewHousePrice();
-		
+		System.out.println("The price of the new house is "+running.getNewHouse().getPrice());
 	}
 }
