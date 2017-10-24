@@ -25,9 +25,9 @@ public class House {
 	}
 	
 	public House(Coordinates c, Age a, SqrFt s) {//constructor for new house aka unknown price
-		houseAttributes.add(c);
-		houseAttributes.add(a);
-		houseAttributes.add(s);
+		houseAttributes.add(0,c);
+		houseAttributes.add(1,a);
+		houseAttributes.add(2,s);
 		price=0;
 	}
 	
