@@ -103,7 +103,7 @@ public class KNN {
 	*	-returns a float representing the euclidean distance between the two houses which are being compared
 	*	
 	*Determine the euclidean distance between two houses
-	*	using  dist(h1(x, y), h2(a, b)) = sqrt((x - a)² + (y - b)²)
+	*	using  dist(h1(x, y), h2(a, b)) = sqrt((x - a)ï¿½ + (y - b)ï¿½)
 	*/
 	public float findCoordinateDistance(House h1, House h2) {
 		return (float) Math.sqrt(Math.pow(h1.getCorX()-h2.getCorX(), 2)+ Math.pow(h1.getCorY()-h2.getCorY(), 2));
@@ -121,7 +121,7 @@ public class KNN {
 		newHouse= new House(c, a,sf);
 	}
 	public void resetNN() {
-		nearestNeighbors=null;
+		nearestNeighbors.clear();
 	}
 	public void setNewHousePrice() {
 		newHouse.setPrice(findPrice());
