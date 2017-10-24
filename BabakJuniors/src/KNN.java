@@ -21,9 +21,11 @@ import java.util.List;
 public class KNN {
 	private List <House> houses;
 	private List <House> nearestNeighbors;
+	private House newHouse;
 	public KNN (){
 		houses = new ArrayList<House>();
 		nearestNeighbors = new ArrayList<House>();
+		newHouse = null;
 	}
 	/**
 	*findKNN
@@ -101,10 +103,30 @@ public class KNN {
 	public float findSqrFtDistance(House h1, House h2) {
 		return h1.getSqrFt()-h2.getSqrFt();
 	}
+	public void addHouse(Coordinates c, SqrFt sf, Age a, int p) {
+		houses.add(new house(c, sf, a, p));
+	}
+	public void setNewHouse(Coordinates c, SqrFt sf, Age a) {
+		newHouse= new House(c, sf, a);
+	}
+	public void resetNN() {
+		nearestNeighbors=null;
+	}
+	public void setNewHousePrice() {
+		newHouse.setPrice(findPrice());
+	}
 /**
- * 
+ * (Coordinates c, Age a, SqrFt s, int p)
  */
 	public static void main(){
+		KNN running = new KNN();
+		running.addHouse(new Coordinates(12,25),new SqrFt(1200), new Age("New"), 500000);
+		running.addHouse(new Coordinates(10,50),new SqrFt(1000), new Age("Old"), 300000);
+		running.addHouse(new Coordinates(30,100),new SqrFt(800), new Age("New"), 400000);
+		running.setNewHouse(new Coordinates(15, 20), new SqrFt(1000), new Age("New"));		
+		running.resetNN();
+		running.findKNN(1, newHouse, houses);
+		running.setNewHousePrice();
 		
 	}
 }
