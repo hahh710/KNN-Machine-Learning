@@ -84,16 +84,27 @@ public class KNN {
 	*	-return a float representing the distance between the two houses
 	*	
 	*Determine distance between two houses
-	*
+	*	//index 0 of arraylist has coordinates
+		//index 1, Age
+		//index 2, sqrFt 
+		//index 3, price
 	*/
 	public float findDistance(House h1, House h2){
-		float totalDistance=0;
-		return totalDistance;
+		return findCoordinateDistance(House h1, House h2)+findAgeDistance(House h1, House h2)+findSqrFtDistance(House h1, House h2);
+	}
+	public float findCoordinateDistance(House h1, House h2) {
+		return Math.sqrt(Math.pow(h1.getCorX()-h2.getCorX(), 2)+ Math.pow(h1.getCorY()-h2.getCorY(), 2));
+	}
+	public float findAgeDistance(House h1, House h2) {
+		return h1.getAge()=h2.getAge();
+	}
+	public float findSqrFtDistance(House h1, House h2) {
+		return h1.getSqrFt()-h2.getSqrFt();
 	}
 /**
  * 
  */
 	public static void main(){
-
+		
 	}
 }
