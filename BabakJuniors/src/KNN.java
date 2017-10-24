@@ -94,6 +94,17 @@ public class KNN {
 	public float findDistance(House h1, House h2){
 		return findCoordinateDistance( h1,  h2)+findAgeDistance( h1,  h2)+findSqrFtDistance( h1,  h2);
 	}
+	
+	/**
+	*findCoordinateDistance(House h1, House h2)
+	*@param
+	*	-two houses that are being compared
+	*@return
+	*	-returns a float representing the euclidean distance between the two houses which are being compared
+	*	
+	*Determine the euclidean distance between two houses
+	*	using  dist(h1(x, y), h2(a, b)) = sqrt((x - a)² + (y - b)²)
+	*/
 	public float findCoordinateDistance(House h1, House h2) {
 		return (float) Math.sqrt(Math.pow(h1.getCorX()-h2.getCorX(), 2)+ Math.pow(h1.getCorY()-h2.getCorY(), 2));
 	}
