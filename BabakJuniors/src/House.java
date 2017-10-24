@@ -24,10 +24,13 @@ public class House {
 	private int price ;
 	
 	public House(Coordinates c, Age a, SqrFt s, int p) {
-		//index 0 of Arraylist has coordinates
-		//index 1, Age
-		//index 2, sqrFt 
-		//index 3, price
+		/*
+		 * Constructor with price.
+		 * index 0 of Arraylist has coordinates
+		 * index 1, Age
+		 * index 2, sqrFt 
+		 * index 3, price
+		 */
 		houseAttributes.add(0,c);
 		houseAttributes.add(1,a);
 		houseAttributes.add(2,s);
@@ -36,6 +39,10 @@ public class House {
 	}
 	
 	public House(Coordinates c, Age a, SqrFt s) {//constructor for new house aka unknown price
+		/*
+		 * Constructor without price
+		 * and price will be 0
+		 */
 		houseAttributes.add(0,c);
 		houseAttributes.add(1,a);
 		houseAttributes.add(2,s);
@@ -43,9 +50,16 @@ public class House {
 	}
 	
 	public House() {
+		/*
+		 * Construct without any information.
+		 * Just making a price 0 and empty arraylist of house.
+		 */
 		price=0;
 	}
 	
+	/*
+	 * Getter and setter for price.
+	 */
 	public int getPrice() {
 		return price;
 	}
@@ -54,12 +68,19 @@ public class House {
 		price=p;
 		houseAttributes.set(3,p);
 	}
+	/*
+	 * getter for House. 
+	 */
 	public List<Object> getHouse(){
 		return houseAttributes; 
 	}
+	/*
+	 * getter for Attributes(Coordinates, Age, SqrFt) 
+	 */
 	public int getCorX(){
 		return ((Coordinates) houseAttributes.get(0)).getX();
 	}
+	
 	public int getCorY(){
 		return ((Coordinates) houseAttributes.get(0)).getY();
 	}
