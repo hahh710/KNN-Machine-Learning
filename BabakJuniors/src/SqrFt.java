@@ -24,11 +24,17 @@ public class SqrFt {
 		// initialise instance variables
 		this.squareFeet=squareFeet;
 	}
-
+	/**
+	 * A getter method for SqrFt that returns the value of squarefeet.
+	 * @return squareFeet
+	 */
 	public int getSqrFt(){
 		return squareFeet;
 	}
-
+	/**
+	 * A method that normazlizes the value of the squarefeets
+	 * @return float value
+	 */
 	public float getNormalizedValue () {
 		float value = this.squareFeet;
 
