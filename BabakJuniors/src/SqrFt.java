@@ -1,12 +1,12 @@
 
-public class SquareFeet {
+public class SqrFt {
 	 // instance variables - replace the example below with your own
     private int squareFeet;
 
     /**
      * Constructor for objects of class SquareFeet
      */
-    public SquareFeet(int squareFeet)
+    public SqrFt(int squareFeet)
     {
         // initialise instance variables
         this.squareFeet=squareFeet;
