@@ -35,7 +35,7 @@ private String New = "New";
 			return (float) 0.5;
 		}
 		else if(New.equals(ageValue)) {
-			return (float) 1.5;
+			return (float) 0.8;
 		}
 		else {
 			return 0;	
