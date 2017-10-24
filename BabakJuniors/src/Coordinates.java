@@ -13,10 +13,9 @@
 *	getX
 *	setY
 *	setX
-*	getNormalizedValue
 *
 */
-public class Coordinates implements HouseAttributes {
+public class Coordinates {
 
 	
 private int x;
@@ -28,26 +27,38 @@ private int y;
 	}
 
 	
+	/**
+	 * Method for Coordinates used to return the y coordinates
+	 * @return y
+	 */
 	public int getY() {
 		return y;
 	}
-
+	
+	/**
+	 * Method for Coordinates used to set the y coordinates
+	 * @return y
+	 */
 	public void setY(int y) {
 		this.y = y;
 	}
-
+	
+	/**
+	 * Method for Coordinates used to return the x coordinates
+	 * @return y
+	 */
 	public int getX() {
 		return x;
 	}
-
+	
+	/**
+	 * Method for Coordinates used to set the x coordinates
+	 * @return y
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}
 	
 	
-	public float getNormalizedValue() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
