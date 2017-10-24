@@ -18,8 +18,8 @@ public class SqrFt {
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int getsquarefeet(){
-    	return squareFeet;
+    public int getSqrFt(){
+    		return squareFeet;
     }
     
     public float getNormalizedValue () {

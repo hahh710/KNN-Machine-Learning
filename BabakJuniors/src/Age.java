@@ -21,10 +21,10 @@ private String New = "New";
 	
 	public float getNormalizedValue() {
 		
-		if(Old == ageValue) {
+		if(Old.equals(ageValue)) {
 			return (float) 0.5;
 		}
-		else if(New == ageValue) {
+		else if(New.equals(ageValue) ) {
 			return (float) 1.5;
 		}
 		else {
