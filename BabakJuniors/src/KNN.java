@@ -135,7 +135,7 @@ public class KNN {
 /**
  * (Coordinates c, Age a, SqrFt s, int p)
  */
-	public static void main(){
+	public static void main(String [ ] args) {
 		KNN running = new KNN();
 		running.addHouse(new Coordinates(12,25),new Age("New"),new SqrFt(1200), 500000);
 		running.addHouse(new Coordinates(10,50), new Age("Old"),new SqrFt(1000), 300000);
