@@ -34,7 +34,6 @@ public class House {
 		houseAttributes.add(0,c);
 		houseAttributes.add(1,a);
 		houseAttributes.add(2,s);
-		houseAttributes.add(3,p);
 		price = p;
 	}
 	
@@ -66,7 +65,6 @@ public class House {
 	
 	public void setPrice(float f) {
 		price=f;
-		houseAttributes.set(3,f);
 	}
 	/*
 	 * getter for House. 

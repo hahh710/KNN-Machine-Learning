@@ -41,13 +41,14 @@ public class KNN {
 	*/
 	public void findKNN (int k, House newHouse, ArrayList<House> potentialNN){
 		House nearestNeighbor = new House(); 
-		if(k>0){ //if K>1 then must find nearestNeighbor and append to list of NN
+		if(k>0){ //if K>0 then must find nearestNeighbor and append to list of NN
 			float distance = -1;
 			float smallestDistance=-1;
 			for(House h:potentialNN){
 				distance=findDistance(h, newHouse);
 				if (smallestDistance==-1){//first house in list will initially be NN
 					smallestDistance= distance;
+					nearestNeighbor=h;					
 				}	
 				if(smallestDistance > distance){//new smallest distance
 					smallestDistance=distance;
@@ -58,6 +59,7 @@ public class KNN {
 			potentialNN.remove(nearestNeighbor);//remove the determined nearestNeighbor
 			findKNN(k-1, newHouse, potentialNN);//Recursively call until k neighbors have been determined
 		}
+		
 	//K nearest neighbors have been determined
 	}
 	/**
@@ -76,7 +78,7 @@ public class KNN {
 			sum+=h.getPrice();
 			count++;
 		}
-		return (int) sum/count;
+		return (int)sum;
 	}
 	/**
 	*findDistance (House h1, House h2)
@@ -106,13 +108,13 @@ public class KNN {
 	*	using  dist(h1(x, y), h2(a, b)) = sqrt((x - a)² + (y - b)²)
 	*/
 	public float findCoordinateDistance(House h1, House h2) {
-		return (float) Math.sqrt(Math.pow(h1.getCorX()-h2.getCorX(), 2)+ Math.pow(h1.getCorY()-h2.getCorY(), 2));
+		return  Math.abs((float)Math.sqrt(Math.pow(h1.getCorX()-h2.getCorX(), 2)+ Math.pow(h1.getCorY()-h2.getCorY(), 2)));
 	}
 	public float findAgeDistance(House h1, House h2) {
-		return h1.getAge() - h2.getAge();
+		return Math.abs(h1.getAge() - h2.getAge());
 	}
 	public float findSqrFtDistance(House h1, House h2) {
-		return h1.getSqrFt()-h2.getSqrFt();
+		return Math.abs(h1.getSqrFt()-h2.getSqrFt());
 	}
 	public void addHouse(Coordinates c, Age a , SqrFt sf, int p) {
 		houses.add(new House(c, a, sf, p));
@@ -121,7 +123,7 @@ public class KNN {
 		newHouse= new House(c, a,sf);
 	}
 	public void resetNN() {
-		nearestNeighbors=null;
+		nearestNeighbors.clear();
 	}
 	public void setNewHousePrice() {
 		newHouse.setPrice(findPrice());
@@ -144,6 +146,41 @@ public class KNN {
 		running.resetNN();
 		running.findKNN(1, running.getNewHouse(), running.getHouses());
 		running.setNewHousePrice();
-		System.out.println("The price of the new house is "+running.getNewHouse().getPrice());
+		System.out.println("Test 1");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Training example 1: Coordinates (12, 25) Age (New) SqrFt(1200) Price (500000)");
+		System.out.println("Training example 2: Coordinates (10, 50) Age (Old) SqrFt(1000) Price (300000)");
+		System.out.println("Training example 3: Coordinates (30, 100) Age (New) SqrFt(800) Price (400000)");
+		System.out.println("The testing example is: K = 1 Coordinates (12, 25) Age (New) SqrFt(1200)");
+		System.out.println("The price of the testing example is "+running.getNewHouse().getPrice());
+		System.out.println("");
+		System.out.println("");
+		running.resetNN();
+		running.findKNN(2, running.getNewHouse(), running.getHouses());
+		running.setNewHousePrice();
+		System.out.println("Test 2");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Training example 1: Coordinates (12, 25) Age (New) SqrFt(1200) Price (500000)");
+		System.out.println("Training example 2: Coordinates (10, 50) Age (Old) SqrFt(1000) Price (300000)");
+		System.out.println("Training example 3: Coordinates (30, 100) Age (New) SqrFt(800) Price (400000)");
+		System.out.println("The testing example is: K = 2 Coordinates (12, 25) Age (New) SqrFt(1200)");
+		System.out.println("The price of the testing example is "+running.getNewHouse().getPrice());
+		System.out.println("Number of NN = " + running.nearestNeighbors.size());
+		System.out.println("");
+		running.resetNN();
+		running.findKNN(3, running.getNewHouse(), running.getHouses());
+		running.setNewHousePrice();
+		System.out.println("Test 3");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Training example 1: Coordinates (12, 25) Age (New) SqrFt(1200) Price (500000)");
+		System.out.println("Training example 2: Coordinates (10, 50) Age (Old) SqrFt(1000) Price (300000)");
+		System.out.println("Training example 3: Coordinates (30, 100) Age (New) SqrFt(800) Price (400000)");
+		System.out.println("The testing example is: K = 3 Coordinates (12, 25) Age (New) SqrFt(1200)");
+		System.out.println("The price of the testing example is "+running.getNewHouse().getPrice());
+		System.out.println("Number of NN = " + running.nearestNeighbors.size());
+		System.out.println("");
 	}
 }
