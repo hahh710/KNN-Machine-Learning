@@ -66,7 +66,6 @@ public class House {
 	
 	public void setPrice(float f) {
 		price=f;
-		houseAttributes.set(3,f);
 	}
 	/*
 	 * getter for House. 
