@@ -34,7 +34,6 @@ public class House {
 		houseAttributes.add(0,c);
 		houseAttributes.add(1,a);
 		houseAttributes.add(2,s);
-		houseAttributes.add(3,p);
 		price = p;
 	}
 	
