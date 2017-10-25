@@ -55,9 +55,13 @@ public class KNN {
 					nearestNeighbor=h;
 				}
 			}
-			nearestNeighbors.add(nearestNeighbor);//append NN			
-			potentialNN.remove(nearestNeighbor);//remove the determined nearestNeighbor
-			findKNN(k-1, newHouse, potentialNN);//Recursively call until k neighbors have been determined
+			nearestNeighbors.add(nearestNeighbor);//append NN	
+			ArrayList<House> newPotentialNN = new ArrayList<House>();//smelllllllly
+			for (House h: potentialNN) {
+				newPotentialNN.add(h);
+			}
+			newPotentialNN.remove(nearestNeighbor);//remove the determined nearestNeighbor
+			findKNN(k-1, newHouse, newPotentialNN);//Recursively call until k neighbors have been determined
 		}
 		
 	//K nearest neighbors have been determined
@@ -78,7 +82,7 @@ public class KNN {
 			sum+=h.getPrice();
 			count++;
 		}
-		return (int)sum;
+		return (int)sum/count;
 	}
 	/**
 	*findDistance (House h1, House h2)
@@ -149,9 +153,10 @@ public class KNN {
 		System.out.println("Test 1");
 		System.out.println("");
 		System.out.println("");
-		System.out.println("Training example 1: Coordinates (12, 25) Age (New) SqrFt(1200) Price (500000)");
+
 		System.out.println("Training example 2: Coordinates (10, 50) Age (Old) SqrFt(1000) Price (300000)");
 		System.out.println("Training example 3: Coordinates (30, 100) Age (New) SqrFt(800) Price (400000)");
+		System.out.println("Training example 1: Coordinates (12, 25) Age (New) SqrFt(1200) Price (500000)");
 		System.out.println("The testing example is: K = 1 Coordinates (12, 25) Age (New) SqrFt(1200)");
 		System.out.println("The price of the testing example is "+running.getNewHouse().getPrice());
 		System.out.println("");
