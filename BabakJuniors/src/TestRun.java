@@ -4,7 +4,7 @@ public class TestRun {
 	/**
 	 *TestRun
 	 *
-	 *@Authors: Hunho Ha, Ahmed Khattab, Arsalan Sadiq, Jeff Tudor
+	 *@Authors: Arsalan Sadiq 
 	 *@Purpose: A class which allows to run the test cases
 	 *
 	 *@field variables
@@ -29,7 +29,7 @@ public class TestRun {
 		System.out.println("");
 		System.out.println("");
 		for(House h:houses) {
-			System.out.println("Training example " + c+": Coordinate = ("+ h.getCorX()+","+h.getCorY()+"), Age = "+h.getAge()+", SqrFt = "
+			System.out.println("Training example " + c+": Coordinate = ("+ h.getCorX()+","+h.getCorY()+"), Age = "+h.getAgeString()+", SqrFt = "
 					+ ""+ h.getSqrFt()+", Price = "+ h.getPrice());
 			c++;
 		}	
@@ -47,12 +47,10 @@ public class TestRun {
 		//calculate price based off of nearest neighbors
 		r.setNewHousePrice();
 		System.out.println("The testing example is: K = "+ k+", Coordinate = ("+r.getNewHouse().getCorX()+","+r.getNewHouse().getCorY()+"), Age = "
-		+r.getNewHouse().getAge()+", Sqrft = "+r.getNewHouse().getSqrFt());
+		+r.getNewHouse().getAgeString()+", Sqrft = "+r.getNewHouse().getSqrFt());
 		System.out.println("The price of the testing example is "+r.getNewHouse().getPrice());
 	}
-	public static void calculateError() {
-		
-	}
+	
 	/**
 	 * 
 	 * @param args

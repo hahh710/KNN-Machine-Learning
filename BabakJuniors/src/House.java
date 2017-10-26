@@ -90,4 +90,7 @@ public class House {
 	public float getSqrFt(){
 		return sqrFt;
 	}
+	public String getAgeString(){
+		return age;
+	}
 }
