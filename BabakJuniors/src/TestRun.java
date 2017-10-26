@@ -19,7 +19,7 @@ public class TestRun {
 		
 	}
 	/**
-	 * 
+	 * printTestInfo will print the training examples for this test
 	 * @param houses list of training examples to be used
 	 * @param n the test number
 	 */
@@ -35,7 +35,7 @@ public class TestRun {
 		}	
 	}
 	/**
-	 * 
+	 * runTest method will find the price of the new house given the k neighbors
 	 * @param r the instance of the running KNN
 	 * @param k the number of K neighbors
 	 */
@@ -50,7 +50,10 @@ public class TestRun {
 		+r.getNewHouse().getAge()+", Sqrft = "+r.getNewHouse().getSqrFt());
 		System.out.println("The price of the testing example is "+r.getNewHouse().getPrice());
 	}
-	
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String [ ] args) {
 		KNN running = new KNN();
 		//populate the list of training examples
@@ -58,20 +61,16 @@ public class TestRun {
 		running.addHouse(new Coordinates(10,50), new Age("Old"),new SqrFt(1000), 300000);
 		running.addHouse(new Coordinates(30,100), new Age("New"), new SqrFt(800),400000);
 		running.setNewHouse(new Coordinates(15, 20),  new Age("New"),new SqrFt(1000));	
-		//run test 1
+		//run test 1 using known houses and k=1
 		printTestInfo(running.getHouses(), 1);
 		runTest(running,1);
 
-
-		//run test 2
+		//run test 2 using known houses and k=2
 
 		printTestInfo(running.getHouses(), 2);
 		runTest(running, 2);
-
 		
-		//run test 3
-		
-
+		//run test 3 using known houses and k=3
 		printTestInfo(running.getHouses() ,3);
 		runTest(running,3);
 	
