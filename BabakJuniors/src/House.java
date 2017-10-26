@@ -1,7 +1,7 @@
 /**
 *House
 *
-*@Authors: Hunho Ha
+*@Authors: Hunho Ha, Ahmed Khattab, Arsalan Sadiq, Jeff Tudor
 *@Purpose: collecting all the Attributes(Coordinates, Age, SqrFt, and price) into arraylist and returning as House class.
 *
 *@field variables

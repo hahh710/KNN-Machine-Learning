@@ -4,7 +4,7 @@ public class TestRun {
 	/**
 	 *TestRun
 	 *
-	 *@Authors: Arsalan Sadiq 
+	 *@Authors: Hunho Ha, Ahmed Khattab, Arsalan Sadiq, Jeff Tudor
 	 *@Purpose: A class which allows to run the test cases
 	 *
 	 *@field variables
