@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 /**
 *House
 *
@@ -20,10 +18,13 @@ import java.util.List;
 *	getSqrFt
 */
 public class House {
-	private List<Object> houseAttributes = new ArrayList<Object>();
 	private float price ;
+	private String age;
+	private int corX;
+	private int corY;
+	private int sqrFt;
 	
-	public House(Coordinates c, Age a, SqrFt s, int p) {
+	public House(int x, int y,  String a, int s, int p) {
 		/*
 		 * Constructor with price.
 		 * index 0 of Arraylist has coordinates
@@ -31,20 +32,22 @@ public class House {
 		 * index 2, sqrFt 
 		 * index 3, price
 		 */
-		houseAttributes.add(0,c);
-		houseAttributes.add(1,a);
-		houseAttributes.add(2,s);
+		age=a;
+		corX=x;
+		corY=y;
+		sqrFt=s;
 		price = p;
 	}
 	
-	public House(Coordinates c, Age a, SqrFt s) {//constructor for new house aka unknown price
+	public House(int x, int y, String a, int s) {//constructor for new house aka unknown price
 		/*
 		 * Constructor without price
 		 * and price will be 0
 		 */
-		houseAttributes.add(0,c);
-		houseAttributes.add(1,a);
-		houseAttributes.add(2,s);
+		age=a;
+		corX=x;
+		corY=y;
+		sqrFt=s;
 		price=0;
 	}
 	
@@ -66,26 +69,25 @@ public class House {
 	public void setPrice(float f) {
 		price=f;
 	}
-	/*
-	 * getter for House. 
-	 */
-	public List<Object> getHouse(){
-		return houseAttributes; 
-	}
+
 	/*
 	 * getter for Attributes(Coordinates, Age, SqrFt) 
 	 */
 	public int getCorX(){
-		return ((Coordinates) houseAttributes.get(0)).getX();
+		return corX;
 	}
 	
 	public int getCorY(){
-		return ((Coordinates) houseAttributes.get(0)).getY();
+		return corY;
 	}
-	public float getAge(){
-		return (((Age) houseAttributes.get(1)).getNormalizedValue());
+	public int getAge(){
+		if(age=="New")
+			return 1;
+		if(age=="Old")
+			return 0;
+		return 0;
 	}
 	public float getSqrFt(){
-		return (((SqrFt) houseAttributes.get(2)).getNormalizedValue());
+		return sqrFt;
 	}
 }

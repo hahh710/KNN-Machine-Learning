@@ -50,6 +50,9 @@ public class TestRun {
 		+r.getNewHouse().getAge()+", Sqrft = "+r.getNewHouse().getSqrFt());
 		System.out.println("The price of the testing example is "+r.getNewHouse().getPrice());
 	}
+	public static void calculateError() {
+		
+	}
 	/**
 	 * 
 	 * @param args
@@ -57,10 +60,11 @@ public class TestRun {
 	public static void main(String [ ] args) {
 		KNN running = new KNN();
 		//populate the list of training examples
-		running.addHouse(new Coordinates(12,25),new Age("New"),new SqrFt(1200), 500000);
-		running.addHouse(new Coordinates(10,50), new Age("Old"),new SqrFt(1000), 300000);
-		running.addHouse(new Coordinates(30,100), new Age("New"), new SqrFt(800),400000);
-		running.setNewHouse(new Coordinates(15, 20),  new Age("New"),new SqrFt(1000));	
+		running.addHouse(12,25,"New",1200, 500000);
+		running.addHouse(10,50, "Old",1000, 300000);
+		running.addHouse(30,100, "New", 800,400000);
+		running.setNewHouse(15, 20, "New",1000);	
+		
 		//run test 1 using known houses and k=1
 		printTestInfo(running.getHouses(), 1);
 		runTest(running,1);

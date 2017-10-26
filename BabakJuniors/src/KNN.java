@@ -126,11 +126,11 @@ public class KNN {
 	public float findSqrFtDistance(House h1, House h2) {
 		return Math.abs(h1.getSqrFt()-h2.getSqrFt());
 	}
-	public void addHouse(Coordinates c, Age a , SqrFt sf, int p) {
-		houses.add(new House(c, a, sf, p));
+	public void addHouse(int x, int y, String a , int sf, int p) {
+		houses.add(new House(x, y, a, sf, p));
 	}
-	public void setNewHouse(Coordinates c, Age a , SqrFt sf) {
-		newHouse= new House(c, a,sf);
+	public void setNewHouse(int x, int y, String a , int sf) {
+		newHouse= new House(x, y, a,sf);
 	}
 	public void resetNN() {
 		nearestNeighbors.clear();
