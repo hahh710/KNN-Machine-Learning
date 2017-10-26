@@ -4,7 +4,7 @@ import java.util.List;
 /**
 *KNN
 *
-*@Authors: Babak Juniors 
+*@Authors: Jeff Tudor 
 *@Purpose: Determine the price of a house given its house attributes compared to similar houses
 *
 *@field variables

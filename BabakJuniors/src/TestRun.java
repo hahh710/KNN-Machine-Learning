@@ -1,5 +1,18 @@
 public class TestRun {
- 
+	/**
+	 *TestRun
+	 *
+	 *@Authors: Arsalan Sadiq 
+	 *@Purpose: A class which allows to run the test cases
+	 *
+	 *@field variables
+	 *
+	 *	
+	 *@methods
+	 *	main:
+	 *	all the test cases are being run in
+	 *
+	 */
 	public TestRun(){
 		
 	}

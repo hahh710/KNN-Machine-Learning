@@ -2,7 +2,7 @@
 /**
  *SqrFt
  *
- *@Authors: Babak Juniors 
+ *@Authors: Arsalan Sadiq 
  *@Purpose: An attribute of a house which takes in an integer and using that it gets a normalized value which is under a certain limit
  *
  *@field variables
