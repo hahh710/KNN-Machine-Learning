@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.diagrams="http://ns.yatta-solutions.com/umllab/diagrams/1.1.0" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_LeZ8ALpxEeeQjPd4LJtRTw">
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.diagrams="http://ns.yatta-solutions.com/umllab/diagrams/1.1.0" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_LeZ8ALpxEeeQjPd4LJtRTw">
+  <eAnnotations xmi:id="_RZPGQLpyEeeQjPd4LJtRTw" source="http://ns.yatta.de/umllab">
+    <contents xsi:type="ecore:EAnnotation" xmi:id="_RZPGQbpyEeeQjPd4LJtRTw" source="visual-filters/hideNonPublicElements">
+      <details xmi:id="_RZPtULpyEeeQjPd4LJtRTw" key="isActive" value="false"/>
+    </contents>
+    <contents xsi:type="ecore:EAnnotation" xmi:id="_UWycgLpyEeeQjPd4LJtRTw" source="visual-filters/hideStaticFeatures">
+      <details xmi:id="_UWycgbpyEeeQjPd4LJtRTw" key="isActive" value="false"/>
+    </contents>
+  </eAnnotations>
   <modelElement href="BabakJuniors2.uml#_LcWtkLpxEeeQjPd4LJtRTw"/>
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_NVW2kLpxEeeQjPd4LJtRTw" targetItem="_NVhOoLpxEeeQjPd4LJtRTw" sourceItem="_NVQv8LpxEeeQjPd4LJtRTw"/>
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_NVdkQbpxEeeQjPd4LJtRTw" targetItem="_NVh1v7pxEeeQjPd4LJtRTw" sourceItem="_NVdkQLpxEeeQjPd4LJtRTw"/>
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_NXmSQLpxEeeQjPd4LJtRTw" targetItem="_NX4mILpxEeeQjPd4LJtRTw" sourceItem="_NXLbgLpxEeeQjPd4LJtRTw"/>
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_NY3dkLpxEeeQjPd4LJtRTw" targetItem="_NZK_kLpxEeeQjPd4LJtRTw" sourceItem="_NYYVYLpxEeeQjPd4LJtRTw"/>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_NZGHELpxEeeQjPd4LJtRTw" sourceAnchor="111.0,0.0" targetAnchor="88.0,67.0" dashed="true" superClass="_NZK_kLpxEeeQjPd4LJtRTw" subClass="_NVhOoLpxEeeQjPd4LJtRTw">
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_NZGHELpxEeeQjPd4LJtRTw" sourceAnchor="113.0,0.0" targetAnchor="86.0,67.0" dashed="true" superClass="_NZK_kLpxEeeQjPd4LJtRTw" subClass="_NVhOoLpxEeeQjPd4LJtRTw">
     <modelElement href="BabakJuniors2.uml#_L2aMULpxEeeQjPd4LJtRTw"/>
+    <bendpoints xmi:id="_NSw4wrp1EeeQjPd4LJtRTw" sourceY="-30" targetX="-60" targetY="82"/>
+    <bendpoints xmi:id="_NSw4w7p1EeeQjPd4LJtRTw" sourceX="60" sourceY="-30" targetY="82"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_Nbq58LpxEeeQjPd4LJtRTw" targetItem="_NcQv0LpxEeeQjPd4LJtRTw" sourceItem="_NaRLwLpxEeeQjPd4LJtRTw"/>
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_NcEikLpxEeeQjPd4LJtRTw" targetItem="_NcQv4rpxEeeQjPd4LJtRTw" sourceItem="_NcBfQLpxEeeQjPd4LJtRTw"/>
@@ -24,6 +34,9 @@
     </sourceRole>
     <targetRole xmi:id="_NcQIxrpxEeeQjPd4LJtRTw" aggregationKind="NONE" name="houseAttributes" navigable="true">
       <modelElement href="BabakJuniors2.uml#_L2-NALpxEeeQjPd4LJtRTw"/>
+      <stereotypes xmi:id="_0fR4YLpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
+        <modelElement href="BabakJuniors2.uml#_L2-0EbpxEeeQjPd4LJtRTw"/>
+      </stereotypes>
       <visibility xmi:id="_NcQIx7pxEeeQjPd4LJtRTw" label="-"/>
       <cardinality xmi:id="_NcQIyLpxEeeQjPd4LJtRTw" label="1..*" max="-1" min="1"/>
     </targetRole>
@@ -45,11 +58,14 @@
     <targetRole xmi:id="_NiHgMbpxEeeQjPd4LJtRTw" aggregationKind="NONE" name="houses" navigable="true">
       <modelElement href="BabakJuniors2.uml#_L3ACMLpxEeeQjPd4LJtRTw"/>
       <visualProperties xmi:id="_OAL8QLpxEeeQjPd4LJtRTw" position="-93.0,81.0"/>
+      <stereotypes xmi:id="_0fU7sLpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
+        <modelElement href="BabakJuniors2.uml#_L3ACMbpxEeeQjPd4LJtRTw"/>
+      </stereotypes>
       <visibility xmi:id="_NikzM7pxEeeQjPd4LJtRTw" label="+"/>
       <cardinality xmi:id="_NikzMrpxEeeQjPd4LJtRTw" label="1..*" max="-1" min="1"/>
     </targetRole>
   </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_Nf7H0LpxEeeQjPd4LJtRTw" sourceAnchor="239.0,0.0" targetAnchor="219.0,231.0" target="_NcQv0LpxEeeQjPd4LJtRTw" source="_Nin2gLpxEeeQjPd4LJtRTw">
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_Nf7H0LpxEeeQjPd4LJtRTw" sourceAnchor="238.0,0.0" targetAnchor="218.0,231.0" target="_NcQv0LpxEeeQjPd4LJtRTw" source="_Nin2gLpxEeeQjPd4LJtRTw">
     <modelElement href="BabakJuniors2.uml#_L3fKYbpxEeeQjPd4LJtRTw"/>
     <stereotypes xmi:id="_NiIHQLpxEeeQjPd4LJtRTw" name="Reference">
       <modelElement href="BabakJuniors2.uml#_L3gYgLpxEeeQjPd4LJtRTw"/>
@@ -70,7 +86,7 @@
       <cardinality xmi:id="_NilaQrpxEeeQjPd4LJtRTw" label="1..*" max="-1" min="1"/>
     </targetRole>
   </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_NgqusLpxEeeQjPd4LJtRTw" sourceAnchor="179.0,0.0" targetAnchor="159.0,231.0" target="_NcQv0LpxEeeQjPd4LJtRTw" source="_Nin2gLpxEeeQjPd4LJtRTw">
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_NgqusLpxEeeQjPd4LJtRTw" sourceAnchor="178.0,0.0" targetAnchor="158.0,231.0" target="_NcQv0LpxEeeQjPd4LJtRTw" source="_Nin2gLpxEeeQjPd4LJtRTw">
     <modelElement href="BabakJuniors2.uml#_L3gYgbpxEeeQjPd4LJtRTw"/>
     <stereotypes xmi:id="_NiIHRLpxEeeQjPd4LJtRTw" name="Reference">
       <modelElement href="BabakJuniors2.uml#_L3hmoLpxEeeQjPd4LJtRTw"/>
@@ -100,6 +116,97 @@
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_NmaxYLpxEeeQjPd4LJtRTw" targetItem="_NmiGKLpxEeeQjPd4LJtRTw" sourceItem="_NmUDsLpxEeeQjPd4LJtRTw"/>
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_Nmb_gLpxEeeQjPd4LJtRTw" targetItem="_NmiGMbpxEeeQjPd4LJtRTw" sourceItem="_NmbYcLpxEeeQjPd4LJtRTw"/>
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_NmhfELpxEeeQjPd4LJtRTw" targetItem="_NmiGNrpxEeeQjPd4LJtRTw" sourceItem="_Nmg4ALpxEeeQjPd4LJtRTw"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_BszCkLpyEeeQjPd4LJtRTw" dashed="true" superClass="_NZK_kLpxEeeQjPd4LJtRTw">
+    <modelElement href="BabakJuniors2.uml#_BsrGwLpyEeeQjPd4LJtRTw"/>
+    <visualProperties xmi:id="_BtyhELpyEeeQjPd4LJtRTw" position="579.0,314.0"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_7RTT4LpzEeeQjPd4LJtRTw" sourceAnchor="120.0,0.0" targetAnchor="86.0,67.0" dashed="true" superClass="_NZK_kLpxEeeQjPd4LJtRTw" subClass="_NmiGILpxEeeQjPd4LJtRTw">
+    <modelElement href="BabakJuniors2.uml#_7RQ3oLpzEeeQjPd4LJtRTw"/>
+    <visualProperties xmi:id="_7RTT4bpzEeeQjPd4LJtRTw"/>
+    <bendpoints xmi:id="_NSxf0bp1EeeQjPd4LJtRTw" sourceY="-378" targetX="-844" targetY="-82"/>
+    <bendpoints xmi:id="_NSxf0rp1EeeQjPd4LJtRTw" sourceX="589" sourceY="-378" targetX="-255" targetY="-82"/>
+    <bendpoints xmi:id="_NSxf07p1EeeQjPd4LJtRTw" sourceX="589" sourceY="-214" targetX="-255" targetY="82"/>
+    <bendpoints xmi:id="_NSxf1Lp1EeeQjPd4LJtRTw" sourceX="844" sourceY="-214" targetY="82"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_x1bZ4Lp0EeeQjPd4LJtRTw" sourceAnchor="0.0,46.0" targetAnchor="380.0,142.0" target="_NcQv0LpxEeeQjPd4LJtRTw" source="_NX4mILpxEeeQjPd4LJtRTw">
+    <modelElement href="BabakJuniors2.uml#_x1WhYLp0EeeQjPd4LJtRTw"/>
+    <visualProperties xmi:id="_x1bZ4bp0EeeQjPd4LJtRTw"/>
+    <bendpoints xmi:id="_NSw4wLp1EeeQjPd4LJtRTw" sourceX="-35" targetX="107" targetY="400"/>
+    <bendpoints xmi:id="_NSw4wbp1EeeQjPd4LJtRTw" sourceX="-37" sourceY="-399" targetX="105" targetY="1"/>
+    <nameVisual xmi:id="_x1bZ4rp0EeeQjPd4LJtRTw" text="">
+      <visualProperties xmi:id="_yBop4Lp0EeeQjPd4LJtRTw" position="1.9999999999998863,-25.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_x1bZ47p0EeeQjPd4LJtRTw" aggregationKind="NONE" name="coordinates">
+      <modelElement href="BabakJuniors2.uml#_x1XIcLp0EeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_yBoC0Lp0EeeQjPd4LJtRTw" position="-33.0,-114.0"/>
+      <visibility xmi:id="_x1bZ5Lp0EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_x1bZ5bp0EeeQjPd4LJtRTw" label="*" max="-1"/>
+    </sourceRole>
+    <targetRole xmi:id="_x1bZ5rp0EeeQjPd4LJtRTw" aggregationKind="NONE" name="house" navigable="true">
+      <modelElement href="BabakJuniors2.uml#_x1YWkLp0EeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_yBop4bp0EeeQjPd4LJtRTw" position="21.000000000000114,0.9999999999999432"/>
+      <visibility xmi:id="_x1bZ57p0EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_x1bZ6Lp0EeeQjPd4LJtRTw" label="*" max="-1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_19n-ULp0EeeQjPd4LJtRTw" sourceAnchor="0.0,68.0" targetAnchor="380.0,198.0" target="_NcQv0LpxEeeQjPd4LJtRTw" source="_NVhOoLpxEeeQjPd4LJtRTw">
+    <modelElement href="BabakJuniors2.uml#_19kT8Lp0EeeQjPd4LJtRTw"/>
+    <visualProperties xmi:id="_19n-Ubp0EeeQjPd4LJtRTw"/>
+    <nameVisual xmi:id="_19n-Urp0EeeQjPd4LJtRTw" text="">
+      <visualProperties xmi:id="_2KA0gLp0EeeQjPd4LJtRTw" position="14.0,2.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_19n-U7p0EeeQjPd4LJtRTw" aggregationKind="NONE" name="age">
+      <modelElement href="BabakJuniors2.uml#_19kT8bp0EeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_2KANcLp0EeeQjPd4LJtRTw" position="-59.0,-43.0"/>
+      <visibility xmi:id="_19n-VLp0EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_19n-Vbp0EeeQjPd4LJtRTw" label="*" max="-1"/>
+    </sourceRole>
+    <targetRole xmi:id="_19n-Vrp0EeeQjPd4LJtRTw" aggregationKind="NONE" name="house" navigable="true">
+      <modelElement href="BabakJuniors2.uml#_19k7Abp0EeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_2KA0gbp0EeeQjPd4LJtRTw" position="28.0,2.0"/>
+      <visibility xmi:id="_19n-V7p0EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_19n-WLp0EeeQjPd4LJtRTw" label="*" max="-1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_FzqC4Lp1EeeQjPd4LJtRTw" sourceAnchor="149.0,0.0" targetAnchor="0.0,114.0" target="_NcQv0LpxEeeQjPd4LJtRTw" source="_NmiGILpxEeeQjPd4LJtRTw">
+    <modelElement href="BabakJuniors2.uml#_FzlKYLp1EeeQjPd4LJtRTw"/>
+    <visualProperties xmi:id="_FzqC4bp1EeeQjPd4LJtRTw"/>
+    <bendpoints xmi:id="_NSxf0Lp1EeeQjPd4LJtRTw" sourceY="-200" targetX="-132"/>
+    <nameVisual xmi:id="_FzqC4rp1EeeQjPd4LJtRTw" text="">
+      <visualProperties xmi:id="_F_6WMLp1EeeQjPd4LJtRTw" position="65.0,-17.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_FzqC47p1EeeQjPd4LJtRTw" aggregationKind="NONE" name="sqrFt">
+      <modelElement href="BabakJuniors2.uml#_FzlxcLp1EeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_F_5vILp1EeeQjPd4LJtRTw" position="2.0,-74.0"/>
+      <visibility xmi:id="_FzqC5Lp1EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_FzqC5bp1EeeQjPd4LJtRTw" label="*" max="-1"/>
+    </sourceRole>
+    <targetRole xmi:id="_FzqC5rp1EeeQjPd4LJtRTw" aggregationKind="NONE" name="house" navigable="true">
+      <modelElement href="BabakJuniors2.uml#_FzmYgrp1EeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_F_6WMbp1EeeQjPd4LJtRTw" position="-91.0,1.0"/>
+      <visibility xmi:id="_FzqC57p1EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_FzqC6Lp1EeeQjPd4LJtRTw" label="*" max="-1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_NCqAMLp1EeeQjPd4LJtRTw" sourceAnchor="0.0,55.0" targetAnchor="404.0,15.0" target="_Nin2gLpxEeeQjPd4LJtRTw" source="_NnYasLpxEeeQjPd4LJtRTw">
+    <modelElement href="BabakJuniors2.uml#_NCoLALp1EeeQjPd4LJtRTw"/>
+    <visualProperties xmi:id="_NCqAMbp1EeeQjPd4LJtRTw"/>
+    <nameVisual xmi:id="_NCqAMrp1EeeQjPd4LJtRTw" text="">
+      <visualProperties xmi:id="_NSyt8bp1EeeQjPd4LJtRTw" position="-0.636363636363626,2.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_NCqAM7p1EeeQjPd4LJtRTw" aggregationKind="NONE" name="testRun">
+      <modelElement href="BabakJuniors2.uml#_NCoLAbp1EeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_NSyt8Lp1EeeQjPd4LJtRTw" position="-77.0,-43.0"/>
+      <visibility xmi:id="_NCqANLp1EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_NCqANbp1EeeQjPd4LJtRTw" label="*" max="-1"/>
+    </sourceRole>
+    <targetRole xmi:id="_NCqANrp1EeeQjPd4LJtRTw" aggregationKind="NONE" name="kNN" navigable="true">
+      <modelElement href="BabakJuniors2.uml#_NCoLBLp1EeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_NSyt8rp1EeeQjPd4LJtRTw" position="21.25,2.0"/>
+      <visibility xmi:id="_NCqAN7p1EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_NCqAOLp1EeeQjPd4LJtRTw" label="*" max="-1"/>
+    </targetRole>
+  </edges>
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_NVQv8LpxEeeQjPd4LJtRTw" sourceConnectionVisual="_NVW2kLpxEeeQjPd4LJtRTw" text="*Age&#xA;*&#xA;*@Authors: Ahmed Khattab&#xA;*@Purpose: Determine the age of a house given whether its old or new&#xA;*&#xA;*@field variables&#xA;*&#x9;ageValue: A String to hold the Age entered&#xA;*&#x9;Old: A String which holds the Age Old&#xA;*&#x9;New: A String which holds the Age New&#xA;*&#x9;&#xA;*@methods&#xA;*&#x9;getNormalizedValue&#xA;*" item="_NVhOoLpxEeeQjPd4LJtRTw">
     <modelElement href="BabakJuniors2.uml#_L3ZDwLpxEeeQjPd4LJtRTw"/>
   </nodes>
@@ -148,28 +255,16 @@
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_Nmg4ALpxEeeQjPd4LJtRTw" sourceConnectionVisual="_NmhfELpxEeeQjPd4LJtRTw" text="A method that normazlizes the value of the squarefeets&#xA;&#x9; * @return float value" item="_NmiGNrpxEeeQjPd4LJtRTw">
     <modelElement href="BabakJuniors2.uml#_L3aR47pxEeeQjPd4LJtRTw"/>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_NZK_kLpxEeeQjPd4LJtRTw" comments="_NYYVYLpxEeeQjPd4LJtRTw" targetConnectionVisual="_NY3dkLpxEeeQjPd4LJtRTw" name="HouseAttributes" subclassedBy="_NZGHELpxEeeQjPd4LJtRTw">
-    <modelElement href="BabakJuniors2.uml#_L0e5sLpxEeeQjPd4LJtRTw"/>
-    <visualProperties xmi:id="_NZK_kbpxEeeQjPd4LJtRTw" position="826.0,67.0" size="-1.0,-1.0"/>
-    <visibility xmi:id="_NZK_krpxEeeQjPd4LJtRTw" label="+"/>
-    <attributes xmi:id="_NZK_k7pxEeeQjPd4LJtRTw" name="normalizedValue">
-      <modelElement href="BabakJuniors2.uml#_L0fgwLpxEeeQjPd4LJtRTw"/>
-      <visibility xmi:id="_NZK_lLpxEeeQjPd4LJtRTw" label="+"/>
-      <cardinality xmi:id="_NZK_lbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-      <type xmi:id="_NZK_lrpxEeeQjPd4LJtRTw" name="float">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
-      </type>
-    </attributes>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NcQv0LpxEeeQjPd4LJtRTw" comments="_NaRLwLpxEeeQjPd4LJtRTw" targetConnectionVisual="_Nbq58LpxEeeQjPd4LJtRTw" name="House" associationsIn="_NdOZILpxEeeQjPd4LJtRTw _Nf7H0LpxEeeQjPd4LJtRTw _NgqusLpxEeeQjPd4LJtRTw" associationsOut="_NcQIwLpxEeeQjPd4LJtRTw">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NcQv0LpxEeeQjPd4LJtRTw" comments="_NaRLwLpxEeeQjPd4LJtRTw" targetConnectionVisual="_Nbq58LpxEeeQjPd4LJtRTw" name="House" associationsIn="_NdOZILpxEeeQjPd4LJtRTw _Nf7H0LpxEeeQjPd4LJtRTw _NgqusLpxEeeQjPd4LJtRTw _x1bZ4Lp0EeeQjPd4LJtRTw _19n-ULp0EeeQjPd4LJtRTw _FzqC4Lp1EeeQjPd4LJtRTw" associationsOut="_NcQIwLpxEeeQjPd4LJtRTw">
     <modelElement href="BabakJuniors2.uml#_L0gH0LpxEeeQjPd4LJtRTw"/>
     <visualProperties xmi:id="_NcQv0bpxEeeQjPd4LJtRTw" position="294.0,90.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_NcQv0rpxEeeQjPd4LJtRTw" label="+"/>
     <attributes xmi:id="_NcQv07pxEeeQjPd4LJtRTw" defaultValue="new ArrayList&lt;Object>()" name="houseAttributes">
       <modelElement href="BabakJuniors2.uml#_L2-NALpxEeeQjPd4LJtRTw"/>
-      <stereotypes xmi:id="_NcQv1LpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
-        <modelElement href="BabakJuniors2.uml#_L2-0EbpxEeeQjPd4LJtRTw"/>
-      </stereotypes>
+      <visualProperties xmi:id="_RZQ7cLpyEeeQjPd4LJtRTw"/>
+      <stereotypes xmi:id="_0fhI8LpxEeeQjPd4LJtRTw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_0fhwALpxEeeQjPd4LJtRTw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_0fmBcLpxEeeQjPd4LJtRTw" name="LegacyStyledElement"/>
       <visibility xmi:id="_NcQv1bpxEeeQjPd4LJtRTw" label="-"/>
       <cardinality xmi:id="_NcQv1rpxEeeQjPd4LJtRTw" label="1..*" max="-1" min="1"/>
       <type xmi:id="_NcQv17pxEeeQjPd4LJtRTw" name="Object">
@@ -325,15 +420,15 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_Nin2gLpxEeeQjPd4LJtRTw" comments="_NhWEILpxEeeQjPd4LJtRTw" targetConnectionVisual="_Nh_kYLpxEeeQjPd4LJtRTw" name="KNN" associationsOut="_NdOZILpxEeeQjPd4LJtRTw _Nf7H0LpxEeeQjPd4LJtRTw _NgqusLpxEeeQjPd4LJtRTw">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_Nin2gLpxEeeQjPd4LJtRTw" comments="_NhWEILpxEeeQjPd4LJtRTw" targetConnectionVisual="_Nh_kYLpxEeeQjPd4LJtRTw" name="KNN" associationsIn="_NCqAMLp1EeeQjPd4LJtRTw" associationsOut="_NdOZILpxEeeQjPd4LJtRTw _Nf7H0LpxEeeQjPd4LJtRTw _NgqusLpxEeeQjPd4LJtRTw">
     <modelElement href="BabakJuniors2.uml#_L0uxULpxEeeQjPd4LJtRTw"/>
     <visualProperties xmi:id="_Nin2gbpxEeeQjPd4LJtRTw" position="274.0,444.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_Nin2grpxEeeQjPd4LJtRTw" label="+"/>
     <attributes xmi:id="_Nin2g7pxEeeQjPd4LJtRTw" name="houses">
       <modelElement href="BabakJuniors2.uml#_L3ACMLpxEeeQjPd4LJtRTw"/>
-      <stereotypes xmi:id="_Nin2hLpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
-        <modelElement href="BabakJuniors2.uml#_L3ACMbpxEeeQjPd4LJtRTw"/>
-      </stereotypes>
+      <stereotypes xmi:id="_0fiXELpxEeeQjPd4LJtRTw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_0fi-ILpxEeeQjPd4LJtRTw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_0fn2oLpxEeeQjPd4LJtRTw" name="LegacyStyledElement"/>
       <visibility xmi:id="_Nin2hbpxEeeQjPd4LJtRTw" label="+"/>
       <cardinality xmi:id="_Nin2hrpxEeeQjPd4LJtRTw" label="1..*" max="-1" min="1"/>
       <type xmi:id="_Nin2h7pxEeeQjPd4LJtRTw" name="House">
@@ -575,12 +670,160 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NmiGILpxEeeQjPd4LJtRTw" comments="_NkjwMLpxEeeQjPd4LJtRTw" targetConnectionVisual="_NlwDALpxEeeQjPd4LJtRTw" name="SqrFt">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_NZK_kLpxEeeQjPd4LJtRTw" comments="_NYYVYLpxEeeQjPd4LJtRTw" targetConnectionVisual="_NY3dkLpxEeeQjPd4LJtRTw" name="HouseAttributes" subclassedBy="_NZGHELpxEeeQjPd4LJtRTw _BszCkLpyEeeQjPd4LJtRTw _7RTT4LpzEeeQjPd4LJtRTw">
+    <modelElement href="BabakJuniors2.uml#_L0e5sLpxEeeQjPd4LJtRTw"/>
+    <visualProperties xmi:id="_NZK_kbpxEeeQjPd4LJtRTw" position="890.0,41.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_NZK_krpxEeeQjPd4LJtRTw" label="+"/>
+    <attributes xmi:id="_NZK_k7pxEeeQjPd4LJtRTw" name="normalizedValue">
+      <modelElement href="BabakJuniors2.uml#_L0fgwLpxEeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_NZK_lLpxEeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_NZK_lbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <type xmi:id="_NZK_lrpxEeeQjPd4LJtRTw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NX4mILpxEeeQjPd4LJtRTw" comments="_NXLbgLpxEeeQjPd4LJtRTw" targetConnectionVisual="_NXmSQLpxEeeQjPd4LJtRTw" name="Coordinates" associationsOut="_x1bZ4Lp0EeeQjPd4LJtRTw">
+    <modelElement href="BabakJuniors2.uml#_L0aoQLpxEeeQjPd4LJtRTw"/>
+    <visualProperties xmi:id="_NX4mIbpxEeeQjPd4LJtRTw" position="817.0,586.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_NX4mIrpxEeeQjPd4LJtRTw" label="+"/>
+    <attributes xmi:id="_NX4mI7pxEeeQjPd4LJtRTw" name="x">
+      <modelElement href="BabakJuniors2.uml#_L29l8LpxEeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_NX4mJLpxEeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_NX4mJbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <type xmi:id="_NX4mJrpxEeeQjPd4LJtRTw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_NX4mJ7pxEeeQjPd4LJtRTw" name="y">
+      <modelElement href="BabakJuniors2.uml#_L29l8bpxEeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_NX4mKLpxEeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_NX4mKbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <type xmi:id="_NX4mKrpxEeeQjPd4LJtRTw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_x1cA8Lp0EeeQjPd4LJtRTw" name="house">
+      <modelElement href="BabakJuniors2.uml#_x1YWkLp0EeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_x1cA8bp0EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_x1cA8rp0EeeQjPd4LJtRTw" label="*" max="-1"/>
+      <type xmi:id="_x1cA87p0EeeQjPd4LJtRTw" name="House">
+        <modelElement href="BabakJuniors2.uml#_L0gH0LpxEeeQjPd4LJtRTw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_NX4mK7pxEeeQjPd4LJtRTw" name="Coordinates">
+      <modelElement href="BabakJuniors2.uml#_L0b2YLpxEeeQjPd4LJtRTw"/>
+      <keywords xmi:id="_NX4mLLpxEeeQjPd4LJtRTw" keyword="create"/>
+      <visibility xmi:id="_NX4mLbpxEeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_NX4mLrpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_NX4mL7pxEeeQjPd4LJtRTw">
+        <modelElement href="BabakJuniors2.uml#_L0cdcrpxEeeQjPd4LJtRTw"/>
+        <type xmi:id="_NX4mMLpxEeeQjPd4LJtRTw" name="Coordinates">
+          <modelElement href="BabakJuniors2.uml#_L0aoQLpxEeeQjPd4LJtRTw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_NX4mMbpxEeeQjPd4LJtRTw" name="x">
+        <modelElement href="BabakJuniors2.uml#_L0b2YbpxEeeQjPd4LJtRTw"/>
+        <cardinality xmi:id="_NX4mMrpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+        <type xmi:id="_NX4mM7pxEeeQjPd4LJtRTw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_NX4mNLpxEeeQjPd4LJtRTw" name="y">
+        <modelElement href="BabakJuniors2.uml#_L0b2YrpxEeeQjPd4LJtRTw"/>
+        <cardinality xmi:id="_NX4mNbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+        <type xmi:id="_NX4mNrpxEeeQjPd4LJtRTw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NVhOoLpxEeeQjPd4LJtRTw" comments="_NVQv8LpxEeeQjPd4LJtRTw" targetConnectionVisual="_NVW2kLpxEeeQjPd4LJtRTw" name="Age" associationsOut="_19n-ULp0EeeQjPd4LJtRTw" generalizations="_NZGHELpxEeeQjPd4LJtRTw">
+    <modelElement href="BabakJuniors2.uml#_L0Ml0LpxEeeQjPd4LJtRTw"/>
+    <visualProperties xmi:id="_NVhOobpxEeeQjPd4LJtRTw" position="803.0,220.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_NVhOorpxEeeQjPd4LJtRTw" label="+"/>
+    <attributes xmi:id="_NVhOo7pxEeeQjPd4LJtRTw" name="ageValue">
+      <modelElement href="BabakJuniors2.uml#_L26ioLpxEeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_RZRigbpyEeeQjPd4LJtRTw"/>
+      <stereotypes xmi:id="_NVhOpLpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
+        <modelElement href="BabakJuniors2.uml#_L27JsLpxEeeQjPd4LJtRTw"/>
+      </stereotypes>
+      <visibility xmi:id="_NVhOpbpxEeeQjPd4LJtRTw" label="-"/>
+      <cardinality xmi:id="_NVhOprpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <type xmi:id="_NVhOp7pxEeeQjPd4LJtRTw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_NVhOqLpxEeeQjPd4LJtRTw" defaultValue="&quot;Old&quot;" name="Old">
+      <modelElement href="BabakJuniors2.uml#_L27wwLpxEeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_RZRigrpyEeeQjPd4LJtRTw"/>
+      <stereotypes xmi:id="_NVhOqbpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
+        <modelElement href="BabakJuniors2.uml#_L28X0LpxEeeQjPd4LJtRTw"/>
+      </stereotypes>
+      <visibility xmi:id="_NVhOqrpxEeeQjPd4LJtRTw" label="-"/>
+      <cardinality xmi:id="_NVhOq7pxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <type xmi:id="_NVh1sLpxEeeQjPd4LJtRTw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_NVh1sbpxEeeQjPd4LJtRTw" defaultValue="&quot;New&quot;" name="New">
+      <modelElement href="BabakJuniors2.uml#_L28X0bpxEeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_RZSJkLpyEeeQjPd4LJtRTw"/>
+      <stereotypes xmi:id="_NVh1srpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
+        <modelElement href="BabakJuniors2.uml#_L28-4bpxEeeQjPd4LJtRTw"/>
+      </stereotypes>
+      <visibility xmi:id="_NVh1s7pxEeeQjPd4LJtRTw" label="-"/>
+      <cardinality xmi:id="_NVh1tLpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <type xmi:id="_NVh1tbpxEeeQjPd4LJtRTw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_19olYLp0EeeQjPd4LJtRTw" name="house">
+      <modelElement href="BabakJuniors2.uml#_19k7Abp0EeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_19olYbp0EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_19olYrp0EeeQjPd4LJtRTw" label="*" max="-1"/>
+      <type xmi:id="_19olY7p0EeeQjPd4LJtRTw" name="House">
+        <modelElement href="BabakJuniors2.uml#_L0gH0LpxEeeQjPd4LJtRTw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_NVh1trpxEeeQjPd4LJtRTw" name="Age">
+      <modelElement href="BabakJuniors2.uml#_L0VvwLpxEeeQjPd4LJtRTw"/>
+      <keywords xmi:id="_NVh1t7pxEeeQjPd4LJtRTw" keyword="create"/>
+      <visibility xmi:id="_NVh1uLpxEeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_NVh1ubpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_NVh1urpxEeeQjPd4LJtRTw">
+        <modelElement href="BabakJuniors2.uml#_L0Xk8rpxEeeQjPd4LJtRTw"/>
+        <type xmi:id="_NVh1u7pxEeeQjPd4LJtRTw" name="Age">
+          <modelElement href="BabakJuniors2.uml#_L0Ml0LpxEeeQjPd4LJtRTw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_NVh1vLpxEeeQjPd4LJtRTw" name="ageValue">
+        <modelElement href="BabakJuniors2.uml#_L0VvwbpxEeeQjPd4LJtRTw"/>
+        <cardinality xmi:id="_NVh1vbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+        <type xmi:id="_NVh1vrpxEeeQjPd4LJtRTw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_NVh1v7pxEeeQjPd4LJtRTw" comments="_NVdkQLpxEeeQjPd4LJtRTw" targetConnectionVisual="_NVdkQbpxEeeQjPd4LJtRTw" name="getNormalizedValue">
+      <modelElement href="BabakJuniors2.uml#_L0YMALpxEeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_NVh1wLpxEeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_NVh1wbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_NVh1wrpxEeeQjPd4LJtRTw">
+        <modelElement href="BabakJuniors2.uml#_L0YzELpxEeeQjPd4LJtRTw"/>
+        <type xmi:id="_NVh1w7pxEeeQjPd4LJtRTw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NmiGILpxEeeQjPd4LJtRTw" comments="_NkjwMLpxEeeQjPd4LJtRTw" targetConnectionVisual="_NlwDALpxEeeQjPd4LJtRTw" name="SqrFt" associationsOut="_FzqC4Lp1EeeQjPd4LJtRTw" generalizations="_7RTT4LpzEeeQjPd4LJtRTw">
     <modelElement href="BabakJuniors2.uml#_L0-B4LpxEeeQjPd4LJtRTw"/>
-    <visualProperties xmi:id="_NmiGIbpxEeeQjPd4LJtRTw" position="28.0,322.0" size="-1.0,-1.0"/>
+    <visualProperties xmi:id="_NmiGIbpxEeeQjPd4LJtRTw" position="12.0,404.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_NmiGIrpxEeeQjPd4LJtRTw" label="+"/>
     <attributes xmi:id="_NmiGI7pxEeeQjPd4LJtRTw" name="squareFeet">
       <modelElement href="BabakJuniors2.uml#_L3DskLpxEeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_RZRigLpyEeeQjPd4LJtRTw"/>
       <stereotypes xmi:id="_NmiGJLpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
         <modelElement href="BabakJuniors2.uml#_L3EToLpxEeeQjPd4LJtRTw"/>
       </stereotypes>
@@ -588,6 +831,14 @@
       <cardinality xmi:id="_NmiGJrpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
       <type xmi:id="_NmiGJ7pxEeeQjPd4LJtRTw" name="int">
         <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_Fzqp8Lp1EeeQjPd4LJtRTw" name="house">
+      <modelElement href="BabakJuniors2.uml#_FzmYgrp1EeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_Fzqp8bp1EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_Fzqp8rp1EeeQjPd4LJtRTw" label="*" max="-1"/>
+      <type xmi:id="_Fzqp87p1EeeQjPd4LJtRTw" name="House">
+        <modelElement href="BabakJuniors2.uml#_L0gH0LpxEeeQjPd4LJtRTw"/>
       </type>
     </attributes>
     <operations xmi:id="_NmiGKLpxEeeQjPd4LJtRTw" comments="_NmUDsLpxEeeQjPd4LJtRTw" targetConnectionVisual="_NmaxYLpxEeeQjPd4LJtRTw" name="SqrFt">
@@ -632,78 +883,18 @@
       </outParameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NVhOoLpxEeeQjPd4LJtRTw" comments="_NVQv8LpxEeeQjPd4LJtRTw" targetConnectionVisual="_NVW2kLpxEeeQjPd4LJtRTw" name="Age" generalizations="_NZGHELpxEeeQjPd4LJtRTw">
-    <modelElement href="BabakJuniors2.uml#_L0Ml0LpxEeeQjPd4LJtRTw"/>
-    <visualProperties xmi:id="_NVhOobpxEeeQjPd4LJtRTw" position="803.0,220.0" size="-1.0,-1.0"/>
-    <visibility xmi:id="_NVhOorpxEeeQjPd4LJtRTw" label="+"/>
-    <attributes xmi:id="_NVhOo7pxEeeQjPd4LJtRTw" name="ageValue">
-      <modelElement href="BabakJuniors2.uml#_L26ioLpxEeeQjPd4LJtRTw"/>
-      <stereotypes xmi:id="_NVhOpLpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
-        <modelElement href="BabakJuniors2.uml#_L27JsLpxEeeQjPd4LJtRTw"/>
-      </stereotypes>
-      <visibility xmi:id="_NVhOpbpxEeeQjPd4LJtRTw" label="-"/>
-      <cardinality xmi:id="_NVhOprpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-      <type xmi:id="_NVhOp7pxEeeQjPd4LJtRTw" name="String">
-        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_NVhOqLpxEeeQjPd4LJtRTw" defaultValue="&quot;Old&quot;" name="Old">
-      <modelElement href="BabakJuniors2.uml#_L27wwLpxEeeQjPd4LJtRTw"/>
-      <stereotypes xmi:id="_NVhOqbpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
-        <modelElement href="BabakJuniors2.uml#_L28X0LpxEeeQjPd4LJtRTw"/>
-      </stereotypes>
-      <visibility xmi:id="_NVhOqrpxEeeQjPd4LJtRTw" label="-"/>
-      <cardinality xmi:id="_NVhOq7pxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-      <type xmi:id="_NVh1sLpxEeeQjPd4LJtRTw" name="String">
-        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_NVh1sbpxEeeQjPd4LJtRTw" defaultValue="&quot;New&quot;" name="New">
-      <modelElement href="BabakJuniors2.uml#_L28X0bpxEeeQjPd4LJtRTw"/>
-      <stereotypes xmi:id="_NVh1srpxEeeQjPd4LJtRTw" name="LegacyStyledElement">
-        <modelElement href="BabakJuniors2.uml#_L28-4bpxEeeQjPd4LJtRTw"/>
-      </stereotypes>
-      <visibility xmi:id="_NVh1s7pxEeeQjPd4LJtRTw" label="-"/>
-      <cardinality xmi:id="_NVh1tLpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-      <type xmi:id="_NVh1tbpxEeeQjPd4LJtRTw" name="String">
-        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </type>
-    </attributes>
-    <operations xmi:id="_NVh1trpxEeeQjPd4LJtRTw" name="Age">
-      <modelElement href="BabakJuniors2.uml#_L0VvwLpxEeeQjPd4LJtRTw"/>
-      <keywords xmi:id="_NVh1t7pxEeeQjPd4LJtRTw" keyword="create"/>
-      <visibility xmi:id="_NVh1uLpxEeeQjPd4LJtRTw" label="+"/>
-      <cardinality xmi:id="_NVh1ubpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-      <outParameters xmi:id="_NVh1urpxEeeQjPd4LJtRTw">
-        <modelElement href="BabakJuniors2.uml#_L0Xk8rpxEeeQjPd4LJtRTw"/>
-        <type xmi:id="_NVh1u7pxEeeQjPd4LJtRTw" name="Age">
-          <modelElement href="BabakJuniors2.uml#_L0Ml0LpxEeeQjPd4LJtRTw"/>
-        </type>
-      </outParameters>
-      <parameters xmi:id="_NVh1vLpxEeeQjPd4LJtRTw" name="ageValue">
-        <modelElement href="BabakJuniors2.uml#_L0VvwbpxEeeQjPd4LJtRTw"/>
-        <cardinality xmi:id="_NVh1vbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-        <type xmi:id="_NVh1vrpxEeeQjPd4LJtRTw" name="String">
-          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </type>
-      </parameters>
-    </operations>
-    <operations xmi:id="_NVh1v7pxEeeQjPd4LJtRTw" comments="_NVdkQLpxEeeQjPd4LJtRTw" targetConnectionVisual="_NVdkQbpxEeeQjPd4LJtRTw" name="getNormalizedValue">
-      <modelElement href="BabakJuniors2.uml#_L0YMALpxEeeQjPd4LJtRTw"/>
-      <visibility xmi:id="_NVh1wLpxEeeQjPd4LJtRTw" label="+"/>
-      <cardinality xmi:id="_NVh1wbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-      <outParameters xmi:id="_NVh1wrpxEeeQjPd4LJtRTw">
-        <modelElement href="BabakJuniors2.uml#_L0YzELpxEeeQjPd4LJtRTw"/>
-        <type xmi:id="_NVh1w7pxEeeQjPd4LJtRTw" name="float">
-          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
-        </type>
-      </outParameters>
-    </operations>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NnYasLpxEeeQjPd4LJtRTw" name="TestRun">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NnYasLpxEeeQjPd4LJtRTw" name="TestRun" associationsOut="_NCqAMLp1EeeQjPd4LJtRTw">
     <modelElement href="BabakJuniors2.uml#_L1C6YLpxEeeQjPd4LJtRTw"/>
-    <visualProperties xmi:id="_NnYasbpxEeeQjPd4LJtRTw" position="776.0,436.0" size="-1.0,-1.0"/>
+    <visualProperties xmi:id="_NnYasbpxEeeQjPd4LJtRTw" position="798.0,404.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_NnYasrpxEeeQjPd4LJtRTw" label="+"/>
+    <attributes xmi:id="_NCqnQLp1EeeQjPd4LJtRTw" name="kNN">
+      <modelElement href="BabakJuniors2.uml#_NCoLBLp1EeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_NCqnQbp1EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_NCqnQrp1EeeQjPd4LJtRTw" label="*" max="-1"/>
+      <type xmi:id="_NCqnQ7p1EeeQjPd4LJtRTw" name="KNN">
+        <modelElement href="BabakJuniors2.uml#_L0uxULpxEeeQjPd4LJtRTw"/>
+      </type>
+    </attributes>
     <operations xmi:id="_NnYas7pxEeeQjPd4LJtRTw" name="TestRun">
       <modelElement href="BabakJuniors2.uml#_L1DhcLpxEeeQjPd4LJtRTw"/>
       <keywords xmi:id="_NnYatLpxEeeQjPd4LJtRTw" keyword="create"/>
@@ -721,6 +912,7 @@
     </operations>
     <operations xmi:id="_NnZBwbpxEeeQjPd4LJtRTw" name="main" staticOperation="true">
       <modelElement href="BabakJuniors2.uml#_L1FWoLpxEeeQjPd4LJtRTw"/>
+      <visualProperties xmi:id="_UWzDkLpyEeeQjPd4LJtRTw"/>
       <visibility xmi:id="_NnZBwrpxEeeQjPd4LJtRTw" label="+"/>
       <cardinality xmi:id="_NnZBw7pxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
       <parameters xmi:id="_NnZBxLpxEeeQjPd4LJtRTw" name="args">
@@ -731,49 +923,40 @@
         </type>
       </parameters>
     </operations>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_NX4mILpxEeeQjPd4LJtRTw" comments="_NXLbgLpxEeeQjPd4LJtRTw" targetConnectionVisual="_NXmSQLpxEeeQjPd4LJtRTw" name="Coordinates">
-    <modelElement href="BabakJuniors2.uml#_L0aoQLpxEeeQjPd4LJtRTw"/>
-    <visualProperties xmi:id="_NX4mIbpxEeeQjPd4LJtRTw" position="752.0,549.0" size="-1.0,-1.0"/>
-    <visibility xmi:id="_NX4mIrpxEeeQjPd4LJtRTw" label="+"/>
-    <attributes xmi:id="_NX4mI7pxEeeQjPd4LJtRTw" name="x">
-      <modelElement href="BabakJuniors2.uml#_L29l8LpxEeeQjPd4LJtRTw"/>
-      <visibility xmi:id="_NX4mJLpxEeeQjPd4LJtRTw" label="+"/>
-      <cardinality xmi:id="_NX4mJbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-      <type xmi:id="_NX4mJrpxEeeQjPd4LJtRTw" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_NX4mJ7pxEeeQjPd4LJtRTw" name="y">
-      <modelElement href="BabakJuniors2.uml#_L29l8bpxEeeQjPd4LJtRTw"/>
-      <visibility xmi:id="_NX4mKLpxEeeQjPd4LJtRTw" label="+"/>
-      <cardinality xmi:id="_NX4mKbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-      <type xmi:id="_NX4mKrpxEeeQjPd4LJtRTw" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-      </type>
-    </attributes>
-    <operations xmi:id="_NX4mK7pxEeeQjPd4LJtRTw" name="Coordinates">
-      <modelElement href="BabakJuniors2.uml#_L0b2YLpxEeeQjPd4LJtRTw"/>
-      <keywords xmi:id="_NX4mLLpxEeeQjPd4LJtRTw" keyword="create"/>
-      <visibility xmi:id="_NX4mLbpxEeeQjPd4LJtRTw" label="+"/>
-      <cardinality xmi:id="_NX4mLrpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-      <outParameters xmi:id="_NX4mL7pxEeeQjPd4LJtRTw">
-        <modelElement href="BabakJuniors2.uml#_L0cdcrpxEeeQjPd4LJtRTw"/>
-        <type xmi:id="_NX4mMLpxEeeQjPd4LJtRTw" name="Coordinates">
-          <modelElement href="BabakJuniors2.uml#_L0aoQLpxEeeQjPd4LJtRTw"/>
+    <operations xmi:id="_eMrRoLp0EeeQjPd4LJtRTw" name="printTestInfo" staticOperation="true">
+      <modelElement href="BabakJuniors2.uml#_eMlyELp0EeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_eMrRobp0EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_eMr4sLp0EeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_eMr4sbp0EeeQjPd4LJtRTw" name="houses">
+        <modelElement href="BabakJuniors2.uml#_eMlyEbp0EeeQjPd4LJtRTw"/>
+        <cardinality xmi:id="_eMr4srp0EeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+        <type xmi:id="_eMr4s7p0EeeQjPd4LJtRTw" name="ArrayList">
+          <modelElement href="BabakJuniors2.uml#_L2cokLpxEeeQjPd4LJtRTw"/>
         </type>
-      </outParameters>
-      <parameters xmi:id="_NX4mMbpxEeeQjPd4LJtRTw" name="x">
-        <modelElement href="BabakJuniors2.uml#_L0b2YbpxEeeQjPd4LJtRTw"/>
-        <cardinality xmi:id="_NX4mMrpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-        <type xmi:id="_NX4mM7pxEeeQjPd4LJtRTw" name="int">
+      </parameters>
+      <parameters xmi:id="_eMr4tLp0EeeQjPd4LJtRTw" name="n">
+        <modelElement href="BabakJuniors2.uml#_eMlyErp0EeeQjPd4LJtRTw"/>
+        <cardinality xmi:id="_eMr4tbp0EeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+        <type xmi:id="_eMr4trp0EeeQjPd4LJtRTw" name="int">
           <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </type>
       </parameters>
-      <parameters xmi:id="_NX4mNLpxEeeQjPd4LJtRTw" name="y">
-        <modelElement href="BabakJuniors2.uml#_L0b2YrpxEeeQjPd4LJtRTw"/>
-        <cardinality xmi:id="_NX4mNbpxEeeQjPd4LJtRTw" label="1" max="1" min="1"/>
-        <type xmi:id="_NX4mNrpxEeeQjPd4LJtRTw" name="int">
+    </operations>
+    <operations xmi:id="_eMwxMLp0EeeQjPd4LJtRTw" name="runTest" staticOperation="true">
+      <modelElement href="BabakJuniors2.uml#_eMnnQLp0EeeQjPd4LJtRTw"/>
+      <visibility xmi:id="_eMwxMbp0EeeQjPd4LJtRTw" label="+"/>
+      <cardinality xmi:id="_eMwxMrp0EeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_eMwxM7p0EeeQjPd4LJtRTw" name="r">
+        <modelElement href="BabakJuniors2.uml#_eMnnQbp0EeeQjPd4LJtRTw"/>
+        <cardinality xmi:id="_eMwxNLp0EeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+        <type xmi:id="_eMwxNbp0EeeQjPd4LJtRTw" name="KNN">
+          <modelElement href="BabakJuniors2.uml#_L0uxULpxEeeQjPd4LJtRTw"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_eMwxNrp0EeeQjPd4LJtRTw" name="k">
+        <modelElement href="BabakJuniors2.uml#_eMnnQrp0EeeQjPd4LJtRTw"/>
+        <cardinality xmi:id="_eMwxN7p0EeeQjPd4LJtRTw" label="1" max="1" min="1"/>
+        <type xmi:id="_eMwxOLp0EeeQjPd4LJtRTw" name="int">
           <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </type>
       </parameters>

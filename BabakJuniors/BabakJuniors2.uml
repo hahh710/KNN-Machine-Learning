@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_LizT0LpxEeeQjPd4LJtRTw" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Li1wELpxEeeQjPd4LJtRTw" source="codegen">
         <details xmi:id="_Li1wEbpxEeeQjPd4LJtRTw" key="codegenDirectory" value="/BabakJuniors/src"/>
-        <details xmi:id="_MaRuYLpxEeeQjPd4LJtRTw" key="AssociatedSourceCode" value="/BabakJuniors/src/Age.java;3437563253/1;/BabakJuniors/src/Coordinates.java;1350434298/1;/BabakJuniors/src/HouseAttributes.java;2303907086/1;/BabakJuniors/src/House.java;1474494083/1;/BabakJuniors/src/KNN.java;989706131/1;/BabakJuniors/src/SqrFt.java;3817456381/1;/BabakJuniors/src/TestRun.java;1517905015/1;"/>
+        <details xmi:id="_MaRuYLpxEeeQjPd4LJtRTw" key="AssociatedSourceCode" value="/BabakJuniors/src/Age.java;1147906239/1;/BabakJuniors/src/Coordinates.java;2958307856/1;/BabakJuniors/src/HouseAttributes.java;2303907086/1;/BabakJuniors/src/House.java;1474494083/1;/BabakJuniors/src/KNN.java;989706131/1;/BabakJuniors/src/SqrFt.java;3027233403/1;/BabakJuniors/src/TestRun.java;4082553541/1;"/>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_L0SscLpxEeeQjPd4LJtRTw">
@@ -69,6 +69,10 @@
       <ownedAttribute xmi:id="_L28X0bpxEeeQjPd4LJtRTw" name="New" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_L28-4LpxEeeQjPd4LJtRTw" value="&quot;New&quot;"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_19k7Abp0EeeQjPd4LJtRTw" name="house" type="_L0gH0LpxEeeQjPd4LJtRTw" association="_19kT8Lp0EeeQjPd4LJtRTw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19k7Arp0EeeQjPd4LJtRTw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19k7A7p0EeeQjPd4LJtRTw" value="*"/>
       </ownedAttribute>
       <interfaceRealization xmi:id="_L2aMULpxEeeQjPd4LJtRTw" client="_L0Ml0LpxEeeQjPd4LJtRTw" supplier="_L0e5sLpxEeeQjPd4LJtRTw" contract="_L0e5sLpxEeeQjPd4LJtRTw"/>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L3M2gLpxEeeQjPd4LJtRTw" name="Age" specification="_L0VvwLpxEeeQjPd4LJtRTw">
@@ -138,6 +142,10 @@
       </ownedAttribute>
       <ownedAttribute xmi:id="_L29l8bpxEeeQjPd4LJtRTw" name="y">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_x1YWkLp0EeeQjPd4LJtRTw" name="house" type="_L0gH0LpxEeeQjPd4LJtRTw" association="_x1WhYLp0EeeQjPd4LJtRTw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x1YWkbp0EeeQjPd4LJtRTw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x1YWkrp0EeeQjPd4LJtRTw" value="*"/>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L3RH8LpxEeeQjPd4LJtRTw" name="Coordinates" specification="_L0b2YLpxEeeQjPd4LJtRTw">
         <ownedParameter xmi:id="_L3RH8bpxEeeQjPd4LJtRTw" name="x">
@@ -632,6 +640,11 @@
       <ownedAttribute xmi:id="_L3DskLpxEeeQjPd4LJtRTw" name="squareFeet" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_FzmYgrp1EeeQjPd4LJtRTw" name="house" type="_L0gH0LpxEeeQjPd4LJtRTw" association="_FzlKYLp1EeeQjPd4LJtRTw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Fzm_kLp1EeeQjPd4LJtRTw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Fzm_kbp1EeeQjPd4LJtRTw" value="*"/>
+      </ownedAttribute>
+      <interfaceRealization xmi:id="_7RQ3oLpzEeeQjPd4LJtRTw" client="_L0-B4LpxEeeQjPd4LJtRTw" supplier="_L0e5sLpxEeeQjPd4LJtRTw" contract="_L0e5sLpxEeeQjPd4LJtRTw"/>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L3XOkLpxEeeQjPd4LJtRTw" name="SqrFt" specification="_L0_QALpxEeeQjPd4LJtRTw">
         <ownedParameter xmi:id="_L3XOkbpxEeeQjPd4LJtRTw" name="squareFeet">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
@@ -702,57 +715,69 @@
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_L1C6YLpxEeeQjPd4LJtRTw" name="TestRun">
+      <ownedAttribute xmi:id="_NCoLBLp1EeeQjPd4LJtRTw" name="kNN" type="_L0uxULpxEeeQjPd4LJtRTw" association="_NCoLALp1EeeQjPd4LJtRTw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NCoyELp1EeeQjPd4LJtRTw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NCoyEbp1EeeQjPd4LJtRTw" value="*"/>
+      </ownedAttribute>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L3YcsLpxEeeQjPd4LJtRTw" name="main" specification="_L1FWoLpxEeeQjPd4LJtRTw">
         <ownedParameter xmi:id="_L3YcsbpxEeeQjPd4LJtRTw" name="args">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L3YcsrpxEeeQjPd4LJtRTw" value="*"/>
         </ownedParameter>
         <language>java</language>
-        <body>KNN running = new KNN();
-		running.addHouse(new Coordinates(12,25),new Age(&quot;New&quot;),new SqrFt(1200), 500000);
-		running.addHouse(new Coordinates(10,50), new Age(&quot;Old&quot;),new SqrFt(1000), 300000);
-		running.addHouse(new Coordinates(30,100), new Age(&quot;New&quot;), new SqrFt(800),400000);
-		running.setNewHouse(new Coordinates(15, 20),  new Age(&quot;New&quot;),new SqrFt(1000));		
-		running.resetNN();
-		running.findKNN(1, running.getNewHouse(), running.getHouses());
-		running.setNewHousePrice();
-		System.out.println(&quot;Test 1&quot;);
-		System.out.println(&quot;&quot;);
-		System.out.println(&quot;&quot;);
-
-		System.out.println(&quot;Training example 2: Coordinates (10, 50) Age (Old) SqrFt(1000) Price (300000)&quot;);
-		System.out.println(&quot;Training example 3: Coordinates (30, 100) Age (New) SqrFt(800) Price (400000)&quot;);
-		System.out.println(&quot;Training example 1: Coordinates (12, 25) Age (New) SqrFt(1200) Price (500000)&quot;);
-		System.out.println(&quot;The testing example is: K = 1 Coordinates (12, 25) Age (New) SqrFt(1200)&quot;);
-		System.out.println(&quot;The price of the testing example is &quot;+running.getNewHouse().getPrice());
-		System.out.println(&quot;&quot;);
-		System.out.println(&quot;&quot;);
-		running.resetNN();
-		running.findKNN(2, running.getNewHouse(), running.getHouses());
-		running.setNewHousePrice();
-		System.out.println(&quot;Test 2&quot;);
-		System.out.println(&quot;&quot;);
-		System.out.println(&quot;&quot;);
-		System.out.println(&quot;Training example 1: Coordinates (12, 25) Age (New) SqrFt(1200) Price (500000)&quot;);
-		System.out.println(&quot;Training example 2: Coordinates (10, 50) Age (Old) SqrFt(1000) Price (300000)&quot;);
-		System.out.println(&quot;Training example 3: Coordinates (30, 100) Age (New) SqrFt(800) Price (400000)&quot;);
-		System.out.println(&quot;The testing example is: K = 2 Coordinates (12, 25) Age (New) SqrFt(1200)&quot;);
-		System.out.println(&quot;The price of the testing example is &quot;+running.getNewHouse().getPrice());
-		System.out.println(&quot;Number of NN = &quot; + running.getNearestNeighbors().size());
-		System.out.println(&quot;&quot;);
-		running.resetNN();
-		running.findKNN(3, running.getNewHouse(), running.getHouses());
-		running.setNewHousePrice();
-		System.out.println(&quot;Test 3&quot;);
-		System.out.println(&quot;&quot;);
-		System.out.println(&quot;&quot;);
-		System.out.println(&quot;Training example 1: Coordinates (12, 25) Age (New) SqrFt(1200) Price (500000)&quot;);
-		System.out.println(&quot;Training example 2: Coordinates (10, 50) Age (Old) SqrFt(1000) Price (300000)&quot;);
-		System.out.println(&quot;Training example 3: Coordinates (30, 100) Age (New) SqrFt(800) Price (400000)&quot;);
-		System.out.println(&quot;The testing example is: K = 3 Coordinates (12, 25) Age (New) SqrFt(1200)&quot;);
-		System.out.println(&quot;The price of the testing example is &quot;+running.getNewHouse().getPrice());
-		System.out.println(&quot;Number of NN = &quot; + running.getNearestNeighbors().size());
-		System.out.println(&quot;&quot;);
+        <body>KNN running = new KNN();&#xD;
+		//populate the list of training examples&#xD;
+		running.addHouse(new Coordinates(12,25),new Age(&quot;New&quot;),new SqrFt(1200), 500000);&#xD;
+		running.addHouse(new Coordinates(10,50), new Age(&quot;Old&quot;),new SqrFt(1000), 300000);&#xD;
+		running.addHouse(new Coordinates(30,100), new Age(&quot;New&quot;), new SqrFt(800),400000);&#xD;
+		running.setNewHouse(new Coordinates(15, 20),  new Age(&quot;New&quot;),new SqrFt(1000));	&#xD;
+		//run test 1 using known houses and k=1&#xD;
+		printTestInfo(running.getHouses(), 1);&#xD;
+		runTest(running,1);&#xD;
+&#xD;
+		//run test 2 using known houses and k=2&#xD;
+&#xD;
+		printTestInfo(running.getHouses(), 2);&#xD;
+		runTest(running, 2);&#xD;
+		&#xD;
+		//run test 3 using known houses and k=3&#xD;
+		printTestInfo(running.getHouses() ,3);&#xD;
+		runTest(running,3);&#xD;
+	&#xD;
+	</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_eMo1YLp0EeeQjPd4LJtRTw" name="printTestInfo" specification="_eMlyELp0EeeQjPd4LJtRTw">
+        <ownedParameter xmi:id="_eMo1Ybp0EeeQjPd4LJtRTw" name="houses" type="_L2cokLpxEeeQjPd4LJtRTw"/>
+        <ownedParameter xmi:id="_eMo1Yrp0EeeQjPd4LJtRTw" name="n">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+        <language>java</language>
+        <body>int c=0;&#xD;
+		System.out.println(&quot;Test &quot;+n);&#xD;
+		System.out.println(&quot;&quot;);&#xD;
+		System.out.println(&quot;&quot;);&#xD;
+		for(House h:houses) {&#xD;
+			System.out.println(&quot;Training example &quot; + c+&quot;: Coordinate = (&quot;+ h.getCorX()+&quot;,&quot;+h.getCorY()+&quot;), Age = &quot;+h.getAge()+&quot;, SqrFt = &quot;&#xD;
+					+ &quot;&quot;+ h.getSqrFt()+&quot;, Price = &quot;+ h.getPrice());&#xD;
+			c++;&#xD;
+		}	&#xD;
+	</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_eMo1Y7p0EeeQjPd4LJtRTw" name="runTest" specification="_eMnnQLp0EeeQjPd4LJtRTw">
+        <ownedParameter xmi:id="_eMo1ZLp0EeeQjPd4LJtRTw" name="r" type="_L0uxULpxEeeQjPd4LJtRTw"/>
+        <ownedParameter xmi:id="_eMo1Zbp0EeeQjPd4LJtRTw" name="k">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+        <language>java</language>
+        <body>//reset list of nearest neighbors&#xD;
+		r.resetNN();&#xD;
+		//find nearest neighbors&#xD;
+		r.findKNN(k, r.getNewHouse(), r.getHouses());&#xD;
+		//calculate price based off of nearest neighbors&#xD;
+		r.setNewHousePrice();&#xD;
+		System.out.println(&quot;The testing example is: K = &quot;+ k+&quot;, Coordinate = (&quot;+r.getNewHouse().getCorX()+&quot;,&quot;+r.getNewHouse().getCorY()+&quot;), Age = &quot;&#xD;
+		+r.getNewHouse().getAge()+&quot;, Sqrft = &quot;+r.getNewHouse().getSqrFt());&#xD;
+		System.out.println(&quot;The price of the testing example is &quot;+r.getNewHouse().getPrice());&#xD;
 	</body>
       </ownedBehavior>
       <ownedOperation xmi:id="_L1DhcLpxEeeQjPd4LJtRTw" name="TestRun">
@@ -767,6 +792,18 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L1F9sLpxEeeQjPd4LJtRTw" value="*"/>
         </ownedParameter>
       </ownedOperation>
+      <ownedOperation xmi:id="_eMlyELp0EeeQjPd4LJtRTw" name="printTestInfo" isStatic="true" method="_eMo1YLp0EeeQjPd4LJtRTw">
+        <ownedParameter xmi:id="_eMlyEbp0EeeQjPd4LJtRTw" name="houses" type="_L2cokLpxEeeQjPd4LJtRTw"/>
+        <ownedParameter xmi:id="_eMlyErp0EeeQjPd4LJtRTw" name="n">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_eMnnQLp0EeeQjPd4LJtRTw" name="runTest" isStatic="true" method="_eMo1Y7p0EeeQjPd4LJtRTw">
+        <ownedParameter xmi:id="_eMnnQbp0EeeQjPd4LJtRTw" name="r" type="_L0uxULpxEeeQjPd4LJtRTw"/>
+        <ownedParameter xmi:id="_eMnnQrp0EeeQjPd4LJtRTw" name="k">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_L3dVMLpxEeeQjPd4LJtRTw" name="" memberEnd="_L3dVMbpxEeeQjPd4LJtRTw _L2-NALpxEeeQjPd4LJtRTw">
       <ownedEnd xmi:id="_L3dVMbpxEeeQjPd4LJtRTw" name="" type="_L0gH0LpxEeeQjPd4LJtRTw" association="_L3dVMLpxEeeQjPd4LJtRTw"/>
@@ -779,6 +816,31 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_L3gYgbpxEeeQjPd4LJtRTw" name="" memberEnd="_L3gYgrpxEeeQjPd4LJtRTw _L3DFgLpxEeeQjPd4LJtRTw">
       <ownedEnd xmi:id="_L3gYgrpxEeeQjPd4LJtRTw" name="" type="_L0uxULpxEeeQjPd4LJtRTw" association="_L3gYgbpxEeeQjPd4LJtRTw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_BsrGwLpyEeeQjPd4LJtRTw" visibility="public" client="_L0Ml0LpxEeeQjPd4LJtRTw" supplier="_L0e5sLpxEeeQjPd4LJtRTw" contract="_L0e5sLpxEeeQjPd4LJtRTw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_x1WhYLp0EeeQjPd4LJtRTw" name="" memberEnd="_x1XIcLp0EeeQjPd4LJtRTw _x1YWkLp0EeeQjPd4LJtRTw">
+      <ownedEnd xmi:id="_x1XIcLp0EeeQjPd4LJtRTw" name="coordinates" type="_L0aoQLpxEeeQjPd4LJtRTw" association="_x1WhYLp0EeeQjPd4LJtRTw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x1XvgLp0EeeQjPd4LJtRTw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x1Xvgbp0EeeQjPd4LJtRTw" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_19kT8Lp0EeeQjPd4LJtRTw" name="" memberEnd="_19kT8bp0EeeQjPd4LJtRTw _19k7Abp0EeeQjPd4LJtRTw">
+      <ownedEnd xmi:id="_19kT8bp0EeeQjPd4LJtRTw" name="age" type="_L0Ml0LpxEeeQjPd4LJtRTw" association="_19kT8Lp0EeeQjPd4LJtRTw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19kT8rp0EeeQjPd4LJtRTw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19k7ALp0EeeQjPd4LJtRTw" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FzlKYLp1EeeQjPd4LJtRTw" name="" memberEnd="_FzlxcLp1EeeQjPd4LJtRTw _FzmYgrp1EeeQjPd4LJtRTw">
+      <ownedEnd xmi:id="_FzlxcLp1EeeQjPd4LJtRTw" name="sqrFt" type="_L0-B4LpxEeeQjPd4LJtRTw" association="_FzlKYLp1EeeQjPd4LJtRTw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FzmYgLp1EeeQjPd4LJtRTw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FzmYgbp1EeeQjPd4LJtRTw" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NCoLALp1EeeQjPd4LJtRTw" name="" memberEnd="_NCoLAbp1EeeQjPd4LJtRTw _NCoLBLp1EeeQjPd4LJtRTw">
+      <ownedEnd xmi:id="_NCoLAbp1EeeQjPd4LJtRTw" name="testRun" type="_L1C6YLpxEeeQjPd4LJtRTw" association="_NCoLALp1EeeQjPd4LJtRTw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NCoLArp1EeeQjPd4LJtRTw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NCoLA7p1EeeQjPd4LJtRTw" value="*"/>
+      </ownedEnd>
     </packagedElement>
     <profileApplication xmi:id="_Li3lQLpxEeeQjPd4LJtRTw">
       <eAnnotations xmi:id="_Li7PoLpxEeeQjPd4LJtRTw" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -817,4 +879,5 @@
   <UMLLabProfile:Reference xmi:id="_L3fKYLpxEeeQjPd4LJtRTw" base_Element="_L3ejUbpxEeeQjPd4LJtRTw"/>
   <UMLLabProfile:Reference xmi:id="_L3gYgLpxEeeQjPd4LJtRTw" base_Element="_L3fKYbpxEeeQjPd4LJtRTw"/>
   <UMLLabProfile:Reference xmi:id="_L3hmoLpxEeeQjPd4LJtRTw" base_Element="_L3gYgbpxEeeQjPd4LJtRTw"/>
+  <UMLLabProfile:Generics xmi:id="_eMnAMLp0EeeQjPd4LJtRTw" genericsValue="House" base_Element="_eMlyEbp0EeeQjPd4LJtRTw"/>
 </xmi:XMI>
