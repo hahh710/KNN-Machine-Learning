@@ -24,7 +24,7 @@ public class House {
 	private int corY;
 	private int sqrFt;
 	
-	public House(int x, int y,  String a, int s, int p) {
+	public House(int x, int y,  String a, int s, float p) {
 		/*
 		 * Constructor with price.
 		 * index 0 of Arraylist has coordinates
@@ -87,7 +87,7 @@ public class House {
 			return 0;
 		return 0;
 	}
-	public float getSqrFt(){
+	public int getSqrFt(){
 		return sqrFt;
 	}
 	public String getAgeString(){

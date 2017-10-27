@@ -4,7 +4,7 @@ public class TestRun {
 	/**
 	 *TestRun
 	 *
-	 *@Authors: Arsalan Sadiq 
+	 *@Authors: Ahmed Khattab, Arsalan Sadiq, Jeff Tudor , Hunho Ha
 	 *@Purpose: A class which allows to run the test cases
 	 *
 	 *@field variables
@@ -50,7 +50,36 @@ public class TestRun {
 		+r.getNewHouse().getAgeString()+", Sqrft = "+r.getNewHouse().getSqrFt());
 		System.out.println("The price of the testing example is "+r.getNewHouse().getPrice());
 	}
-	
+	public static void calculateError(ArrayList<House> houses) {
+		//KNN Error = new KNN();
+		//ArrayList<float> list = new ArrayList<float>() ;
+		KNN Error = new KNN();
+		System.out.println();
+		for(int j = 0; j < houses.size();j++){
+			float predict = 0;
+			float actual = 0;
+			for(int i = 0; i < houses.size(); i++){
+				if(i == j){
+					Error.setNewHouse(houses.get(i).getCorX(),houses.get(i).getCorY(),houses.get(i).getAgeString(), houses.get(i).getSqrFt()); // putting each house as 
+					
+					actual = houses.get(i).getPrice();
+				}else{
+					Error.addHouse(houses.get(i).getCorX(),houses.get(i).getCorY(),houses.get(i).getAgeString(),houses.get(i).getSqrFt(),houses.get(i).getPrice()); 
+				}
+			}
+			Error.resetNN();
+			//find nearest neighbors
+			Error.findKNN(2, Error.getNewHouse(), Error.getHouses());
+			//calculate price based off of nearest neighbors
+			Error.setNewHousePrice();
+			predict = Error.getNewHouse().getPrice();
+			float errnum = ((Math.abs(actual-predict)/actual)*100);
+			System.out.println("Actual price for" + (j+1) + " House is "+ actual + "$");
+			System.out.println("Predicted price for" + (j+1) + " House is "+ predict + "$");
+			
+			System.out.println("Error Calculation = "+ String.format("%.2f", errnum)+"%");
+		}
+	}
 	/**
 	 * 
 	 * @param args
@@ -75,6 +104,7 @@ public class TestRun {
 		//run test 3 using known houses and k=3
 		printTestInfo(running.getHouses() ,3);
 		runTest(running,3);
-	
+		
+		calculateError(running.getHouses());
 	}
 }
