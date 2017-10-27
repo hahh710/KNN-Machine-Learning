@@ -126,7 +126,7 @@ public class KNN {
 	public float findSqrFtDistance(House h1, House h2) {
 		return Math.abs(h1.getSqrFt()-h2.getSqrFt());
 	}
-	public void addHouse(int x, int y, String a , int sf, int p) {
+	public void addHouse(int x, int y, String a , int sf, float p) {
 		houses.add(new House(x, y, a, sf, p));
 	}
 	public void setNewHouse(int x, int y, String a , int sf) {
