@@ -33,6 +33,7 @@ public class KNN {
 		nearestNeighbors = new ArrayList<House>();
 		newHouse = null;
 	}
+	
 	/**
 	*findKNN
 	*@param 
@@ -72,6 +73,7 @@ public class KNN {
 		
 	//K nearest neighbors have been determined
 	}
+	
 	/**
 	*findPrice(List<House> NN)
 	*@Parameters
@@ -90,6 +92,7 @@ public class KNN {
 		}
 		return (int)sum/count;
 	}
+	
 	/**
 	*findDistance (House h1, House h2)
 	*@param
@@ -120,27 +123,67 @@ public class KNN {
 	public float findCoordinateDistance(House h1, House h2) {
 		return  Math.abs((float)Math.sqrt(Math.pow(h1.getCorX()-h2.getCorX(), 2)+ Math.pow(h1.getCorY()-h2.getCorY(), 2)));
 	}
+	
+	/**
+	 * Determines the age distance
+	 * @param house h1 and house h2
+	 * @returns the age distance between the two houses
+	 */
 	public float findAgeDistance(House h1, House h2) {
 		return Math.abs(h1.getAge() - h2.getAge());
 	}
+	
+	/**
+	 * Determines the sqrft distance
+	 * @param house h1 and house h2
+	 * @returns the sqrft distance between the two houses
+	 */
 	public float findSqrFtDistance(House h1, House h2) {
 		return Math.abs(h1.getSqrFt()-h2.getSqrFt());
 	}
+	
+	/**
+	 * Takes in all the house specifications
+	 * @param takes in the coordinates of x and y aswell as the age, sqrft and the price of the house
+	 */
 	public void addHouse(int x, int y, String a , int sf, float p) {
 		houses.add(new House(x, y, a, sf, p));
 	}
+	
+	/**
+	 * Sets the house specifications
+	 * @param takes in the coordinates of x and y aswell as the age, sqrft and the price of the house
+	 */
 	public void setNewHouse(int x, int y, String a , int sf) {
 		newHouse= new House(x, y, a,sf);
 	}
+	
+	/**
+	 * Clears the nearest neighbours.
+	 */
 	public void resetNN() {
 		nearestNeighbors.clear();
 	}
+	
+	/**
+	 * Void method that sets the new house price
+	 */
 	public void setNewHousePrice() {
 		newHouse.setPrice(findPrice());
 	}
+	
+	/**
+	 * A getter for houses
+	 * @return an arraylist of type house which returns the current house
+	 */
 	public ArrayList<House> getHouses(){
 		return (ArrayList<House>) houses;
 	}
+	
+	/**
+	 * A getter for new houses
+	 * @return type of house the new house added.
+	 */
 	public House getNewHouse() {
 		return newHouse;
 	}

@@ -18,6 +18,7 @@ public class TestRun {
 	public TestRun(){
 		
 	}
+	
 	/**
 	 * printTestInfo will print the training examples for this test
 	 * @param houses list of training examples to be used
@@ -34,6 +35,7 @@ public class TestRun {
 			c++;
 		}	
 	}
+	
 	/**
 	 * runTest method will find the price of the new house given the k neighbors
 	 * @param r the instance of the running KNN
@@ -50,6 +52,12 @@ public class TestRun {
 		+r.getNewHouse().getAgeString()+", Sqrft = "+r.getNewHouse().getSqrFt());
 		System.out.println("The price of the testing example is "+r.getNewHouse().getPrice());
 	}
+	
+	/**
+	 * 
+	 * this method prints the actual, predicted and the error for the price calculated
+	 * @param An arraylist of type house
+	 */
 	public static void calculateError(ArrayList<House> houses) {
 		//KNN Error = new KNN();
 		//ArrayList<float> list = new ArrayList<float>() ;
@@ -74,14 +82,15 @@ public class TestRun {
 			Error.setNewHousePrice();
 			predict = Error.getNewHouse().getPrice();
 			float errnum = ((Math.abs(actual-predict)/actual)*100);
-			System.out.println("Actual price for" + (j+1) + " House is "+ actual + "$");
-			System.out.println("Predicted price for" + (j+1) + " House is "+ predict + "$");
+			System.out.println("Actual price for" + (j+1) + " House is "+ "$" + actual);
+			System.out.println("Predicted price for" + (j+1) + " House is "+ "$" + predict);
 			
 			System.out.println("Error Calculation = "+ String.format("%.2f", errnum)+"%");
 		}
 	}
+	
 	/**
-	 * 
+	 * Main method where all the testing occurs
 	 * @param args
 	 */
 	public static void main(String [ ] args) {

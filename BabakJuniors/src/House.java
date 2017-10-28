@@ -59,27 +59,42 @@ public class House {
 		price=0;
 	}
 	
-	/*
-	 * Getter and setter for price.
+	/**
+	 * Getter for price.
+	 * @return a float of the price
 	 */
 	public float getPrice() {
 		return price;
 	}
 	
+	/**
+	 * Setter for price
+	 */
 	public void setPrice(float f) {
 		price=f;
 	}
 
-	/*
+	/**
 	 * getter for Attributes(Coordinates, Age, SqrFt) 
+	 * @return the cordinates of X
 	 */
 	public int getCorX(){
 		return corX;
 	}
 	
+	/**
+	 * 
+	 * Getter for cordinates for Y
+	 * @return int cordinates of y
+	 */
 	public int getCorY(){
 		return corY;
 	}
+	
+	/**
+	 * Getter for Age
+	 * @returns either a 1 or 0 depending on whether the entered age is old or new.
+	 */
 	public int getAge(){
 		if(age=="New")
 			return 1;
@@ -87,9 +102,19 @@ public class House {
 			return 0;
 		return 0;
 	}
+	
+	/**
+	 * Getter for Square feet of house
+	 * @returns an int of the square feet
+	 */
 	public int getSqrFt(){
 		return sqrFt;
 	}
+	
+	/**
+	 * Gets the String AGE
+	 * @return a string of age (new or old)
+	 */
 	public String getAgeString(){
 		return age;
 	}
