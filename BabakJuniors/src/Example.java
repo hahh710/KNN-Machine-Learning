@@ -1,8 +1,12 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+
 
 public class Example {
 	private String exampleName;
 	private HashMap<String,Feature> map; 
+	private ArrayList<String>nameSet;
+
 	public Example(){
 		exampleName = null;
 	}
@@ -10,9 +14,16 @@ public class Example {
 	public void createExample(String name){
 		this.exampleName = name;
 		map = new HashMap<String,Feature>();
+		nameSet = new ArrayList<String>();
 	}
 	public void addFeature(String keyname,Feature value){
-		map.put(keyname, value);
+		if(!map.containsKey(keyname)) {
+			map.put(keyname, value);
+			nameSet.add(keyname);
+		}else{
+			System.out.println("There is same name of feature");// print this statement in 
+		}
+		
 	}
 	public Feature getFeature(String keyname){
 		return map.get(keyname);
@@ -31,5 +42,17 @@ public class Example {
 	}
 	public boolean checkKeyName(String keyname){
 		return map.containsKey(keyname);
+	}
+	public String getKeyName(Feature value){
+	    for(String key : map.keySet()){
+	        if(map.get(key).equals(value)){
+	            return key;
+	        }
+	    }
+	    return null; // or prompt error message. 
+	}
+	//
+	public ArrayList<String> getNameSet(){
+		return this.nameSet;
 	}
 }
