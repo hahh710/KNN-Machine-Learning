@@ -24,4 +24,7 @@ public class Rank {
 		if(this.name == name) return true;
 		else return false;
 	}
+	public ArrayList<Feature> getlist(){
+		return list;
+	}
 }

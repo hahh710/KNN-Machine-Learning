@@ -28,16 +28,22 @@ public class ExampleManager {
 	public void abstractkey(Example example){
 		for(int i = 0;i < example.getNameSet().size();i++){
 			if(!type.contains(example.getNameSet().get(i))){
-				if(checkSubjective(example.getFeature(example.getNameSet().get(i)))){
+				if(checkSubjective(example.getFeature(example.getNameSet().get(i))) && rank.isEmpty()){
+					createType(example.getKeyName(example.getFeature()),example.getFeature());
 					type.add(example.getNameSet().get(i));
-				}else type.add(example.getNameSet().get(i));
+				}else if (checkSubjective(example.getFeature(example.getNameSet().get(i)))&& !rank.isEmpty()){
+					appendFeatureInRank(example.getKeyName(example.getFeature()),example.getFeature())
+					type.add(example.getNameSet().get(i));
+				}else{
+					type.add(example.getNameSet().get(i));
+				}
 			}// else print error message that there is exist name;
+		}
 			
 			
 			
-			
-			
-			/*if(type.isEmpty()){
+			/*
+			if(type.isEmpty()){
 				if(checkSubjective(example.getFeature(example.getNameSet().get(i)))){
 					//rank.add(example.getNameSet().get(i));
 					type.add(example.getNameSet().get(i));
@@ -50,7 +56,7 @@ public class ExampleManager {
 		}
 	}
 	
-	public void CreateType(String featureName,Feature feature){
+	public void createType(String featureName,Feature feature){
 		boolean flag = true;
 		for(int i = 0; i< rank.size() ;i++){
 			if(rank.get(i).checkName(featureName)){
@@ -63,8 +69,14 @@ public class ExampleManager {
 			System.out.println("There is existing feature Name");
 		}		
 	}
-	public void appendRank(String featureName,Feature feature){
-		boolean 
+	public void appendFeatureInRank(String featureName,Feature feature){
+		for(int i = 0; i< rank.size() ;i++){
+			if(rank.get(i).checkName(featureName)){
+				if(!rank.get(i).getlist().contains(feature)){
+					rank.get(i).getlist().add(feature);
+				}
+			}
+		}
 	}
 	public boolean checkSubjective(Feature feature){
 		if(feature.getStringValue() !=null) return true;
