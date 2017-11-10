@@ -1,4 +1,8 @@
+import java.awt.*;
+
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
+
 
 public class KNNView extends JFrame{
 
@@ -6,66 +10,115 @@ public class KNNView extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private KNNController controller;
 
-	private JMenuItem create,add, edit, remove;
-	private JMenu File;
+	
+	private JButton predict;
+	private JMenuItem createTrainExample,createTestExample,editTestExample,editTrainExample,addFeature;
+	private JMenu trainExample,testExample;
+
+	
 	public KNNView() {
 		
 		controller = new KNNController();
+		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(400, 400);
+		this.setLocation(100, 100);
+		this.setSize(new Dimension(1024, 450));
+		this.setResizable(true);
 		
 		
 		JMenuBar menuBar = new JMenuBar();
 		this.setJMenuBar(menuBar);
 
-		File = new JMenu("File");
+		trainExample = new JMenu("TrainExample");
+		testExample = new JMenu("TestExample");
+		
 	
+		GridLayout layout = new GridLayout(2, 1);
+		this.setLayout(layout);
+
+		JPanel trainingPanel = new JPanel();
+		trainingPanel.setBackground(java.awt.Color.WHITE);
+
+		JPanel testingPanel = new JPanel(new BorderLayout());
+		testingPanel.setBackground(java.awt.Color.WHITE);
+		
+		
+		TitledBorder trainBorder = BorderFactory.createTitledBorder("Training Example(s): ");
+		TitledBorder testBorder = BorderFactory.createTitledBorder("Testing Example(s): ");
+		testingPanel.setBorder(testBorder);
+		trainingPanel.setBorder(trainBorder);
 		
 
-		menuBar.add(File);
-		menuBar.add(File);
+		this.add(trainingPanel);
+		this.add(testingPanel);
 
-		create = new JMenuItem("Create Feature");
-		create.addActionListener(controller);
 
+
+		menuBar.add(trainExample);
+		menuBar.add(testExample);
+		
+		predict = new JButton("Predict");
+		predict.setSize(10,10);
+		predict.addActionListener(controller);
+		
+		createTrainExample = new JMenuItem("Create Training Example");
+		createTrainExample.addActionListener(controller);
+
+		createTestExample = new JMenuItem("Create Testing Example");
+		createTestExample.addActionListener(controller);
+
+		
+		addFeature = new JMenuItem ("Add Testing Feature");
+		addFeature.setEnabled(false);
+		addFeature.addActionListener(controller);
+		
+		
+		editTrainExample = new JMenuItem("Edit Training Example");
+		editTrainExample.setEnabled(false);
+		editTrainExample.addActionListener(controller);
+		
+		editTestExample = new JMenuItem("Edit Testing Example");
+		editTestExample.setEnabled(false);
+		editTestExample.addActionListener(controller);
+		
+		
+		
+		trainExample.add(createTrainExample);
+		testExample.add(createTestExample);
+		testExample.add(addFeature);
+		trainExample.add(addFeature);
+		testExample.add(editTestExample);
+		trainExample.add(editTrainExample);
+		
+		testingPanel.add(predict,BorderLayout.SOUTH);
+		
 	
-
-		add = new JMenuItem("Add Feature");
-		add.addActionListener(controller);
-		
-		edit = new JMenuItem("Edit Feature");
-		edit.setEnabled(false);
-		edit.addActionListener(controller);
-		
-		remove = new JMenuItem("Remove");
-		remove.setEnabled(false);
-		remove.addActionListener(controller);
-
-		File.add(add);
-		File.add(edit);
-		File.add(remove);
-		File.add(create);		
-		
-
 		this.setVisible(true);
 
 	}
 	
-	
-	
-	public JMenuItem getRemove() {
-		return remove;
+	public JMenuItem getAddFeature() {
+		return addFeature;
 	}
 	
-	public JMenuItem getEdit() {
-		return edit;	
+	public JMenuItem getTrainEdit() {
+		return editTrainExample;	
 	}
 	
+	public JMenuItem getTestEdit() {
+		return editTestExample;	
+	}
 	
-	public JMenu getFile() {
-		return File;
+	public JMenu getTrainExample() {
+		return trainExample;
+		
+	}
+	
+	public JMenu getTestExample() {
+		return testExample;
 		
 	}
 	

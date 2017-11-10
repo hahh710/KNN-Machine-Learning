@@ -9,7 +9,7 @@ public class Rank {
 		list = new ArrayList<Feature>();
 		list.add(feature);
 	}
-	public void createRank){
+	public void createRank(){
 		
 	}
 	public void addInRank(Feature feature){
