@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Example {
+public class TrainingExample {
 	private String exampleName;
 	private HashMap<String,Feature> map; 
 	private ArrayList<String>nameSet;
 
-	public Example(){
+	public TrainingExample(){
 		exampleName = null;
 	}
 	
