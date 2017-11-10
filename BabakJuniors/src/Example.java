@@ -1,58 +1,85 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-
 
 public class Example {
-	private String exampleName;
-	private HashMap<String,Feature> map; 
-	private ArrayList<String>nameSet;
+	ArrayList<TrainingExample> trainingExamples;
 
-	public Example(){
-		exampleName = null;
+	ArrayList<TestingExample> testExamples;
+	ArrayList<String> type;
+	// ArrayList<ArrayList<String>>rank;
+	ArrayList<Rank> rank;
+	// ArrayList<String>rank;//Rank for subjective features
+
+	public Example() {
+		trainingExamples = new ArrayList<TrainingExample>();
+		testExamples = new ArrayList<TestingExample>();
+		type = new ArrayList<String>();
+		rank = new ArrayList<Rank>();
 	}
-	
-	public void createExample(String name){
-		this.exampleName = name;
-		map = new HashMap<String,Feature>();
-		nameSet = new ArrayList<String>();
+
+	public void addTrainingExample(TrainingExample example) {
+		trainingExamples.add(example);
+		//?abstractkey(example);
 	}
-	public void addFeature(String keyname,Feature value){
-		if(!map.containsKey(keyname)) {
-			map.put(keyname, value);
-			nameSet.add(keyname);
-		}else{
-			System.out.println("There is same name of feature");// print this statement in 
+
+	public ArrayList<TrainingExample> getTrainingExamples() {
+		return trainingExamples;
+	}
+
+	public void addTestingExample(TestingExample example) {
+		testExamples.add(example);
+	}
+
+	public ArrayList<TestingExample> getTestingExample() {
+		return testExamples;
+	}
+//createFeatureType
+//checkFeatureType
+	public void abstractkey(TrainingExample example) {
+		for (int i = 0; i < example.getNameSet().size(); i++) {
+			if (!type.contains(example.getNameSet().get(i))) {
+				if (checkSubjective(example.getFeature(example.getNameSet().get(i)))) {
+					type.add(example.getNameSet().get(i));
+				} else
+					type.add(example.getNameSet().get(i));
+			} // else print error message that there is exist name;
+
+			/*
+			 * if(type.isEmpty()){
+			 * if(checkSubjective(example.getFeature(example.getNameSet().get(i)
+			 * ))){ //rank.add(example.getNameSet().get(i));
+			 * type.add(example.getNameSet().get(i)); }else
+			 * type.add(example.getNameSet().get(i)); }else
+			 * if(!type.contains(example.getNameSet().get(i))){
+			 * if(checkSubjective(example.getFeature(example.getNameSet().get(i)
+			 * ))){ type.add(example.getNameSet().get(i)); }else
+			 * type.add(example.getNameSet().get(i)); }
+			 */// else print error message that there is exist name;
 		}
-		
 	}
-	public Feature getFeature(String keyname){
-		return map.get(keyname);
+
+	public void createFeatureType(String featureName, Feature feature) {
+		boolean flag = true;
+		for (int i = 0; i < rank.size(); i++) {
+			if (rank.get(i).checkName(featureName)) {
+				flag = false;
+			}
+		}
+		if (flag) {
+			rank.add(new Rank(featureName, feature));
+		} else {
+			System.out.println("There is existing feature Name");
+		}
 	}
-	public void removeFeature(String keyname){
-		map.remove(keyname);
+
+	public void appendRank(String featureName, Feature feature) {
+		// boolean go to ranking featureName.add(feature.getStringValue)
 	}
-	public String getExampleName(){
-		return exampleName;
+
+	public boolean checkSubjective(Feature feature) {
+		if (feature.getStringValue() != null)
+			return true;
+		else
+			return false;
 	}
-	public void editFeature(String keyname, Feature value){
-		map.replace(keyname, value);
-	}
-	public void editExampleName(String name){
-		exampleName = name;
-	}
-	public boolean checkKeyName(String keyname){
-		return map.containsKey(keyname);
-	}
-	public String getKeyName(Feature value){
-	    for(String key : map.keySet()){
-	        if(map.get(key).equals(value)){
-	            return key;
-	        }
-	    }
-	    return null; // or prompt error message. 
-	}
-	//
-	public ArrayList<String> getNameSet(){
-		return this.nameSet;
-	}
+
 }
