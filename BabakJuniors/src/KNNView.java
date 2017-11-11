@@ -22,7 +22,7 @@ public class KNNView extends JFrame{
 	
 	public KNNView() {
 		
-		controller = new KNNController();
+		controller = new KNNController(this);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocation(100, 100);
@@ -120,16 +120,16 @@ public class KNNView extends JFrame{
 		return editTestExample;	
 	}
 	
-	public JMenu getTrainExample() {
-		return trainExample;
+	public JMenuItem getTrainExample() {
+		return createTrainExample;
 	}
 	
 	public JMenu getExample() {
 		return example;
 	}
 	
-	public JMenu getTestExample() {
-		return testExample;
+	public JMenuItem getTestExample() {
+		return createTestExample;
 	}
 	
 	public static void main(String args[]) {

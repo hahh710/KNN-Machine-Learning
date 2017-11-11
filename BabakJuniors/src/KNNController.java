@@ -5,13 +5,13 @@ import javax.swing.*;
 public class KNNController implements ActionListener {
 
 	 private KNNView view;
-	 private JList<Example> testingExample;
+	 private JList<TestingExample> testingExamples;
 	 private JList <TrainingExample>trainingExample;
 	 private JList<Feature> feature;
 	 private Example example;
-	 private TestingExample testingN;
+	 
 
-	public KNNController() {
+	public KNNController(KNNView view) {
 		this.view = view;
 	}
 
@@ -19,37 +19,38 @@ public class KNNController implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		
 		if(event.getActionCommand().equals("Create Example")) {
-			 view.getTestExample().setEnabled(true);
-			 view.getTrainExample().setEnabled(true);
+			
 			 
 			 example = new Example();
+			 
+			 view.getTestExample().setEnabled(true);
+			 view.getTrainExample().setEnabled(true);
 		}
 		else if (event.getActionCommand().equals("Create Testing Example")) {
 			
 			 //Enter the knn value...create an option dialogue box here...
+			// String name = JOptionPane.showInputDialog(null, "What is testing examples name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
+
+			 	testingExamples = new JList<>(example.testExamples);
+			 	view.add(testingExamples);
+		
+
+			 	testingExamples.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			 
-			 testingN = new TestingExample(null, 0, example);
+			    TestingExample a = new TestingExample(null, 0, example);
+				example.addTestingExample(a);
 
-			 testingExample = new JList< >(example.testingN);
-			
-			// view.add(testingExample);
-
-			 testingExample.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-			 String name = JOptionPane.showInputDialog(null, "What is testing examples name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
 
 		} else if (event.getActionCommand().equals("Create Training Feature")) {
+			
+			 trainingExample = new JList<>(example.trainingExamples);
+			 view.add(trainingExample);
+		
 
-//			Example trainingExample = new Example();
-//
-//			 view.getTrainEdit().setEnabled(true);
-//			 view.getAddFeature().setEnabled(true);
-//
-//			 String name = JOptionPane.showInputDialog(null, "What is feature's name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
-//			 String value = JOptionPane.showInputDialog(null, "What is " + name + "'s value?", "Input " + name + "'s value value", JOptionPane.QUESTION_MESSAGE);
+			 trainingExample.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-			// feature view = new feature(name, value);
-		//	 trainingExample.addFeature(view);
+			 TrainingExample b = new TestingExample(null, 0, example);
+			 example.addTrainingExample(b);
 
 		} else if (event.getActionCommand().equals("Add Feature")) {
 
@@ -76,8 +77,8 @@ public class KNNController implements ActionListener {
 
 			// view.getTestEdit().setEnabled(true);
 
-			 String name = JOptionPane.showInputDialog(null, "What is feature's name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
-			 String value = JOptionPane.showInputDialog(null, "What is " + name + "'s  value?", "Input " + name + "'s value ", JOptionPane.QUESTION_MESSAGE);
+			// String name = JOptionPane.showInputDialog(null, "What is feature's name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
+			 //String value = JOptionPane.showInputDialog(null, "What is " + name + "'s  value?", "Input " + name + "'s value ", JOptionPane.QUESTION_MESSAGE);
 
 			// feature view = new feature(name, value);
 			// knnAlg.addFeature(view);
@@ -87,7 +88,7 @@ public class KNNController implements ActionListener {
 			// Example featureEdit = trainingExample.getFeature(feature.getSelectedIndex());
 			// String nameEdit = featureEdit.getName();
 
-			 String editFeatureName = JOptionPane.showInputDialog(null, "What is feature's name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
+			// String editFeatureName = JOptionPane.showInputDialog(null, "What is feature's name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
 			// String editFeatureValue = JOptionPane.showInputDialog(null, "What is " + nameEdit + "'s value?", "Input " + nameEdit + "'s value ", JOptionPane.QUESTION_MESSAGE);
 
 			// featureEdit.setFeatureName(editFeatureName);
@@ -99,7 +100,7 @@ public class KNNController implements ActionListener {
 			// feature featureEdit = knnAlg.getBuddy(feature.getSelectedIndex());
 			// String nameEdit = featureEdit.getName();
 
-			 String editFeatureName = JOptionPane.showInputDialog(null, "What is feature's name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
+			 //String editFeatureName = JOptionPane.showInputDialog(null, "What is feature's name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
 			// String editFeatureValue = JOptionPane.showInputDialog(null, "What is " + nameEdit + "'s value?", "Input " + nameEdit + "'s value ", JOptionPane.QUESTION_MESSAGE);
 
 			// featureEdit.setFeatureName(editFeatureName);
