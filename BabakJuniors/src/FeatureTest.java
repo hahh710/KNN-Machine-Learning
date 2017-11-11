@@ -6,23 +6,17 @@ import org.junit.Test;
 
 
 public class FeatureTest {
-	Rank rank;
 	Feature feature;
 	Feature featureF;
 	Feature featureC;
-	
+	Object featureFloat;
 
 	@Before
 	public void setUp() throws Exception {
-		float featureFloat = 2;
+	    featureFloat = 2;
 		feature = new Feature("test");
 		featureF = new Feature(featureFloat);
 		featureC = new Feature(2,2);
-		
-
-		rank = new Rank("Name", feature);
-		
-		//rank = new Rank(test);
 	}
 
 	@After
@@ -30,7 +24,7 @@ public class FeatureTest {
 	}
 
 	@Test
-	public void testRank() {
+	public void testFeature() {
 		assertNotNull("Feature class is not null", feature);
 
 	}
@@ -41,6 +35,19 @@ public class FeatureTest {
 		
 	}
 
+	@Test
+	public void testgetNumValue() {
+		assertEquals("The number value is 5", 5, feature.getNumValue());
+
+	}
+	
+	@Test
+	public void testsetNumValue() {
+		featureF.setNumValue(featureFloat);
+		assertEquals("tests new value is 12", 12, featureF.setNumValue(featureFloat));
+	}
+	
+	
 	
 	
 

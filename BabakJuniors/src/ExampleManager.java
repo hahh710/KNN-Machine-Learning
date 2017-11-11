@@ -37,7 +37,7 @@ public class ExampleManager {
 				}else{
 					type.add(example.getNameSet().get(i));
 				}
-			}// else print error message that there is exist name;
+			//}// else print error message that there is exist name;
 		}
 			
 			

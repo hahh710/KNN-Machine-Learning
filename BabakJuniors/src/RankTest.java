@@ -24,12 +24,27 @@ public class RankTest {
 
 	@Test
 	public void testRank() {
-		assertNotNull("Address rank class is not null", rank);
+		assertNotNull("Rank class is not null", rank);
 
 	}
 
 	@Test
-	public void test() {
+	public void testaddInRank() {
+		
+	}
+	
+	@Test
+	public void testgetName() {
+		
+	}
+	
+	@Test
+	public void testcheckName() {
+		
+	}
+	
+	@Test
+	public void testgetList() {
 		
 	}
 
