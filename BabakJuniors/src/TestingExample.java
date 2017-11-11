@@ -8,14 +8,32 @@ public class TestingExample extends TrainingExample {
 	private Feature feature;
 	private KNN knn;
 	private int k;
-	private Example examplemanager;
+	private Example exampleManager;
 
 	public TestingExample(Feature feature, int k, Example eM) {
 		this.k = k;
 		this.feature = feature;
-		examplemanager = eM;
+		exampleManager = eM;
 	}
+	public void updateDistances(){
+		Distance.update();
+	}
+	
+	public void PredictFeature(Feature F){
 
+		//sujective f
+		if(exampleManager.checkSubjective(F)){
+			//feaure.setname(distance.getdistances(F));
+			//
+		}
+		if(exampleManager.checkAbsolute(F)){
+			//distance.getEucleadianaverage(F);
+			//feature.setNumValue(//dsitanceaverage);
+		}
+		if(exampleManager.checkEuclidean(F)){
+			//distance.getEucleadianAverage(F);
+			//feature.setCorX(distance.getXaverage);
+		}
 
-
+	}
 }
