@@ -1,35 +1,35 @@
-import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 public class Example {
-	ArrayList<TrainingExample> trainingExamples;
+	DefaultListModel<TrainingExample> trainingExamples;
 
-	ArrayList<TestingExample> testExamples;
-	ArrayList<String> type;
+	DefaultListModel<TestingExample> testExamples;
+	DefaultListModel<String> type;
 	// ArrayList<ArrayList<String>>rank;
-	ArrayList<Rank> rank;
+	DefaultListModel<Rank> rank;
 	// ArrayList<String>rank;//Rank for subjective features
 
 	public Example() {
-		trainingExamples = new ArrayList<TrainingExample>();
-		testExamples = new ArrayList<TestingExample>();
-		type = new ArrayList<String>();
-		rank = new ArrayList<Rank>();
+		trainingExamples = new DefaultListModel<TrainingExample>();
+		testExamples = new DefaultListModel<TestingExample>();
+		type = new DefaultListModel<String>();
+		rank = new DefaultListModel<Rank>();
 	}
 
 	public void addTrainingExample(TrainingExample example) {
-		trainingExamples.add(example);
+		trainingExamples.addElement(example);
 		//?abstractkey(example);
 	}
 
-	public ArrayList<TrainingExample> getTrainingExamples() {
+	public DefaultListModel<TrainingExample> getTrainingExamples() {
 		return trainingExamples;
 	}
 
 	public void addTestingExample(TestingExample example) {
-		testExamples.add(example);
+		testExamples.addElement(example);
 	}
 
-	public ArrayList<TestingExample> getTestingExample() {
+	public DefaultListModel<TestingExample> getTestingExample() {
 		return testExamples;
 	}
 //createFeatureType
@@ -38,9 +38,9 @@ public class Example {
 		for (int i = 0; i < example.getNameSet().size(); i++) {
 			if (!type.contains(example.getNameSet().get(i))) {
 				if (checkSubjective(example.getFeature(example.getNameSet().get(i)))) {
-					type.add(example.getNameSet().get(i));
+					type.addElement(example.getNameSet().get(i));
 				} else
-					type.add(example.getNameSet().get(i));
+					type.addElement(example.getNameSet().get(i));
 			} // else print error message that there is exist name;
 
 			/*
@@ -65,7 +65,7 @@ public class Example {
 			}
 		}
 		if (flag) {
-			rank.add(new Rank(featureName, feature));
+			rank.addElement(new Rank(featureName, feature));
 		} else {
 			System.out.println("There is existing feature Name");
 		}

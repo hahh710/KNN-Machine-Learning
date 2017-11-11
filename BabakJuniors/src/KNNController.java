@@ -30,7 +30,7 @@ public class KNNController implements ActionListener {
 			 
 			 testingN = new TestingExample(null, 0, example);
 
-			 testingExample = new JList< >(testingN.testingExample);
+			 testingExample = new JList< >(example.testingN);
 			
 			// view.add(testingExample);
 
