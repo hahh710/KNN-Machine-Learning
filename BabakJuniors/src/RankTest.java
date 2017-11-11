@@ -14,7 +14,6 @@ public class RankTest {
 	public void setUp() throws Exception {
 		feature = new Feature("test");
 		rank = new Rank("Name", feature);
-		
 		//rank = new Rank(test);
 	}
 

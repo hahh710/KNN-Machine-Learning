@@ -15,9 +15,10 @@ public class TestingExample extends TrainingExample {
 		this.feature = feature;
 		exampleManager = eM;
 	}
+	
 	public void updateDistances(){
 		Distance.update();
-	}
+	} 
 	
 	public void PredictFeature(Feature F){
 

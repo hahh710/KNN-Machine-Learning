@@ -9,7 +9,7 @@ public class FeatureTest {
 	Feature feature;
 	Feature featureF;
 	Feature featureC;
-	Object featureFloat;
+	float featureFloat;
 
 	@Before
 	public void setUp() throws Exception {
@@ -37,14 +37,14 @@ public class FeatureTest {
 
 	@Test
 	public void testgetNumValue() {
-		assertEquals("The number value is 5", 5, feature.getNumValue());
+		assertEquals("The number value is 5", featureFloat , feature.getNumValue());
 
 	}
 	
 	@Test
 	public void testsetNumValue() {
 		featureF.setNumValue(featureFloat);
-		assertEquals("tests new value is 12", 12, featureF.setNumValue(featureFloat));
+		assertEquals("tests new value is 12", featureFloat, featureF.setNumValue(featureFloat));
 	}
 	
 	

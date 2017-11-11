@@ -9,8 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	TestingExampleTest.class,
 	TrainingExampleTest.class,
 	ExampleTest.class,
-	DistanceTest.class,
-	ExampleManagerTest.class
+	DistanceTest.class
 })
 
 public class AllTests {

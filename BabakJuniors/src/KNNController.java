@@ -5,10 +5,11 @@ import javax.swing.*;
 public class KNNController implements ActionListener {
 
 	 private KNNView view;
-	 private JList <TestingExample>testingExample;
+	 private JList<Example> testingExample;
 	 private JList <TrainingExample>trainingExample;
 	 private JList<Feature> feature;
 	 private Example example;
+	 private TestingExample testingN;
 
 	public KNNController() {
 		this.view = view;
@@ -16,6 +17,7 @@ public class KNNController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
+		
 		if(event.getActionCommand().equals("Create Example")) {
 			 view.getTestExample().setEnabled(true);
 			 view.getTrainExample().setEnabled(true);
@@ -26,15 +28,15 @@ public class KNNController implements ActionListener {
 			
 			 
 			 
-			// TestingExample testingExample = new TestingExample();
+			 testingN = new TestingExample(null, 0, example);
 
-			 //testingExample = new JList< >(TestingExample.testingExample);
-//			
-//			 view.add(testingExample);
-//
-//			 testingExample.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//
-//			 String name = JOptionPane.showInputDialog(null, "What is testing examples name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
+			 testingExample = new JList< >(testingN.testingExample);
+			
+			// view.add(testingExample);
+
+			 testingExample.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+			 String name = JOptionPane.showInputDialog(null, "What is testing examples name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
 
 		} else if (event.getActionCommand().equals("Create Training Feature")) {
 
