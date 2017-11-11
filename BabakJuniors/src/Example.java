@@ -88,4 +88,16 @@ public class Example {
 		else
 			return false;
 	}
+	public boolean checkAbsolute(Feature feature) {
+		if (feature.getNumValue()!=null)
+			return true;
+		else
+			return false;
+	}
+	public boolean checkEuclidean(Feature feature) {
+		if (feature.getCorX()!=null && feature.getCorY()!=null)
+			return true;
+		else
+			return false;
+	
 }
