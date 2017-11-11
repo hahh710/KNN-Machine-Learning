@@ -55,4 +55,7 @@ public class TrainingExample {
 	public ArrayList<String> getNameSet(){
 		return this.nameSet;
 	}
+	public HashMap<String,Feature> getAllFeatures(){
+		return map;
+	}
 }
