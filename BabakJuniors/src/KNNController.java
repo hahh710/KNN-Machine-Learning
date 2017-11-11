@@ -26,7 +26,7 @@ public class KNNController implements ActionListener {
 		}
 		else if (event.getActionCommand().equals("Create Testing Example")) {
 			
-			 
+			 //Enter the knn value...create an option dialogue box here...
 			 
 			 testingN = new TestingExample(null, 0, example);
 

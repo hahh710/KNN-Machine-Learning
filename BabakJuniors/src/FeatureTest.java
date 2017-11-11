@@ -6,7 +6,7 @@ import org.junit.Test;
 
 
 public class FeatureTest {
-	Feature feature;
+	Feature featureS;
 	Feature featureF;
 	Feature featureC;
 	float featureFloat;
@@ -25,13 +25,15 @@ public class FeatureTest {
 
 	@Test
 	public void testFeature() {
-		assertNotNull("Feature class is not null", feature);
+		assertNotNull("Feature class is not null", featureS);
+		assertNotNull("Feature class is not null", featureC);
+		assertNotNull("Feature class is not null", featureF);
 
 	}
 
 	@Test
 	public void testgetStringValue() {
-		assertEquals("Features name should be test", "test", feature.getStringValue());
+		assertEquals("Features name should be test", "test", featureS.getStringValue());
 		
 	}
 
