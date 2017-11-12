@@ -1,7 +1,7 @@
 
 import static org.junit.Assert.*;
 
-import javax.swing.DefaultListModel;
+
 
 import org.junit.After;
 import org.junit.Before;

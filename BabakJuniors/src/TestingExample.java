@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 public class TestingExample extends TrainingExample {
 
@@ -26,7 +26,7 @@ public class TestingExample extends TrainingExample {
 		String fName = f.getFName();
 		int count = 0;
 		exampleManager.getTrainingExamples();
-		// sujective f
+		// Subjective f
 		if (exampleManager.checkSubjective(f)) {
 			int position = 0;
 			for (TrainingExample t :knn.getNN()) {

@@ -4,7 +4,7 @@ import javax.swing.DefaultListModel;
 
 public class Example {
 	DefaultListModel<TrainingExample> trainingExamples;
-	DefaultListModel<TrainingExample> trainingExamplesModel;
+	ArrayList<TrainingExample> trainingExamplesModel;
 	DefaultListModel<TestingExample> testExamples;
 	DefaultListModel<String> type;
 	//ArrayList<ArrayList<String>>rank;
@@ -13,7 +13,7 @@ public class Example {
 
 	public Example() {
 		trainingExamples = new DefaultListModel<TrainingExample>();
-		trainingExamplesModel = new DefaultListModel<TrainingExample>();
+		trainingExamplesModel = new ArrayList<TrainingExample>();
 		testExamples = new DefaultListModel<TestingExample>();
 		type = new DefaultListModel<String>();
 		rank = new DefaultListModel<Rank>();
@@ -21,14 +21,14 @@ public class Example {
 
 	public void addTrainingExample(TrainingExample example) {
 		trainingExamples.addElement(example);
-		trainingExamplesModel.addElement(example);
+		trainingExamplesModel.add(example);
 		//?abstractkey(example);
 	}
 
 	public DefaultListModel<TrainingExample> getTrainingExamples() {
 		return trainingExamples;
 	}
-	public DefaultListModel<TrainingExample> getTrainingExamplesModel(){
+	public ArrayList<TrainingExample> getTrainingExamplesModel(){
 		return trainingExamplesModel;
 	}
 	public void addTestingExample(TestingExample example) {
