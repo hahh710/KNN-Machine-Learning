@@ -29,7 +29,7 @@ public class KNNController implements ActionListener {
 		else if (event.getActionCommand().equals("Create Testing Example")) {
 			
 			 //Enter the knn value...create an option dialogue box here...
-			// String name = JOptionPane.showInputDialog(null, "What is testing examples name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
+			 //String name = JOptionPane.showInputDialog(null, "What is testing examples name?", "Input feature's Name", JOptionPane.QUESTION_MESSAGE);
 
 			 	testingExamples = new JList<>(example.testExamples);
 			 	view.add(testingExamples);
@@ -41,15 +41,17 @@ public class KNNController implements ActionListener {
 				example.addTestingExample(a);
 
 
-		} else if (event.getActionCommand().equals("Create Training Feature")) {
+		} else if (event.getActionCommand().equals("Create Training Example")) {
 			
 			 trainingExample = new JList<>(example.trainingExamples);
-			 view.add(trainingExample);
+			 //view.add(trainingExample);
 		
 
 			 trainingExample.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-			 TrainingExample b = new TestingExample(null, 0, example);
+			 TrainingExample b = new TrainingExample();
+			 b.createExample("name");
+			 b.addFeature("colour", new Feature("colour","red"));
 			 example.addTrainingExample(b);
 
 		} else if (event.getActionCommand().equals("Add Feature")) {

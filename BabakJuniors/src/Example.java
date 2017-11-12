@@ -7,9 +7,9 @@ public class Example {
 
 	DefaultListModel<TestingExample> testExamples;
 	DefaultListModel<String> type;
-	// ArrayList<ArrayList<String>>rank;
+	//ArrayList<ArrayList<String>>rank;
 	DefaultListModel<Rank> rank;
-	// ArrayList<String>rank;//Rank for subjective features
+	//ArrayList<String>rank;//Rank for subjective features
 
 	public Example() {
 		trainingExamples = new DefaultListModel<TrainingExample>();
