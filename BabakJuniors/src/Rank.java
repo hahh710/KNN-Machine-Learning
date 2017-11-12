@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Rank {
 	private String name;
 	private ArrayList<Feature>list;
+	
 	public Rank(String name,Feature feature){
 		this.name = name;
 		list = new ArrayList<Feature>();

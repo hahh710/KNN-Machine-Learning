@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class TrainingExample {
 	private String exampleName;
-	private HashMap<String,Feature> map; 
+	private HashMap<String,Feature> feature; 
 	private ArrayList<String>nameSet;
 
 	public TrainingExample(){
@@ -13,12 +13,12 @@ public class TrainingExample {
 	
 	public void createExample(String name){
 		this.exampleName = name;
-		map = new HashMap<String,Feature>();
+		feature = new HashMap<String,Feature>();
 		nameSet = new ArrayList<String>();
 	}
 	public void addFeature(String keyname,Feature value){
-		if(!map.containsKey(keyname)) {
-			map.put(keyname, value);
+		if(!feature.containsKey(keyname)) {
+			feature.put(keyname, value);
 			nameSet.add(keyname);
 		}else{
 			System.out.println("There is same name of feature");// print this statement in 
@@ -26,26 +26,26 @@ public class TrainingExample {
 		
 	}
 	public Feature getFeature(String keyname){
-		return map.get(keyname);
+		return feature.get(keyname);
 	}
 	public void removeFeature(String keyname){
-		map.remove(keyname);
+		feature.remove(keyname);
 	}
 	public String getExampleName(){
 		return exampleName;
 	}
 	public void editFeature(String keyname, Feature value){
-		map.replace(keyname, value);
+		feature.replace(keyname, value);
 	}
 	public void editExampleName(String name){
 		exampleName = name;
 	}
 	public boolean checkKeyName(String keyname){
-		return map.containsKey(keyname);
+		return feature.containsKey(keyname);
 	}
 	public String getKeyName(Feature value){
-	    for(String key : map.keySet()){
-	        if(map.get(key).equals(value)){
+	    for(String key : feature.keySet()){
+	        if(feature.get(key).equals(value)){
 	            return key;
 	        }
 	    }
@@ -56,6 +56,14 @@ public class TrainingExample {
 		return this.nameSet;
 	}
 	public HashMap<String,Feature> getAllFeatures(){
-		return map;
+		return feature;
+	}
+	
+	public String featureToString(){
+		String tostring = null;
+		for(int i =0;i<nameSet.size();i++){
+			tostring = tostring + nameSet.get(i) + " : " + feature.get(nameSet.get(i)).toString() + "\n" ;
+		}
+		return tostring;
 	}
 }

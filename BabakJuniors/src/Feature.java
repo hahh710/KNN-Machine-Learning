@@ -1,23 +1,26 @@
-
 public class Feature {
+	private String fname;
 	private String stringValue;
 	private Float numValue;
 	private Integer corX;
 	private Integer corY;
 	
-	public Feature(String s){
+	public Feature(String fname,String s){
+		this.fname = fname;
 		stringValue = s;
 		numValue = null;
 		corX = null;
 		corY = null;
 	}
-	public Feature (Float num){
+	public Feature (String fname, Float num){
+		this.fname = fname;
 		stringValue=null;
 		numValue=num;
 		corX = null;
 		corY = null;
 	}
-	public Feature (Integer corX,Integer corY){
+	public Feature (String fname,Integer corX,Integer corY){
+		this.fname = fname;
 		stringValue=null;
 		numValue=null;
 		this.corX = corX;
@@ -49,6 +52,18 @@ public class Feature {
 	}
 	public void setCorY(Integer corY) {
 		this.corY = corY;
+	}
+	public String getFeatureName(){
+		return fname;
+	}
+	public String toString(){
+		if(stringValue != null){
+			return stringValue;
+		}else if(numValue != null){
+			return numValue.toString();
+		}else{
+			return "(" + corX.toString() + "," +corY.toString()+ ")";
+		}
 	}
 	
 }

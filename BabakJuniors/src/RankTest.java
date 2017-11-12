@@ -12,7 +12,7 @@ public class RankTest {
 
 	@Before
 	public void setUp() throws Exception {
-		feature = new Feature("test");
+		//feature = new Feature(, null);
 		rank = new Rank("Name", feature);
 		//rank = new Rank(test);
 	}
