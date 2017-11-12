@@ -62,26 +62,46 @@ public class KNNController implements ActionListener {
 			 	example.addTrainingExample(b);
 
 		} else if (event.getActionCommand().equals("Add Feature")) {
-
+				
 			 	String featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
-			 	//get the feature type 
-			 	//set it to a string, int or coordinates
-			 	b.addFeature(featureName, new Feature("Enter the feature amount here"));
+			 	
+			 	//gets key for hashmap in training example --> trainingexample.getfeatures.replace(fname, new Feature(value they input)
+			 	// 
+			 	
+			 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
+			 	
+			 	if(featureType.equals("1")) {
+			 		String featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
+				 	b.addFeature(featureName, new Feature(featureSValue));
+			 	}
+			 	
+			 	if(featureType.equals("2")) {
+			 	float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+			 	b.addFeature(featureName, new Feature(featureIValue));
+			 	}
+			 	
+			 	if(featureType.equals("3")) {
+			 		int featureXValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is X-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+			 		int featureYValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is Y-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+
+				 	b.addFeature(featureName, new Feature(featureXValue,featureYValue));
+			 	}
+			 	
 
 		} else if (event.getActionCommand().equals("Edit Testing Example")) {
 			
-				//TestingExample editTest = example.getTestingExample();
-				//String editName = editTest.getExampleName();
+				DefaultListModel<TestingExample> editTest = example.getTestingExample();
+				//String editName = editTest.getTrainingExampleName();
 			
 				//String editTestName = JOptionPane.showInputDialog(null, "What is " + editName + "'s new name?", "Input " + editName + "'s new name", JOptionPane.QUESTION_MESSAGE);
 			
-				//editTest.setTrainName(editTestName);
+				//editTest.setTestName(editTestName);
 
 
 
 		} else if (event.getActionCommand().equals("Edit Training Example")) {
 
-				//TrainingExample editTrain = example.getTrainingExample();
+				DefaultListModel <TrainingExample> editTrain = example.getTrainingExamples();
 				//String editName = editTrain.getExampleName();
 				
 				//String editTrainName = JOptionPane.showInputDialog(null, "What is " + editName + "'s new name?", "Input " + editName + "'s new name", JOptionPane.QUESTION_MESSAGE);
