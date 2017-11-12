@@ -2,22 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * KNN
+ * an instance of KNN belongs to each instance of testing example
  *
  * @Authors: Jeff Tudor
- * @Purpose: Determine the price of a house given its house attributes compared
- *           to similar houses
+ * @Purpose: Determine the nearest neighbors of a given testing example, given a certain K
  *
- * @field variables houses: A collection of houses with known attributes and
- *        price nearestNeighbors: A collection of houses used to determine the
- *        price of a certain house
+ * @field variables
+ * - nearestNeighbors ArrayList<TrainingExamples>: represents the list of nearest neighbors
+ * - k int: represents the number of nearest neighbors
+ * - testEx Testing Example: represents the reference to the owner of this instance
  * 
- * @methods main: findKNN: findDistance: findPrice:
+ * @methods 
+ *+getNN: returns the list of NN --> resets list of NN, then calls findKNN
+ *+findKNN: the algorithm which determines which are the nearest neighbors, using distance from owner (testing example)
+ *+setK: set the value of K, when k changes, NN will be called and automattically update KNN
  *
  *
- *the KNN class will be called from a testing example to find its nearest neighbors
- *
- *finds neighbors of a test example from a list of training example
  */
 public class KNN {
 	private ArrayList<TrainingExample> nearestNeighbors;
@@ -28,9 +28,13 @@ public class KNN {
 		this.testEx=testEx;
 		nearestNeighbors = new ArrayList<TrainingExample>();
 	}
-	public List<TrainingExample> getNN() {
+	/**getNN() will call findKNN and return determined list of nearest neighbors
+	 * 
+	 * @return list of Nearest Neighbors
+	 */
+	public ArrayList<TrainingExample> getNN() {
 		nearestNeighbors.clear();
-		findKNN(k, testEx, testEx.getExample().getTrainingExamples());
+		findKNN(k, testEx.getExample().getTrainingExamplesModel());
 		return nearestNeighbors;
 	}
 
@@ -38,28 +42,23 @@ public class KNN {
 	/**
 	 * findKNN
 	 * 
-	 * @param -an
-	 *            integer k representing the number of neighbors looked at to
-	 *            determine price of new house -an object of type House, called
-	 *            newHouse which will be compared against other houses
-	 *
-	 *            1. Reset list of nearestNeighbors right before function
-	 *            call*smelly needs fixing 2. Iterate through the collection of
-	 *            houses and append the one with shortest distance to the new
-	 *            house 3. Repeat the process on the same collection less the
-	 *            appended house 4. Repeat k times
+	 * @param 
+	 * effK: the effecting k value as k will change with recursive calls
+	 * potentialNN: the list of potential training examples to be added as nearest neighbors
+	 * 
+	 *   Recursively find the training example with the smallest distance to the testing example
+	 *   Calls itself recursively k times
 	 * 
 	 */
-	public void findKNN(int k, TestingExample testEx, ArrayList<TrainingExample> potentialNN) {
+	public void findKNN(int effK, ArrayList<TrainingExample> potentialNN) {
 		TrainingExample nearestNeighbor = new TrainingExample();
-		if (k > 0) { // if K>0 then must find nearestNeighbor and append to list
+		if (effK > 0) { // if K>0 then must find nearestNeighbor and append to list
 						// of NN
 			float distance = -1;
 			float smallestDistance = -1;
 			for (TrainingExample t : potentialNN) {
 				distance = testEx.getDistances().findDistance(testEx, t);
-				if (smallestDistance == -1) {// first house in list will
-												// initially be NN
+				if (smallestDistance == -1) {// first house in list will initially be NN
 					smallestDistance = distance;
 					nearestNeighbor = t;
 				}
@@ -73,13 +72,20 @@ public class KNN {
 			for (TrainingExample t : potentialNN) {
 				newPotentialNN.add(t);
 			}
-			newPotentialNN.remove(nearestNeighbor);// remove the determined
-													// nearestNeighbor
-			findKNN(k - 1, testEx, newPotentialNN);// Recursively call until k
-														// neighbors have been
-														// determined
+			newPotentialNN.remove(nearestNeighbor);// remove the determined nearestNeighbor
+			findKNN(effK - 1, newPotentialNN);// Recursively call until k neighbors have been determined
 		}
 
 		// K nearest neighbors have been determined
+	}
+	/**
+	 * 
+	 * @param n: represents new K value
+	 * @return return updated list of NN
+	 * Changing the k value will automatically update the nearest neighbors 
+	 */
+	public ArrayList<TrainingExample> setK(int n) {
+		k=n;
+		return getNN();
 	}
 }
