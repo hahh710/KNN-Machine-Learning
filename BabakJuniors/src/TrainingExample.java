@@ -53,14 +53,19 @@ public class TrainingExample {
 	    }
 	    return null; // or prompt error message. 
 	}
-	//
+	
 	public DefaultListModel<String> getNameSet(){
 		return this.nameSet;
 	}
 	public HashMap<String,Feature> getAllFeatures(){
 		return feature;
 	}
-	
+	public String getTrainingExampleName(){
+		return exampleName;
+	}
+	public void setTrainingExampleName(String name){
+		exampleName = name;
+	}
 	public String ToString(){
 		String tostring = " ";
 		for(int i =0;i < nameSet.size(); i++){
