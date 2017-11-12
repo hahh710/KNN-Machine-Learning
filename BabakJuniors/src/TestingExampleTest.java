@@ -36,7 +36,9 @@ public class TestingExampleTest {
 
 	@Test
 	public void testgetDistance() {
-		assertEquals("Features name should be test", "test", featureS.getStringValue());
+		assertNotNull("Distances should not null",testingExampleS.getDistances());
+		assertNotNull("Distances should not null",testingExampleN.getDistances());
+		assertNotNull("Distances should not null",testingExampleC.getDistances());
 	}
 
 	@Test

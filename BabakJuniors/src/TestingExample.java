@@ -70,5 +70,6 @@ public class TestingExample extends TrainingExample {
 	}
 	public void setK(int k) {
 		this.k = k;
+		knn.setK(k);
 	}
 }
