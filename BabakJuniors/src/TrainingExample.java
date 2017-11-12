@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.DefaultListModel;
+
 
 public class TrainingExample {
 	private String exampleName;
 	private HashMap<String,Feature> feature; 
-	private ArrayList<String>nameSet;
+	private DefaultListModel<String>nameSet;
 
 	public TrainingExample(){
 		exampleName = null;
@@ -14,12 +16,12 @@ public class TrainingExample {
 	public void createExample(String name){
 		this.exampleName = name;
 		feature = new HashMap<String,Feature>();
-		nameSet = new ArrayList<String>();
+		nameSet = new DefaultListModel<String>();
 	}
 	public void addFeature(String keyname,Feature value){
 		if(!feature.containsKey(keyname)) {
 			feature.put(keyname, value);
-			nameSet.add(keyname);
+			nameSet.addElement(keyname);
 		}else{
 			System.out.println("There is same name of feature");// print this statement in 
 		}
@@ -52,7 +54,7 @@ public class TrainingExample {
 	    return null; // or prompt error message. 
 	}
 	//
-	public ArrayList<String> getNameSet(){
+	public DefaultListModel<String> getNameSet(){
 		return this.nameSet;
 	}
 	public HashMap<String,Feature> getAllFeatures(){
@@ -62,7 +64,7 @@ public class TrainingExample {
 	public String ToString(){
 		String tostring = " ";
 		for(int i =0;i < nameSet.size(); i++){
-			tostring += nameSet.get(i).toString() + " : " + feature.get(nameSet.get(i)).toString() + "\n" ;
+			tostring += nameSet.get(i) + " : " + feature.get(nameSet.get(i)) + "\n" ;
 		}
 		return tostring;
 	}

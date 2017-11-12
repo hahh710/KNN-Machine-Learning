@@ -15,7 +15,7 @@ public class KNNView extends JFrame{
 
 	private JPanel trainingPanel, testingPanel ;
 	private JButton predict;
-	private JMenuItem createTrainExample,createTestExample,editTestExample,editTrainExample,addFeature,createExample;
+	private JMenuItem createTrainExample,createTestExample,editTestExample,editTrainExample,addFeature,createExample,restart;
 	private JMenu trainExample,testExample,example;
 
 	
@@ -69,6 +69,9 @@ public class KNNView extends JFrame{
 		
 		createExample = new JMenuItem("Create Example");
 		createExample.addActionListener(controller);
+		
+		restart = new JMenuItem("Restart");
+		restart.addActionListener(controller);
 
 		createTrainExample = new JMenuItem("Create Training Example");
 		createTrainExample.setEnabled(false);
@@ -92,6 +95,7 @@ public class KNNView extends JFrame{
 		
 		
 		example.add(createExample);
+		example.add(restart);
 		trainExample.add(createTrainExample);
 		testExample.add(createTestExample);
 		testExample.add(addFeature);
@@ -137,6 +141,7 @@ public class KNNView extends JFrame{
 	public JMenuItem getTestExample() {
 		return createTestExample;
 	}
+	
 	
 	public static void main(String args[]) {
 		new KNNView();
