@@ -59,10 +59,10 @@ public class TrainingExample {
 		return feature;
 	}
 	
-	public String featureToString(){
-		String tostring = null;
-		for(int i =0;i<nameSet.size();i++){
-			tostring = tostring + nameSet.get(i) + " : " + feature.get(nameSet.get(i)).toString() + "\n" ;
+	public String ToString(){
+		String tostring = " ";
+		for(int i =0;i < nameSet.size(); i++){
+			tostring += nameSet.get(i).toString() + " : " + feature.get(nameSet.get(i)).toString() + "\n" ;
 		}
 		return tostring;
 	}

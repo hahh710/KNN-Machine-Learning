@@ -13,11 +13,10 @@ public class KNNView extends JFrame{
 	
 	private KNNController controller;
 
-	
+	private JPanel trainingPanel, testingPanel ;
 	private JButton predict;
 	private JMenuItem createTrainExample,createTestExample,editTestExample,editTrainExample,addFeature,createExample;
 	private JMenu trainExample,testExample,example;
-	
 
 	
 	public KNNView() {
@@ -38,13 +37,14 @@ public class KNNView extends JFrame{
 		testExample = new JMenu("TestExample");
 		
 	
-		GridLayout layout = new GridLayout(2, 1);
+		GridLayout layout = new GridLayout(2,2);
 		this.setLayout(layout);
 
-		JPanel trainingPanel = new JPanel();
+		trainingPanel = new JPanel(new BorderLayout());
 		trainingPanel.setBackground(java.awt.Color.WHITE);
+		
 
-		JPanel testingPanel = new JPanel(new BorderLayout());
+		testingPanel = new JPanel(new BorderLayout());
 		testingPanel.setBackground(java.awt.Color.WHITE);
 		
 		
@@ -65,7 +65,6 @@ public class KNNView extends JFrame{
 		predict = new JButton("Predict");
 		predict.setSize(10,10);
 		predict.addActionListener(controller);
-		
 		
 		
 		createExample = new JMenuItem("Create Example");
@@ -100,7 +99,6 @@ public class KNNView extends JFrame{
 		testExample.add(editTestExample);
 		trainExample.add(editTrainExample);
 		
-		
 		testingPanel.add(predict,BorderLayout.SOUTH);
 		
 	
@@ -110,6 +108,14 @@ public class KNNView extends JFrame{
 	
 	public JMenuItem getAddFeature() {
 		return addFeature;
+	}
+	
+	public JPanel getTrainingPanel() {
+		return trainingPanel;
+	}
+	
+	public JPanel getTestingPanel() {
+		return testingPanel;
 	}
 	
 	public JMenuItem getTrainEdit() {
