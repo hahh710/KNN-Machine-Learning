@@ -27,4 +27,8 @@ public class Rank {
 	public ArrayList<Feature> getlist(){
 		return list;
 	}
+	public int getPosition(String stringValue) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

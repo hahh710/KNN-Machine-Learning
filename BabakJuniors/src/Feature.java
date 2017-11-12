@@ -4,7 +4,8 @@ public class Feature {
 	private Float numValue;
 	private Integer corX;
 	private Integer corY;
-	
+	private Rank rankList;
+	private String fName;
 	public Feature(String s){
 		stringValue = s;
 		numValue = null;
@@ -50,5 +51,10 @@ public class Feature {
 	public void setCorY(Integer corY) {
 		this.corY = corY;
 	}
-	
+	public String getFName(){
+		return fName;
+	}
+	public int getRank() {
+		return rankList.getPosition(stringValue);
+	}
 }

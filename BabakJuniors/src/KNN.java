@@ -30,12 +30,10 @@ public class KNN {
 	}
 	public List<TrainingExample> getNN() {
 		nearestNeighbors.clear();
-		findKNN(k, testEx, testEx.getExampleManager().getTrainingExamples());
+		findKNN(k, testEx, testEx.getExample().getTrainingExamples());
 		return nearestNeighbors;
 	}
-	public void setNearestNeighbors(List<House> nearestNeighbors) {
-		this.nearestNeighbors = nearestNeighbors;
-	}
+
 
 	/**
 	 * findKNN
@@ -59,7 +57,7 @@ public class KNN {
 			float distance = -1;
 			float smallestDistance = -1;
 			for (TrainingExample t : potentialNN) {
-				distance = testEx.getDistances().findDistance(t, testEx);
+				distance = testEx.getDistances().findDistance(testEx, t);
 				if (smallestDistance == -1) {// first house in list will
 												// initially be NN
 					smallestDistance = distance;

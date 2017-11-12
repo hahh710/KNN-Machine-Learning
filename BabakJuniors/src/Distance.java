@@ -74,10 +74,12 @@ public class Distance {
 		distances.clear();
 		int index=0;
 		int lookUpTableFlag =0;
-		for (Feature f: testEx.getFeatures()) {
-			distances.put(f.getName(), new ArrayList<Float>());
+		for (Feature f: testEx.getAllFeatures()) {
+			distances.put(f.getFName(), new ArrayList<Float>());
 		}
-		for (Feature f: testEx.getFeatures()) {
+	//	for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) 
+		
+		for (Feature f: testEx.getAllFeatures()) {
 			for(TrainingExample t: testEx.getExample().getTrainingExamples()) {
 				if(lookUpTableFlag==0) {
 					lookUpTable.put(t, index);

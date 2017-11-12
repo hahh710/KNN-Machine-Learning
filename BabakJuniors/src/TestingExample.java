@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javax.swing.DefaultListModel;
-
 public class TestingExample extends TrainingExample {
 
 	private Distance distances;
@@ -15,48 +13,53 @@ public class TestingExample extends TrainingExample {
 		this.feature = feature;
 		exampleManager = eM;
 	}
-	public void updateDistances(){
-		Distance.update();
+	public Distance getDistances(){
+		return distances;
 	}
-	
-	public void PredictFeature(Feature f){
-		String fName=f.getFName();
-		int count=0;
+	public void updateDistances() {
+		distances.updateDistances();
+	}
+	public Example getExample(){
+		return exampleManager;
+	}
+	public void PredictFeature(Feature f) {
+		String fName = f.getFName();
+		int count = 0;
 		exampleManager.getTrainingExamples();
-		//sujective f
-		if(exampleManager.checkSubjective(f)){
-			int position=0;
-			for(TrainingExample t: KNN.getNN()){
-				position+=t.getAllFeatures().get(fName).getRank();
+		// sujective f
+		if (exampleManager.checkSubjective(f)) {
+			int position = 0;
+			for (TrainingExample t :knn.getNN()) {
+				position += t.getAllFeatures().get(fName).getRank();
 				count++;
 			}
-			position=position/count;
+			position = position / count;
 			//
-			//feaure.setname(distance.getdistances(F));
+			// feaure.setname(distance.getdistances(F));
 			//
 		}
-		if(exampleManager.checkAbsolute(f)){
-			int sum=0;
-			for(TrainingExample t: KNN.getNN()){
-				sum+=t.getAllFeatures().get(fName).getNumValue();
+		if (exampleManager.checkAbsolute(f)) {
+			int sum = 0;
+			for (TrainingExample t : knn.getNN()) {
+				sum += t.getAllFeatures().get(fName).getNumValue();
 				count++;
 			}
-			sum=sum/count;
-			//distance.getEucleadianaverage(F);
-			//feature.setNumValue(//dsitanceaverage);
+			sum = sum / count;
+			feature.setNumValue((float) sum);
 		}
-		if(exampleManager.checkEuclidean(f)){
-			int xSum=0;
-			int ySum=0;
-			for(TrainingExample t: KNN.getNN()){
-				xSum+=t.getAllFeatures().get(fName).getCorX();
-				ySum+=t.getAllFeatures().get(fName).getCorY();
+		if (exampleManager.checkEuclidean(f)) {
+			int xSum = 0;
+			int ySum = 0;
+			for (TrainingExample t : knn.getNN()) {
+				xSum += t.getAllFeatures().get(fName).getCorX();
+				ySum += t.getAllFeatures().get(fName).getCorY();
 				count++;
 			}
-			xSum=xSum/count;
-			ySum=ySum/count;
-			//distance.getEucleadianAverage(F);
-			//feature.setCorX(distance.getXaverage);
+			xSum = xSum / count;
+			ySum = ySum / count;
+
+			feature.setCorX(xSum);
+			feature.setCorY(ySum);
 		}
 
 	}
