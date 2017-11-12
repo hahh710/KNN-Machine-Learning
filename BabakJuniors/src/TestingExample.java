@@ -9,15 +9,14 @@ public class TestingExample extends TrainingExample {
 	private Example exampleManager;
 
 	public TestingExample(Feature feature, int k, Example eM) {
-		this.k = k;
+		this.setK(k);
 		this.feature = feature;
 		exampleManager = eM;
+		distances=new Distance(this);
+		knn = new KNN(k, this);
 	}
 	public Distance getDistances(){
 		return distances;
-	}
-	public void updateDistances() {
-		distances.updateDistances();
 	}
 	public Example getExample(){
 		return exampleManager;
@@ -25,6 +24,8 @@ public class TestingExample extends TrainingExample {
 	public void PredictFeature(Feature f) {
 		String fName = f.getFName();
 		int count = 0;
+		distances.updateDistances();
+		knn.getNN();
 		exampleManager.getTrainingExamples();
 		// Subjective f
 		if (exampleManager.checkSubjective(f)) {
@@ -34,8 +35,9 @@ public class TestingExample extends TrainingExample {
 				count++;
 			}
 			position = position / count;
-			//
-			// feaure.setname(distance.getdistances(F));
+			//getValueAtRank(position)
+			
+			feature.setStringValue(feature.getRankList().getValueAtRank(position));
 			//
 		}
 		if (exampleManager.checkAbsolute(f)) {
@@ -62,5 +64,11 @@ public class TestingExample extends TrainingExample {
 			feature.setCorY(ySum);
 		}
 
+	}
+	public int getK() {
+		return k;
+	}
+	public void setK(int k) {
+		this.k = k;
 	}
 }
