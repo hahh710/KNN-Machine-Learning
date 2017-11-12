@@ -35,8 +35,8 @@ public class TestingExampleTest {
 	}
 
 	@Test
-	public void testupdateDistance() {
-
+	public void testgetDistance() {
+		assertEquals("Features name should be test", "test", featureS.getStringValue());
 	}
 
 	@Test

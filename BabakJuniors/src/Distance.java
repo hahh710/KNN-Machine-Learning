@@ -33,7 +33,7 @@ public class Distance {
 	private Map<TrainingExample, Integer> lookUpTable;
 	private TestingExample testEx;
 	//initialize instance's variables
-	public Distance(TestingExample testingExample, ArrayList<TrainingExample> trainingExamples) {
+	public Distance(TestingExample testingExample) {
 		testEx= testingExample;
 		distances = new HashMap<String, ArrayList<Float>>();
 		normDist = new HashMap<String, ArrayList<Float>>();

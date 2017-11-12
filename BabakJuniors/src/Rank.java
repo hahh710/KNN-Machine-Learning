@@ -28,8 +28,11 @@ public class Rank {
 	public ArrayList<Feature> getlist(){
 		return list;
 	}
+	public String getValueAtRank(int r){
+		return list.get(r).getStringValue();
+	}
 	public int getPosition(String stringValue) {
 		// TODO Auto-generated method stub
-		return 0;
+		return list.indexOf(stringValue);
 	}
 }
