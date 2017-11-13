@@ -111,7 +111,7 @@ public class KNNController implements ActionListener {
 
 		}else if (event.getActionCommand().equals("Add Testing Feature")) {
 			 view.getFeatureTestEdit().setEnabled(true);
-	         
+			 view.getCalculateError().setEnabled(true); 
 	         
 	         
 	         
@@ -207,7 +207,7 @@ public class KNNController implements ActionListener {
 		 	
 
 		} else if (event.getActionCommand().equals("Predict")) {
-			view.getCalculateError().setEnabled(true);  
+			 
 			
 			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
 		 	int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
@@ -219,9 +219,10 @@ public class KNNController implements ActionListener {
 		}
 	else if (event.getActionCommand().equals("CalculateError")) {
 			
-			
+			String errorFeatureName = JOptionPane.showInputDialog(null, "What is the name of the feature you want to edit?", " Feature's name ", JOptionPane.QUESTION_MESSAGE);
 
-			//example.calculateError(tEx, f, k)
+			int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
+			example.calculateError(trainingEx, trainingEx.getAllFeatures().get(errorFeatureName), knn);
 			
 				
 		} else if (event.getActionCommand().equals("Restart")) {
