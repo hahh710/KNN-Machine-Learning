@@ -129,6 +129,16 @@ public TrainingExample getTrainingExampleIndex(int i) {
 			return trainingExamples.getElementAt(i);
 		}else return null;*/
 	}
+
+public TestingExample getTestingExampleIndex(int i) {
+	
+	return testingExamples.getElementAt(i);
+	/*
+	if (i >= 0 && i < trainingExamples.size()) {
+		return trainingExamples.getElementAt(i);
+	}else return null;*/
+}
+
 	
 	public String toString(){
 		String toString = "";

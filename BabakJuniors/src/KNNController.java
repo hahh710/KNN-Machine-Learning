@@ -97,7 +97,7 @@ public class KNNController implements ActionListener {
 		        
 	         //trainingEx = example.getTrainingExampleIndex(trainingExample.getSelectedIndex());
 	         int l = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
-	         trainingEx = example.getTrainingExampleIndex(l);
+	         testingEx = example.getTestingExampleIndex(l);
 
 	         
 	        
@@ -106,12 +106,12 @@ public class KNNController implements ActionListener {
 			
 		 	if(featureType.equals("1")) {
 		 		String featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
-			 	trainingEx.addFeature(featureName, new Feature(featureSValue));
+		 		testingEx.addFeature(featureName, new Feature(featureSValue));
 		 	}
 		 	
 		 	if(featureType.equals("2")) {
 		 		float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		trainingEx.addFeature(featureName, new Feature(featureIValue));
+		 		testingEx.addFeature(featureName, new Feature(featureIValue));
 		 		
 		 	}
 		 	
@@ -119,7 +119,7 @@ public class KNNController implements ActionListener {
 		 		int featureXValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is X-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
 		 		int featureYValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is Y-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
 
-			 	trainingEx.addFeature(featureName, new Feature(featureXValue,featureYValue));
+		 		testingEx.addFeature(featureName, new Feature(featureXValue,featureYValue));
 		 	}
 		 	
 
@@ -160,7 +160,7 @@ public class KNNController implements ActionListener {
 			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
 		 	int testFeatureType = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE));
 			
-			testingEx.predictFeature(testFeatureName, testFeatureType, 1);
+			testingEx.predictFeature(testFeatureName, testFeatureType, 2);
 			
 				
 		} else if (event.getActionCommand().equals("Restart")) {
