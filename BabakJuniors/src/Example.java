@@ -121,6 +121,15 @@ public class Example {
 			return false;
 	}
 	
+public TrainingExample getTrainingExampleIndex(int i) {
+		
+		return trainingExamples.getElementAt(i);
+		/*
+		if (i >= 0 && i < trainingExamples.size()) {
+			return trainingExamples.getElementAt(i);
+		}else return null;*/
+	}
+	
 	public String toString(){
 		String toString = "";
 		
