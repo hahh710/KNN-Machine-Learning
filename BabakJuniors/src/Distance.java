@@ -71,7 +71,8 @@ public class Distance {
 		int index = lookUpTable.get(trainExam);
 		int sum=0;
 		for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) {
-			sum+=entry.getValue().get(index);
+			if(entry.getValue().get(index)!=null)
+				sum+=entry.getValue().get(index);
 		}
 		return sum;
 	}
@@ -94,7 +95,8 @@ public class Distance {
 				}
 			}
 			for(Float f:entry.getValue()) {//for each element in array in entry
-				f=f/maxDistance;
+				if(f!=null)
+					f=f/maxDistance;
 			}
 		}
 	}
