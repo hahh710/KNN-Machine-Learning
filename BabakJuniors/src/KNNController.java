@@ -163,7 +163,7 @@ public class KNNController implements ActionListener {
 			view.getCalculateError().setEnabled(true);  
 			
 			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
-		 	int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the knn wanted?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
+		 	int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
 		 	int testFeatureType = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE));
 
 			testingEx.predictFeature(testFeatureName, testFeatureType, knn);
