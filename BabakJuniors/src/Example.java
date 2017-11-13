@@ -6,7 +6,7 @@ public class Example {
 	private DefaultListModel<TrainingExample> trainingExamples;
 	private ArrayList<TrainingExample> trainingExamplesModel;
 	private DefaultListModel<TestingExample> testingExamples;
-	private DefaultListModel<String> type;
+	private ArrayList<String> type;
 	//ArrayList<ArrayList<String>>rank;
 	private ArrayList<Rank> rank;
 	//ArrayList<String>rank;//Rank for subjective features
@@ -15,7 +15,7 @@ public class Example {
 		trainingExamples = new DefaultListModel<TrainingExample>();
 		trainingExamplesModel = new ArrayList<TrainingExample>();
 		testingExamples = new DefaultListModel<TestingExample>();
-		type = new DefaultListModel<String>();
+		type = new ArrayList<String>();
 		rank = new ArrayList<Rank>();
 	}
 
@@ -49,9 +49,9 @@ public class Example {
 		for (int i = 0; i < example.getNameSet().size(); i++) {
 			if (!type.contains(example.getNameSet().get(i))) {
 				if (checkSubjective(example.getFeature(example.getNameSet().get(i)))) {
-					type.addElement(example.getNameSet().get(i));
+					type.add(example.getNameSet().get(i));
 				} else
-					type.addElement(example.getNameSet().get(i));
+					type.add(example.getNameSet().get(i));
 			} // else print error message that there is exist name;
 
 			/*

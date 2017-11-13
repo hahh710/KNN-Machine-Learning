@@ -9,7 +9,6 @@ public class KNNController implements ActionListener {
 	 private Example example;
 	 private TestingExample a;
 	 private TrainingExample b;
-	 private Feature feature;
 
 	 
 

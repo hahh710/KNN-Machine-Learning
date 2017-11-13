@@ -10,6 +10,7 @@ public class Rank {
 		list = new ArrayList<Feature>();
 		list.add(feature);
 	}
+	
 	public void addInRank(Feature feature){
 		if(!list.contains(feature)){
 			list.add(feature);
@@ -22,12 +23,15 @@ public class Rank {
 		if(this.name == name) return true;
 		else return false;
 	}
+	
 	public ArrayList<Feature> getlist(){
 		return list;
 	}
+	
 	public String getValueAtRank(int r){
 		return list.get(r).getStringValue();
 	}
+	
 	public int getPosition(String stringValue) {
 		// TODO Auto-generated method stub
 		return list.indexOf(stringValue);

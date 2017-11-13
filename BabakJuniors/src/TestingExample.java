@@ -85,6 +85,7 @@ public class TestingExample extends TrainingExample {
 		distances.updateDistances();
 		knn.getNN();
 		exampleManager.getTrainingExamples();
+		addFeature(f, null);
 		// Subjective f
 		
 		if (valueType==1) {
@@ -95,8 +96,7 @@ public class TestingExample extends TrainingExample {
 			}
 			position = position / count;
 			//need to get ranklist from this feature type
-		
-			addFeature(f, new Feature(exampleManager.getRankingList(f).getValueAtRank(position)));
+			getAllFeatures().replace(f, new Feature(exampleManager.getRankingList(f).getValueAtRank(position)));
 		}
 		else if (valueType==2) {
 			float sum = 0;
@@ -106,7 +106,7 @@ public class TestingExample extends TrainingExample {
 			}
 			sum = sum / count;
 			System.out.println("test");
-			addFeature(f, new Feature(sum));
+			getAllFeatures().replace(f, new Feature(sum));
 		}
 		else if (valueType==3) {
 			Integer xSum = 0;
@@ -119,7 +119,8 @@ public class TestingExample extends TrainingExample {
 			xSum = xSum / count;
 			ySum = ySum / count;
 			addFeature(f, new Feature(xSum, ySum));
-
+			getAllFeatures().replace(f, new Feature(xSum, ySum));
+		
 		}
 
 	}
