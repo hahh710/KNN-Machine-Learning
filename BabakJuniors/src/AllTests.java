@@ -4,6 +4,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
+	RankTest.class,
 	FeatureTest.class,
 	TestingExampleTest.class,
 	TrainingExampleTest.class,

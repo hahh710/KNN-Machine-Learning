@@ -4,9 +4,8 @@ public class Feature {
 	private Float numValue;
 	private Integer corX;
 	private Integer corY;
-	private SubjectiveRanking ranking;
+	private Rank rankList;
 	private String fName;
-	//feature needs to access rankList 
 	public Feature(String s){
 		stringValue = s;
 		numValue = null;
@@ -56,7 +55,7 @@ public class Feature {
 		return fName;
 	}
 	public int getRank() {
-		return ranking.getRank(stringValue);
+		return rankList.getPosition(stringValue);
 	}
 
 	public String toString(){

@@ -7,9 +7,8 @@ public class TrainingExample {
 	private String exampleName;
 	private HashMap<String,Feature> feature; 
 	private DefaultListModel<String>nameSet;
-	private Example ex;
-	public TrainingExample(Example exm){
-		ex=exm;
+
+	public TrainingExample(){
 		exampleName = null;
 	}
 
@@ -21,30 +20,14 @@ public class TrainingExample {
 	//public createFeatureType{
 	//create feature type
 	public void addFeature(String keyname,Feature value){
-		int flag =0;
 		//if this keyname exists then
-		//when adding a feature of string value, then must 1. check if rank exists. if so append value to ranking list, 
-		//if not create new list and add value to ranking list
 		if(!feature.containsKey(keyname)) {
+			feature.put(keyname, value);
 			nameSet.addElement(keyname);
-			for(SubjectiveRanking sR: ex.getSubjectiveRankings()) {
-				if(sR.getRankingListType().equalsIgnoreCase(keyname)) {
-					feature.put(keyname, value);
-					sR.addToSubjectiveRanking(value.getStringValue());
-					flag=1;
-				}
-			}
-			if (flag==1) {
-				SubjectiveRanking sr = new SubjectiveRanking(keyname);
-				ex.addSubjectiveRankings(sr);
-				feature.put(keyname, value);
-				sr.addToSubjectiveRanking(value.getStringValue());
-			}
-		}
-		else{
+		}else{
 			System.out.println("There is same name of feature");// print this statement in 
 		}
-
+		
 	}
 	public Feature getFeature(String keyname){
 		return feature.get(keyname);
@@ -65,14 +48,14 @@ public class TrainingExample {
 		return feature.containsKey(keyname);
 	}
 	public String getKeyName(Feature value){
-		for(String key : feature.keySet()){
-			if(feature.get(key).equals(value)){
-				return key;
-			}
-		}
-		return null; // or prompt error message. 
+	    for(String key : feature.keySet()){
+	        if(feature.get(key).equals(value)){
+	            return key;
+	        }
+	    }
+	    return null; // or prompt error message. 
 	}
-
+	
 	public DefaultListModel<String> getNameSet(){
 		return this.nameSet;
 	}

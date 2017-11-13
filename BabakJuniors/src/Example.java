@@ -8,7 +8,7 @@ public class Example {
 	private DefaultListModel<TestingExample> testingExamples;
 	private ArrayList<String> type;
 	//ArrayList<ArrayList<String>>rank;
-	private ArrayList<SubjectiveRanking> subjectiveRankings;
+	private ArrayList<Rank> rank;
 	//ArrayList<String>rank;//Rank for subjective features
 
 	public Example() {
@@ -16,7 +16,7 @@ public class Example {
 		trainingExamplesModel = new ArrayList<TrainingExample>();
 		testingExamples = new DefaultListModel<TestingExample>();
 		type = new ArrayList<String>();
-		subjectiveRankings = new ArrayList<SubjectiveRanking>();
+		rank = new ArrayList<Rank>();
 	}
 
 	public void addTrainingExample(TrainingExample example) {
@@ -43,31 +43,63 @@ public class Example {
 	public DefaultListModel<TestingExample> getTestingExample() {
 		return testingExamples;
 	}
-	public ArrayList<SubjectiveRanking> getSubjectiveRankings(){
-		return subjectiveRankings;
+//createFeatureType
+//checkFeatureType
+	public void abstractkey(TrainingExample example) {
+		for (int i = 0; i < example.getNameSet().size(); i++) {
+			if (!type.contains(example.getNameSet().get(i))) {
+				if (checkSubjective(example.getFeature(example.getNameSet().get(i)))) {
+					type.add(example.getNameSet().get(i));
+				} else
+					type.add(example.getNameSet().get(i));
+			} // else print error message that there is exist name;
+
+			/*
+			 * if(type.isEmpty()){
+			 * if(checkSubjective(example.getFeature(example.getNameSet().get(i)
+			 * ))){ //rank.add(example.getNameSet().get(i));
+			 * type.add(example.getNameSet().get(i)); }else
+			 * type.add(example.getNameSet().get(i)); }else
+			 * if(!type.contains(example.getNameSet().get(i))){
+			 * if(checkSubjective(example.getFeature(example.getNameSet().get(i)
+			 * ))){ type.add(example.getNameSet().get(i)); }else
+			 * type.add(example.getNameSet().get(i)); }
+			 */// else print error message that there is exist name;
+		}
 	}
-	/**
-	 * addSubjectiveRankings
-	 * add a subjectiveRanking if it does not already exist in the list
-	 * @param sr
-	 */
-	public void addSubjectiveRankings(SubjectiveRanking sr) {
-		if (getSubjectiveRanking(sr.getRankingListType())==null)
-			subjectiveRankings.add(sr);
+
+	public void createFeatureType(String featureName, Feature feature) {
+		boolean flag = true;
+		for (int i = 0; i < rank.size(); i++) {
+			if (rank.get(i).checkName(featureName)) {
+				flag = false;
+			}
+		}
+		if (flag) {
+			rank.add(new Rank(featureName, feature));
+		} else {
+			System.out.println("There is existing feature Name");
+		}
 	}
-	/**SubjectiveRanking
-	 * 
-	 * @param s: string representing name of f type
-	 * @return a subjective ranking
-	 */
-	public SubjectiveRanking getSubjectiveRanking(String s) {
-		for (SubjectiveRanking sr: subjectiveRankings) {
-			if(s.equalsIgnoreCase(sr.getRankingListType())) 
-				return sr;
+
+	public void appendRank(String featureName, Feature feature) {
+		// boolean go to ranking featureName.add(feature.getStringValue)
+		for(int i = 0; i< rank.size() ;i++){
+			if(rank.get(i).checkName(featureName)){
+				if(!rank.get(i).getlist().contains(feature)){
+					rank.get(i).getlist().add(feature);
+				}
+			}
+		}
+	}
+	public Rank getRankingList(String fName){
+		for(Rank r: rank) {
+			if(fName == r.getName())
+				return r;
 		}
 		return null;
 	}
-	/**
+	
 	public boolean checkSubjective(Feature feature) {
 		if (feature.getStringValue() != null)
 			return true;
@@ -89,7 +121,6 @@ public class Example {
 			return false;
 	}
 	
-	*/
 public TrainingExample getTrainingExampleIndex(int i) {
 		
 		return trainingExamples.getElementAt(i);
@@ -139,7 +170,7 @@ public TestingExample getTestingExampleIndex(int i) {
 			testytest.predictFeature(f.getFName(), smellyTypeFlag, k);
 			actualValue=(float) testytest.getFeature(f.getFName()).getRank();
 			error=Math.abs(expectedValue-actualValue)/expectedValue;
-			tEx.editFeature(f.getFName(), new Feature(getSubjectiveRanking(f.getFName()).getStringValueAtRank((int)actualValue)));
+			tEx.editFeature(f.getFName(), new Feature(this.getRankingList(f.getFName()).getValueAtRank((int)expectedValue)));//revert the original value to the training example
 		}
 		else if(f.getCorX()!=null) { //ordered paid type handler
 			expectedValue=(float)f.getCorX();
