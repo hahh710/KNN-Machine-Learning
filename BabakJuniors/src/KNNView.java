@@ -149,6 +149,10 @@ public class KNNView extends JFrame{
 		return createTestExample;
 	}
 	
+	public JMenuItem getTestFeature() {
+		return testingFeature;
+	}
+	
 	
 	public static void main(String args[]) {
 		new KNNView();

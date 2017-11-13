@@ -48,7 +48,7 @@ public class KNNController implements ActionListener {
 				
 			 	
 		} else if (event.getActionCommand().equals("Create Testing Example")) {
-		 	
+			view.getTestFeature().setEnabled(true);
 			 
 		 	testingExample = new JList<>(example.getTestingExample());
 		 	view.getTestingPanel().add(testingExample);
@@ -94,6 +94,7 @@ public class KNNController implements ActionListener {
 
 		}else if (event.getActionCommand().equals("Add Testing Feature")) {
 	         view.getFeatureEdit().setEnabled(true);
+	         
 	         
 	         
 	         //trainingEx = example.getTrainingExampleIndex(trainingExample.getSelectedIndex());
