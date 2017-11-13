@@ -147,8 +147,11 @@ public class KNNController implements ActionListener {
 	
 		int f = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
         trainingEx = example.getTrainingExampleIndex(f);
+		String editFeatureName = JOptionPane.showInputDialog(null, "What is the name of the feature you want to edit?", " Feature's name ", JOptionPane.QUESTION_MESSAGE);
+
+        trainingEx.getAllFeatures().get(editFeatureName);
+        
 			
-			String editFeatureName = JOptionPane.showInputDialog(null, "What is the new name of the Feature you would like to be eddited ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
 		 	String featureType = JOptionPane.showInputDialog(null, "What is the new type of the Feature you would like to edit(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type to be editted ", JOptionPane.QUESTION_MESSAGE);
 		 	
 		 	if(featureType.equals("1")) {
@@ -174,7 +177,7 @@ public class KNNController implements ActionListener {
 		} else if (event.getActionCommand().equals("Predict")) {
 			view.getCalculateError().setEnabled(true);  
 			
-			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
+			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
 		 	int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
 		 	int testFeatureType = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE));
 
