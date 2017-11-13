@@ -28,16 +28,17 @@ public class KNN {
 		this.testEx=testEx;
 		nearestNeighbors = new ArrayList<TrainingExample>();
 	}
-	/**getNN() will call findKNN and return determined list of nearest neighbors
+	/**getNN() will return list of NN
 	 * 
 	 * @return list of Nearest Neighbors
 	 */
 	public ArrayList<TrainingExample> getNN() {
-		nearestNeighbors.clear();
-		findKNN(k, testEx.getExample().getTrainingExamplesModel());
 		return nearestNeighbors;
 	}
-
+	public void determineNearestNeighbors(int effK, ArrayList<TrainingExample> potentialNN) {
+		nearestNeighbors.clear();
+		findKNN(effK, potentialNN);
+	}
 
 	/**
 	 * findKNN
@@ -84,8 +85,10 @@ public class KNN {
 	 * @return return updated list of NN
 	 * Changing the k value will automatically update the nearest neighbors 
 	 */
-	public ArrayList<TrainingExample> setK(int n) {
+	public void setK(int n) {
 		k=n;
-		return getNN();
+	}
+	public int getK() {
+		return k;
 	}
 }

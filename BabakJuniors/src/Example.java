@@ -151,13 +151,13 @@ public TrainingExample getTrainingExampleIndex(int i) {
  */
 	public float calculateError(TrainingExample tEx, Feature f, int k) {
 		float error =0;
-		TestingExample testytest = new TestingExample(tEx, k ,this); //create a test example to predict
+		TestingExample testytest = new TestingExample(tEx,this); //create a test example to predict
 		int smellyTypeFlag=0;//flag will identify which type of value for the predict method... must refactor 
 		float expectedValue, actualValue, expectedValue2, actualValue2;
 		if(f.getStringValue()!=null) {//subjective type handler
 			expectedValue=(float)f.getRank();
 			smellyTypeFlag=1;
-			testytest.predictFeature(f.getFName(), smellyTypeFlag);
+			testytest.predictFeature(f.getFName(), smellyTypeFlag, k);
 			actualValue=(float) testytest.getFeature(f.getFName()).getRank();
 			error=Math.abs(expectedValue-actualValue)/expectedValue;
 			tEx.editFeature(f.getFName(), new Feature(this.getRankingList(f.getFName()).getValueAtRank((int)expectedValue)));//revert the original value to the training example
@@ -166,7 +166,7 @@ public TrainingExample getTrainingExampleIndex(int i) {
 			expectedValue=(float)f.getCorX();
 			expectedValue2=(float)f.getCorY();
 			smellyTypeFlag=2;
-			testytest.predictFeature(f.getFName(), smellyTypeFlag);
+			testytest.predictFeature(f.getFName(), smellyTypeFlag, k);
 			actualValue=(float) testytest.getFeature(f.getFName()).getCorX();
 			actualValue2=(float) testytest.getFeature(f.getFName()).getCorY();
 			error=(Math.abs(expectedValue-actualValue)/expectedValue+Math.abs(expectedValue2-actualValue2)/expectedValue2)/2;
@@ -175,7 +175,7 @@ public TrainingExample getTrainingExampleIndex(int i) {
 		else if(f.getNumValue()!=null) { //absolute type handler
 			expectedValue = f.getNumValue();
 			smellyTypeFlag=3;
-			testytest.predictFeature(f.getFName(), smellyTypeFlag);
+			testytest.predictFeature(f.getFName(), smellyTypeFlag, k);
 			actualValue=(float) testytest.getFeature(f.getFName()).getNumValue();
 			error=Math.abs(expectedValue-actualValue)/expectedValue;
 			tEx.editFeature(f.getFName(), new Feature(expectedValue));//revert to the original f value

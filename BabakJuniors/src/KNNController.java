@@ -56,7 +56,7 @@ public class KNNController implements ActionListener {
 		 	testingExample.setSelectionMode(((ListSelectionModel.SINGLE_SELECTION)));
 		 	String nameTestExample = JOptionPane.showInputDialog(null, "What is name of the Example ?", "Training Example's Name ", JOptionPane.QUESTION_MESSAGE);
 
-		    testingEx = new TestingExample(3, example);
+		    testingEx = new TestingExample(example);
 		    testingEx.createExample(nameTestExample);
 			example.addTestingExample(testingEx);
 			
@@ -129,7 +129,7 @@ public class KNNController implements ActionListener {
 			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
 		 	int testFeatureType = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE));
 			
-			testingEx.predictFeature(testFeatureName, testFeatureType);
+			testingEx.predictFeature(testFeatureName, testFeatureType, 1);
 			
 				
 		} else if (event.getActionCommand().equals("Restart")) {
