@@ -11,7 +11,7 @@ public class TrainingExample {
 	public TrainingExample(){
 		exampleName = null;
 	}
-	
+
 	public void createExample(String name){
 		this.exampleName = name;
 		feature = new HashMap<String,Feature>();
@@ -61,6 +61,9 @@ public class TrainingExample {
 	}
 	public HashMap<String,Feature> getAllFeatures(){
 		return feature;
+	}
+	public void setFeatures(HashMap<String, Feature> h) {
+		feature=h;
 	}
 	public String getTrainingExampleName(){
 		return exampleName;

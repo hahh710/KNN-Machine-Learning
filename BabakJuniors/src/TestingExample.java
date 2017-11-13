@@ -33,7 +33,18 @@ public class TestingExample extends TrainingExample {
 		distances = new Distance(this);
 		knn = new KNN(k, this);
 	}
-
+	/**
+	 * Constructor to create copy of training example
+	 * @param testEx
+	 */
+	public TestingExample(TrainingExample tEx, int k, Example eM) {
+		super();
+		setFeatures(tEx.getAllFeatures());
+		this.k = k;
+		exampleManager = eM;
+		distances = new Distance(this);
+		knn = new KNN(k, this);
+	}
 	/**
 	 * getDistances
 	 * 
@@ -42,7 +53,13 @@ public class TestingExample extends TrainingExample {
 	public Distance getDistances() {
 		return distances;
 	}
-
+	/**
+	 * 
+	 * @return knn
+	 */
+	public KNN getKNN() {
+		return knn;
+	}
 	/**
 	 * getExample
 	 * 
@@ -80,7 +97,7 @@ public class TestingExample extends TrainingExample {
 	 *            sets the feature value passed in the parameter as the average
 	 *            of the list of features in the example class.
 	 */
-	public void PredictFeature(String f, int valueType) {
+	public void predictFeature(String f, int valueType) {
 		int count = 0;
 		distances.updateDistances();
 		knn.getNN();
@@ -124,5 +141,4 @@ public class TestingExample extends TrainingExample {
 		}
 
 	}
-
 }
