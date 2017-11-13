@@ -7,11 +7,12 @@ public class TrainingExample {
 	private String exampleName;
 	private HashMap<String,Feature> feature; 
 	private DefaultListModel<String>nameSet;
-
-	public TrainingExample(){
+	private Example ex;
+	public TrainingExample(Example em){
 		exampleName = null;
+		ex=em;
 	}
-	
+
 	public void createExample(String name){
 		this.exampleName = name;
 		feature = new HashMap<String,Feature>();
@@ -24,6 +25,9 @@ public class TrainingExample {
 		if(!feature.containsKey(keyname)) {
 			feature.put(keyname, value);
 			nameSet.addElement(keyname);
+			if(value.getStringValue()!=null) {
+				if(ex.getRan)
+			}
 		}else{
 			System.out.println("There is same name of feature");// print this statement in 
 		}
@@ -62,13 +66,15 @@ public class TrainingExample {
 	public HashMap<String,Feature> getAllFeatures(){
 		return feature;
 	}
+	public void setFeatures(HashMap<String, Feature> h) {
+		feature=h;
+	}
 	public String getTrainingExampleName(){
 		return exampleName;
 	}
 	public void setTrainingExampleName(String name){
 		exampleName = name;
 	}
-	
 	public String toString(){
 		String tostring = exampleName + ": ";
 		for(int i =0;i < nameSet.size(); i++){

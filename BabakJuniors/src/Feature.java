@@ -54,6 +54,9 @@ public class Feature {
 	public String getFName(){
 		return fName;
 	}
+	public void setRankList(Rank r) {
+		rankList=r;
+	}
 	public int getRank() {
 		return rankList.getPosition(stringValue);
 	}
