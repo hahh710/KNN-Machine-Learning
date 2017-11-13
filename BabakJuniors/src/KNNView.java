@@ -15,7 +15,7 @@ public class KNNView extends JFrame{
 
 	private JPanel trainingPanel, testingPanel ;
 	private JButton predict;
-	private JMenuItem createTrainExample,createTestExample,editTestExample,editTrainExample,addFeature,createExample,restart;
+	private JMenuItem createTrainExample,createTestExample,editFeature,addFeature,createExample,restart;
 	private JMenu trainExample,testExample,example;
 
 	
@@ -85,13 +85,10 @@ public class KNNView extends JFrame{
 		addFeature.setEnabled(false);
 		addFeature.addActionListener(controller);
 		
-		editTrainExample = new JMenuItem("Edit Training Example");
-		editTrainExample.setEnabled(false);
-		editTrainExample.addActionListener(controller);
+		editFeature = new JMenuItem("Edit Feature");
+		editFeature.setEnabled(false);
+		editFeature.addActionListener(controller);
 		
-		editTestExample = new JMenuItem("Edit Testing Example");
-		editTestExample.setEnabled(false);
-		editTestExample.addActionListener(controller);
 		
 		
 		example.add(createExample);
@@ -100,8 +97,7 @@ public class KNNView extends JFrame{
 		testExample.add(createTestExample);
 		testExample.add(addFeature);
 		trainExample.add(addFeature);
-		testExample.add(editTestExample);
-		trainExample.add(editTrainExample);
+		trainExample.add(editFeature);
 		
 		testingPanel.add(predict,BorderLayout.SOUTH);
 		
@@ -122,12 +118,8 @@ public class KNNView extends JFrame{
 		return testingPanel;
 	}
 	
-	public JMenuItem getTrainEdit() {
-		return editTrainExample;	
-	}
-	
-	public JMenuItem getTestEdit() {
-		return editTestExample;	
+	public JMenuItem getFeatureEdit() {
+		return editFeature;	
 	}
 	
 	public JMenuItem getTrainExample() {

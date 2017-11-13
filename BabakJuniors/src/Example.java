@@ -94,18 +94,48 @@ public class Example {
 		else
 			return false;
 	}
+	
 	public boolean checkAbsolute(Feature feature) {
 		if (feature.getNumValue()!=null)
 			return true;
 		else
 			return false;
 	}
+	
 	public boolean checkEuclidean(Feature feature) {
 		if (feature.getCorX()!=null && feature.getCorY()!=null)
 			return true;
 		else
 			return false;
-	
 	}
+	
+	public String toString(){
+		String toString = "";
+		
+		for(int i =0;i<trainingExamples.size();i++){
+			toString += trainingExamples.get(i).getExampleName()+": " +trainingExamples.get(i).toString();
+					//toString();
+		}
+		for(int i =0;i<testExamples.size();i++){
+			toString += testExamples.get(i).getExampleName()+": " +testExamples.get(i).toString();
+		}
+		return toString;
+	}
+	
+	/**
+	 * Create a copy of a training example
+	 * delete that training example from training examples
+	 * create a testing example from training example
+	 * (create new constructor for testing example which accepts a training example as parameter and copies its feature map)
+	 * create a copy of a feature
+	 * then delete that feature
+	 * then predict that feature
+	 * then calculate error on the difference
+	 */
+	public void calculateError() {
+		
+		
+	}
+	
 	
 }

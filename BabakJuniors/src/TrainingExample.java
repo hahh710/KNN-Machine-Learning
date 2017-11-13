@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.DefaultListModel;
@@ -66,10 +65,10 @@ public class TrainingExample {
 	public void setTrainingExampleName(String name){
 		exampleName = name;
 	}
-	public String ToString(){
-		String tostring = " ";
+	public String toString(){
+		String tostring = exampleName + ": ";
 		for(int i =0;i < nameSet.size(); i++){
-			tostring += nameSet.get(i) + " : " + feature.get(nameSet.get(i)) + "\n" ;
+			tostring += nameSet.get(i) + " = " + feature.get(nameSet.get(i)).toString()+ "," + "\n" ;
 		}
 		return tostring;
 	}

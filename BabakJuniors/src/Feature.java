@@ -60,4 +60,13 @@ public class Feature {
 	public Rank getRankList(){
 		return rankList;
 	}
+	public String toString(){
+		if(stringValue != null){
+			return stringValue;
+		}else if(numValue != null){
+			return numValue.toString();
+		}else{
+			return "(" + corX.toString() + "," +corY.toString()+ ")";
+		}
+	}
 }

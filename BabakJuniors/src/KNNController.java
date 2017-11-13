@@ -29,25 +29,24 @@ public class KNNController implements ActionListener {
 			 
 			 
 		} else if (event.getActionCommand().equals("Create Testing Example")) {
-			 	view.getTestEdit().setEnabled(true);
+			 	view.getFeatureEdit().setEnabled(true);
 			 
 			
-			 	int knnV = Integer.parseInt(JOptionPane.showInputDialog(null, "What is knn value?", "KNN's value", JOptionPane.QUESTION_MESSAGE));
+			 	//int knnV = Integer.parseInt(JOptionPane.showInputDialog(null, "What is knn value?", "KNN's value", JOptionPane.QUESTION_MESSAGE));
 
 			 	testingExamples = new JList<>(example.testExamples);
-			 	//testingExamples = new JList<>(TrainingExample.nameSet);
-
+			 	
 			 	view.getTestingPanel().add(testingExamples);
 		
 
 			 	testingExamples.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			 
-			    a = new TestingExample(null, knnV, example);
+			    a = new TestingExample(null, 0, example);
 				example.addTestingExample(a);
 
 
 		} else if (event.getActionCommand().equals("Create Training Example")) {
-			 	view.getTrainEdit().setEnabled(true);
+			 	view.getFeatureEdit().setEnabled(true);
 			 	view.getAddFeature().setEnabled(true);
 			 
 			 	trainingExample = new JList<>(example.trainingExamples);
@@ -64,10 +63,6 @@ public class KNNController implements ActionListener {
 		} else if (event.getActionCommand().equals("Add Feature")) {
 				
 			 	String featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
-			 	
-			 	//gets key for hashmap in training example --> trainingexample.getfeatures.replace(fname, new Feature(value they input)
-			 	// 
-			 	
 			 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
 			 	
 			 	if(featureType.equals("1")) {
@@ -76,8 +71,8 @@ public class KNNController implements ActionListener {
 			 	}
 			 	
 			 	if(featureType.equals("2")) {
-			 	float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-			 	b.addFeature(featureName, new Feature(featureIValue));
+			 		float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+			 		b.addFeature(featureName, new Feature(featureIValue));
 			 	}
 			 	
 			 	if(featureType.equals("3")) {
@@ -88,28 +83,41 @@ public class KNNController implements ActionListener {
 			 	}
 			 	
 
-		} else if (event.getActionCommand().equals("Edit Testing Example")) {
+		} else if (event.getActionCommand().equals("Edit Feature")) {
 			
-				DefaultListModel<TestingExample> editTest = example.getTestingExample();
-				//String editName = editTest.getTrainingExampleName();
+//			BuddyInfo buddyEdit = addressBook.getBuddy(buddyInfo.getSelectedIndex());
+//			String nameEdit = buddyEdit.getName();
+//			
+//			String editAddress = JOptionPane.showInputDialog(null, "What is " + nameEdit + "'s new age?", "Input " + nameEdit + "'s new Age", JOptionPane.QUESTION_MESSAGE);
+//			String editNumber = JOptionPane.showInputDialog(null, "What is " + nameEdit + "'s new phone number?", "Input " + nameEdit+ "'s new Phone Number", JOptionPane.QUESTION_MESSAGE);
+//			
+//			buddyEdit.setAddress(editAddress);
+//			buddyEdit.setNumber(editNumber);
 			
-				//String editTestName = JOptionPane.showInputDialog(null, "What is " + editName + "'s new name?", "Input " + editName + "'s new name", JOptionPane.QUESTION_MESSAGE);
-			
-				//editTest.setTestName(editTestName);
+			String featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be eddited ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
+		 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be edit(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type to be editted ", JOptionPane.QUESTION_MESSAGE);
+		 	
+		 	if(featureType.equals("1")) {
+		 		String featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
+			 	b.addFeature(featureName, new Feature(featureSValue));
+		 	}
+		 	
+		 	if(featureType.equals("2")) {
+		 		float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+		 		b.addFeature(featureName, new Feature(featureIValue));
+		 	}
+		 	
+		 	if(featureType.equals("3")) {
+		 		int featureXValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is X-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+		 		int featureYValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is Y-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
 
+			 	b.addFeature(featureName, new Feature(featureXValue,featureYValue));
+		 	}
+		 	
 
-
-		} else if (event.getActionCommand().equals("Edit Training Example")) {
-
-				DefaultListModel <TrainingExample> editTrain = example.getTrainingExamples();
-				//String editName = editTrain.getExampleName();
-				
-				//String editTrainName = JOptionPane.showInputDialog(null, "What is " + editName + "'s new name?", "Input " + editName + "'s new name", JOptionPane.QUESTION_MESSAGE);
-			
-				//editTrain.setTrainName(editTrainName);
-			
 		} else if (event.getActionCommand().equals("Predict")) {
 			
+				//PredictFeature();
 				
 		} else if (event.getActionCommand().equals("Restart")) {
 			new KNNView();
