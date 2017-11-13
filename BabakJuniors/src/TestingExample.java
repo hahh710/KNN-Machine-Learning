@@ -22,14 +22,12 @@
 public class TestingExample extends TrainingExample {
 
 	private Distance distances;
-	private Feature feature;
 	private KNN knn;
 	private int k;
 	private Example exampleManager;
 
-	public TestingExample(Feature feature, int k, Example eM) {
+	public TestingExample(int k, Example eM) {
 		this.setK(k);
-		this.feature = feature;
 		exampleManager = eM;
 		distances = new Distance(this);
 		knn = new KNN(k, this);
@@ -95,7 +93,7 @@ public class TestingExample extends TrainingExample {
 				count++;
 			}
 			position = position / count;
-			feature.setStringValue(feature.getRankList().getValueAtRank(position));
+			f.setStringValue(f.getRankList().getValueAtRank(position));
 		}
 		if (exampleManager.checkAbsolute(f)) {
 			int sum = 0;
@@ -104,7 +102,7 @@ public class TestingExample extends TrainingExample {
 				count++;
 			}
 			sum = sum / count;
-			feature.setNumValue((float) sum);
+			f.setNumValue((float) sum);
 		}
 		if (exampleManager.checkEuclidean(f)) {
 			int xSum = 0;
@@ -117,8 +115,8 @@ public class TestingExample extends TrainingExample {
 			xSum = xSum / count;
 			ySum = ySum / count;
 
-			feature.setCorX(xSum);
-			feature.setCorY(ySum);
+			f.setCorX(xSum);
+			f.setCorY(ySum);
 		}
 
 	}

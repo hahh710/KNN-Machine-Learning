@@ -5,7 +5,7 @@ import javax.swing.DefaultListModel;
 public class Example {
 	DefaultListModel<TrainingExample> trainingExamples;
 	ArrayList<TrainingExample> trainingExamplesModel;
-	DefaultListModel<TestingExample> testExamples;
+	DefaultListModel<TestingExample> testingExamples;
 	DefaultListModel<String> type;
 	//ArrayList<ArrayList<String>>rank;
 	DefaultListModel<Rank> rank;
@@ -14,7 +14,7 @@ public class Example {
 	public Example() {
 		trainingExamples = new DefaultListModel<TrainingExample>();
 		trainingExamplesModel = new ArrayList<TrainingExample>();
-		testExamples = new DefaultListModel<TestingExample>();
+		testingExamples = new DefaultListModel<TestingExample>();
 		type = new DefaultListModel<String>();
 		rank = new DefaultListModel<Rank>();
 	}
@@ -32,11 +32,11 @@ public class Example {
 		return trainingExamplesModel;
 	}
 	public void addTestingExample(TestingExample example) {
-		testExamples.addElement(example);
+		testingExamples.addElement(example);
 	}
 
 	public DefaultListModel<TestingExample> getTestingExample() {
-		return testExamples;
+		return testingExamples;
 	}
 //createFeatureType
 //checkFeatureType
@@ -116,8 +116,8 @@ public class Example {
 			toString += trainingExamples.get(i).getExampleName()+": " +trainingExamples.get(i).toString();
 					//toString();
 		}
-		for(int i =0;i<testExamples.size();i++){
-			toString += testExamples.get(i).getExampleName()+": " +testExamples.get(i).toString();
+		for(int i =0;i<testingExamples.size();i++){
+			toString += testingExamples.get(i).getExampleName()+": " +testingExamples.get(i).toString();
 		}
 		return toString;
 	}
