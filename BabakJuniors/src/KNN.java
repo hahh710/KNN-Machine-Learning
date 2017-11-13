@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * an instance of KNN belongs to each instance of testing example
@@ -52,7 +51,7 @@ public class KNN {
 	 * 
 	 */
 	public void findKNN(int effK, ArrayList<TrainingExample> potentialNN) {
-		TrainingExample nearestNeighbor = new TrainingExample();
+		TrainingExample nearestNeighbor = new TrainingExample(testEx.getExample());
 		if (effK > 0) { // if K>0 then must find nearestNeighbor and append to list
 						// of NN
 			float distance = -1;

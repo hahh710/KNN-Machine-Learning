@@ -26,7 +26,7 @@ public class TestingExample extends TrainingExample {
 	private Example exampleManager;
 
 	public TestingExample( Example eM) {
-		super();
+		super(eM);
 		exampleManager = eM;
 		distances = new Distance(this);
 		knn = null;
@@ -36,7 +36,7 @@ public class TestingExample extends TrainingExample {
 	 * @param testEx
 	 */
 	public TestingExample(TrainingExample tEx, Example eM) {
-		super();
+		super(eM);
 		setFeatures(tEx.getAllFeatures());
 		exampleManager = eM;
 		distances = new Distance(this);
@@ -91,7 +91,7 @@ public class TestingExample extends TrainingExample {
 			position = position / count;
 			//need to get ranklist from this feature type
 			//getAllFeatures().replace(f, new Feature(exampleManager.getRankingList(f).getValueAtRank(position)));
-			addFeature(f, new Feature(exampleManager.getRankingList(f).getValueAtRank(position)));
+			addFeature(f, new Feature(exampleManager.getSubjectiveRanking(f).getStringValueAtRank(position)));
 
 		}
 		else if (valueType==2) {

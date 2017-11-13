@@ -38,7 +38,7 @@ public class KNNController implements ActionListener {
 			 	trainingExample.setSelectionMode((ListSelectionModel.SINGLE_SELECTION));	
 			 	
 			 	String nameTrainExample = JOptionPane.showInputDialog(null, "What is name of the Example ?", "Training Example's Name ", JOptionPane.QUESTION_MESSAGE);
-			 	trainingEx = new TrainingExample();
+			 	trainingEx = new TrainingExample(example);
 			 	trainingEx.createExample(nameTrainExample);
 			 	example.addTrainingExample(trainingEx);
 			 	
