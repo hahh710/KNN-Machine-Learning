@@ -1,6 +1,23 @@
 import java.awt.event.*;
 import javax.swing.*;
-
+/**
+ * The controller part of the MVC model
+ *
+ * @Authors: Ahmed Khattab
+ * @Purpose: Determine the nearest neighbors of a given testing example, given a certain K
+ *
+ * @field variables
+ * - nearestNeighbors ArrayList<TrainingExamples>: represents the list of nearest neighbors
+ * - k int: represents the number of nearest neighbors
+ * - testEx Testing Example: represents the reference to the owner of this instance
+ * 
+ * @methods 
+ *+getNN: returns the list of NN --> resets list of NN, then calls findKNN
+ *+findKNN: the algorithm which determines which are the nearest neighbors, using distance from owner (testing example)
+ *+setK: set the value of K, when k changes, NN will be called and automattically update KNN
+ *
+ *
+ */
 public class KNNController implements ActionListener {
 
 	 private KNNView view;
@@ -97,7 +114,7 @@ public class KNNController implements ActionListener {
 	         
 	         
 	         
-	         //trainingEx = example.getTrainingExampleIndex(trainingExample.getSelectedIndex());
+	         
 	         int l = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
 	         testingEx = example.getTestingExampleIndex(l);
 
@@ -127,35 +144,30 @@ public class KNNController implements ActionListener {
 
 	}else if (event.getActionCommand().equals("Edit Feature")) {
 			
-	//		TrainingExample buddyEdit = example.getTrainingExampleIndex((trainingExample.getSelectedIndex()));
-	//		String nameEdit = buddyEdit.getName();
-//			
-//			String editAddress = JOptionPane.showInputDialog(null, "What is " + nameEdit + "'s new age?", "Input " + nameEdit + "'s new Age", JOptionPane.QUESTION_MESSAGE);
-//			String editNumber = JOptionPane.showInputDialog(null, "What is " + nameEdit + "'s new phone number?", "Input " + nameEdit+ "'s new Phone Number", JOptionPane.QUESTION_MESSAGE);
-//			
-//			buddyEdit.setAddress(editAddress);
-//			buddyEdit.setNumber(editNumber);
+	
+		int f = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
+        trainingEx = example.getTrainingExampleIndex(f);
 			
 			String editFeatureName = JOptionPane.showInputDialog(null, "What is the new name of the Feature you would like to be eddited ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
 		 	String featureType = JOptionPane.showInputDialog(null, "What is the new type of the Feature you would like to edit(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type to be editted ", JOptionPane.QUESTION_MESSAGE);
 		 	
 		 	if(featureType.equals("1")) {
 		 		String featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
-		 		//trainingEx.editFeature(editFeatureName, featureSValue);
-			 	//trainingEx.addFeature(featureName, new Feature(featureSValue));
+		 		trainingEx.editFeature(editFeatureName, new Feature(featureSValue));
+			 	
 		 	}
 		 	
 		 	if(featureType.equals("2")) {
 		 		float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		//trainingEx.editFeature(editFeatureName, featureCValue);
-		 		//trainingEx.addFeature(featureName, new Feature(featureIValue));
+		 		trainingEx.editFeature(editFeatureName, new Feature(featureIValue));
+		 		
 		 	}
 		 	
 		 	if(featureType.equals("3")) {
 		 		int featureXValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is X-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
 		 		int featureYValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is Y-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		//trainingEx.editFeature(editFeatureName, featureSValue);
-			 	//trainingEx.addFeature(featureName, new Feature(featureXValue,featureYValue));
+		 		
+		 		trainingEx.editFeature(editFeatureName, new Feature(featureXValue,featureYValue));
 		 	}
 		 	
 

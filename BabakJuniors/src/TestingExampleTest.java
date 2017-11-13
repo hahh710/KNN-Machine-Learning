@@ -39,7 +39,7 @@ public class TestingExampleTest {
 	}
 
 	@Test
-	public void testPredictFeature() {
+	public void testpredictFeature() {
 
 	}
 }

@@ -7,7 +7,24 @@ import javax.swing.border.TitledBorder;
 public class KNNView extends JFrame{
 
 	/**
+	 * an instance of KNN belongs to each instance of testing example
+	 *
+	 * @Authors: Ahmed Khattab
+	 * @Purpose: Determine the nearest neighbors of a given testing example, given a certain K
+	 *
+	 * @field variables
+	 * - nearestNeighbors ArrayList<TrainingExamples>: represents the list of nearest neighbors
+	 * - k int: represents the number of nearest neighbors
+	 * - testEx Testing Example: represents the reference to the owner of this instance
 	 * 
+	 * @methods 
+	 *+getTestExample
+	 *+getAddFeature
+	 *+getTrainingPanel
+	 *+getTrainingPanel
+	 *+
+	 *
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	
