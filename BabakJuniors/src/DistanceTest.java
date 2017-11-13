@@ -22,9 +22,7 @@ import junit.framework.*;
  */
 public class DistanceTest extends TestCase {
 
-	public DistanceTest (String testName) {
-		super(testName);
-	}
+	
 	@Before
 	public void setUp() throws Exception {
 
@@ -32,6 +30,10 @@ public class DistanceTest extends TestCase {
 
 	@After
 	public void tearDown() throws Exception {
+	}
+	
+	public DistanceTest (String testName) {
+		super(testName);
 	}
 
 	@Test
