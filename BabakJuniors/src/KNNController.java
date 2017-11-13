@@ -162,9 +162,11 @@ public class KNNController implements ActionListener {
 		}else if (event.getActionCommand().equals("Predict")) {
 			 view.getCalculateError().setEnabled(true);
 			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict ?", " Feature's Name to Predict ", JOptionPane.QUESTION_MESSAGE);
+		 	int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the knn wanted? ", " KNN value to be predicted", JOptionPane.QUESTION_MESSAGE));
+
 		 	int testFeatureType = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be preticted (1 for String, 2 for float and 3 for coordinates ?", " Feature's Type to be predicted", JOptionPane.QUESTION_MESSAGE));
 			
-			testingEx.predictFeature(testFeatureName, testFeatureType, 2);
+			testingEx.predictFeature(testFeatureName, testFeatureType, knn);
 			
 				
 		}else if (event.getActionCommand().equals("CalculateError")) {
