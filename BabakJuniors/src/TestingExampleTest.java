@@ -16,9 +16,9 @@ public class TestingExampleTest {
 	@Before
 	public void setUp() throws Exception {
 		example = new Example();
-		testingExampleS = new TestingExample( example);
-		testingExampleN = new TestingExample( example);
-		testingExampleC = new TestingExample( example);
+		testingExampleS = new TestingExample(20, example);
+		testingExampleN = new TestingExample(20, example);
+		testingExampleC = new TestingExample(20, example);
 	}
 
 	@After
