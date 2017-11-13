@@ -32,14 +32,8 @@ public class Rank {
 		return list.get(r).getStringValue();
 	}
 	
-	public int getPosition(String s) {
+	public int getPosition(String stringValue) {
 		// TODO Auto-generated method stub
-		int i=0;
-		for(Feature f: list) {
-			if(f.getFName()==s) {
-				return i;
-			}
-			i++;
-		}
-		return 0;	}
+		return list.indexOf(stringValue);
+	}
 }

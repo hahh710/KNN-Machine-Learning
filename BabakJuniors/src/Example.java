@@ -92,11 +92,6 @@ public class Example {
 			}
 		}
 	}
-	public void addNewRankList(String s) {
-		if() {
-			
-		}
-	}
 	public Rank getRankingList(String fName){
 		for(Rank r: rank) {
 			if(fName == r.getName())
@@ -104,6 +99,7 @@ public class Example {
 		}
 		return null;
 	}
+	
 	public boolean checkSubjective(Feature feature) {
 		if (feature.getStringValue() != null)
 			return true;

@@ -85,7 +85,6 @@ public class TestingExample extends TrainingExample {
 		if (valueType==1) {
 			int position = 0;
 			for (TrainingExample t : knn.getNN()) {
-				position+=t.;
 				position += t.getAllFeatures().get(f).getRank();
 				count++;
 			}

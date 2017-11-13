@@ -7,10 +7,9 @@ public class TrainingExample {
 	private String exampleName;
 	private HashMap<String,Feature> feature; 
 	private DefaultListModel<String>nameSet;
-	private Example ex;
-	public TrainingExample(Example em){
+
+	public TrainingExample(){
 		exampleName = null;
-		ex=em;
 	}
 
 	public void createExample(String name){
@@ -25,9 +24,6 @@ public class TrainingExample {
 		if(!feature.containsKey(keyname)) {
 			feature.put(keyname, value);
 			nameSet.addElement(keyname);
-			if(value.getStringValue()!=null) {
-				if(ex.getRan)
-			}
 		}else{
 			System.out.println("There is same name of feature");// print this statement in 
 		}
