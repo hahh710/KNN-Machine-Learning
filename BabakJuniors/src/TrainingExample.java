@@ -17,7 +17,10 @@ public class TrainingExample {
 		feature = new HashMap<String,Feature>();
 		nameSet = new DefaultListModel<String>();
 	}
+	//public createFeatureType{
+	//create feature type
 	public void addFeature(String keyname,Feature value){
+		//if this keyname exists then
 		if(!feature.containsKey(keyname)) {
 			feature.put(keyname, value);
 			nameSet.addElement(keyname);

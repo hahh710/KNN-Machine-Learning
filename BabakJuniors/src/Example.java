@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 public class Example {
-	DefaultListModel<TrainingExample> trainingExamples;
-	ArrayList<TrainingExample> trainingExamplesModel;
-	DefaultListModel<TestingExample> testingExamples;
-	DefaultListModel<String> type;
+	private DefaultListModel<TrainingExample> trainingExamples;
+	private ArrayList<TrainingExample> trainingExamplesModel;
+	private DefaultListModel<TestingExample> testingExamples;
+	private DefaultListModel<String> type;
 	//ArrayList<ArrayList<String>>rank;
-	DefaultListModel<Rank> rank;
+	private ArrayList<Rank> rank;
 	//ArrayList<String>rank;//Rank for subjective features
 
 	public Example() {
@@ -16,7 +16,7 @@ public class Example {
 		trainingExamplesModel = new ArrayList<TrainingExample>();
 		testingExamples = new DefaultListModel<TestingExample>();
 		type = new DefaultListModel<String>();
-		rank = new DefaultListModel<Rank>();
+		rank = new ArrayList<Rank>();
 	}
 
 	public void addTrainingExample(TrainingExample example) {
@@ -28,6 +28,11 @@ public class Example {
 	public DefaultListModel<TrainingExample> getTrainingExamples() {
 		return trainingExamples;
 	}
+	
+	public DefaultListModel<TrainingExample> getTrainingExample(){
+		return trainingExamples;
+	}
+	
 	public ArrayList<TrainingExample> getTrainingExamplesModel(){
 		return trainingExamplesModel;
 	}
@@ -71,7 +76,7 @@ public class Example {
 			}
 		}
 		if (flag) {
-			rank.addElement(new Rank(featureName, feature));
+			rank.add(new Rank(featureName, feature));
 		} else {
 			System.out.println("There is existing feature Name");
 		}
@@ -87,7 +92,14 @@ public class Example {
 			}
 		}
 	}
-
+	public Rank getRankingList(String fName){
+		for(Rank r: rank) {
+			if(fName == r.getName())
+				return r;
+		}
+		return null;
+	}
+	
 	public boolean checkSubjective(Feature feature) {
 		if (feature.getStringValue() != null)
 			return true;
@@ -136,6 +148,9 @@ public class Example {
 		
 		
 	}
+	
+	
+	
 	
 	
 }
