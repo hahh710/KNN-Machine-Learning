@@ -21,18 +21,20 @@ public class TrainingExample {
 	//public createFeatureType{
 	//create feature type
 	public void addFeature(String keyname,Feature value){
+		int flag =0;
 		//if this keyname exists then
 		//when adding a feature of string value, then must 1. check if rank exists. if so append value to ranking list, 
 		//if not create new list and add value to ranking list
 		if(!feature.containsKey(keyname)) {
 			nameSet.addElement(keyname);
-			feature.put(keyname, value);
-			if(value.getStringValue()!=null) {
-				for(SubjectiveRanking sR: ex.getSubjectiveRankings()) {
-					if(sR.getRankingListType().equalsIgnoreCase(keyname)) {
-						sR.addToSubjectiveRanking(value.getStringValue());
-					}
+			for(SubjectiveRanking sR: ex.getSubjectiveRankings()) {
+				if(sR.getRankingListType().equalsIgnoreCase(keyname)) {
+					feature.put(keyname, value);
+					sR.addToSubjectiveRanking(value.getStringValue());
+					flag=1;
 				}
+			}
+			if (flag==1) {
 				SubjectiveRanking sr = new SubjectiveRanking(keyname);
 				ex.addSubjectiveRankings(sr);
 				feature.put(keyname, value);
@@ -89,7 +91,7 @@ public class TrainingExample {
 	public String toString(){
 		String tostring = exampleName + ": ";
 		for(int i =0;i < nameSet.size(); i++){
-			tostring += nameSet.get(i)+ " = " + feature.get(nameSet.get(i)).toString()+ "," + "\n" ;
+			tostring += nameSet.get(i) + " = " + feature.get(nameSet.get(i)).toString()+ "," + "\n" ;
 		}
 		return tostring;
 	}
