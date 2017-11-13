@@ -57,9 +57,7 @@ public class Feature {
 	public int getRank() {
 		return rankList.getPosition(stringValue);
 	}
-	public Rank getRankList(){
-		return rankList;
-	}
+
 	public String toString(){
 		if(stringValue != null){
 			return stringValue;

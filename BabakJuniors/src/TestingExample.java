@@ -27,7 +27,8 @@ public class TestingExample extends TrainingExample {
 	private Example exampleManager;
 
 	public TestingExample(int k, Example eM) {
-		this.setK(k);
+		super();
+		this.k = k;
 		exampleManager = eM;
 		distances = new Distance(this);
 		knn = new KNN(k, this);
@@ -66,9 +67,9 @@ public class TestingExample extends TrainingExample {
 	 * @param k
 	 *            set the k value in the knn instance
 	 */
-	public void setK(int k) {
-		// this.k = k;
-		knn.setK(k);
+	public void setK(int n) {
+		this.k = n;
+		knn.setK(n);
 	}
 
 	/**
@@ -79,44 +80,46 @@ public class TestingExample extends TrainingExample {
 	 *            sets the feature value passed in the parameter as the average
 	 *            of the list of features in the example class.
 	 */
-	public void PredictFeature(Feature f) {
-		String fName = f.getFName();
+	public void PredictFeature(String f, int valueType) {
 		int count = 0;
 		distances.updateDistances();
 		knn.getNN();
 		exampleManager.getTrainingExamples();
 		// Subjective f
-		if (exampleManager.checkSubjective(f)) {
+		
+		if (valueType==1) {
 			int position = 0;
 			for (TrainingExample t : knn.getNN()) {
-				position += t.getAllFeatures().get(fName).getRank();
+				position += t.getAllFeatures().get(f).getRank();
 				count++;
 			}
 			position = position / count;
-			f.setStringValue(f.getRankList().getValueAtRank(position));
+			//need to get ranklist from this feature type
+		
+			addFeature(f, new Feature(exampleManager.getRankingList(f).getValueAtRank(position)));
 		}
-		if (exampleManager.checkAbsolute(f)) {
-			int sum = 0;
+		else if (valueType==2) {
+			float sum = 0;
 			for (TrainingExample t : knn.getNN()) {
-				sum += t.getAllFeatures().get(fName).getNumValue();
+				sum += t.getAllFeatures().get(f).getNumValue();
 				count++;
 			}
 			sum = sum / count;
-			f.setNumValue((float) sum);
+			System.out.println("test");
+			addFeature(f, new Feature(sum));
 		}
-		if (exampleManager.checkEuclidean(f)) {
-			int xSum = 0;
-			int ySum = 0;
+		else if (valueType==3) {
+			Integer xSum = 0;
+			Integer ySum = 0;
 			for (TrainingExample t : knn.getNN()) {
-				xSum += t.getAllFeatures().get(fName).getCorX();
-				ySum += t.getAllFeatures().get(fName).getCorY();
+				xSum += t.getAllFeatures().get(f).getCorX();
+				ySum += t.getAllFeatures().get(f).getCorY();
 				count++;
 			}
 			xSum = xSum / count;
 			ySum = ySum / count;
+			addFeature(f, new Feature(xSum, ySum));
 
-			f.setCorX(xSum);
-			f.setCorY(ySum);
 		}
 
 	}

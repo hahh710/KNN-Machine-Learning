@@ -9,7 +9,8 @@ public class KNNController implements ActionListener {
 	 private Example example;
 	 private TestingExample a;
 	 private TrainingExample b;
-	 private String nameExample;
+	 private Feature feature;
+
 	 
 
 	public KNNController(KNNView view) {
@@ -31,25 +32,26 @@ public class KNNController implements ActionListener {
 			 	view.getFeatureEdit().setEnabled(true);
 			 	view.getAddFeature().setEnabled(true);
 			 
-			 	trainingExample = new JList<>(example.trainingExamples);
+			 	trainingExample = new JList<>(example.getTrainingExample());
 			 	view.getTrainingPanel().add(trainingExample);
 			 	trainingExample.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			 	
-			 	nameExample = JOptionPane.showInputDialog(null, "What is name of the Example ?", "Training Example's Name ", JOptionPane.QUESTION_MESSAGE);
+			 	String nameTrainExample = JOptionPane.showInputDialog(null, "What is name of the Example ?", "Training Example's Name ", JOptionPane.QUESTION_MESSAGE);
 			 	
 			 	b = new TrainingExample();
-			 	b.createExample(nameExample);
+			 	b.createExample(nameTrainExample);
 			 	example.addTrainingExample(b);
 
 		} else if (event.getActionCommand().equals("Create Testing Example")) {
 		 	
 			 
-		 	testingExample = new JList<>(example.testingExamples);
+		 	testingExample = new JList<>(example.getTestingExample());
 		 	view.getTestingPanel().add(testingExample);
 		 	testingExample.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		 
+		 	String nameTestExample = JOptionPane.showInputDialog(null, "What is name of the Example ?", "Training Example's Name ", JOptionPane.QUESTION_MESSAGE);
+
 		    a = new TestingExample(3, example);
-		    a.createExample(nameExample);
+		    a.createExample(nameTestExample);
 			example.addTestingExample(a);
 
 
@@ -57,7 +59,7 @@ public class KNNController implements ActionListener {
 		        view.getFeatureEdit().setEnabled(true);
 			 	String featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
 			 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
-			 	
+				
 			 	if(featureType.equals("1")) {
 			 		String featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
 				 	b.addFeature(featureName, new Feature(featureSValue));
@@ -110,7 +112,10 @@ public class KNNController implements ActionListener {
 
 		} else if (event.getActionCommand().equals("Predict")) {
 			
-				//PredictFeature();
+			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
+		 	int testFeatureType = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE));
+			
+			a.PredictFeature(testFeatureName, testFeatureType);
 				
 		} else if (event.getActionCommand().equals("Restart")) {
 			new KNNView();
