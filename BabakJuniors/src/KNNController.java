@@ -219,10 +219,14 @@ public class KNNController implements ActionListener {
 		}
 	else if (event.getActionCommand().equals("CalculateError")) {
 			
-			String errorFeatureName = JOptionPane.showInputDialog(null, "What is the name of the feature you want to edit?", " Feature's name ", JOptionPane.QUESTION_MESSAGE);
-
+			String errorFeatureName = JOptionPane.showInputDialog(null, "What is the name of the feature you want to calculate the error for?", " Feature's name ", JOptionPane.QUESTION_MESSAGE);
+			
+			int prevFeatureName = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to calculate the error ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
+	        trainingEx = example.getTestingExampleIndex(prevFeatureName);
 			int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
-			example.calculateError(trainingEx, trainingEx.getAllFeatures().get(errorFeatureName), knn);
+			float error = example.calculateError(trainingEx, trainingEx.getAllFeatures().get(errorFeatureName), knn);
+			
+			JOptionPane.showMessageDialog(view,"Error is: "+error);
 			
 				
 		} else if (event.getActionCommand().equals("Restart")) {

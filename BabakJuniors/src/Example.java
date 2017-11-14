@@ -152,7 +152,8 @@ public TestingExample getTestingExampleIndex(int i) {
 		}
 		return toString;
 	}	
-/**
+/**CalculateError
+ * use a training example as a testEx
  * 
  * @param tEx:training example used to calculate error, turned into testing example and predicts a feature
  * @param f: the feature to be predicted
@@ -175,7 +176,7 @@ public TestingExample getTestingExampleIndex(int i) {
 		else if(f.getCorX()!=null) { //ordered paid type handler
 			expectedValue=(float)f.getCorX();
 			expectedValue2=(float)f.getCorY();
-			smellyTypeFlag=2;
+			smellyTypeFlag=3;
 			testytest.predictFeature(f.getFName(), smellyTypeFlag, k);
 			actualValue=(float) testytest.getFeature(f.getFName()).getCorX();
 			actualValue2=(float) testytest.getFeature(f.getFName()).getCorY();
@@ -184,7 +185,7 @@ public TestingExample getTestingExampleIndex(int i) {
 		}
 		else if(f.getNumValue()!=null) { //absolute type handler
 			expectedValue = f.getNumValue();
-			smellyTypeFlag=3;
+			smellyTypeFlag=2;
 			testytest.predictFeature(f.getFName(), smellyTypeFlag, k);
 			actualValue=(float) testytest.getFeature(f.getFName()).getNumValue();
 			error=Math.abs(expectedValue-actualValue)/expectedValue;
@@ -193,41 +194,4 @@ public TestingExample getTestingExampleIndex(int i) {
 		return error;
 	}
 }
-/**
- * Create a copy of a training example
- * delete that training example from training examples
- * create a testing example from training example
- * (create new constructor for testing example which accepts a training example as parameter and copies its feature map)
- * create a copy of a feature
- * then delete that feature
- * then predict that feature
- * then calculate error on the difference
- */
-//instead of attempting to copy these complex objects
-//make a testingExample made out of a particular training example
-//call predict on a feature, compare that value to feature value
-/**
-public float calculateError(TrainingExample trainEx, Feature f) {
-	TrainingExample storeTestCase=new TrainingExample(trainEx);
-	TestingExample storeThisState= new TestingExample(this);
-	Feature storeFeature;
-	float error=0;
-	//check which feature type it is and then predict accordingly
-	if(f.getStringValue()!=null) {
-		float actual, expected;
-		expected=(float)f.getRank();
-		storeFeature = new Feature (f.getStringValue());
-	}
-	if(f.getCorX()!=null) {
-		float actualx, actualy, expectedx, expectedy;
-		expectedx=(float)f.getCorX();
-		expectedy=(float)f.getCorY();
-		storeFeature = new Feature (f.getCorX(), f.getCorY());
-	}
-	if(f.getNumValue()!=null) {
-		float actual, expected;
-		expected = f.getNumValue();
-		storeFeature = new Feature (f.getNumValue());
-	}
-	return error;
-}*/
+
