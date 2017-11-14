@@ -1,6 +1,6 @@
 /**
  * 
- * @author Arsalan Sadiq (daddy)
+ * @author Arsalan Sadiq
  * @Purpose: inherits all the features from the training example and utilizes
  *           the the distance class to predict a certain feature compared to
  *           Training Example
@@ -76,16 +76,18 @@ public class TestingExample extends TrainingExample {
 	 */
 	public void predictFeature(String f, int valueType, int k) {
 		int count = 0;
+		exampleManager.setRankLists();
+		//exammpleManager.setRankLists(); 
 		distances.updateDistances();
 		knn = new KNN(k, this);
 		knn.determineNearestNeighbors(k, exampleManager.getTrainingExamplesModel());
 		knn.getNN();
 		// Subjective f
-
+		
 		if (valueType==1) {
 			int position = 0;
 			for (TrainingExample t : knn.getNN()) {
-				position += t.getAllFeatures().get(f).getRank();
+				position += t.getAllFeatures().get(f).getRank(exampleManager);
 				count++;
 			}
 			position = position / count;
@@ -97,10 +99,8 @@ public class TestingExample extends TrainingExample {
 		else if (valueType==2) {
 			float sum = 0;
 			for (TrainingExample t : knn.getNN()) {
-				if(t.getAllFeatures().get(f).getNumValue()!=null) {
 				sum += t.getAllFeatures().get(f).getNumValue();
 				count++;
-				}
 			}
 			sum = sum / count;
 			System.out.println("test");
@@ -111,17 +111,15 @@ public class TestingExample extends TrainingExample {
 			Integer xSum = 0;
 			Integer ySum = 0;
 			for (TrainingExample t : knn.getNN()) {
-			
-					xSum += t.getAllFeatures().get(f).getCorX();
-					ySum += t.getAllFeatures().get(f).getCorY();
-					count++;
-				
+				xSum += t.getAllFeatures().get(f).getCorX();
+				ySum += t.getAllFeatures().get(f).getCorY();
+				count++;
 			}
 			xSum = xSum / count;
 			ySum = ySum / count;
 			addFeature(f, new Feature(xSum, ySum));
 			//getAllFeatures().replace(f, new Feature(xSum, ySum));
-
+		
 		}
 
 	}

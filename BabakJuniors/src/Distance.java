@@ -139,7 +139,7 @@ public class Distance {
 	 * @return the distance between two strings
 	 */
 	public float getSubjectiveDistance(Feature train, Feature test){
-		return train.getRank()-test.getRank();
+		return train.getRank(testEx.getExample())-test.getRank(testEx.getExample());
 	}
 	/**getAbsoluteDistance
 	 * 

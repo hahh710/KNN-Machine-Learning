@@ -54,10 +54,18 @@ public class Feature {
 	public String getFName(){
 		return fName;
 	}
-	public int getRank() {
-		return rankList.getPosition(stringValue);
+	public int getRank(Example example) {
+		Integer index = null;
+		for(int i =0;i<example.getRankInformation().size();i++){
+			if(example.getRankInformation().get(i).getName().contains(fName)){
+				index = example.getRankInformation().get(i).getlist().indexOf(this);
+			}
+		}
+		return index;
 	}
-
+	public void setFname(String fName){
+		this.fName = fName;
+	}
 	public String toString(){
 		if(stringValue != null){
 			return stringValue;

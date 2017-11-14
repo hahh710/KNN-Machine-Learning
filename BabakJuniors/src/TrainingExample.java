@@ -22,7 +22,9 @@ public class TrainingExample {
 	public void addFeature(String keyname,Feature value){
 		//if this keyname exists then
 		if(!feature.containsKey(keyname)) {
+			
 			feature.put(keyname, value);
+			feature.get(keyname).setFname(keyname);
 			nameSet.addElement(keyname);
 		}else{
 			System.out.println("There is same name of feature");// print this statement in 
