@@ -102,7 +102,7 @@ public class KNNView extends JFrame{
 		addTrainingFeature.setEnabled(false);
 		addTrainingFeature.addActionListener(controller);
 		
-		editTrainFeature = new JMenuItem("Edit Feature");
+		editTrainFeature = new JMenuItem("Edit Training Feature");
 		editTrainFeature.setEnabled(false);
 		editTrainFeature.addActionListener(controller);
 		
