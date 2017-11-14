@@ -32,26 +32,6 @@ import javax.swing.DefaultListModel;
 			+ toString() : String
 			+ calculateError( tEx : TrainingExample, f : Feature, k : int) :  float
  */
-/**
- * @author Arsalan Sadiq
- *
- */
-/**
- * @author Arsalan Sadiq
- *
- */
-/**
- * @author Arsalan Sadiq
- *
- */
-/**
- * @author Arsalan Sadiq
- *
- */
-/**
- * @author Arsalan Sadiq
- *
- */
 public class Example {
 	private DefaultListModel<TrainingExample> trainingExamples;
 	private ArrayList<TrainingExample> trainingExamplesModel;
@@ -147,9 +127,6 @@ public class Example {
 	public DefaultListModel<TestingExample> getTestingExample() {
 		return testingExamples;
 	}
-
-	// createFeatureType
-	// checkFeatureType
 	/**
 	 * gettingSubjectiveinRank checks that if the type is subjective and if it
 	 * is then at a particular value it adds the element and index in the rank
@@ -176,26 +153,6 @@ public class Example {
 				}
 			}
 		}
-
-		/*
-		 * if (!type.contains(example.getNameSet().get(i))) { if
-		 * (checkSubjective(example.getFeature(example.getNameSet().get(i)))) {
-		 * type.add(example.getNameSet().get(i)); } else
-		 * type.add(example.getNameSet().get(i)); } // else print error message
-		 * that there is exist name;
-		 * 
-		 * 
-		 * if(type.isEmpty()){
-		 * if(checkSubjective(example.getFeature(example.getNameSet().get(i)
-		 * ))){ //rank.add(example.getNameSet().get(i));
-		 * type.add(example.getNameSet().get(i)); }else
-		 * type.add(example.getNameSet().get(i)); }else
-		 * if(!type.contains(example.getNameSet().get(i))){
-		 * if(checkSubjective(example.getFeature(example.getNameSet().get(i)
-		 * ))){ type.add(example.getNameSet().get(i)); }else
-		 * type.add(example.getNameSet().get(i)); }
-		 */// else print error message that there is exist name;
-
 	}
 
 	/**
