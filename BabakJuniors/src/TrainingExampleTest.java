@@ -29,6 +29,47 @@ public class TrainingExampleTest {
 		assertNotNull("feature is not null", feature);
 		assertNotNull("nameSet is not null", nameSet);
 	}
-
+	public void createExample() {
+		assertNotNull("exampleName is not null", exampleName);
+		assertNotNull("feature is not null", feature);
+		assertNotNull("nameSet is not null", nameSet);
+	}
+	public void testaddFeature() {
+		
+	}
+	public void testgetFeature() {
+		
+	}
+	public void testremoveFeature() {
+		
+	}
+	public void testgetExampleName() {
+		
+	}
+	public void testcheckKeyName() {
+		
+	}
+	public void testgetKeyName() {
+		
+	}
+	public void testgetNameSet() {
+		
+	}
+	public void testgetAllFeatures() {
+		
+	}
+	public void testsetFeatures() {
+		
+	}
+	public void testgetTrainingExampleName() {
+		
+	}
+	public void testsetTrainingExampleName() {
+		
+	}
+	public void testtoString() {
+		
+	}
+	
 }
 

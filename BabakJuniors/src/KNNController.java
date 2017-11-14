@@ -12,9 +12,7 @@ import javax.swing.*;
  * - testEx Testing Example: represents the reference to the owner of this instance
  * 
  * @methods 
- *+getNN: returns the list of NN --> resets list of NN, then calls findKNN
- *+findKNN: the algorithm which determines which are the nearest neighbors, using distance from owner (testing example)
- *+setK: set the value of K, when k changes, NN will be called and automattically update KNN
+ * actionperformed(event):
  *
  *
  */
