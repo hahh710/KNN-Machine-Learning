@@ -40,24 +40,6 @@ public class Distance {
 		lookUpTable = new HashMap<TrainingExample, Integer>();
 		
 	}
-	/**getDistance between two Features
-	 * 
-	 * @param train
-	 * @param test
-	 * @return distance between two features, if either the testing or training example do not have this feature, return null
-	 */
-	public Float getDistance(Feature train, Feature test){
-		if(test.getCorX()!=null && train.getCorX()!=null){
-			return getEuclideanDistance(train, test);
-		}
-		if(test.getStringValue()!=null && train.getStringValue()!=null){
-			return getSubjectiveDistance(train, test);
-		}
-		if(test.getNumValue()!=null && train.getNumValue()!=null){
-			return getAbsoluteDistance(train, test);
-		}
-		return null;
-	}
 	/**
 	 * Get position in array list of training example
 	 * Go to each entry and add up the distances at that position
@@ -117,37 +99,11 @@ public class Distance {
 					lookUpTable.put(t, index);
 					index++;
 				}
-				entry.getValue().add(getDistance(testEx.getFeature(entry.getKey()), t.getFeature(entry.getKey())));
+				entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey())));
 			}
 			lookUpTableFlag++;
 		}
 		normalizeDistance();
 	}
-	/**getEuclideanDistance
-	 * 
-	 * @param train
-	 * @param test
-	 * @return the distance between two ordered pairs
-	 */
-	public float getEuclideanDistance(Feature train, Feature test){
-		return (float) Math.sqrt(Math.pow(train.getCorX() - test.getCorX(), 2) + Math.pow(train.getCorY() - test.getCorY(), 2));
-	}
-	/**getSubjectiveDistance
-	 * 
-	 * @param train
-	 * @param test
-	 * @return the distance between two strings
-	 */
-	public float getSubjectiveDistance(Feature train, Feature test){
-		return train.getRank(testEx.getExample())-test.getRank(testEx.getExample());
-	}
-	/**getAbsoluteDistance
-	 * 
-	 * @param train
-	 * @param test
-	 * @return the distance between two numbers
-	 */
-	public float getAbsoluteDistance(Feature train, Feature test){
-		return train.getNumValue()-test.getNumValue();
-	}
+
 }
