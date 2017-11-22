@@ -57,10 +57,7 @@ public class KNNController implements ActionListener {
 			 	trainingEx.createExample(nameTrainExample);
 			 	example.addTrainingExample(trainingEx);
 			 	
-			 	
-			 	
-			 	
-				
+
 			 	
 		} else if (event.getActionCommand().equals("Create Testing Example")) {
 			view.getTestFeature().setEnabled(true);
@@ -79,11 +76,9 @@ public class KNNController implements ActionListener {
 	} else if (event.getActionCommand().equals("Add Training Feature")) {
 		         view.getFeatureTrainEdit().setEnabled(true);
 		        
-		         //trainingEx = example.getTrainingExampleIndex(trainingExample.getSelectedIndex());
 		         int i = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
 		         trainingEx = example.getTrainingExampleIndex(i);
 
-		         
 		        
 			    String featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
 			 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
@@ -94,7 +89,7 @@ public class KNNController implements ActionListener {
 			 	}
 			 	
 			 	if(featureType.equals("2")) {
-			 		float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+			 		float featureIValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
 			 		trainingEx.addFeature(featureName, new Feature(featureIValue));
 			 		
 			 	}
@@ -127,7 +122,7 @@ public class KNNController implements ActionListener {
 		 	}
 		 	
 		 	if(featureType.equals("2")) {
-		 		float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+		 		float featureIValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
 		 		testingEx.addFeature(featureName, new Feature(featureIValue));
 		 		
 		 	}
@@ -159,7 +154,7 @@ public class KNNController implements ActionListener {
 		 	}
 		 	
 		 	if(featureType.equals("2")) {
-		 		float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+		 		float featureIValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
 		 		trainingEx.editFeature(editFeatureName, new Feature(featureIValue));
 		 		
 		 	}
@@ -191,7 +186,7 @@ public class KNNController implements ActionListener {
 		 	}
 		 	
 		 	if(featureType.equals("2")) {
-		 		float featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+		 		float featureIValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
 		 		testingEx.editFeature(editFeatureName, new Feature(featureIValue));
 		 		
 		 	}
@@ -224,7 +219,7 @@ public class KNNController implements ActionListener {
 			int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
 			float error = example.calculateError(trainingEx, trainingEx.getAllFeatures().get(errorFeatureName), knn);
 			
-			JOptionPane.showMessageDialog(view,"Error is: "+error);
+			JOptionPane.showMessageDialog(view,"Error is: " + error);
 			
 				
 		} else if (event.getActionCommand().equals("Restart")) {
@@ -232,4 +227,10 @@ public class KNNController implements ActionListener {
 		} 
 
 	}
+
+
+	public void askFeature() {
+	
+	}
+
 }

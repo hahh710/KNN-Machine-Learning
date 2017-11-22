@@ -331,7 +331,7 @@ public class Example {
 		} else if (f.getCorX() != null) { // ordered paid type handler
 			expectedValue = (float) f.getCorX();
 			expectedValue2 = (float) f.getCorY();
-			smellyTypeFlag = 2;
+			smellyTypeFlag =3 ;//editted from 2 to 3
 			testytest.predictFeature(f.getFName(), smellyTypeFlag, k);
 			actualValue = (float) testytest.getFeature(f.getFName()).getCorX();
 			actualValue2 = (float) testytest.getFeature(f.getFName()).getCorY();
@@ -344,7 +344,7 @@ public class Example {
 			// value
 		} else if (f.getNumValue() != null) { // absolute type handler
 			expectedValue = f.getNumValue();
-			smellyTypeFlag = 3;
+			smellyTypeFlag = 2;//eddited from 3 to 2
 			testytest.predictFeature(f.getFName(), smellyTypeFlag, k);
 			actualValue = (float) testytest.getFeature(f.getFName()).getNumValue();
 			error = Math.abs(expectedValue - actualValue) / expectedValue;
