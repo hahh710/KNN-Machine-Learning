@@ -74,7 +74,7 @@ public class TestingExample extends TrainingExample {
 	 *            sets the feature value passed in the parameter as the average
 	 *            of the list of features in the example class.
 	 */
-	public void predictFeature(String f, int valueType, int k) {
+	public void predictFeature(String f, int k) {
 		int count = 0;
 		exampleManager.setRankLists();
 		//exammpleManager.setRankLists(); 

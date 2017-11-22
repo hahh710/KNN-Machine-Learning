@@ -96,6 +96,7 @@ public class Distance {
 		}
 	//	for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) 
 		for(Map.Entry<String, ArrayList<Float>> entry: distances.entrySet()) {
+			//prompt the user to select distance metric
 			for(TrainingExample t: testEx.getExample().getTrainingExamplesModel()) {
 				if(lookUpTableFlag==0) {
 					lookUpTable.put(t, index);
