@@ -25,5 +25,5 @@ public abstract class Feature {
 	public void setFName(String fName){
 		this.fName = fName;
 	}
-	public abstract float getDistance(Feature f) ;
+	public abstract float getDistance(Feature f, String metric) ;
 }

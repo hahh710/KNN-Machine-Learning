@@ -86,6 +86,8 @@ public class Distance {
 	 * 
 	 */
 	public void updateDistances() {
+		String metric="";//this is supposed to be variable, when the algorithm begins to compare features for all training examples
+						//prompt the user and ask which distance metric will be used for this feature.
 		distances.clear();
 		int index=0;
 		int lookUpTableFlag =0;
@@ -99,7 +101,7 @@ public class Distance {
 					lookUpTable.put(t, index);
 					index++;
 				}
-				entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey())));
+				entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metric));
 			}
 			lookUpTableFlag++;
 		}
