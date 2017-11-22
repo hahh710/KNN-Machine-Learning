@@ -1,3 +1,4 @@
+/.DS_Store
 /AllTests.class
 /Distance.class
 /DistanceTest.class
@@ -14,6 +15,3 @@
 /TestingExampleTest.class
 /TrainingExample.class
 /TrainingExampleTest.class
-/SubjectiveRanking.class
-/SubjectiveRankingTest.class
-/.DS_Store
