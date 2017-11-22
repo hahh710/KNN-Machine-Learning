@@ -3,8 +3,8 @@
  *-fName : String : it holds name of the type of the feature ex) colour, Age, size.
  *-stringValue : String : it holds String value of the Feature. 
  *-numValue : Float : it holds the float value of the number value
- *-corX : Interger : it holds the value of coordinate of X value
- *-corY : Interger : it holds the value of coordinate of Y value 
+ *-corX : Integer : it holds the value of coordinate of X value
+ *-corY : Integer : it holds the value of coordinate of Y value 
  *-
  *
  *@Method
