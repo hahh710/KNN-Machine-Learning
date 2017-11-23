@@ -254,18 +254,21 @@ public class KNNController implements ActionListener {
 
 		} else if (event.getActionCommand().equals("Predict")) {
 			 
-			//distanceMetrics= new ArrayList<String>();
-			//distanceMetrics=new HashMap<String, String>();
+			
+			distanceMetrics=new HashMap<String, String>();
 			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
 		 	int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
-		 	//		for (String fName: testEx.getAllFeatures().keySet()) {
-		 	/**String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?"+fName" ", JOptionPane.QUESTION_MESSAGE);
-		 	 * distanceMetrics.put(fName, metric)
-		 	 *  append a string for each feature, pass this string to predict
-		 	 *  prompt: what is the distance metric you would like to use for print fname
-		 	 *  append input to list
-		 	 *  			testingEx.predictFeature(testFeatureName, knn, distanceMetrics);
-		 	 */
+		 
+		 	for (String fName: testingEx.getAllFeatures().keySet()) {
+		 	String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?" + fName, "Distance Metric", JOptionPane.QUESTION_MESSAGE);
+		 	
+		 	distanceMetrics.put(fName, metricType);
+		 	// append a string for each feature, pass this string to predict
+		 	 //prompt: what is the distance metric you would like to use for print fname
+		    // append input to list
+		 	}
+		     testingEx.predictFeature(testFeatureName, knn, distanceMetrics);
+		 	 
 //ask which distance metric would you like to use for this feature
 		 	//passing predict a list of strings
 			testingEx.predictFeature(testFeatureName, knn);

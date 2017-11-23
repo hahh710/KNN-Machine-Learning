@@ -14,7 +14,9 @@
  *
 **/
 public abstract class Feature {
+	
 	private String fName;
+	
 	public Feature(String s){
 		setFName(s);
 	}
@@ -22,8 +24,10 @@ public abstract class Feature {
 	public String getFName(){
 		return fName;
 	}
+	
 	public void setFName(String fName){
 		this.fName = fName;
 	}
+	
 	public abstract float getDistance(Feature f, String metric) ;
 }

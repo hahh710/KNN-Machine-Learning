@@ -37,7 +37,6 @@ public class Example {
 	private ArrayList<TrainingExample> trainingExamplesModel;
 	private DefaultListModel<TestingExample> testingExamples;
 	private ArrayList<String> type;
-	// ArrayList<ArrayList<String>>rank;
 	private ArrayList<Rank> rank;
 	// ArrayList<String>rank;//Rank for subjective features
 
