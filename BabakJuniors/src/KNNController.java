@@ -1,4 +1,10 @@
 import java.awt.event.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.swing.*;
 /**
  * The controller part of the MVC model
@@ -24,6 +30,8 @@ public class KNNController implements ActionListener {
 	 private Example example;
 	 private TestingExample testingEx;
 	 private TrainingExample trainingEx;
+	// private ArrayList<String> distanceMetrics;
+	 private HashMap <String, String> distanceMetrics;
 	 
 
 	 
@@ -150,6 +158,22 @@ public class KNNController implements ActionListener {
 		 	}
 		 	
 
+	}else if (event.getActionCommand().equals("Save Training Example")) {
+		try {
+			BufferedWriter out = new BufferedWriter(new FileWriter("TrainingExamples.txt"));
+			out.write(trainingExample.toString());
+			out.close();
+		} catch (IOException exception) {
+			exception.printStackTrace();
+		}
+	}else if (event.getActionCommand().equals("Save Testing Example")) {
+		try {
+			BufferedWriter out = new BufferedWriter(new FileWriter("TestingExamples.txt"));
+			out.write(testingExample.toString());
+			out.close();
+		} catch (IOException exception) {
+			exception.printStackTrace();
+		}
 	}else if (event.getActionCommand().equals("Edit Training Feature")) {
 			
 	
@@ -230,15 +254,15 @@ public class KNNController implements ActionListener {
 
 		} else if (event.getActionCommand().equals("Predict")) {
 			 
-			// ArrayList<String>distanceMetrics=newArrayList<String>();
-			//HashMap <String, String> distanceMetrics=new blah blah
+			//distanceMetrics= new ArrayList<String>();
+			//distanceMetrics=new HashMap<String, String>();
 			String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
 		 	int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
-		 	//		for (String fName: testEx.getAllFeatures().keySet()) {/**
+		 	//		for (String fName: testEx.getAllFeatures().keySet()) {
 		 	/**String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?"+fName" ", JOptionPane.QUESTION_MESSAGE);
 		 	 * distanceMetrics.put(fName, metric)
 		 	 *  append a string for each feature, pass this string to predict
-		 	 *  prompt: what is the distance metriv you would like to use for print fname
+		 	 *  prompt: what is the distance metric you would like to use for print fname
 		 	 *  append input to list
 		 	 *  			testingEx.predictFeature(testFeatureName, knn, distanceMetrics);
 		 	 */
