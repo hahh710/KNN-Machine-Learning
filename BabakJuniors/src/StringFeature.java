@@ -27,23 +27,24 @@ public class StringFeature extends Feature{
 	}
 	 
 	public float commonLetter(Feature f){
-		float distance=0;
+		float distance=fValue.length();
 		float count =0;
 		if(f instanceof StringFeature){
 			StringFeature feature = (StringFeature)f;
-			if(feature.getFValue().length() >= fValue.length()){
-				distance = feature.getFValue().length(); 
-			}else distance = fValue.length();
+			//if(feature.getFValue().length() >= fValue.length()){
+			//	distance = feature.getFValue().length(); 
+			//}else distance = fValue.length();
 			
 			for(int i=0;i < fValue.length();i++){
 				for(int j=0;j< feature.getFValue().length();j++)
 					if(fValue.charAt(i) == feature.getFValue().charAt(j)){
 						count++;
+						i++;
 				}
 			}
 			
 		}
-		return distance -= count;
+		return distance / count * 100;
 	}
 	
 	public float lengthOfString(Feature f){
