@@ -85,8 +85,8 @@ public class Distance {
 	/**updateDistances populates distances dictionary with a key for every feature in testing example, and an array of distances for each training example for each key
 	 * 
 	 */
-	public void updateDistances() {
-		String metric="";//this is supposed to be variable, when the algorithm begins to compare features for all training examples
+	public void updateDistances(HashMap<String, String> metrics) {
+						//metric supposed to be variable, when the algorithm begins to compare features for all training examples
 						//prompt the user and ask which distance metric will be used for this feature.
 		distances.clear();
 		int index=0;
@@ -101,7 +101,7 @@ public class Distance {
 					lookUpTable.put(t, index);
 					index++;
 				}
-				entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metric));
+				entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metrics.get(entry.getKey())));
 			}
 			lookUpTableFlag++;
 		}

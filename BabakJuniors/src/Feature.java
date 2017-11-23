@@ -1,3 +1,7 @@
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
 @Instance Variables
  *-fName : String : it holds name of the type of the feature ex) colour, Age, size.
@@ -12,22 +16,31 @@
  *+getFName() : Integer :  it is getter for FeatureName;
  *+setFname(String fName) : setter for the Feature Name;
  *
+ *add feature
+ *ask name
+ *ask string, number
+ *new StrngFeature()
+ *or
+ *new FloatFeature
+ *
+ *
 **/
 public abstract class Feature {
-	
 	private String fName;
-	
+	private ArrayList<Feature> subFeatures;
 	public Feature(String s){
 		setFName(s);
+		subFeatures = new ArrayList<Feature>();
 	}
 
 	public String getFName(){
 		return fName;
 	}
-	
 	public void setFName(String fName){
 		this.fName = fName;
 	}
-	
+	public void addSubFeature(Feature f) {
+	subFeatures.add(f);
+	}
 	public abstract float getDistance(Feature f, String metric) ;
 }

@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /**
  * 
  * @author Arsalan Sadiq
@@ -74,18 +76,28 @@ public class TestingExample extends TrainingExample {
 	 *            sets the feature value passed in the parameter as the average
 	 *            of the list of features in the example class.
 	 */
-	public void predictFeature(String f, int k) {
+	public void predictFeature(Feature f, int k, HashMap<String, String> metrics) {
 		int count = 0;
-		exampleManager.setRankLists();
-		//exammpleManager.setRankLists(); 
-		distances.updateDistances();
+		distances.updateDistances(metrics);
 		knn = new KNN(k, this);
 		knn.determineNearestNeighbors(k, exampleManager.getTrainingExamplesModel());
-		knn.getNN();
+		for(TrainingExample nn:knn.getNN()) {
+			/*1
+			 * 4 cases
+			 * Strign return middle index
+			 * 
+			 * Float return average of numbers
+			 * 
+			 * Ordered pair or complex number: return average of each one in pair
+			 * 
+			 * 
+			 */
+		}
 		// Subjective f
-		
+		/**
+		 * iterat
 		if (valueType==1) {
-			int position = 0;
+			int poshgbvvnbition = 0;
 			for (TrainingExample t : knn.getNN()) {
 				position += t.getAllFeatures().get(f).getRank(exampleManager);
 				count++;
@@ -119,8 +131,9 @@ public class TestingExample extends TrainingExample {
 			ySum = ySum / count;
 			addFeature(f, new Feature(xSum, ySum));
 			//getAllFeatures().replace(f, new Feature(xSum, ySum));
-		
+
 		}
 
+	}*/
 	}
 }
