@@ -46,7 +46,7 @@ public class TrainingExample {
 		if(!feature.containsKey(keyname)) {
 			
 			feature.put(keyname, value);
-			feature.get(keyname).setFname(keyname);
+			feature.get(keyname).setFName(keyname);
 			nameSet.addElement(keyname);
 		}else{
 			System.out.println("There is same name of feature");// print this statement in 
