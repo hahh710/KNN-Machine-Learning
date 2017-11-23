@@ -12,17 +12,25 @@ public class FloatFeature extends Feature{
 	
 	@Override
 	public float getDistance(Feature f, String metric) {
-		if(metric.equals("floatFeature"))
-			 complexDistance(f);
+		if(metric.equals("absoluteDistance")){
+			return absoluteDistance(f);
+		}else if(metric.equals("SquareDistance")){
+			return squareDistance(f);
+		}
+			
 		return 0;
 	}
-	public void complexDistance(Feature f){
-		if(f instanceof ComplexFeature)
-			this.valueDiff = subValue(f);
-			
-			
+	public float absoluteDistance(Feature f){
+		if(f instanceof FloatFeature)
+			return subValue(f);
+		return 0;
 	}
-
+	public float squareDistance(Feature f){
+		if(f instanceof FloatFeature)
+			return (float) (Math.pow(value, 2) - Math.pow(((FloatFeature) f).getValue(), 2));
+		return 0;
+		
+	}
 	
 	public float subValue(Feature f){
 		return this.value - ((FloatFeature) f).getValue() ;
