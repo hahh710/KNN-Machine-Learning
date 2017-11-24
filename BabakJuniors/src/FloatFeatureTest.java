@@ -5,20 +5,22 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class FloatFeatureTest {
-	float v1=10;
-	float v2=15;
-	String s1="new1";
-	String s2="new2";
+	float v1 = 10;
+	float v2 = 15;
+	String s1 = "new1";
+	String s2 = "new2";
 	FloatFeature f1;
 	FloatFeature f2;
-	String m1="absoluteDistance";
-	String m2="SquareDistance";
+	String m1 = "absoluteDistance";
+	String m2 = "SquareDistance";
+	float answer = 5;
+	float answerSq = 125;
 
 	@Before
 	public void setUp() throws Exception {
-	 f1= new FloatFeature(s1,v1);
-	 f2=new FloatFeature(s2,v2);
-		
+		f1 = new FloatFeature(s1, v1);
+		f2 = new FloatFeature(s2, v2);
+
 	}
 
 	@After
@@ -27,38 +29,45 @@ public class FloatFeatureTest {
 
 	@Test
 	public void testGetDistance() {
-		f1.getDistance(f2, m1);
+		assertEquals(answer, f1.getDistance(f2, m1), v2 - answer);
+
 	}
 
 	@Test
 	public void testFloatFeature() {
-		
-		assertEquals(new FloatFeature(s1,v1),f1);
+		FloatFeature fTest = new FloatFeature(s1, v1);
+		assertTrue(fTest.getFName().equals(s1));
+		assertTrue(fTest.getValue() == (v1));
 	}
 
 	@Test
 	public void testAbsoluteDistance() {
-		fail("Not yet implemented");
+		FloatFeature fTest = new FloatFeature(s1, v1);
+		assertEquals(answer, fTest.absoluteDistance(f2), f2.getValue() - answer);
 	}
 
 	@Test
 	public void testSquareDistance() {
-		fail("Not yet implemented");
+		FloatFeature fTest = new FloatFeature(s1, v1);
+		assertEquals(answerSq, fTest.squareDistance(f2), f2.getValue() - answer);
 	}
 
 	@Test
 	public void testSubValue() {
-		fail("Not yet implemented");
+		FloatFeature fTest = new FloatFeature(s1, v1);
+		assertEquals(answer, fTest.subValue(f2), f2.getValue() - answer);
 	}
 
 	@Test
 	public void testSetValue() {
-		fail("Not yet implemented");
+		FloatFeature fTest = new FloatFeature(s1, v1);
+		fTest.setValue(answer);
+		assertEquals(answer, fTest.getValue(), fTest.getValue() - answer);
 	}
 
 	@Test
 	public void testGetValue() {
-		fail("Not yet implemented");
+		assertEquals(answer, f1.getValue(), f1.getValue() - answer);
 	}
 
 }
