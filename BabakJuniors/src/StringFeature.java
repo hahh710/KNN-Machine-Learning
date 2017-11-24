@@ -59,5 +59,17 @@ public class StringFeature extends Feature{
 		return fValue.compareToIgnoreCase(feature.getFValue());
 		
 	}
-
+	
+	public float calculateError(Feature f) {
+		if (f instanceof FloatFeature){
+			if(!fValue.equals(f.getFName())){
+				return 100;
+			}else{
+				return 0;
+			}
+		}
+			
+		// throw exception
+		return (float) 1.1;
+	}
 }
