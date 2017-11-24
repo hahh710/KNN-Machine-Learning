@@ -27,20 +27,17 @@ import java.util.HashMap;
 **/
 public abstract class Feature {
 	private String fName;
-	private ArrayList<Feature> subFeatures;
 	public Feature(String s){
 		setFName(s);
-		subFeatures = new ArrayList<Feature>();
 	}
 
 	public String getFName(){
 		return fName;
 	}
+	
 	public void setFName(String fName){
 		this.fName = fName;
 	}
-	public void addSubFeature(Feature f) {
-	subFeatures.add(f);
-	}
+	
 	public abstract Float getDistance(Feature f, String metric) ;
 }
