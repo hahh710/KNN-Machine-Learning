@@ -44,5 +44,15 @@ public class FloatFeature extends Feature {
 	public float getValue() {
 		return value;
 	}
+	/**
+	 * (expected-actual)/expected * 100
+	 * @param f
+	 */
+	public float calculateError(Feature f){
+		if (f instanceof FloatFeature)
+			return (value-((FloatFeature) f).getValue())/value;
+		//throw exception
+		return  (float) 1.1;
+	}
 
 }
