@@ -48,11 +48,11 @@ public class FloatFeature extends Feature {
 	 * 
 	 * @param f
 	 */
-	public float calculateError(Feature f) {
+	public Float calculateError(Feature f) {
 		if (f instanceof FloatFeature)
 			return (value - ((FloatFeature) f).getValue()) / value;
 		// throw exception
-		return (float) 1.1;
+		return null;
 	}
 
 }
