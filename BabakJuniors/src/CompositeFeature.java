@@ -24,6 +24,12 @@ public class CompositeFeature extends Feature {
 	public void setSubFeatureNames(ArrayList<String> subFeatureNames) {
 		this.subFeatureNames = subFeatureNames;
 	}
+	public Feature getSubFeature(int i) {
+		return subFeatures.get(i);
+	}
+	public String getSubFeatureName(int i) {
+		return subFeatureNames.get(i);
+	}
 	
 	@Override
 	public Float getDistance(Feature f, String metric) {
