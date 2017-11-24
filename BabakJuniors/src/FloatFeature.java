@@ -39,7 +39,7 @@ public class FloatFeature extends Feature {
 		this.value = value;
 	}
 
-	public float getValue() {
+	public Float getValue() {
 		return value;
 	}
 
