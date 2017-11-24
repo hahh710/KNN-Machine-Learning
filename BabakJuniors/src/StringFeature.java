@@ -14,7 +14,7 @@ public class StringFeature extends Feature{
 	}
 	
 	@Override
-	public float getDistance(Feature f, String metric) {
+	public Float getDistance(Feature f, String metric) {
 		float distance;
 		if(metric.equals("commonletter")){
 			distance = commonLetter(f); 
