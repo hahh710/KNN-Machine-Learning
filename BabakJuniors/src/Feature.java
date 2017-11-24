@@ -42,5 +42,5 @@ public abstract class Feature {
 	public void addSubFeature(Feature f) {
 	subFeatures.add(f);
 	}
-	public abstract float getDistance(Feature f, String metric) ;
+	public abstract Float getDistance(Feature f, String metric) ;
 }

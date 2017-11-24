@@ -8,31 +8,29 @@ public class FloatFeature extends Feature {
 		this.setValue(value);
 	}
 
-	@Override
-	public float getDistance(Feature f, String metric) {
-		if (metric.equals("absoluteDistance")) {
-			return absoluteDistance(f);
-		} else if (metric.equals("SquareDistance")) {
-			return squareDistance(f);
+	public Float getDistance(Feature f, String metric) {
+		if (f instanceof FloatFeature) {
+			if (metric.equals("absoluteDistance")) {
+				return absoluteDistance(f);
+			} else if (metric.equals("SquareDistance")) {
+				return squareDistance(f);
+			}
 		}
-
-		return 0;
+		return null;
 	}
 
-	public float absoluteDistance(Feature f) {
+	public Float absoluteDistance(Feature f) {
 		if (f instanceof FloatFeature)
 			return subValue(f);
-		return 0;
+		return null;
 	}
 
-	public float squareDistance(Feature f) {
-		if (f instanceof FloatFeature)
-			return Math.abs((float) (Math.pow(value, 2) - Math.pow(((FloatFeature) f).getValue(), 2)));
-		return 0;
+	public Float squareDistance(Feature f) {
+		return Math.abs((float) (Math.pow(value, 2) - Math.pow(((FloatFeature) f).getValue(), 2)));
 
 	}
 
-	public float subValue(Feature f) {
+	public Float subValue(Feature f) {
 		return this.value - ((FloatFeature) f).getValue();
 
 	}
@@ -44,15 +42,17 @@ public class FloatFeature extends Feature {
 	public float getValue() {
 		return value;
 	}
+
 	/**
 	 * (expected-actual)/expected * 100
+	 * 
 	 * @param f
 	 */
-	public float calculateError(Feature f){
+	public float calculateError(Feature f) {
 		if (f instanceof FloatFeature)
-			return (value-((FloatFeature) f).getValue())/value;
-		//throw exception
-		return  (float) 1.1;
+			return (value - ((FloatFeature) f).getValue()) / value;
+		// throw exception
+		return (float) 1.1;
 	}
 
 }
