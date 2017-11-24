@@ -11,6 +11,9 @@ import javax.swing.*;
  *
  * @Authors: Ahmed Khattab
  * @Purpose: Determine the nearest neighbors of a given testing example, given a certain K
+ * append a string for each feature, pass this string to predict
+ * prompt: what is the distance metric you would like to use for print FNAME
+ * append input to list
  *
  * @field variables
  * - nearestNeighbors ArrayList<TrainingExamples>: represents the list of nearest neighbors
@@ -30,8 +33,11 @@ public class KNNController implements ActionListener {
 	 private Example example;
 	 private TestingExample testingEx;
 	 private TrainingExample trainingEx;
-	// private ArrayList<String> distanceMetrics;
 	 private HashMap <String, String> distanceMetrics;
+	 private String featureName;
+	 private String featureType;
+	 private String featureSValue;
+	 private float featureFValue;
 	 
 
 	 
@@ -82,98 +88,33 @@ public class KNNController implements ActionListener {
 			
 
 	} else if (event.getActionCommand().equals("Add Training Feature")) {
-		         view.getFeatureTrainEdit().setEnabled(true);
+		    view.getFeatureTrainEdit().setEnabled(true);
 		        
-		         int i = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
-		         trainingEx = example.getTrainingExampleIndex(i);
-
+		    int i = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
+		    trainingEx = example.getTrainingExampleIndex(i);
+		         
 		        
-			    String featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
-			 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float, 3 for coordinates and 4 for complex ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
-				
-			 	if(featureType.equals("1")) {
-			 		String featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
-				 	trainingEx.addFeature(featureName, new Feature(featureSValue));
-			 	}
+		    askTrainFeature();
 			 	
-			 	if(featureType.equals("2")) {
-			 		float featureIValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-			 		trainingEx.addFeature(featureName, new Feature(featureIValue));
-			 		
-			 	}
-			 	
-			 	if(featureType.equals("3")) {
-			 		int featureXValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is X-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-			 		int featureYValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is Y-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-
-				 	trainingEx.addFeature(featureName, new Feature(featureXValue,featureYValue));
-			 	}
-			 	
-			 	if(featureType.equals("4")) {
-			 		int featureRValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the real number value of the Feature to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-			 		int featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the imaginary number value of the Feature to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-
-				 	trainingEx.addFeature(featureName, new Feature(featureRValue,featureIValue));
-			 	}
-			 	
-
+		 	//If feature type is complex enters loop
+		 	while(featureType.equals(3)) {
+		 		askTrainFeature();
+		 	}
+		 	
 		}else if (event.getActionCommand().equals("Add Testing Feature")) {
 			 view.getFeatureTestEdit().setEnabled(true);
 			 view.getCalculateError().setEnabled(true); 
-	         
-	         
-	         
-	         int prevIndexFeature = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
-	         testingEx = example.getTestingExampleIndex(prevIndexFeature);
 
+	         int i = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
+	         testingEx = example.getTestingExampleIndex(i);
 	         
-	        
-		    String featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
-		 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
-			
-		 	if(featureType.equals("1")) {
-		 		String featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
-		 		testingEx.addFeature(featureName, new Feature(featureSValue));
+	         askTestFeature();
+	      
+	      	//If feature type is complex enters loop
+		 	while(featureType.equals(3)) {
+		 		askTestFeature();
 		 	}
 		 	
-		 	if(featureType.equals("2")) {
-		 		float featureIValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		testingEx.addFeature(featureName, new Feature(featureIValue));
-		 		
-		 	}
-		 	
-		 	if(featureType.equals("3")) {
-		 		int featureXValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is X-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		int featureYValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is Y-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-
-		 		testingEx.addFeature(featureName, new Feature(featureXValue,featureYValue));
-		 	}
-		 	
-
-		 	if(featureType.equals("4")) {
-		 		int featureRValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the real number value of the Feature to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		int featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the imaginary number value of the Feature to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-
-			 	trainingEx.addFeature(featureName, new Feature(featureRValue,featureIValue));
-		 	}
-		 	
-
-	}else if (event.getActionCommand().equals("Save Training Example")) {
-		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter("TrainingExamples.txt"));
-			out.write(trainingExample.toString());
-			out.close();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
-	}else if (event.getActionCommand().equals("Save Testing Example")) {
-		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter("TestingExamples.txt"));
-			out.write(testingExample.toString());
-			out.close();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
 	}else if (event.getActionCommand().equals("Edit Training Feature")) {
 			
 	
@@ -181,10 +122,9 @@ public class KNNController implements ActionListener {
         trainingEx = example.getTrainingExampleIndex(prevFeatureName);
 		String editFeatureName = JOptionPane.showInputDialog(null, "What is the name of the feature you want to edit?", " Feature's name ", JOptionPane.QUESTION_MESSAGE);
 
-        trainingEx.getAllFeatures().get(editFeatureName);
-        
+        trainingEx.getAllFeatures().get(editFeatureName); 
 			
-		 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be editted (1 for String, 2 for float, 3 for coordinates and 4 for complex ?", " Feature's Type to be editted ", JOptionPane.QUESTION_MESSAGE);
+		 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be editted (1 for String, 2 for float and 3 for complex ?", " Feature's Type to be editted ", JOptionPane.QUESTION_MESSAGE);
 		 	
 		 	if(featureType.equals("1")) {
 		 		String featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
@@ -197,21 +137,7 @@ public class KNNController implements ActionListener {
 		 		trainingEx.editFeature(editFeatureName, new Feature(featureIValue));
 		 		
 		 	}
-		 	
-		 	if(featureType.equals("3")) {
-		 		int featureXValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is X-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		int featureYValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is Y-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		
-		 		trainingEx.editFeature(editFeatureName, new Feature(featureXValue,featureYValue));
-		 	}
-		 	
-		 	if(featureType.equals("4")) {
-		 		int featureRValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the real number value of the Feature to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		int featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the imaginary number value of the Feature to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-
-			 	trainingEx.addFeature(editFeatureName, new Feature(featureRValue,featureIValue));
-		 	}
-		 	
+		 	 	
 
 		} else if (event.getActionCommand().equals("Edit Testing Feature")) {
 			
@@ -223,7 +149,7 @@ public class KNNController implements ActionListener {
 		testingEx.getAllFeatures().get(editFeatureName);
         
 			
-		 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be editted (1 for String, 2 for float, 3 for coordinates and 4 for complex ?", " Feature's Type to be editted ", JOptionPane.QUESTION_MESSAGE);
+		 	String featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be editted (1 for String, 2 for float, and 3 for complex ?", " Feature's Type to be editted ", JOptionPane.QUESTION_MESSAGE);
 		 	
 		 	if(featureType.equals("1")) {
 		 		String featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
@@ -237,19 +163,7 @@ public class KNNController implements ActionListener {
 		 		
 		 	}
 		 	
-		 	if(featureType.equals("3")) {
-		 		int featureXValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is X-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		int featureYValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is Y-Coordinates value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		
-		 		testingEx.editFeature(editFeatureName, new Feature(featureXValue,featureYValue));
-		 	}
 		 	
-		 	if(featureType.equals("4")) {
-		 		int featureRValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the real number value of the Feature to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-		 		int featureIValue = Integer.parseInt(JOptionPane.showInputDialog(null, "What is the imaginary number value of the Feature to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-
-			 	trainingEx.addFeature(editFeatureName, new Feature(featureRValue,featureIValue));
-		 	}
 		 	
 
 		} else if (event.getActionCommand().equals("Predict")) {
@@ -263,17 +177,9 @@ public class KNNController implements ActionListener {
 		 	String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?" + fName, "Distance Metric", JOptionPane.QUESTION_MESSAGE);
 		 	
 		 	distanceMetrics.put(fName, metricType);
-		 	// append a string for each feature, pass this string to predict
-		 	 //prompt: what is the distance metric you would like to use for print fname
-		    // append input to list
 		 	}
-		     testingEx.predictFeature(testFeatureName, knn, distanceMetrics);
-		 	 
-//ask which distance metric would you like to use for this feature
-		 	//passing predict a list of strings
-			testingEx.predictFeature(testFeatureName, knn);
-			
-				
+		 	
+		    testingEx.predictFeature(testFeatureName, knn, distanceMetrics);		
 		}
 	else if (event.getActionCommand().equals("CalculateError")) {
 			
@@ -287,6 +193,22 @@ public class KNNController implements ActionListener {
 			JOptionPane.showMessageDialog(view,"Error is: " + error);
 			
 				
+		}else if (event.getActionCommand().equals("Save Training Example")) {
+			try {
+				BufferedWriter out = new BufferedWriter(new FileWriter("TrainingExamples.txt"));
+				out.write(trainingExample.toString());
+				out.close();
+			} catch (IOException exception) {
+				exception.printStackTrace();
+			}
+		}else if (event.getActionCommand().equals("Save Testing Example")) {
+			try {
+				BufferedWriter out = new BufferedWriter(new FileWriter("TestingExamples.txt"));
+				out.write(testingExample.toString());
+				out.close();
+			} catch (IOException exception) {
+				exception.printStackTrace();
+			}
 		} else if (event.getActionCommand().equals("Restart")) {
 			new KNNView();
 		} 
@@ -294,8 +216,36 @@ public class KNNController implements ActionListener {
 	}
 
 
-	public void askFeature() {
+	public void askTrainFeature() {
+	     featureName = JOptionPane.showInputDialog(null, "What is name of the Complex feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
+	 	 featureType = JOptionPane.showInputDialog(null, "What is the type of the feature you would like to be added(1 for String, 2 for float and 3 for complex ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
 	
+	 	if(featureType.equals("1")) {
+	 		featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
+		 	trainingEx.addFeature(featureName, new Feature(featureSValue));
+	 	}
+	 	
+	 	if(featureType.equals("2")) {
+	 		featureFValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+	 		trainingEx.addFeature(featureName, new Feature(featureFValue));
+	 	}
+	}
+	
+	public void askTestFeature() {
+	    featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
+	 	featureType = JOptionPane.showInputDialog(null, "What is the type of the Feature you would like to be added(1 for String, 2 for float and 3 for coordinates ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
+		
+	 	if(featureType.equals("1")) {
+	 		featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
+	 		testingEx.addFeature(featureName, new Feature(featureSValue));
+	 	}
+	 	
+	 	if(featureType.equals("2")) {
+	 		featureFValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+	 		testingEx.addFeature(featureName, new Feature(featureFValue));
+	 		
+	 	}
 	}
 
 }
+
