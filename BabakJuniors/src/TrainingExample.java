@@ -29,11 +29,15 @@ public class TrainingExample {
 	private String name;
 	private Example manager;
 	private ArrayList<Feature> features; 
-
+	public TrainingExample() {
+		name=null;
+		manager=null;
+		features=null;
+	}
 	public TrainingExample(String name, Example manager){
 		this.manager=manager;
 		features = new ArrayList<Feature>();
-		this.name = name;
+		this.name = name; 
 	}
 	//public createFeatureType{
 	//create feature type
@@ -62,10 +66,12 @@ public class TrainingExample {
 	public String getName(){
 		return name;
 	}
-	public void setName(String f){
+	public void setName(String f){ 
 		name = f;
 	}
-
+	public Example getManager() {
+		return manager;
+	}
 	public ArrayList<Feature> getFeatures(){
 		return features;
 	}

@@ -91,12 +91,14 @@ public class Distance {
 		distances.clear();
 		int index=0;
 		int lookUpTableFlag =0;
-		for (String fName: testEx.getAllFeatures().keySet()) {
-			distances.put(fName, new ArrayList<Float>());
+		//prepare map for distances
+		//each feature is a key, with an ar raylist of floats representing the distance between a   
+		for (Feature f: testEx.getFeatures()) {
+			distances.put(f.getFName(), new ArrayList<Float>());
 		}
 	//	for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) 
 		for(Map.Entry<String, ArrayList<Float>> entry: distances.entrySet()) {
-			for(TrainingExample t: testEx.getExample().getTrainingExamplesModel()) {
+			for(TrainingExample t: testEx.getManager().getTrainingExamplesModel()) {
 				if(lookUpTableFlag==0) {
 					lookUpTable.put(t, index);
 					index++;

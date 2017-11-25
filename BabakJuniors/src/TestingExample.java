@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -22,52 +23,35 @@ import java.util.HashMap;
  *          example
  */
 public class TestingExample extends TrainingExample {
-
 	private Distance distances;
 	private KNN knn;
-	private Example exampleManager;
-
-	public TestingExample( Example eM) {
-		super();
-		exampleManager = eM;
+	public TestingExample(String name, Example eM) {
+		super(name, eM);
 		distances = new Distance(this);
-		knn = null;
+		knn=new KNN(0, this);
 	}
 	/**
 	 * Constructor to create copy of training example
 	 * @param testEx
 	 */
-	public TestingExample(TrainingExample tEx, Example eM) {
-		super();
-		setFeatures(tEx.getAllFeatures());
-		exampleManager = eM;
+	public TestingExample(String name, Example eM, TrainingExample tEx) {
+		super(name, eM);
+		setFeatures(tEx.getFeatures());
+		knn=new KNN(0, this);
 		distances = new Distance(this);
 	}
-	/**
-	 * getDistances
-	 * 
-	 * @return distances
-	 */
+	public void setFeatures(ArrayList<Feature> list) {
+		super.setFeatures(list);
+	}
+	public Example getManager() {
+		return super.getManager();
+	}
 	public Distance getDistances() {
 		return distances;
 	}
-	/**
-	 * 
-	 * @return knn
-	 */
 	public KNN getKNN() {
 		return knn;
 	}
-	/**
-	 * getExample
-	 * 
-	 * @return exampleManager
-	 */
-	public Example getExample() {
-		return exampleManager;
-	}
-
-
 	/**
 	 * PredictFeature
 	 * 
@@ -80,7 +64,7 @@ public class TestingExample extends TrainingExample {
 		int count = 0;
 		distances.updateDistances(metrics);
 		knn = new KNN(k, this);
-		knn.determineNearestNeighbors(k, exampleManager.getTrainingExamplesModel());
+		knn.determineNearestNeighbors(k, getManager().getTrainingExamplesModel());
 		for(TrainingExample nn:knn.getNN()) {
 			/*1
 			 * 4 cases
@@ -94,46 +78,5 @@ public class TestingExample extends TrainingExample {
 			 */
 		}
 		// Subjective f
-		/**
-		 * iterat
-		if (valueType==1) {
-			int poshgbvvnbition = 0;
-			for (TrainingExample t : knn.getNN()) {
-				position += t.getAllFeatures().get(f).getRank(exampleManager);
-				count++;
-			}
-			position = position / count;
-			//need to get ranklist from this feature type
-			//getAllFeatures().replace(f, new Feature(exampleManager.getRankingList(f).getValueAtRank(position)));
-			addFeature(f, new Feature(exampleManager.getRankingList(f).getValueAtRank(position)));
-
-		}
-		else if (valueType==2) {
-			float sum = 0;
-			for (TrainingExample t : knn.getNN()) {
-				sum += t.getAllFeatures().get(f).getNumValue();
-				count++;
-			}
-			sum = sum / count;
-			System.out.println("test");
-			//getAllFeatures().replace(f, new Feature(sum));
-			addFeature(f, new Feature(sum));
-		}
-		else if (valueType==3) {
-			Integer xSum = 0;
-			Integer ySum = 0;
-			for (TrainingExample t : knn.getNN()) {
-				xSum += t.getAllFeatures().get(f).getCorX();
-				ySum += t.getAllFeatures().get(f).getCorY();
-				count++;
-			}
-			xSum = xSum / count;
-			ySum = ySum / count;
-			addFeature(f, new Feature(xSum, ySum));
-			//getAllFeatures().replace(f, new Feature(xSum, ySum));
-
-		}
-
-	}*/
 	}
 }

@@ -21,6 +21,7 @@ import java.util.List;
  */
 public class KNN {
 	private ArrayList<TrainingExample> nearestNeighbors;
+	private Distance distances;
 	private int k;
 	private TestingExample testEx;
 	public KNN(int k, TestingExample testEx) {
