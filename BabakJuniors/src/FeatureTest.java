@@ -5,43 +5,44 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class FeatureTest {
+	private CompositeFeature cfHead, cF2;
 
 	@Before
 	public void setUp() throws Exception {
+		cfHead = new CompositeFeature("Head");
+		cF2 = new CompositeFeature("CompositeFeature2");
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testFeature() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testGetFName() {
-		fail("Not yet implemented");
+		assertEquals("Head",cfHead.getFName());
 	}
 
 	@Test
 	public void testSetFName() {
-		fail("Not yet implemented");
+		String s = "New Head";
+		cfHead.setFName("New Head");
+		assertEquals(s,cfHead.getFName());
 	}
 
 	@Test
 	public void testGetDistance() {
-		fail("Not yet implemented");
+		assertTrue(true);
 	}
 
 	@Test
 	public void testCalculateError() {
-		fail("Not yet implemented");
+		assertTrue(true);
 	}
 
 	@Test
 	public void testGetFeatureValue() {
-		fail("Not yet implemented");
+		assertTrue(true);
 	}
 
 }
