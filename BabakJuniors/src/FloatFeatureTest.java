@@ -37,7 +37,7 @@ public class FloatFeatureTest {
 
 	@Test
 	public void testFloatFeature() {
-		
+
 		assertTrue(fTest.getFName().equals(s1));
 		assertTrue(fTest.getValue() == (v1));
 	}

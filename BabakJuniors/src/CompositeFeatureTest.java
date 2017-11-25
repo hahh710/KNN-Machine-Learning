@@ -9,8 +9,8 @@ import org.junit.Test;
 public class CompositeFeatureTest {
 
 	private CompositeFeature cfHead, cF2;
-	ArrayList<Feature> testingList;		
-	ArrayList<String> stringTestingList ;
+	ArrayList<Feature> testingList;
+	ArrayList<String> stringTestingList;
 
 	@Before
 	public void setUp() throws Exception {
@@ -60,12 +60,12 @@ public class CompositeFeatureTest {
 
 		stringTestingList.add(cF2.getFName());
 		cfHead.addFeature(cF2);
-		assertEquals(stringTestingList , cfHead.getSubFeatureNames());
+		assertEquals(stringTestingList, cfHead.getSubFeatureNames());
 	}
 
 	@Test
 	public void testSetSubFeatureNames() {
-		stringTestingList .add(cF2.getFName());
+		stringTestingList.add(cF2.getFName());
 		cfHead.setSubFeatureNames(stringTestingList);
 		assertEquals(stringTestingList, cfHead.getSubFeatureNames());
 	}
@@ -101,11 +101,11 @@ public class CompositeFeatureTest {
 	@Test
 	public void testgetFeatureValue() {
 		ArrayList<Feature> features = new ArrayList<Feature>();
-		//assertTrue(true);
-		//fail("Not yet implemented");
+		// assertTrue(true);
+		// fail("Not yet implemented");
 		features.add(cF2);
-		//cfHead.(features);
-		assertEquals(features,cfHead.getFeatureValue(features));
+		// cfHead.(features);
+		assertEquals(features, cfHead.getFeatureValue(features));
 	}
 
 }

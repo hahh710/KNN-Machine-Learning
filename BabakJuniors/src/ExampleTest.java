@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 import org.junit.After;
-	import org.junit.Before;
-	import org.junit.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 public class ExampleTest {
 	private DefaultListModel<TrainingExample> trainingExamples;
@@ -14,7 +14,7 @@ public class ExampleTest {
 	private DefaultListModel<TestingExample> testingExamples;
 	private ArrayList<String> type;
 	private ArrayList<Rank> rank;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		trainingExamples = new DefaultListModel<TrainingExample>();
@@ -30,30 +30,23 @@ public class ExampleTest {
 
 	@Test
 	public void testExample() {
-		
+
 		assertNotNull("Training Example is not null", trainingExamples);
 		assertNotNull("Training Example Model (ArrayList) is not null", trainingExamplesModel);
 		assertNotNull("Testing Example is not null", testingExamples);
 		assertNotNull("Type is not null", type);
 		assertNotNull("Type is not null", rank);
 
-		
 	}
-	
+
 	@Test
 	public void testgetTrainingExampleIndex() {
-		
-		
 
 	}
-	
+
 	@Test
 	public void testgetRankInformation() {
-		
 
 	}
-	
-
-
 
 }
