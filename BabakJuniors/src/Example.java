@@ -12,21 +12,14 @@ import javax.swing.DefaultListModel;
  * 					-  trainingExamples : DefaultListModel<TrainingExample>
 					- trainingExamplesModel : ArrayList<TrainingExample>
 					-  testingExamples : DefaultListModel<TestingExample>
-					-  type : ArrayList<String>
-					-  rank : ArrayList<Rank>
  * 
  * @methods + addTrainingExample( example :TrainingExample) : void 
 			+ getTrainingExamples() : DefaultListModel<TrainingExample>
 			+ getTrainingExamplesModel() : ArrayList<TrainingExample>
-			+addTestingExample( example : TestingExample) : void
+			+ addTestingExample( example : TestingExample) : void
 			+ getTestingExample() : DefaultListModel<TestingExample>
 			+ abstractkey(example: TrainingExample ) :  void 
 			+ createFeatureType(featureName : String , feature : Feature) : void
-			+ appendRank( featureName: String,  feature: Feature) : void
-			+  getRankingList(fName : String ) : Rank
-			+ checkSubjective(feature: Feature) :  boolean 
-			+ checkAbsolute( feature: Feature) : boolean
-			+ checkEuclidean( feature: Feature) : boolean
 			+ getTrainingExampleIndex(i : int) : TrainingExample
 			+ getTestingExampleIndex(i: int) : TestingExample
 			+ toString() : String
@@ -36,8 +29,6 @@ public class Example {
 	private DefaultListModel<TrainingExample> trainingExamples;
 	private ArrayList<TrainingExample> trainingExamplesModel;
 	private DefaultListModel<TestingExample> testingExamples;
-	private ArrayList<String> type;
-
 	/**
 	 * Constructor for the Example class which initializes all the instance
 	 * variables
@@ -46,7 +37,6 @@ public class Example {
 		trainingExamples = new DefaultListModel<TrainingExample>();
 		trainingExamplesModel = new ArrayList<TrainingExample>();
 		testingExamples = new DefaultListModel<TestingExample>();
-		type = new ArrayList<String>();
 		
 	}
 
@@ -149,9 +139,9 @@ public class Example {
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
-	 * this returns each name of example into tostring string variable.
+	 * this returns each name of example into toString string variable.
 	 */
-	public String toString() {
+	public String toString(){
 		String toString = "";
 
 		for (int i = 0; i < trainingExamples.size(); i++) {
@@ -176,6 +166,7 @@ public class Example {
 	 * @return 
 	 */
 	public float calculateError(TrainingExample trainEx, Feature f, int k) {
+		return k;
 			
 		//testytest.predict()
 		//thefeaturejustpredicted.calculateerror(trainEx.getfeaturebeingcalculated);

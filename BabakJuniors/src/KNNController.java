@@ -39,9 +39,6 @@ public class KNNController implements ActionListener {
 	 private String featureSValue;
 	 private float featureFValue;
 	 
-
-	 
-
 	public KNNController(KNNView view) {
 		this.view = view;
 	}

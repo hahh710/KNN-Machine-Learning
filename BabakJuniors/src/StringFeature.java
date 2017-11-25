@@ -60,12 +60,12 @@ public class StringFeature extends Feature{
 		
 	}
 	
-	public float calculateError(Feature f) {
+	public Float calculateError(Feature f) {
 		if (f instanceof FloatFeature){
 			if(!fValue.equals(f.getFName())){
-				return 100;
+				return (float) 100;
 			}else{
-				return 0;
+				return (float) 0;
 			}
 		}
 			
