@@ -42,5 +42,6 @@ public abstract class Feature {
 	public abstract Float getDistance(Feature f, String metric) ;
 	public abstract Float calculateError(Feature f);
 	public abstract ArrayList<Feature> getFeatureValue(ArrayList<Feature> features);
+	public abstract String toString(String toString);
 
 }
