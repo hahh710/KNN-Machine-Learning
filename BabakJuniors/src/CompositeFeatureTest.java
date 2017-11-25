@@ -6,8 +6,15 @@ import org.junit.Test;
 
 public class CompositeFeatureTest {
 
+	private CompositeFeature cfHead,cF2,cF3,cF4;
+
 	@Before
 	public void setUp() throws Exception {
+		cfHead = new CompositeFeature("Head");
+		cF2 = new CompositeFeature("CompositeFeature2");
+		cF3 = new CompositeFeature("CompositeFeature3");
+		cF4 = new CompositeFeature("CompositeFeature4");
+
 	}
 
 	@After
@@ -31,7 +38,8 @@ public class CompositeFeatureTest {
 
 	@Test
 	public void testAddFeature() {
-		fail("Not yet implemented");
+		cfHead.addFeature(cF2);
+		assertEquals(1,cfHead.getSubFeatureSize());
 	}
 
 	@Test
