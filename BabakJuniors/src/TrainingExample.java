@@ -26,73 +26,51 @@ import javax.swing.DefaultListModel;
 
 
 public class TrainingExample {
-	private String exampleName;
-	private ArrayList<Feature> feature; 
-	private DefaultListModel<String>nameSet;
+	private String name;
+	private Example manager;
+	private ArrayList<Feature> features; 
 
-	public TrainingExample(){
-		exampleName = null;
-	}
-
-	public void createExample(String name){
-		this.exampleName = name;
-		feature = new HashMap<String,Feature>();
-		nameSet = new DefaultListModel<String>();
+	public TrainingExample(String name, Example manager){
+		this.manager=manager;
+		features = new ArrayList<Feature>();
+		this.name = name;
 	}
 	//public createFeatureType{
 	//create feature type
-	public void addFeature(String keyname,Feature value){
+	public void addFeature(Feature f){
 		//if this keyname exists then
-		if(!feature.containsKey(keyname)) {
-			feature.put(keyname, value);
-			feature.get(keyname).setFName(keyname);
-			nameSet.addElement(keyname);
+		if(!features.contains(f)) {
+			features.add( f);
 		}else{
 			System.out.println("There is same name of feature");// print this statement in 
 		}
-		
+
 	}
-	public Feature getFeature(String keyname){
-		return feature.get(keyname);
+	public void removeFeature(String fName){
+		for(Feature feature: features) {
+			if(feature.getFName().equals(fName))
+				features.remove(feature);
+		}
 	}
-	public void removeFeature(String keyname){
-		feature.remove(keyname);
+	public Feature getFeature(String f){
+		for(Feature feature: features) {
+			if(feature.getFName().equals(f))
+				return feature;
+		}
+		return null;
 	}
-	public String getExampleName(){
-		return exampleName;
+	public String getName(){
+		return name;
 	}
-	public void editFeature(String keyname, Feature value){
-		feature.replace(keyname, value);
+	public void setName(String f){
+		name = f;
 	}
-	public void editExampleName(String name){
-		exampleName = name;
+
+	public ArrayList<Feature> getFeatures(){
+		return features;
 	}
-	public boolean checkKeyName(String keyname){
-		return feature.containsKey(keyname);
-	}
-	public String getKeyName(Feature value){
-	    for(String key : feature.keySet()){
-	        if(feature.get(key).equals(value)){
-	            return key;
-	        }
-	    }
-	    return null; // or prompt error message. 
-	}
-	
-	public DefaultListModel<String> getNameSet(){
-		return this.nameSet;
-	}
-	public HashMap<String,Feature> getAllFeatures(){
-		return feature;
-	}
-	public void setFeatures(HashMap<String, Feature> h) {
-		feature=h;
-	}
-	public String getTrainingExampleName(){
-		return exampleName;
-	}
-	public void setTrainingExampleName(String name){
-		exampleName = name;
+	public void setFeatures(ArrayList<Feature> list) {
+		features=list;
 	}
 	public String toString(){
 		String tostring = exampleName + ": ";
