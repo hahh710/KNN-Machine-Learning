@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,7 +46,10 @@ public class CompositeFeatureTest {
 
 	@Test
 	public void testGetSubFeatures() {
-		fail("Not yet implemented");
+		 ArrayList<Feature> testingList = new ArrayList<Feature>();
+		testingList.add(cF2);
+		cfHead.addFeature(cF2);
+		assertEquals(testingList,cfHead.getSubFeatures());
 	}
 
 	@Test
@@ -54,7 +59,10 @@ public class CompositeFeatureTest {
 
 	@Test
 	public void testGetSubFeatureNames() {
-		fail("Not yet implemented");
+		ArrayList<String> testingList = new ArrayList<String>();
+		testingList.add(cF2.getFName());
+		cfHead.addFeature(cF2);
+		assertEquals(testingList,cfHead.getSubFeatureNames());
 	}
 
 	@Test
@@ -64,7 +72,10 @@ public class CompositeFeatureTest {
 
 	@Test
 	public void testGetSubFeature() {
-		fail("Not yet implemented");
+		ArrayList<Feature> testingList = new ArrayList<Feature>();
+		testingList.add(cF2);
+		cfHead.addFeature(cF2);
+		assertEquals(testingList.get(0),cfHead.getSubFeature(0));
 	}
 
 	@Test
