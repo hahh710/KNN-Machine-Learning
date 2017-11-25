@@ -1,5 +1,5 @@
 import java.util.HashMap;
-
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 /**
  * @variables
@@ -27,7 +27,7 @@ import javax.swing.DefaultListModel;
 
 public class TrainingExample {
 	private String exampleName;
-	private HashMap<String,Feature> feature; 
+	private ArrayList<Feature> feature; 
 	private DefaultListModel<String>nameSet;
 
 	public TrainingExample(){
@@ -44,7 +44,6 @@ public class TrainingExample {
 	public void addFeature(String keyname,Feature value){
 		//if this keyname exists then
 		if(!feature.containsKey(keyname)) {
-			
 			feature.put(keyname, value);
 			feature.get(keyname).setFName(keyname);
 			nameSet.addElement(keyname);
