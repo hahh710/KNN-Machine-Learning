@@ -10,7 +10,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	TrainingExampleTest.class,
 	ExampleTest.class,
 	DistanceTest.class,
-	FloatFeatureTest.class
+	FloatFeatureTest.class,
+	CompositeFeatureTest.class
 })
 
 public class AllTests {
