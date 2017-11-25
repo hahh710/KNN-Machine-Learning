@@ -31,8 +31,21 @@ public class CompositeFeature extends Feature {
 		return subFeatureNames.get(i);
 	}
 	
+	public int getSubFeatureSize(){
+		return subFeatures.size();
+	}
+	
+	public int getSubFeatureNameSize(){
+		return subFeatureNames.size();
+	}
+	
 	@Override
 	public Float getDistance(Feature f, String metric) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Float calculateError(Feature f) {
 		// TODO Auto-generated method stub
 		return null;
 	}
