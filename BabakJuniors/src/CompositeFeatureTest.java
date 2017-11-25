@@ -54,7 +54,10 @@ public class CompositeFeatureTest {
 
 	@Test
 	public void testSetSubFeatures() {
-		fail("Not yet implemented");
+		 ArrayList<Feature> testingList = new ArrayList<Feature>();
+		testingList.add(cF2);
+		cfHead.setSubFeatures(testingList);
+		assertEquals(testingList,cfHead.getSubFeatures());
 	}
 
 	@Test
@@ -67,7 +70,10 @@ public class CompositeFeatureTest {
 
 	@Test
 	public void testSetSubFeatureNames() {
-		fail("Not yet implemented");
+		ArrayList<String> testingList = new ArrayList<String>();
+		testingList.add(cF2.getFName());
+		cfHead.setSubFeatureNames(testingList);
+		assertEquals(testingList,cfHead.getSubFeatureNames());
 	}
 
 	@Test
@@ -80,17 +86,30 @@ public class CompositeFeatureTest {
 
 	@Test
 	public void testGetSubFeatureName() {
-		fail("Not yet implemented");
+		ArrayList<String> testingList = new ArrayList<String>();
+		testingList.add(cF2.getFName());
+		cfHead.setSubFeatureNames(testingList);
+		assertEquals(testingList.get(0),cfHead.getSubFeatureName(0));
 	}
 
 	@Test
 	public void testGetSubFeatureSize() {
-		fail("Not yet implemented");
+		ArrayList<Feature> testingList = new ArrayList<Feature>();
+		testingList.add(cF2);
+		cfHead.addFeature(cF2);
+		assertEquals(testingList.size(),cfHead.getSubFeatureSize());
 	}
 
 	@Test
 	public void testGetSubFeatureNameSize() {
-		fail("Not yet implemented");
+		ArrayList<String> testingList = new ArrayList<String>();
+		testingList.add(cF2.getFName());
+		cfHead.setSubFeatureNames(testingList);
+		assertEquals(testingList.size(),cfHead.getSubFeatureNameSize());
+	}
+	@Test
+	public void testgetFeatureValue() {
+		
 	}
 
 }
