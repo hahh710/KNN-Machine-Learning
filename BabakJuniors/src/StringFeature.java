@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class StringFeature extends Feature{
 
@@ -71,5 +72,10 @@ public class StringFeature extends Feature{
 			
 		// throw exception
 		return (float) 1.1;
+	}
+	@Override
+	public ArrayList<Feature> getFeatureValue(ArrayList<Feature> features){
+		features.add(this);
+		return features;
 	}
 }

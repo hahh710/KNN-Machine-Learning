@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 public class FloatFeature extends Feature {
 
 	private float value;
@@ -41,6 +41,10 @@ public class FloatFeature extends Feature {
 
 	public Float getValue() {
 		return value;
+	}
+	public ArrayList<Feature> getFeatureValue(ArrayList<Feature> features){
+		features.add(this);
+		return features;
 	}
 
 	/**

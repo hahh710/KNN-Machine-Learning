@@ -52,6 +52,15 @@ public class CompositeFeature extends Feature {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public ArrayList<Feature> getFeatureValue(ArrayList<Feature> features){
+		features.add(this);
+		for(int i =0;i<subFeatures.size();i++) {
+			subFeatures.get(i).getFeatureValue(features);
+		}
+		features.add(this);
+		return  features;
+	}
 
 	@Override
 	public Float calculateError(Feature f) {
