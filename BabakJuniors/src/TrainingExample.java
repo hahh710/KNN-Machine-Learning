@@ -28,7 +28,8 @@ import javax.swing.DefaultListModel;
 public class TrainingExample {
 	private String name;
 	private Example manager;
-	private ArrayList<Feature> features; 
+	private CompositeFeature features; 
+	
 	public TrainingExample() {
 		name=null;
 		manager=null;
@@ -36,20 +37,87 @@ public class TrainingExample {
 	}
 	public TrainingExample(String name, Example manager){
 		this.manager=manager;
-		features = new ArrayList<Feature>();
+		features = new CompositeFeature("Head");
 		this.name = name; 
 	}
 	//public createFeatureType{
 	//create feature type
-	public void addFeature(Feature f){
-		//if this keyname exists then
-		if(!features.contains(f)) {
-			features.add( f);
-		}else{
-			System.out.println("There is same name of feature");// print this statement in 
-		}
-
+	//public createFeatureType{
+	//create feature type
+	//1
+	public CompositeFeature addStringFeature(String fName,String value,CompositeFeature  currentFeature) {
+		StringFeature sFeature = new StringFeature(fName,value);
+		currentFeature.addFeature(sFeature);
+		return currentFeature;
 	}
+	//2
+	public CompositeFeature addFloatFeature(String fName,Float value,CompositeFeature currentFeature) {
+		FloatFeature fFeature = new FloatFeature(fName,value);
+		currentFeature.addFeature(fFeature);
+		return currentFeature;
+	}
+	//3
+	public CompositeFeature addCompositeFeature(String compositeName,CompositeFeature currentFeature) {
+		CompositeFeature comp = new CompositeFeature(compositeName);
+		currentFeature.addFeature(comp);
+		return currentFeature;
+	}
+	//case4
+	public CompositeFeature jumpIn(String compositeName,CompositeFeature currentFeature){
+		for(int i=0;i<features.getSubFeatureSize();i++) {
+			if(features.getSubFeature(i).getFName().equals(compositeName)) {
+				
+			}
+		}	
+	}	
+	public void option(CompositeFeature features, String i){
+		//if user choose 1 or 2 creating String Feature or Float Feature.
+
+		if(i.equals("1")){
+			
+		}else if(i.equals("2")) {
+
+		}else if(i.equals("3")) { //if user choose 3 then creating composite Feature.
+
+		}else if(i.equals("4")) { //if user choose 4 then go inside of composite Feature. 
+
+		}
+		//if this keyname exists then
+		/**
+		 * if(f instanceof CompositeFeature){
+		 *	What feature would you like to add to this composite
+		 *	now you have newFeature
+		 *	addFeature(newFeature)
+		 *}
+		 *
+		 *
+		 * }
+		 */
+		if (f instanceof FloatFeature || f instanceof StringFeature)
+			features.add(f);
+		else {
+			CompositeFeature fe=(CompositeFeature)f;
+			if(fe.getSubFeatures().isEmpty()) {
+				for(int i=0;i<f.getFeatureValue(features).size();i++) {
+					features.add(fe.getSubFeature(i));
+				}
+			}
+			//CompositeFeature comp = new CompositeFeature();
+
+
+			//CompositeFeature fe=(CompositeFeature)f;
+			//CompositeFeature comp = new CompositeFeature(fe);
+
+		}
+	}
+
+	/*
+			if(!features.contains(f)) {
+				features.add( f);
+			}else{
+				System.out.println("There is same name of feature");// print this statement in 
+			}*/
+
 	public void removeFeature(String fName){
 		for(Feature feature: features) {
 			if(feature.getFName().equals(fName))

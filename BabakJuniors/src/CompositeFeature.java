@@ -9,6 +9,11 @@ public class CompositeFeature extends Feature {
 		subFeatures = new ArrayList<Feature>();
 		subFeatureNames = new ArrayList<String>();
 	}
+	public CompositeFeature(CompositeFeature f) {
+		super(f.getFName());
+		subFeatures = new ArrayList<Feature>();
+		subFeatureNames = new ArrayList<String>();
+	}
 
 	public void addFeature(Feature feature) {
 		subFeatures.add(feature);
@@ -46,6 +51,17 @@ public class CompositeFeature extends Feature {
 	public int getSubFeatureNameSize() {
 		return subFeatureNames.size();
 	}
+	public boolean isThereComposite() {
+		for(int i=0;i<subFeatures.size();i++) {
+			if(subFeatures.get(i) instanceof CompositeFeature) {
+				return true;
+			}
+		}
+		return false;
+		
+		
+	}	
+	
 
 	@Override
 	public Float getDistance(Feature f, String metric) {
@@ -64,5 +80,15 @@ public class CompositeFeature extends Feature {
 	public Float calculateError(Feature f) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String toString(String toString) {
+		toString = toString + "(";
+		for(int i =0; i < subFeatures.size();i++) {
+			subFeatures.get(i).toString(toString);
+		}
+		toString = toString + ")";
+		return toString;
 	}
 }
