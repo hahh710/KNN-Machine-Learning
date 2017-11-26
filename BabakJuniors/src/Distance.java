@@ -42,8 +42,10 @@ public class Distance {
 	}
 	/**
 	 * Get position in array list of training example
-	 * Go to each entry and add up the distances at that position
-	 * How to guarantee that features of a training example will align
+	 * Go to each feature and add up the distances at that position (training example)
+	 * How to guarantee that features of a training example will align???
+	 * 
+	 * 
 	 * 
 	 * @param testExam
 	 * @param trainExam
@@ -59,6 +61,9 @@ public class Distance {
 		return sum;
 	}
 	/**normalizeDistance will normalize all distances for less biased calculations
+	 * 
+	 * naming convention, concatenate a composite's children names with its own seperated by a ~
+	 * for toString Everything after the ~  
 	 * 
 	 * This will find max distance in the list of distances for a feature, 
 	 * then it will divide each distance of that feature by the max
