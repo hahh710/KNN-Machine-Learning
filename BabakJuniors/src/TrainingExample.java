@@ -1,6 +1,10 @@
 import java.util.HashMap;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /**
  * @variables
  * -exampleName : String : It holds the name of the TrainingExample.
@@ -26,25 +30,41 @@ import javax.swing.DefaultListModel;
 
 
 public class TrainingExample {
-	private String name;
+	private String exampleName;
 	private Example manager;
 	private CompositeFeature features; 
-	
+	private ArrayList<Feature> linearizedFeatures;
+	private DefaultListModel<String>printFeatures;
 	public TrainingExample() {
-		name=null;
+		exampleName=null;
 		manager=null;
 		features=null;
 	}
-	public TrainingExample(String name, Example manager){
-		this.manager=manager;
-		features = new CompositeFeature("Head");
-		this.name = name; 
+	
+	public TrainingExample(String name){
+		//this.manager=manager;
+		printFeatures = new DefaultListModel<String>();
+		features = new CompositeFeature("head");
+		this.exampleName = name; 
 	}
 	//public createFeatureType{
 	//create feature type
 	//public createFeatureType{
 	//create feature type
-	//1
+	//
+
+	public DefaultListModel<String> getPrintFeatures(){
+		printFeatures.addElement(toString());
+		return printFeatures;
+	}
+	
+	public String getTrainingExampleName(){
+		return exampleName;
+	}
+	public void setTrainingExampleName(String name){
+		exampleName = name;
+	}
+	
 	public CompositeFeature addStringFeature(String fName,String value,CompositeFeature  currentFeature) {
 		StringFeature sFeature = new StringFeature(fName,value);
 		currentFeature.addFeature(sFeature);
@@ -56,6 +76,7 @@ public class TrainingExample {
 		currentFeature.addFeature(fFeature);
 		return currentFeature;
 	}
+	//
 	//3
 	public CompositeFeature addCompositeFeature(String compositeName,CompositeFeature currentFeature) {
 		CompositeFeature comp = new CompositeFeature(compositeName);
@@ -63,25 +84,77 @@ public class TrainingExample {
 		return currentFeature;
 	}
 	//case4
-	public CompositeFeature jumpIn(String compositeName,CompositeFeature currentFeature){
-		for(int i=0;i<features.getSubFeatureSize();i++) {
-			if(features.getSubFeature(i).getFName().equals(compositeName)) {
-				
+	//
+	public Feature getFeature(String s) {
+		for (Feature f: features.getSubFeatures()) {
+			if (f.getFName().equals(s)) {
+				return f;
 			}
-		}	
-	}	
-	public void option(CompositeFeature features, String i){
-		//if user choose 1 or 2 creating String Feature or Float Feature.
-
-		if(i.equals("1")){
-			
-		}else if(i.equals("2")) {
-
-		}else if(i.equals("3")) { //if user choose 3 then creating composite Feature.
-
-		}else if(i.equals("4")) { //if user choose 4 then go inside of composite Feature. 
-
+			if(f instanceof CompositeFeature) {
+				return getFeature(s);
+			}
 		}
+		return null;
+	}
+	public ArrayList<Feature> linearizeFeatures(ArrayList<Feature> list){
+		for (Feature f: features.getSubFeatures()) {
+			list.add(f);
+			if(f instanceof CompositeFeature) {
+				linearizeFeatures(list);
+			}
+		}
+		return list;
+	}
+	public CompositeFeature jumpIn(String compositeName,CompositeFeature currentFeature) throws IOException{
+		CompositeFeature newCurrent;
+		for(int i=0;i<features.getSubFeatureSize();i++) {
+			if(features.getSubFeature(i).getFName().equals(compositeName) && features.getSubFeature(i) instanceof CompositeFeature) {
+				newCurrent = (CompositeFeature)features.getSubFeature(i);
+				return newCurrent;
+			}
+		}
+		return null;
+	}	
+	/**
+	public void option(CompositeFeature head) throws IOException{
+		String f = "";
+		CompositeFeature newwCurrent;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("what u want option");
+		String s = br.readLine();
+		
+		//if user choose 1 or 2 creating String Feature or Float Feature.
+		while(!s.equals("0")) {
+			if(s.equals("1")){
+				
+				System.out.println("in 1");
+				
+				addStringFeature("Color","red",head);
+				f=features.toString();
+				System.out.println(f);
+				s = br.readLine();
+				
+			}else if(s.equals("2")) {
+				System.out.println("in 2");
+				addFloatFeature("distance",(float)2.2,head);
+				System.out.println(features.toString());
+				s = br.readLine();
+			}else if(s.equals("3")) { //if user choose 3 then creating composite Feature.
+				System.out.println("in 3");
+				addCompositeFeature("Ball",head);
+				System.out.println(features.toString());
+				s = br.readLine();
+			}else if(s.equals("4")) { //if user choose 4 then go inside of composite Feature. 
+				System.out.println("in 4");
+				BufferedReader cr = new BufferedReader(new InputStreamReader(System.in));
+				System.out.println("what u name Ball");
+				String t = cr.readLine();
+				//CompositeFeature newwCurrent;
+				newwCurrent = jumpIn(t,head);
+				option(newwCurrent);
+			}
+		}
+		*/
 		//if this keyname exists then
 		/**
 		 * if(f instanceof CompositeFeature){
@@ -93,31 +166,24 @@ public class TrainingExample {
 		 *
 		 * }
 		 */
-		if (f instanceof FloatFeature || f instanceof StringFeature)
-			features.add(f);
-		else {
-			CompositeFeature fe=(CompositeFeature)f;
-			if(fe.getSubFeatures().isEmpty()) {
-				for(int i=0;i<f.getFeatureValue(features).size();i++) {
-					features.add(fe.getSubFeature(i));
-				}
-			}
-			//CompositeFeature comp = new CompositeFeature();
-
-
-			//CompositeFeature fe=(CompositeFeature)f;
-			//CompositeFeature comp = new CompositeFeature(fe);
-
-		}
+		
+	
+	public CompositeFeature getFeatures() {
+		return features;
 	}
-
+	public void setFeatures(CompositeFeature features) {
+		this.features = features;
+	}
+	public CompositeFeature getCompositeFeature() {
+		return this.features;
+	}
 	/*
 			if(!features.contains(f)) {
 				features.add( f);
 			}else{
 				System.out.println("There is same name of feature");// print this statement in 
 			}*/
-
+/*
 	public void removeFeature(String fName){
 		for(Feature feature: features) {
 			if(feature.getFName().equals(fName))
@@ -151,6 +217,12 @@ public class TrainingExample {
 		for(int i =0;i < nameSet.size(); i++){
 			tostring += nameSet.get(i) + " = " + feature.get(nameSet.get(i)).toString()+ "," + "\n" ;
 		}
+		return tostring;
+	}*/
+	
+	public String toString(){
+		String tostring = exampleName + ": ";
+		tostring=tostring+ features.toString();
 		return tostring;
 	}
 }

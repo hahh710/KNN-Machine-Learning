@@ -79,8 +79,8 @@ public class StringFeature extends Feature{
 		return features;
 	}
 	@Override
-	public String toString(String toString) {
-		toString = toString + getFName();
-		return toString;
+	public String toString() {
+		String str = getFName() + ": "+ fValue;
+		return str;
 	}
 }

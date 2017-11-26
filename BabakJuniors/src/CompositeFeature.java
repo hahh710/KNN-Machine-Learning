@@ -58,10 +58,10 @@ public class CompositeFeature extends Feature {
 			}
 		}
 		return false;
-		
-		
-	}	
-	
+
+
+	}
+
 
 	@Override
 	public Float getDistance(Feature f, String metric) {
@@ -109,7 +109,7 @@ public class CompositeFeature extends Feature {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/*
 	@Override
 	public String toString(String toString) {
 		toString = toString + "(";
@@ -119,4 +119,22 @@ public class CompositeFeature extends Feature {
 		toString = toString + ")";
 		return toString;
 	}
+	 */
+
+	@Override
+	public String toString() {
+		String str;
+		if(getFName().equals("head"))
+			str="";
+		else
+			str = getFName()+": ";
+		for(Feature f: getSubFeatures()) {
+			str= str + f.toString()+", ";
+		}
+		if(getFName().equals("head"))
+			return str;
+		return str + ")";
+	}
 }
+
+

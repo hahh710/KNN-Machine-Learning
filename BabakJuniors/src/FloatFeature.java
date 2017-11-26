@@ -60,9 +60,9 @@ public class FloatFeature extends Feature {
 	}
 
 	@Override
-	public String toString(String toString) {
-		toString = toString + getFName();
-		return toString;
+	public String toString() {
+		String str = getFName()+": "+value;
+		return str;
 	}
 
 }
