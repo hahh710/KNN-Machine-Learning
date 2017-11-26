@@ -65,8 +65,36 @@ public class CompositeFeature extends Feature {
 
 	@Override
 	public Float getDistance(Feature f, String metric) {
-		// TODO Auto-generated method stub
+		if(f instanceof CompositeFeature){
+			CompositeFeature compf=(CompositeFeature)f;
+			if(metric.equals("euclidean"))
+				return euclideanDistance(compf);
+		}
 		return null;
+	}
+	public Float euclideanDistance(CompositeFeature f){
+		float value=0;
+		ArrayList<Float> theseFloats = new ArrayList<Float>();
+		ArrayList<Float> thoseFloats = new ArrayList<Float>();
+		
+		for(Feature subF: subFeatures){
+			if (subF instanceof FloatFeature){
+				theseFloats.add(((FloatFeature) subF).getValue());
+			}	
+		}
+		for(Feature subF: f.getSubFeatures()){
+			if (subF instanceof FloatFeature){
+				thoseFloats.add(((FloatFeature) subF).getValue());
+			}	
+		}
+		if(theseFloats.size()==thoseFloats.size()){
+			for(int i=0;i<theseFloats.size();i++){
+				value+=Math.pow(theseFloats.get(i),2) - Math.pow(thoseFloats.get(i), 2);
+			}
+			return (float) Math.pow(value, 0.5);
+		}
+		else 
+			return null;
 	}
 	public ArrayList<Feature> getFeatureValue(ArrayList<Feature> features){
 		features.add(this);
