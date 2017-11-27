@@ -28,6 +28,7 @@ import java.util.HashMap;
 public abstract class Feature {
 	private String fName;
 	private String sID;
+	
 	public Feature(String s, String sID){
 		setFName(s);
 		sID=s+sID;

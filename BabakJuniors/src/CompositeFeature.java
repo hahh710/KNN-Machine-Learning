@@ -11,8 +11,8 @@ public class CompositeFeature extends Feature {
 		subFeatures = new ArrayList<Feature>();
 		subFeatureNames = new ArrayList<String>();
 	}
-	public CompositeFeature(CompositeFeature f) {
-		super(f.getFName());
+	public CompositeFeature(CompositeFeature f, String id) {
+		super(f.getFName(), id);
 		subFeatures = new ArrayList<Feature>();
 		subFeatureNames = new ArrayList<String>();
 	}

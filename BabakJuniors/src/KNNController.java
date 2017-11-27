@@ -242,19 +242,19 @@ public class KNNController implements ActionListener {
 		 if(featureType.equals("1") ) {
 		 	String name = ask();
 	 		 featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);	
-	 		 StringFeature temp= new StringFeature(name, featureSValue);
+	 		 StringFeature temp= new StringFeature(name, featureSValue, newCurrent.getStringID());
 		 	 newCurrent.addFeature(temp);
 	 		 //trainingEx.addStringFeature(featureName,featureSValue,newCurrent);
 		 	 
 	 	}else if(featureType.equals("2")){	
 	 		String name = ask();
 	 		featureFValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-	 		 FloatFeature temp= new FloatFeature(name, featureFValue);
+	 		 FloatFeature temp= new FloatFeature(name, featureFValue,newCurrent.getStringID());
 		 	 newCurrent.addFeature(temp);
 	 		//trainingEx.addFloatFeature(featureName,featureFValue,newCurrent);
 	 	}else if(featureType.equals("3")){
 	 		String name = ask();
-	 		CompositeFeature temp = new CompositeFeature(name);
+	 		CompositeFeature temp = new CompositeFeature(name, newCurrent.getStringID());
 	 		newCurrent.addFeature(temp);
 	 		//trainingEx.addCompositeFeature(featureName,trainingEx.getCompositeFeature());
 	 		//featureFValue = Integer.parseInt(JOptionPane.showInputDialog(null, "Would you like to add another composite feature ?", " Composite Feature ", JOptionPane.QUESTION_MESSAGE));
