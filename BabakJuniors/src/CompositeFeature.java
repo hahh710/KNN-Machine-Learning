@@ -29,7 +29,7 @@ public class CompositeFeature extends Feature {
 	}
 	public void addFeature(Feature feature) {
 		//if(feature instanceof CompositeFeature) {
-			feature.setParent(this);
+		feature.setParent(this);
 		//}
 		subFeatures.add(feature);
 		subFeatureNames.add(feature.getFName());
@@ -109,7 +109,7 @@ public class CompositeFeature extends Feature {
 		float value=0;
 		ArrayList<Float> theseFloats = new ArrayList<Float>();
 		ArrayList<Float> thoseFloats = new ArrayList<Float>();
-		
+
 		for(Feature subF: subFeatures){
 			if (subF instanceof FloatFeature){
 				theseFloats.add(((FloatFeature) subF).getValue());
@@ -137,7 +137,7 @@ public class CompositeFeature extends Feature {
 		features.add(this);
 		return  features;
 	}
-	
+
 	@Override
 	public Float calculateError(Feature f) {
 		// TODO Auto-generated method stub
@@ -152,8 +152,10 @@ public class CompositeFeature extends Feature {
 		for(Feature f:getSubFeatures()) {
 			if(f instanceof FloatFeature) {
 				for(TrainingExample n:nn) {
-					sum+= ((FloatFeature)(n.getFeature(f.getStringID("", this)))).getValue();
-					count++;
+					if(n.getFeature(f.getStringID("", this)) instanceof FloatFeature) {
+						sum+= ((FloatFeature)(n.getFeature(f.getStringID("", this)))).getValue();
+						count++;
+					}
 				}
 				((FloatFeature) f).setValue(sum/count);
 			}

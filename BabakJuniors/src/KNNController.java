@@ -135,23 +135,27 @@ public class KNNController implements ActionListener {
 
 
 		distanceMetrics=new HashMap<String, String>();
-		String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
+		String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?"+"\n"+"(If you would like to predict a feature inside a composite type ->) For example t1: Ball(Distance( colour: red,): Type in Ball->Distance->colour to predict the colour in testing", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
 		
-		Feature temp = trainingEx.getFeature("Head->Ball->String");
-		//System.out.println(temp.getFName());
-		JOptionPane.showMessageDialog(view,"Prediction is: " + temp.getFName());
+		
+		Feature temp = trainingEx.getFeature(testFeatureName);
+		JOptionPane.showMessageDialog(view,"Prediction is: " + testFeatureName);
+		int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
+
+		
 		
 		//String Fname = trainingEx.getCompositeFeature().getSubFeature(1).getFName();
 		
 		
-		//int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
 
-		//for (String fName: testingEx.getAllFeatures().keySet()) {
-		//	String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?" + fName, "Distance Metric", JOptionPane.QUESTION_MESSAGE);
+		for (Feature f: testingEx.linearizeFeatures(new ArrayList<Feature>())) {
+			
+			String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?", "Distance Metric", JOptionPane.QUESTION_MESSAGE);
+			distanceMetrics.put(f.getStringID("", f.getParent()), metricType);
+		}
 
-		//	distanceMetrics.put(fName, metricType);
-		//}
-		//testingEx.predictFeature(testFeatureName, knn, distanceMetrics);		
+		
+		JOptionPane.showMessageDialog(view,"Prediction is: " +  testingEx.predictFeature(temp, knn, distanceMetrics).toString());
 
 	}else if (event.getActionCommand().equals("CalculateError")) {
 

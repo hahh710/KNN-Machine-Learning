@@ -66,8 +66,10 @@ public class TestingExample extends TrainingExample {
 	 */
 	public Feature predictFeature(Feature f, int k, HashMap<String, String> metrics) {
 		distances.updateDistances(metrics);
+		
 		knn = new KNN(k, this);
 		knn.determineNearestNeighbors(k, getManager().getTrainingExamplesModel());
+		
 		return f.predictFeature(knn.getNN());
 	}
 	/**

@@ -89,6 +89,7 @@ public class FloatFeature extends Feature {
 		return getStringID(path,newCurrent);
 
 	}
+	
 
 
 	public Feature predictFeature(ArrayList<TrainingExample> nn) {
