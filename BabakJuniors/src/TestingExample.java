@@ -62,19 +62,19 @@ public class TestingExample extends TrainingExample {
 			FloatFeature ff= (FloatFeature) f;
 			Float predicted = (float)0;
 			for(TrainingExample nn:knn.getNN()) {
-				if(nn.getFeature(ff.getStringID()) instanceof FloatFeature) {
-					predicted+=((FloatFeature)(nn.getFeature(ff.getStringID()))).getValue();
+				if(nn.getFeature(ff.getStringID("",ff.getParent())) instanceof FloatFeature) {
+					predicted+=((FloatFeature)(nn.getFeature(ff.getStringID("", ff.getParent())))).getValue();
 					count++;
 				}
 			}
 			predicted=predicted/count;
-			super.addFloatFeature(ff.getFName(), predicted, c);
+			f.editOptionFloatFeature(ff.getFName(), predicted, c);
 		}
 		if (f instanceof StringFeature) {
 			StringFeature sf= (StringFeature) f;
 			String predicted = "";
-			if(knn.getNN().get(0).getFeature(sf.getStringID()) instanceof FloatFeature)
-				predicted=((StringFeature)(knn.getNN().get(0).getFeature(sf.getStringID()))).getFValue();
+			if(knn.getNN().get(0).getFeature(sf.getStringID("", sf.getParent())) instanceof FloatFeature)
+				predicted=((StringFeature)(knn.getNN().get(0).getFeature(sf.getStringID("", sf.getParent())))).getFValue();
 			super.addStringFeature(sf.getFName(), predicted, c);
 		}
 		//we have nearest neighbors now we need to determine the value of feature
@@ -89,10 +89,10 @@ public class TestingExample extends TrainingExample {
 				sum=0;
 				count=0;
 				for(TrainingExample nn:knn.getNN()) {
-					sum+=((FloatFeature)(nn.getFeature(ff.getStringID()))).getValue();
+					sum+=((FloatFeature)(nn.getFeature(ff.getStringID("", ff.getParent())))).getValue();
 					count++;
 				}
-				ff.edit(sum/count);
+				((CompositeFeature) f).addFeature("", (float)sum/count);
 			}
 			CompositeFeature cf= (CompositeFeature) f;
 			for() {

@@ -45,13 +45,13 @@ public class TrainingExample {
 	public TrainingExample(String name){
 		//this.manager=manager;
 		printFeatures = new DefaultListModel<String>();
-		features = new CompositeFeature("head", "head");
+		features = new CompositeFeature("head");
 		this.exampleName = name; 
 	}
 	public TrainingExample(String name, Example man){
 		this.manager=man;
 		printFeatures = new DefaultListModel<String>();
-		features = new CompositeFeature("head", "head");
+		features = new CompositeFeature("head");
 		this.exampleName = name; 
 	}
 	//public createFeatureType{
@@ -73,20 +73,20 @@ public class TrainingExample {
 	}
 	
 	public CompositeFeature addStringFeature(String fName,String value,CompositeFeature  currentFeature) {
-		StringFeature sFeature = new StringFeature(fName,value, currentFeature.getStringID());
+		StringFeature sFeature = new StringFeature(fName,value);
 		currentFeature.addFeature(sFeature);
 		return currentFeature;
 	}
 	//2
 	public CompositeFeature addFloatFeature(String fName,Float value,CompositeFeature currentFeature) {
-		FloatFeature fFeature = new FloatFeature(fName,value, currentFeature.getStringID());
+		FloatFeature fFeature = new FloatFeature(fName,value);
 		currentFeature.addFeature(fFeature);
 		return currentFeature;
 	}
 	//
 	//3
 	public CompositeFeature addCompositeFeature(String compositeName,CompositeFeature currentFeature) {
-		CompositeFeature comp = new CompositeFeature(compositeName, currentFeature.getStringID());
+		CompositeFeature comp = new CompositeFeature(compositeName);
 		currentFeature.addFeature(comp);
 		return currentFeature;
 	}
@@ -94,7 +94,7 @@ public class TrainingExample {
 	//
 	public Feature getFeature(String s) {
 		for (Feature f: features.getSubFeatures()) {
-			if (f.getFName().equals(s)) {
+			if (f.getStringID("", this.getFeatures()).equals(s)) {
 				return f;
 			}
 			if(f instanceof CompositeFeature) {

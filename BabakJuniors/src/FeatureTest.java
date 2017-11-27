@@ -10,8 +10,8 @@ public class FeatureTest {
 
 	@Before
 	public void setUp() throws Exception {
-		cfHead = new CompositeFeature("Head",ID);
-		cF2 = new CompositeFeature("CompositeFeature2",ID);
+		cfHead = new CompositeFeature("Head");
+		cF2 = new CompositeFeature("CompositeFeature2");
 	}
 
 	@After

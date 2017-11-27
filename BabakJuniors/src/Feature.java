@@ -27,23 +27,19 @@ import java.util.HashMap;
 **/
 public abstract class Feature {
 	private String fName;
-	private String sID;
 	
-	public Feature(String s, String sID){
+	public Feature(String s){
 		setFName(s);
-		sID=s+sID;
 	}
 
 	public String getFName(){
 		return fName;
 	}
-	
+	public abstract CompositeFeature getParent();
 	public void setFName(String fName){
 		this.fName = fName;
 	}
-	public String getStringID(){
-		return sID;
-	}
+	public abstract String getStringID(String s, CompositeFeature c);
 	public abstract Float getDistance(Feature f, String metric) ;
 	public abstract Float calculateError(Feature f);
 	public abstract ArrayList<Feature> getFeatureValue(ArrayList<Feature> features);

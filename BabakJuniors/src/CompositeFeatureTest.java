@@ -11,11 +11,11 @@ public class CompositeFeatureTest {
 	private CompositeFeature cfHead, cF2;
 	ArrayList<Feature> testingList;
 	ArrayList<String> stringTestingList;
-private String ID;
+
 	@Before
 	public void setUp() throws Exception {
-		cfHead = new CompositeFeature("Head",ID);
-		cF2 = new CompositeFeature("CompositeFeature2",ID);
+		cfHead = new CompositeFeature("Head");
+		cF2 = new CompositeFeature("CompositeFeature2");
 		testingList = new ArrayList<Feature>();
 		stringTestingList = new ArrayList<String>();
 	}

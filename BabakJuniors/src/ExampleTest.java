@@ -13,7 +13,6 @@ public class ExampleTest {
 	private ArrayList<TrainingExample> trainingExamplesModel;
 	private DefaultListModel<TestingExample> testingExamples;
 	private ArrayList<String> type;
-	private ArrayList<Rank> rank;
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,7 +20,6 @@ public class ExampleTest {
 		trainingExamplesModel = new ArrayList<TrainingExample>();
 		testingExamples = new DefaultListModel<TestingExample>();
 		type = new ArrayList<String>();
-		rank = new ArrayList<Rank>();
 	}
 
 	@After
@@ -35,8 +33,6 @@ public class ExampleTest {
 		assertNotNull("Training Example Model (ArrayList) is not null", trainingExamplesModel);
 		assertNotNull("Testing Example is not null", testingExamples);
 		assertNotNull("Type is not null", type);
-		assertNotNull("Type is not null", rank);
-
 	}
 
 	@Test

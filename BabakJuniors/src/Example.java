@@ -99,26 +99,6 @@ public class Example {
 	}
 
 
-	/**
-	 * creatureFeatureType this creates a feature type and checks if the feature
-	 * doesn't already exist
-	 * 
-	 * @param featureName
-	 * @param feature
-	 */
-	public void createFeatureType(String featureName, Feature feature) {
-		boolean flag = true;
-		for (int i = 0; i < rank.size(); i++) {
-			if (rank.get(i).checkName(featureName)) {
-				flag = false;
-			}
-		}
-		if (flag) {
-			rank.add(new Rank(featureName, feature));
-		} else {
-			System.out.println("There is existing feature Name");
-		}
-	}
 
 
 	/**getTrainingExampleIndex returns the element at index in training examples
@@ -140,7 +120,7 @@ public class Example {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 * this returns each name of example into toString string variable.
-	 */
+	 
 	public String toString(){
 		String toString = "";
 
@@ -153,7 +133,7 @@ public class Example {
 		}
 		return toString;
 	}
-
+*/
 	/**
 	 * 
 	 * @param trainingExample

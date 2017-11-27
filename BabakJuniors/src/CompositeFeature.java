@@ -5,14 +5,14 @@ public class CompositeFeature extends Feature {
 	private ArrayList<Feature> subFeatures;
 	private ArrayList<String> subFeatureNames;
 
-	public CompositeFeature(String s, String id) {
-		super(s, id);
+	public CompositeFeature(String s) {
+		super(s);
 		parent = null;
 		subFeatures = new ArrayList<Feature>();
 		subFeatureNames = new ArrayList<String>();
 	}
-	public CompositeFeature(CompositeFeature f, String id) {
-		super(f.getFName(), id);
+	public CompositeFeature(CompositeFeature f) {
+		super(f.getFName());
 		subFeatures = new ArrayList<Feature>();
 		subFeatureNames = new ArrayList<String>();
 	}
@@ -53,9 +53,6 @@ public class CompositeFeature extends Feature {
 
 	public String getSubFeatureName(int i) {
 		return subFeatureNames.get(i);
-	}
-	public String getStringID(){
-		return super.getStringID();
 	} 
 	public int getSubFeatureSize() {
 		return subFeatures.size();

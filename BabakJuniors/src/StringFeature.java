@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class StringFeature extends Feature{
 	private CompositeFeature parent;
 	private String fValue;
-	public StringFeature(String s, String fValue, String id) {
-		super(s, id);
+	public StringFeature(String s, String fValue) {
+		super(s);
 		setfValue(fValue);
 		parent = null;
 	}

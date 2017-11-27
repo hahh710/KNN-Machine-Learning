@@ -100,7 +100,7 @@ public class Distance {
 			//prepare map for distances
 			//each feature is a key, with an ar raylist of floats representing the distance between a   
 			for (Feature f: testEx.linearizeFeatures(list)) {
-				distances.put(f.getStringID(), new ArrayList<Float>());
+				distances.put(f.getStringID("",f.getParent()), new ArrayList<Float>());
 			}
 			list.clear();
 		//	for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) 

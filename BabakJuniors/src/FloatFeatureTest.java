@@ -20,9 +20,9 @@ public class FloatFeatureTest {
 
 	@Before
 	public void setUp() throws Exception {
-		f1 = new FloatFeature(s1, v1,iD);
-		f2 = new FloatFeature(s2, v2,iD);
-		fTest = new FloatFeature(s1, v1,iD);
+		f1 = new FloatFeature(s1, v1);
+		f2 = new FloatFeature(s2, v2);
+		fTest = new FloatFeature(s1, v1);
 
 	}
 
