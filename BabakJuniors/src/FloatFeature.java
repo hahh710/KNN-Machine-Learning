@@ -1,3 +1,9 @@
+/**
+ * 
+ * Float Feature
+ * 
+ * 
+ */
 import java.util.ArrayList;
 public class FloatFeature extends Feature {
 	private CompositeFeature parent;

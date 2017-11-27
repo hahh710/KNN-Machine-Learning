@@ -62,8 +62,7 @@ public class TestingExample extends TrainingExample {
 	 * 
 	 * @param f
 	 * 
-	 *            sets the feature value passed in the parameter as the average
-	 *            of the list of features in the example class.
+	 *            Returns a feature and predicted value based on parameters
 	 */
 	public Feature predictFeature(Feature f, int k, HashMap<String, String> metrics) {
 		distances.updateDistances(metrics);
@@ -71,77 +70,5 @@ public class TestingExample extends TrainingExample {
 		knn.determineNearestNeighbors(k, getManager().getTrainingExamplesModel());
 		return f.predictFeature(knn.getNN());
 	}
-	/*
-	public void predictFeature(Feature f,CompositeFeature c, int k, HashMap<String, String> metrics) {
-		int count = 0;
-		distances.updateDistances(metrics);
-		knn = new KNN(k, this);
-		knn.determineNearestNeighbors(k, getManager().getTrainingExamplesModel());
-		if(f instanceof FloatFeature) {
-			FloatFeature ff= (FloatFeature) f;
-			Float predicted = (float)0;
-			for(TrainingExample nn:knn.getNN()) {
-				if(nn.getFeature(ff.getStringID("",ff.getParent())) instanceof FloatFeature) {
-					predicted+=((FloatFeature)(nn.getFeature(ff.getStringID("", ff.getParent())))).getValue();
-					count++;
-				}
-			}
-			predicted=predicted/count;
-			f.editOptionFloatFeature(ff.getFName(), predicted, c);
-		}
-		if (f instanceof StringFeature) {
-			StringFeature sf= (StringFeature) f;
-			String predicted = "";
-			if(knn.getNN().get(0).getFeature(sf.getStringID("", sf.getParent())) instanceof FloatFeature)
-				predicted=((StringFeature)(knn.getNN().get(0).getFeature(sf.getStringID("", sf.getParent())))).getFValue();
-			super.addStringFeature(sf.getFName(), predicted, c);
-		}
-		//we have nearest neighbors now we need to determine the value of feature
-		if(f instanceof CompositeFeature) {
-			/**
-			 * 
-			 * For each float feature ie dimension in the tuple of floats;
-			 * 
-			 *
-			 *			float sum=0;
-			for(Feature ff: ((CompositeFeature) f).getSubFeatures()) {
-				sum=0;
-				count=0;
-				for(TrainingExample nn:knn.getNN()) {
-					sum+=((FloatFeature)(nn.getFeature(ff.getStringID("", ff.getParent())))).getValue();
-					count++;
-				}
-				((CompositeFeature) f).addFeature("", (float)sum/count);
-			}
-			CompositeFeature cf= (CompositeFeature) f;
-			for() {
-				
-			}
-			ArrayList<Float> theseFloats = new ArrayList<Float>();
-
-			for(Feature subF: subFeatures){
-				if (subF instanceof FloatFeature){
-					theseFloats.add(((FloatFeature) subF).getValue());
-				}	
-			}
-			for(Feature subF: f.getSubFeatures()){
-				if (subF instanceof FloatFeature){
-					thoseFloats.add(((FloatFeature) subF).getValue());
-				}	
-			}
-			if(theseFloats.size()==thoseFloats.size()){
-				for(int i=0;i<theseFloats.size();i++){
-					value+=Math.pow(theseFloats.get(i),2) - Math.pow(thoseFloats.get(i), 2);
-				}
-				Float predicted = (float)0;
-				for(TrainingExample nn:knn.getNN()) {
-					predicted+=nn.getFeature(ff.getStringID());
-				}
-				predicted=predicted/count;
-				super.addFloatFeature(ff.getFName(), predicted, c);
-			}
-		}
-	}
-	*/
 
 }

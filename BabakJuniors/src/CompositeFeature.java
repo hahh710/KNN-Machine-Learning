@@ -1,3 +1,7 @@
+/**
+ * Composite Feature class Extends Feature Class
+ * 
+ */
 import java.util.ArrayList;
 
 public class CompositeFeature extends Feature {
@@ -130,7 +134,9 @@ public class CompositeFeature extends Feature {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+	/**
+	 * Return a composite feature with the predicted values
+	 */
 	public Feature predictFeature(ArrayList<TrainingExample> nn) {
 		int count=0;
 		float sum=0;

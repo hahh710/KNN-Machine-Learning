@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * Extends Feature class
+ * @author JeffTudor
+ *
+ */
 public class StringFeature extends Feature{
 	private CompositeFeature parent;
 	private String fValue;
@@ -96,6 +100,9 @@ public class StringFeature extends Feature{
 			return getStringID(path,newCurrent);
 		}
 	}
+	/**
+	 * Return a feature with predicted value
+	 */
 	public Feature predictFeature(ArrayList<TrainingExample> nn) {
 		return new StringFeature(getFName(),((StringFeature) (nn.get(0).getFeature(getStringID("",getParent())))).getFValue() );
 	}
