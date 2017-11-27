@@ -96,6 +96,9 @@ public class StringFeature extends Feature{
 			return getStringID(path,newCurrent);
 		}
 	}
+	public Feature predictFeature(ArrayList<TrainingExample> nn) {
+		return new StringFeature(getFName(),((StringFeature) (nn.get(0).getFeature(getStringID("",getParent())))).getFValue() );
+	}
 	@Override
 	public String toString() {
 		String str = getFName() + ": "+ fValue;

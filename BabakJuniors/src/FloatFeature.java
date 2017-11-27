@@ -75,6 +75,19 @@ public class FloatFeature extends Feature {
 			return getStringID(path,newCurrent);
 		}
 	}
+	public Feature predictFeature(ArrayList<TrainingExample> nn) {
+		int count =0;
+		FloatFeature ff= this;
+		Float predicted = (float)0;
+		for(TrainingExample n:nn) {
+			if(n.getFeature(ff.getStringID("",ff.getParent())) instanceof FloatFeature) {
+				predicted+=((FloatFeature)(n.getFeature(ff.getStringID("", ff.getParent())))).getValue();
+				count++;
+			}
+		}
+		predicted=predicted/count;
+		return (new FloatFeature(getFName(), predicted));
+	}
 	@Override
 	public String toString() {
 		String str = getFName()+": "+value;

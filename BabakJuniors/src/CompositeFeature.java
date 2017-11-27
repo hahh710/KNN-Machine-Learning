@@ -131,7 +131,9 @@ public class CompositeFeature extends Feature {
 		return null;
 	}
 	
-
+	public Feature predictFeature(ArrayList<TrainingExample> nn) {
+		return this;
+	}
 
 	@Override
 	public String toString() {

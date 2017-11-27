@@ -65,6 +65,13 @@ public class TestingExample extends TrainingExample {
 	 *            sets the feature value passed in the parameter as the average
 	 *            of the list of features in the example class.
 	 */
+	public Feature predictFeature(Feature f, int k, HashMap<String, String> metrics) {
+		distances.updateDistances(metrics);
+		knn = new KNN(k, this);
+		knn.determineNearestNeighbors(k, getManager().getTrainingExamplesModel());
+		return f.predictFeature(knn.getNN());
+	}
+	/*
 	public void predictFeature(Feature f,CompositeFeature c, int k, HashMap<String, String> metrics) {
 		int count = 0;
 		distances.updateDistances(metrics);
@@ -95,8 +102,8 @@ public class TestingExample extends TrainingExample {
 			 * 
 			 * For each float feature ie dimension in the tuple of floats;
 			 * 
-			 */
-			float sum=0;
+			 *
+			 *			float sum=0;
 			for(Feature ff: ((CompositeFeature) f).getSubFeatures()) {
 				sum=0;
 				count=0;
@@ -135,4 +142,6 @@ public class TestingExample extends TrainingExample {
 			}
 		}
 	}
+	*/
+
 }

@@ -43,5 +43,6 @@ public abstract class Feature {
 	public abstract Float calculateError(Feature f);
 	public abstract ArrayList<Feature> getFeatureValue(ArrayList<Feature> features);
 	public abstract String toString();
+	public abstract Feature predictFeature(ArrayList<TrainingExample> nn);
 
 }
