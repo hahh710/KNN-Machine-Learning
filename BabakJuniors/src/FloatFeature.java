@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 public class FloatFeature extends Feature {
-
+	private CompositeFeature parent;
 	private float value;
 
 	public FloatFeature(String s, float value, String id) {
 		super(s, id);
 		this.setValue(value);
+		parent = null;
 	}
 
 	public Float getDistance(Feature f, String metric) {
@@ -60,7 +61,23 @@ public class FloatFeature extends Feature {
 		// throw exception
 		return null;
 	}
-
+	public CompositeFeature getParent() {
+		return parent;
+	}
+	public void setParent(CompositeFeature parent) {
+		this.parent = parent;
+	}
+	public String getStringID(String path,CompositeFeature current) {
+		CompositeFeature newCurrent = current;
+		if(current.getFName().equals("head")) {
+			path = "Head/"+ path ;  //t.getTrainingExampleName();
+			return path;
+		}else {
+			path = current.getFName() +"/"+path;
+			newCurrent = current.getParent();
+			return getStringID(path,newCurrent);
+		}
+	}
 	@Override
 	public String toString() {
 		String str = getFName()+": "+value;
