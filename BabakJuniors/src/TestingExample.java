@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 /**
  * 
- * @author Arsalan Sadiq
+ * @author Babak Juniorss
  * @Purpose: inherits all the features from the training example and utilizes
  *           the the distance class to predict a certain feature compared to
  *           Training Example
@@ -34,15 +34,7 @@ public class TestingExample extends TrainingExample {
 	 * Constructor to create copy of training example
 	 * @param testEx
 	 */
-	public TestingExample(String name, Example eM, TrainingExample tEx) {
-		super(name, eM);
-		setFeatures(tEx.getFeatures());
-		knn=new KNN(0, this);
-		distances = new Distance(this);
-	}
-	public void setFeatures(ArrayList<Feature> list) {
-		super.setFeatures(list);
-	}
+
 	public Example getManager() {
 		return super.getManager();
 	}
@@ -60,12 +52,24 @@ public class TestingExample extends TrainingExample {
 	 *            sets the feature value passed in the parameter as the average
 	 *            of the list of features in the example class.
 	 */
-	public void predictFeature(Feature f, int k, HashMap<String, String> metrics) {
+	public void predictFeature(Feature f,CompositeFeature c, int k, HashMap<String, String> metrics) {
 		int count = 0;
 		distances.updateDistances(metrics);
 		knn = new KNN(k, this);
 		knn.determineNearestNeighbors(k, getManager().getTrainingExamplesModel());
+		if(f instanceof FloatFeature) {
+			FloatFeature ff= (FloatFeature) f;
+			Float predicted = (float)0;
+			super.addFloatFeature(ff.getFName(), predicted, c);
+		}
+		//we have nearest neighbors now we need to determine the value of feature
+		if(true) {
+			//
+		}
 		for(TrainingExample nn:knn.getNN()) {
+			if(true) {
+				
+			}
 			/*1
 			 * 4 cases
 			 * Strign return middle index

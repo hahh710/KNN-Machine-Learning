@@ -45,7 +45,12 @@ public class TrainingExample {
 		//this.manager=manager;
 		printFeatures = new DefaultListModel<String>();
 		features = new CompositeFeature("head");
-		features.setParent(null);
+		this.exampleName = name; 
+	}
+	public TrainingExample(String name, Example man){
+		this.manager=man;
+		printFeatures = new DefaultListModel<String>();
+		features = new CompositeFeature("head");
 		this.exampleName = name; 
 	}
 	//public createFeatureType{
@@ -178,6 +183,10 @@ public class TrainingExample {
 	public CompositeFeature getCompositeFeature() {
 		return this.features;
 	}
+	public Example getManager() {
+		return manager;
+	}
+
 	/*
 			if(!features.contains(f)) {
 				features.add( f);
@@ -204,15 +213,11 @@ public class TrainingExample {
 	public void setName(String f){ 
 		name = f;
 	}
-	public Example getManager() {
-		return manager;
-	}
+
 	public ArrayList<Feature> getFeatures(){
 		return features;
 	}
-	public void setFeatures(ArrayList<Feature> list) {
-		features=list;
-	}
+
 	public String toString(){
 		String tostring = exampleName + ": ";
 		for(int i =0;i < nameSet.size(); i++){
@@ -220,7 +225,6 @@ public class TrainingExample {
 		}
 		return tostring;
 	}*/
-	
 	public String toString(){
 		String tostring = exampleName + ": ";
 		tostring=tostring+ features.toString();

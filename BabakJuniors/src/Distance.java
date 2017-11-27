@@ -27,96 +27,97 @@ import java.util.Map;
  *
  */
 public class Distance {
-//for each feature in test there is a distance between that feature is testing example and each training example
-	private Map<String,ArrayList<Float>> distances;
-	private Map<String,ArrayList<Float>> normDist;
-	private Map<TrainingExample, Integer> lookUpTable;
-	private TestingExample testEx;
-	//initialize instance's variables
-	public Distance(TestingExample testingExample) {
-		testEx= testingExample;
-		distances = new HashMap<String, ArrayList<Float>>();
-		normDist = new HashMap<String, ArrayList<Float>>();
-		lookUpTable = new HashMap<TrainingExample, Integer>();
-		
-	}
-	/**
-	 * Get position in array list of training example
-	 * Go to each feature and add up the distances at that position (training example)
-	 * How to guarantee that features of a training example will align???
-	 * 
-	 * 
-	 * 
-	 * @param testExam
-	 * @param trainExam
-	 * @return
-	 */
-	public float findDistance(TestingExample testExam, TrainingExample trainExam) {
-		int index = lookUpTable.get(trainExam);
-		int sum=0;
-		for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) {
-			if(entry.getValue().get(index)!=null)
-				sum+=entry.getValue().get(index);
+	//for each feature in test there is a distance between that feature is testing example and each training example
+		private Map<String,ArrayList<Float>> distances;
+		private Map<String,ArrayList<Float>> normDist;
+		private Map<TrainingExample, Integer> lookUpTable;
+		private TestingExample testEx;
+		//initialize instance's variables
+		public Distance(TestingExample testingExample) {
+			testEx= testingExample;
+			distances = new HashMap<String, ArrayList<Float>>();
+			normDist = new HashMap<String, ArrayList<Float>>();
+			lookUpTable = new HashMap<TrainingExample, Integer>();
+			
 		}
-		return sum;
-	}
-	/**normalizeDistance will normalize all distances for less biased calculations
-	 * 
-	 * naming convention, concatenate a composite's children names with its own seperated by a ~
-	 * for toString Everything after the ~  
-	 * 
-	 * This will find max distance in the list of distances for a feature, 
-	 * then it will divide each distance of that feature by the max
-	 */
-	public void normalizeDistance() {
-		//mi gna super sako
-		normDist.clear();
-		normDist.putAll(distances);
-		float maxDistance=0;
-		for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) {
-			for(Float f:entry.getValue()) {//for each element in array in entry
-				if(f!=null) {
-					if(f>maxDistance) {
-						maxDistance=f;
+		/**
+		 * Get position in array list of training example
+		 * Go to each feature and add up the distances at that position (training example)
+		 * How to guarantee that features of a training example will align???
+		 * 
+		 * 
+		 * finds total distance of each feature between a given test and train example
+		 * @param testExam
+		 * @param trainExam
+		 * @return
+		 */
+		public float findDistance(TestingExample testExam, TrainingExample trainExam) {
+			int index = lookUpTable.get(trainExam);
+			int sum=0;
+			for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) {
+				if(entry.getValue().get(index)!=null)
+					sum+=entry.getValue().get(index);
+			}
+			return sum;
+		}
+		/**normalizeDistance will normalize all distances for less biased calculations
+		 * 
+		 * naming convention, concatenate a composite's children names with its own seperated by a ~
+		 * for toString Everything after the ~  
+		 * 
+		 * This will find max distance in the list of distances for a feature, 
+		 * then it will divide each distance of that feature by the max
+		 */
+		public void normalizeDistance() {
+			//mi gna super sako
+			normDist.clear();
+			normDist.putAll(distances);
+			float maxDistance=0;
+			for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) {
+				for(Float f:entry.getValue()) {//for each element in array in entry
+					if(f!=null) {
+						if(f>maxDistance) {
+							maxDistance=f;
+						}
 					}
 				}
-			}
-			for(Float f:entry.getValue()) {//for each element in array in entry
-				if(f!=null)
-					f=f/maxDistance;
-			}
-		}
-	}
-	/**updateDistances populates distances dictionary with a key for every feature in testing example, and an array of distances for each training example for each key
-	 * 
-	 */
-	public void updateDistances(HashMap<String, String> metrics) {
-						//metric supposed to be variable, when the algorithm begins to compare features for all training examples
-						//prompt the user and ask which distance metric will be used for this feature.
-		distances.clear();
-		int index=0;
-		ArrayList<Feature> list= new ArrayList<Feature>();
-		int lookUpTableFlag =0;
-		//prepare map for distances
-		//each feature is a key, with an ar raylist of floats representing the distance between a   
-		for (Feature f: testEx.linearizeFeatures(list)) {
-			distances.put(f.getStringID(), new ArrayList<Float>());
-		}
-		list.clear();
-	//	for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) 
-		for(Map.Entry<String, ArrayList<Float>> entry: distances.entrySet()) {
-			
-			//testEx.linearizeFeatures(list)
-			for(TrainingExample t: testEx.getManager().getTrainingExamplesModel()) {
-				if(lookUpTableFlag==0) {
-					lookUpTable.put(t, index);
-					index++;
+				for(Float f:entry.getValue()) {//for each element in array in entry
+					if(f!=null)
+						f=f/maxDistance;
 				}
-				entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metrics.get(entry.getKey())));
 			}
-			lookUpTableFlag++;
 		}
-		normalizeDistance();
+		/**updateDistances populates distances dictionary with a key for every feature in testing example, and an array of distances for each training example for each key
+		 * 
+		 */
+		public void updateDistances(HashMap<String, String> metrics) {
+							//metric supposed to be variable, when the algorithm begins to compare features for all training examples
+							//prompt the user and ask which distance metric will be used for this feature.
+			distances.clear();
+			int index=0;
+			ArrayList<Feature> list= new ArrayList<Feature>();
+			int lookUpTableFlag =0;
+			//prepare map for distances
+			//each feature is a key, with an ar raylist of floats representing the distance between a   
+			for (Feature f: testEx.linearizeFeatures(list)) {
+				distances.put(f.getStringID(), new ArrayList<Float>());
+			}
+			list.clear();
+		//	for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) 
+			for(Map.Entry<String, ArrayList<Float>> entry: distances.entrySet()) {
+				
+				//testEx.linearizeFeatures(list)
+				for(TrainingExample t: testEx.getManager().getTrainingExamplesModel()) {
+					if(lookUpTableFlag==0) {
+						lookUpTable.put(t, index);
+						index++;
+					}
+					entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metrics.get(entry.getKey())));
+				}
+				lookUpTableFlag++;
+			}
+			normalizeDistance();
+		}
+
 	}
 
-}
