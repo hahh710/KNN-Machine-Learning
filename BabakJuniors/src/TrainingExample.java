@@ -90,15 +90,54 @@ public class TrainingExample {
 	//case4
 	//
 	public Feature getFeature(String s) {
+		if(s.equals(features.getFName()+"->")) {
+			return features;
+		}else {
+			return getFeature(s,features);
+		}
+		//
+		/*
+		for(int i =0;i<features.getSubFeatureSize();i++) {
+			if()	
+		
+		}
 		for (Feature f: features.getSubFeatures()) {
 			if (f.getStringID("", this.getFeatures()).equals(s)) {
 				return f;
 			}
 			if(f instanceof CompositeFeature) {
+				CompositeFeature F =(CompositeFeature)f;
+				if(!F.isThereComposite() && F.getStringID("", F).equals(s)) {
+					return f;
+				}
+				f = f.;
+			}
+			if(f instanceof CompositeFeature) {
 				return getFeature(s);
 			}
+			
+			
+		}*/
+	}
+	public Feature getFeature(String s, CompositeFeature features) {
+		Feature fe =features;
+		for (Feature f: features.getSubFeatures()) {
+			if (f.getStringID("", f).equals(s)) {
+				fe = f;
+			}
+			if(f instanceof CompositeFeature) {
+				CompositeFeature F =(CompositeFeature)f;
+				if(!F.isThereComposite() && F.getStringID("", F).equals(s)) {
+					fe = f;
+				}else {
+					return getFeature(s,F);
+				}
+			}
 		}
-		return null;
+		if (features.getStringID("", this.getFeatures()).equals(s)) {
+			fe = features;
+		}
+		return fe;
 	}
 	public ArrayList<Feature> linearizeFeatures(ArrayList<Feature> list){
 		for (Feature f: features.getSubFeatures()) {

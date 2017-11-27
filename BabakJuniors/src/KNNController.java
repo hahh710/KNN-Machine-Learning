@@ -136,9 +136,12 @@ public class KNNController implements ActionListener {
 
 		distanceMetrics=new HashMap<String, String>();
 		String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
-		Feature temp = trainingEx.getFeature("Head->Ball->");
-		System.out.println(temp.getFName());
-		String Fname = trainingEx.getCompositeFeature().getSubFeature(1).getFName();
+		
+		Feature temp = trainingEx.getFeature("Head->Ball->String");
+		//System.out.println(temp.getFName());
+		JOptionPane.showMessageDialog(view,"Prediction is: " + temp.getFName());
+		
+		//String Fname = trainingEx.getCompositeFeature().getSubFeature(1).getFName();
 		
 		
 		//int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
@@ -235,14 +238,15 @@ public class KNNController implements ActionListener {
 	public CompositeFeature editOption(CompositeFeature currentComposite) {
 
 		newCurrent = currentComposite;
+		String path = "";
+		path = path(path,newCurrent);
 
-
-		featureType = JOptionPane.showInputDialog(null, "Whats the feature name you would like to edit?" + "\n" +" If feature is inside a composite please jump in by typing 4 ", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
+		featureType = JOptionPane.showInputDialog(null,path +"\n"+ "Whats the feature name you would like to edit?" + "\n" +" If feature is inside a composite please jump in by typing 4 ", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
 
 
 
 		if(featureType.equals("4")) {
-			String compName = JOptionPane.showInputDialog(null, "What is name of the Composite that you would like to jump inside ?", " Composites Name ", JOptionPane.QUESTION_MESSAGE);	
+			String compName = JOptionPane.showInputDialog(null,path +"\n"+ "What is name of the Composite that you would like to jump inside ?", " Composites Name ", JOptionPane.QUESTION_MESSAGE);	
 			newCurrent = jumpIn(compName,newCurrent);
 			return editOption(newCurrent);
 		}else if(featureType.equals("0")) {
@@ -251,7 +255,7 @@ public class KNNController implements ActionListener {
 		}else {
 			for(int i =0;i<currentComposite.getSubFeatureSize();i++) {
 				if(featureType.equals(currentComposite.getSubFeature(i).getFName()) && currentComposite.getSubFeature(i) instanceof CompositeFeature) {
-					String set = JOptionPane.showInputDialog(null, "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
+					String set = JOptionPane.showInputDialog(null,path +"\n"+ "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
 					currentComposite.getSubFeature(i).setFName(set);
 
 					//newCurrent=editOption(newCurrent);
@@ -259,7 +263,7 @@ public class KNNController implements ActionListener {
 					//break;
 
 				}else if(featureType.equals(currentComposite.getSubFeature(i).getFName()) && currentComposite.getSubFeature(i) instanceof FloatFeature) {
-					Float set = Float.parseFloat(JOptionPane.showInputDialog(null, "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE));
+					Float set = Float.parseFloat(JOptionPane.showInputDialog(null,path +"\n"+ "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE));
 					FloatFeature temp = (FloatFeature)currentComposite.getSubFeature(i);
 					temp.setValue(set);
 					currentComposite.getSubFeatures().set(i, temp);
@@ -268,7 +272,7 @@ public class KNNController implements ActionListener {
 					newCurrent = currentComposite;
 					//currentComposite.getSubFeature(i).setFName(set);
 				}else if(featureType.equals(currentComposite.getSubFeature(i).getFName()) && currentComposite.getSubFeature(i) instanceof StringFeature) {
-					String set = JOptionPane.showInputDialog(null, "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
+					String set = JOptionPane.showInputDialog(null,path +"\n"+ "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
 					StringFeature temp = (StringFeature)currentComposite.getSubFeature(i);
 					temp.setfValue(set);
 					currentComposite.getSubFeatures().set(i, temp);
