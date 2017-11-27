@@ -11,7 +11,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	ExampleTest.class,
 	DistanceTest.class,
 	FloatFeatureTest.class,
-	CompositeFeatureTest.class
+	CompositeFeatureTest.class,
+	
 })
 
 public class AllTests {
