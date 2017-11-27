@@ -4,10 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class StringFeatureTest {
-	TestingExample testingExampleS;
+	private Example example;
+	TestingExample testingExampleS = new TestingExample("New", example);
 	TestingExample testingExampleN;
 	TestingExample testingExampleC;
-	Example example;
+	
 
 	@Before
 	public void setUp() throws Exception {
@@ -24,7 +25,8 @@ public class StringFeatureTest {
 
 	@Test
 	public void testgetDistance() {
-		assertNotNull("Distances should not null",testingExampleS.getDistances());
+		Distance distance = testingExampleS.getDistances();
+		assertEquals(distance,testingExampleS.getDistances());
 	}
 }
 

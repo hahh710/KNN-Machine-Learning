@@ -16,9 +16,9 @@ public class TestingExampleTest {
 	@Before
 	public void setUp() throws Exception {
 		example = new Example();
-	//	testingExampleS = new TestingExample( example);
-	//	testingExampleN = new TestingExample( example);
-	//	testingExampleC = new TestingExample( example);
+	testingExampleS = new TestingExample( "ts", example);
+		testingExampleN = new TestingExample( "ts",example);
+		testingExampleC = new TestingExample( "ts",example);
 	}
 
 	@After
@@ -33,6 +33,7 @@ public class TestingExampleTest {
 
 	@Test
 	public void testgetDistance() {
+		
 		assertNotNull("Distances should not null",testingExampleS.getDistances());
 		assertNotNull("Distances should not null",testingExampleN.getDistances());
 		assertNotNull("Distances should not null",testingExampleC.getDistances());

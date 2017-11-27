@@ -6,11 +6,12 @@ import org.junit.Test;
 
 public class FeatureTest {
 	private CompositeFeature cfHead, cF2;
+	private String ID;
 
 	@Before
 	public void setUp() throws Exception {
-		cfHead = new CompositeFeature("Head");
-		cF2 = new CompositeFeature("CompositeFeature2");
+		cfHead = new CompositeFeature("Head",ID);
+		cF2 = new CompositeFeature("CompositeFeature2",ID);
 	}
 
 	@After

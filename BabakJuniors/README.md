@@ -13,7 +13,7 @@ The Authors for this project are as follows:
 											
 
 
-PROJECT TITLE: SYSC 3110 Project – Simple Machine Learning Framework
+PROJECT TITLE: SYSC 3110 Project â€“ Simple Machine Learning Framework
 
 PURPOSE OF PROJECT: The purpose of this project is to come up with a very simple environment for performing machine learning on simple problems. We will use past examples to make 
 					predictions about new ones. There is provided an input and based on the inputs, an output is provided. There will be training examples which will have values 
@@ -26,9 +26,9 @@ HOW TO START THIS PROJECT:
 						1) Click on Run and a JFrame Window will be visible.
 						2) There will be a menubar on top and an empty Jlist for Training Examples and Testing Examples and a predict button. Click on the example menu and click
 							on the Create Example menu option.
-						3) To Create a new Training Example by clicking on the option TrainExample and clicking on Create Training Example, a option menu will pop up to enter the
-							name of the example such as if the example is houses, use h1, h2 or etc. Enter the name and click OK.
-						4) To Create Features for a particular Training Example, click on the option TrainExampleand click on the Add Feature. An option pane will pop up asking
+						3) Create a new Training Example by clicking on the option TrainExample and clicking on Create Training Example, a option menu will pop up to enter the
+							name of the TrainingExample such as if the example is houses, use h1, h2 or etc. Enter the name and click OK.
+						4) To Create Features for a particular Training Example, click on the option TrainExample and click on the Add Feature. An option pane will pop up asking
 							the user to enter the index the user needs to add the feature at, if it is the first example then enter 0, if the example is second then enter 1, if
 							third then enter 2 and so on. Once OK is clicked, another option pane will pop up and ask the name of the feature that needs to be added, enter the name
 							and click OK. Once OK is clicked another option pane will pop up asking the type of feature need to be entered. If the type is String, type 1 and click 
@@ -53,17 +53,18 @@ HOW TO START THIS PROJECT:
 							click OK, or otherwise if it is a Coordinates value then type 3 and click OK.
 
 							
-Class Descriptions: Example Class (This class contains all the list of training and testing example and contains all the methods related to adding, and appending rank and creating
-									feature type for each example and contains methods related to feature types. and eventually calculuates error)
-					Feature Class (This class collects all the Attributes of an example listed out in different types allowing user to enter each attribute)
-					KNN class (This class determine the nearest neighbors of a given testing example, given a certain K)
-					Distance class (Belongs to a testing example and Maintains a table of distances between the testing example and all training examples. Rows represented by number
-									of features and columns represented by number of training examples. Uses this table to normalize distances and use distances to find KNN)
-					TestingExample Class (This class inherits all the features from the training example and utilizes the distance class to predict a certain feature compared to
-									Training Example)
-					TrainingExample Class (This class contains the list of features and methods to implement the list)
-					KNNVeiw class ( This class contains the view part of the MVC pattern which is used to display the GUI machine learning algortitm)
-					KNNController (This class contains the controller part of the MVC pattern which is used to implement GUI machine learning algorithm and the action listeners)
+Class Descriptions:	
+							Example Class (This class contains all the list of training and testing example and contains all the methods related to adding, and appending rank and creating
+											feature type for each example and contains methods related to feature types. and eventually calculuates error)
+							Feature Class (This class collects all the Attributes of an example listed out in different types allowing user to enter each attribute)
+							KNN class (This class determine the nearest neighbors of a given testing example, given a certain K)
+							Distance class (Belongs to a testing example and Maintains a table of distances between the testing example and all training examples. Rows represented by number
+											of features and columns represented by number of training examples. Uses this table to normalize distances and use distances to find KNN)
+							TestingExample Class (This class inherits all the features from the training example and utilizes the distance class to predict a certain feature compared to
+											Training Example)
+							TrainingExample Class (This class contains the list of features and methods to implement the list)
+							KNNVeiw class ( This class contains the view part of the MVC pattern which is used to display the GUI machine learning algortitm)
+							KNNController (This class contains the controller part of the MVC pattern which is used to implement GUI machine learning algorithm and the action listeners)
 
 Reason for the version update: 
 								1)Our structure of the algorithm in the previous version worked only for the example of the house, therefore we modified our design to work for anything
