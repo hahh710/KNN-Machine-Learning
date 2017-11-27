@@ -3,8 +3,8 @@ public class FloatFeature extends Feature {
 
 	private float value;
 
-	public FloatFeature(String s, float value) {
-		super(s);
+	public FloatFeature(String s, float value, String id) {
+		super(s, id);
 		this.setValue(value);
 	}
 
@@ -29,7 +29,9 @@ public class FloatFeature extends Feature {
 		return Math.abs((float) (Math.pow(value, 2) - Math.pow(((FloatFeature) f).getValue(), 2)));
 
 	}
-
+	public String getStringID(){
+		return super.getStringID();
+	} 
 	public Float subValue(Feature f) {
 		return this.value - ((FloatFeature) f).getValue();
 

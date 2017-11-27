@@ -27,9 +27,10 @@ import java.util.HashMap;
 **/
 public abstract class Feature {
 	private String fName;
-	
-	public Feature(String s){
+	private String sID;
+	public Feature(String s, String sID){
 		setFName(s);
+		sID=s+sID;
 	}
 
 	public String getFName(){
@@ -39,7 +40,9 @@ public abstract class Feature {
 	public void setFName(String fName){
 		this.fName = fName;
 	}
-	
+	public String getStringID(){
+		return sID;
+	}
 	public abstract Float getDistance(Feature f, String metric) ;
 	public abstract Float calculateError(Feature f);
 	public abstract ArrayList<Feature> getFeatureValue(ArrayList<Feature> features);

@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class StringFeature extends Feature{
-
+	
 	private String fValue;
-	public StringFeature(String s, String fValue) {
-		super(s);
+	public StringFeature(String s, String fValue, String id) {
+		super(s, id);
 		setfValue(fValue);
 	}
 	public String getFValue(){
@@ -26,7 +26,9 @@ public class StringFeature extends Feature{
 		}
 		return distance;
 	}
-	 
+	public String getStringID(){
+		return super.getStringID();
+	} 
 	public float commonLetter(Feature f){
 		float distance=fValue.length();
 		float count =0;

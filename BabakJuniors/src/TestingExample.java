@@ -60,27 +60,28 @@ public class TestingExample extends TrainingExample {
 		if(f instanceof FloatFeature) {
 			FloatFeature ff= (FloatFeature) f;
 			Float predicted = (float)0;
+			for(TrainingExample nn:knn.getNN()) {
+				predicted+=nn.getFeature(ff.getStringID());
+			}
+			predicted=predicted/count;
 			super.addFloatFeature(ff.getFName(), predicted, c);
 		}
+		if (f instanceof StringFeature) {
+			StringFeature sf= (StringFeature) f;
+			String predicted = "";
+			predicted=knn.getNN().get(0).getFeature(ff.getStringID());
+			super.addStringFeature(sf.getFName(), predicted, c);
+		}
 		//we have nearest neighbors now we need to determine the value of feature
-		if(true) {
-			//
-		}
-		for(TrainingExample nn:knn.getNN()) {
-			if(true) {
-				
+		if(f instanceof CompositeFeature) {
+			
+			CompositeFeature cf= (CompositeFeature) f;
+			Float predicted = (float)0;
+			for(TrainingExample nn:knn.getNN()) {
+				predicted+=nn.getFeature(ff.getStringID());
 			}
-			/*1
-			 * 4 cases
-			 * Strign return middle index
-			 * 
-			 * Float return average of numbers
-			 * 
-			 * Ordered pair or complex number: return average of each one in pair
-			 * 
-			 * 
-			 */
+			predicted=predicted/count;
+			super.addFloatFeature(ff.getFName(), predicted, c);
 		}
-		// Subjective f
 	}
 }
