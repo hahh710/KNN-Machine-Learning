@@ -63,7 +63,7 @@ public class KNNController implements ActionListener {
 			 	view.getTrainingPanel().add(trainingExample);
 			 	
 			 	String nameTrainExample = JOptionPane.showInputDialog(null, "What is name of the Training Example ?", "Training Example's Name ", JOptionPane.QUESTION_MESSAGE);
-			 	trainingEx = new TrainingExample(nameTrainExample);
+			 	trainingEx = new TrainingExample(nameTrainExample,example);
 			 	featureHead = trainingEx.getCompositeFeature();
 			 	example.addTrainingExample(trainingEx);
 			 	
@@ -263,6 +263,7 @@ public class KNNController implements ActionListener {
 	 		String compName = JOptionPane.showInputDialog(null, "What is name of the Composite that you would like to jump inside ?", " Composites Name ", JOptionPane.QUESTION_MESSAGE);	
 	 		newCurrent = jumpIn(compName,newCurrent);
 	 	}else if(featureType.equals("0")) {
+	 		newCurrent = getToHead(newCurrent);
 	 		return newCurrent.getParent();
 	 	}
 		newCurrent=Option(newCurrent);
@@ -298,6 +299,16 @@ public class KNNController implements ActionListener {
 	 		//testingEx.addFeature(featureName, new Feature(featureFValue));
 	 		
 	 	}
+	}
+	public CompositeFeature getToHead(CompositeFeature current) {
+		CompositeFeature newCurrent = current;
+		if(current.getParent().getFName().equals("head")) {
+			//newCurrent = current.getParent();
+			return newCurrent;
+		}else {
+			newCurrent = current.getParent();
+			return getToHead(newCurrent);
+		}
 	}
 }
 
