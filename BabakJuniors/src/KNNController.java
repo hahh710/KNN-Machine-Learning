@@ -299,16 +299,5 @@ public class KNNController implements ActionListener {
 	 		
 	 	}
 	}
-	/*
-	public CompositeFeature jumpIn(String compName, CompositeFeature currentFeature) {
-		for(int i =0; i<currentFeature.getSubFeatureSize();i++) {
-			if(currentFeature.getSubFeature(i).getFName().equals(compName) && currentFeature.getSubFeature(i) instanceof CompositeFeature) {
-				CompositeFeature temp =;
-			}
-		}
-		return currentFeature;
-		
-	}
-*/
 }
 

@@ -139,7 +139,8 @@ public class CompositeFeature extends Feature {
 		if(getFName().equals("head"))
 			str="";
 		else
-			str = getFName()+": ";
+			str = getFName()+": (";
+
 		for(Feature f: getSubFeatures()) {
 			str= str + f.toString()+", ";
 		}
