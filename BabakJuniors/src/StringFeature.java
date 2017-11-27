@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+
 /**
  * Extends Feature class
  * @author JeffTudor
  *
  */
+
 public class StringFeature extends Feature{
 	private CompositeFeature parent;
 	private String fValue;
