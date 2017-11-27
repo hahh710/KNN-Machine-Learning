@@ -39,6 +39,7 @@ public class KNNController implements ActionListener {
 	 private String featureSValue;
 	 private float featureFValue;
 	 private CompositeFeature featureHead;
+	 private CompositeFeature newCurrent;
 	 
 	public KNNController(KNNView view) {
 		this.view = view;
@@ -89,7 +90,15 @@ public class KNNController implements ActionListener {
 		        
 		    int i = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
 		    trainingEx = example.getTrainingExampleIndex(i);
+		    
+		   /*
 		    trainingEx.setFeatures(Option(trainingEx.getCompositeFeature()));
+		    */
+		    
+		    
+		    CompositeFeature temp =trainingEx.getCompositeFeature();
+		    
+		    trainingEx.setFeatures(Option(temp));
 		    
 		    
 		 	//featureType = JOptionPane.showInputDialog(null, "Choose the option you would like for this feature(0 to exit, 1 for String, 2 for float, 3 for composite feature and 4 to go into a composite feature) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
@@ -223,9 +232,9 @@ public class KNNController implements ActionListener {
 	}
 	
 	public CompositeFeature Option(CompositeFeature currentComposite) {
-	
-		CompositeFeature newCurrent = currentComposite;
-	 	
+		
+		newCurrent = currentComposite;
+	 	//boolean flag = 
 		 featureType = JOptionPane.showInputDialog(null, "Choose the option you would like for this feature(0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
 
 	   
@@ -254,9 +263,10 @@ public class KNNController implements ActionListener {
 	 		String compName = JOptionPane.showInputDialog(null, "What is name of the Composite that you would like to jump inside ?", " Composites Name ", JOptionPane.QUESTION_MESSAGE);	
 	 		newCurrent = jumpIn(compName,newCurrent);
 	 	}else if(featureType.equals("0")) {
-	 		//return newCurrent;
+	 		return newCurrent.getParent();
 	 	}
-		return Option(newCurrent);
+		newCurrent=Option(newCurrent);
+		return newCurrent;
 	}
 	public CompositeFeature jumpIn(String compositeName,CompositeFeature currentFeature) {
 		CompositeFeature newCurrent;

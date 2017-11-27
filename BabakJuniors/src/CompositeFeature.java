@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 
 public class CompositeFeature extends Feature {
+	private CompositeFeature parent;
 	private ArrayList<Feature> subFeatures;
 	private ArrayList<String> subFeatureNames;
 
 	public CompositeFeature(String s) {
 		super(s);
+		parent = null;
 		subFeatures = new ArrayList<Feature>();
 		subFeatureNames = new ArrayList<String>();
 	}
@@ -15,7 +17,16 @@ public class CompositeFeature extends Feature {
 		subFeatureNames = new ArrayList<String>();
 	}
 
+	public CompositeFeature getParent() {
+		return parent;
+	}
+	public void setParent(CompositeFeature parent) {
+		this.parent = parent;
+	}
 	public void addFeature(Feature feature) {
+		if(feature instanceof CompositeFeature) {
+			((CompositeFeature) feature).setParent(this);
+		}
 		subFeatures.add(feature);
 		subFeatureNames.add(feature.getFName());
 	}

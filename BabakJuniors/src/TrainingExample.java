@@ -45,6 +45,7 @@ public class TrainingExample {
 		//this.manager=manager;
 		printFeatures = new DefaultListModel<String>();
 		features = new CompositeFeature("head");
+		features.setParent(null);
 		this.exampleName = name; 
 	}
 	//public createFeatureType{
