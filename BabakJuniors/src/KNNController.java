@@ -262,9 +262,11 @@ public class KNNController implements ActionListener {
 	 	}else if(featureType.equals("4")) {
 	 		String compName = JOptionPane.showInputDialog(null, "What is name of the Composite that you would like to jump inside ?", " Composites Name ", JOptionPane.QUESTION_MESSAGE);	
 	 		newCurrent = jumpIn(compName,newCurrent);
+	 	}else if(featureType.equals("5")) {	
+	 		newCurrent = newCurrent.getParent();
 	 	}else if(featureType.equals("0")) {
 	 		newCurrent = getToHead(newCurrent);
-	 		return newCurrent.getParent();
+	 		return newCurrent;
 	 	}
 		newCurrent=Option(newCurrent);
 		return newCurrent;
@@ -302,7 +304,7 @@ public class KNNController implements ActionListener {
 	}
 	public CompositeFeature getToHead(CompositeFeature current) {
 		CompositeFeature newCurrent = current;
-		if(current.getParent().getFName().equals("head")) {
+		if(current.getFName().equals("head")) {
 			//newCurrent = current.getParent();
 			return newCurrent;
 		}else {
