@@ -42,7 +42,8 @@ HOW TO START THIS PROJECT:
 							which Composite Feature the user is in,(head means your exited out of every composite feature).(For Users operating Windows machine, Users
 							might need to click the list of example to display/update the feature they have added to the list of examples)
 	//tbd				5) To Edit a training feature.....
-						6) To Save all the Training Example on a file , go to the TrainingExample menu item and click Save TrainExample to save it on a file.
+						6) To Save all the Training Example on a file , go to the TrainingExample menu item and click Save TrainExample to save it on a file.The file will be stored
+						in the project folder.
 						7) Create a new Testing Example by clicking on the option TestExample and clicking on Create Testing Example, a option menu will pop up to enter the
 							name of the example, if the training example has 2 example then the name should be similar to testing example, but use h3 or h4 etc. Enter the name 
 							and click OK. 
@@ -61,7 +62,8 @@ HOW TO START THIS PROJECT:
 							pop up asking the type of feature need to be entered. If the type is String, type 1 and click OK,if float type needs to be entered, then type 2 and 
 							click OK, or otherwise if it is a Coordinates value then type 3 and click OK.
 	//tbd				10) To Edit a training feature.....							
-						11) To Save all the Testing Example on a file , go to the TestingExample menu item and click Save TestExample to save it on a file.
+						11) To Save all the Testing Example on a file , go to the TestingExample menu item and click Save TestExample to save it on a file. The file will be stored
+						in the project folder.
 
 							
 Class Descriptions:	
