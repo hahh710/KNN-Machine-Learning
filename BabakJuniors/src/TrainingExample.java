@@ -48,17 +48,14 @@ public class TrainingExample {
 		features = new CompositeFeature("head");
 		this.exampleName = name; 
 	}
+	
 	public TrainingExample(String name, Example man){
 		this.manager=man;
 		printFeatures = new DefaultListModel<String>();
 		features = new CompositeFeature("head");
 		this.exampleName = name; 
 	}
-	//public createFeatureType{
-	//create feature type
-	//public createFeatureType{
-	//create feature type
-	//
+	
 
 	public DefaultListModel<String> getPrintFeatures(){
 		printFeatures.addElement(toString());
@@ -122,58 +119,6 @@ public class TrainingExample {
 		}
 		return null;
 	}	
-	/**
-	public void option(CompositeFeature head) throws IOException{
-		String f = "";
-		CompositeFeature newwCurrent;
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("what u want option");
-		String s = br.readLine();
-		
-		//if user choose 1 or 2 creating String Feature or Float Feature.
-		while(!s.equals("0")) {
-			if(s.equals("1")){
-				
-				System.out.println("in 1");
-				
-				addStringFeature("Color","red",head);
-				f=features.toString();
-				System.out.println(f);
-				s = br.readLine();
-				
-			}else if(s.equals("2")) {
-				System.out.println("in 2");
-				addFloatFeature("distance",(float)2.2,head);
-				System.out.println(features.toString());
-				s = br.readLine();
-			}else if(s.equals("3")) { //if user choose 3 then creating composite Feature.
-				System.out.println("in 3");
-				addCompositeFeature("Ball",head);
-				System.out.println(features.toString());
-				s = br.readLine();
-			}else if(s.equals("4")) { //if user choose 4 then go inside of composite Feature. 
-				System.out.println("in 4");
-				BufferedReader cr = new BufferedReader(new InputStreamReader(System.in));
-				System.out.println("what u name Ball");
-				String t = cr.readLine();
-				//CompositeFeature newwCurrent;
-				newwCurrent = jumpIn(t,head);
-				option(newwCurrent);
-			}
-		}
-		*/
-		//if this keyname exists then
-		/**
-		 * if(f instanceof CompositeFeature){
-		 *	What feature would you like to add to this composite
-		 *	now you have newFeature
-		 *	addFeature(newFeature)
-		 *}
-		 *
-		 *
-		 * }
-		 */
-		
 	
 	public CompositeFeature getFeatures() {
 		return features;
@@ -188,44 +133,7 @@ public class TrainingExample {
 		return manager;
 	}
 
-	/*
-			if(!features.contains(f)) {
-				features.add( f);
-			}else{
-				System.out.println("There is same name of feature");// print this statement in 
-			}*/
-/*
-	public void removeFeature(String fName){
-		for(Feature feature: features) {
-			if(feature.getFName().equals(fName))
-				features.remove(feature);
-		}
-	}
-	public Feature getFeature(String f){
-		for(Feature feature: features) {
-			if(feature.getFName().equals(f))
-				return feature;
-		}
-		return null;
-	}
-	public String getName(){
-		return name;
-	}
-	public void setName(String f){ 
-		name = f;
-	}
-
-	public ArrayList<Feature> getFeatures(){
-		return features;
-	}
-
-	public String toString(){
-		String tostring = exampleName + ": ";
-		for(int i =0;i < nameSet.size(); i++){
-			tostring += nameSet.get(i) + " = " + feature.get(nameSet.get(i)).toString()+ "," + "\n" ;
-		}
-		return tostring;
-	}*/
+	
 	public String toString(){
 		String tostring = exampleName + ": ";
 		tostring=tostring+ features.toString();

@@ -75,10 +75,10 @@ public class CompositeFeature extends Feature {
 	public String getStringID(String path,CompositeFeature current) {
 		CompositeFeature newCurrent = current;
 		if(current.getFName().equals("head")) {
-			path = "Head/"+ path ;  //t.getTrainingExampleName();
+			path = "Head->"+ path ;  //t.getTrainingExampleName();
 			return path;
 		}else {
-			path = current.getFName() +"/"+path;
+			path = current.getFName() +"->"+path;
 			newCurrent = current.getParent();
 			return getStringID(path,newCurrent);
 		}
@@ -124,23 +124,14 @@ public class CompositeFeature extends Feature {
 		features.add(this);
 		return  features;
 	}
+	
 	@Override
 	public Float calculateError(Feature f) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	/*
-	@Override
-	public String toString(String toString) {
-		toString = toString + "(";
-		for(int i =0; i < subFeatures.size();i++) {
-			subFeatures.get(i).toString(toString);
-		}
-		toString = toString + ")";
-		return toString;
-	}
-	 */
+
 
 	@Override
 	public String toString() {

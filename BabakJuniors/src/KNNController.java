@@ -131,19 +131,24 @@ public class KNNController implements ActionListener {
 
 	
 	
-	}/*else if (event.getActionCommand().equals("Predict")) {
+	}else if (event.getActionCommand().equals("Predict")) {
 
 
 		distanceMetrics=new HashMap<String, String>();
 		String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
-		int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
+		Feature temp = trainingEx.getFeature("Head->Ball->");
+		System.out.println(temp.getFName());
+		String Fname = trainingEx.getCompositeFeature().getSubFeature(1).getFName();
+		
+		
+		//int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
 
-		for (String fName: testingEx.getAllFeatures().keySet()) {
-			String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?" + fName, "Distance Metric", JOptionPane.QUESTION_MESSAGE);
+		//for (String fName: testingEx.getAllFeatures().keySet()) {
+		//	String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?" + fName, "Distance Metric", JOptionPane.QUESTION_MESSAGE);
 
-			distanceMetrics.put(fName, metricType);
-		}
-		testingEx.predictFeature(testFeatureName, knn, distanceMetrics);		
+		//	distanceMetrics.put(fName, metricType);
+		//}
+		//testingEx.predictFeature(testFeatureName, knn, distanceMetrics);		
 
 	}else if (event.getActionCommand().equals("CalculateError")) {
 
@@ -152,12 +157,12 @@ public class KNNController implements ActionListener {
 		int prevFeatureName = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to calculate the error ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
 		trainingEx = example.getTestingExampleIndex(prevFeatureName);
 		int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
-		float error = example.calculateError(trainingEx, trainingEx.getAllFeatures().get(errorFeatureName), knn);
+		//float error = example.calculateError(trainingEx, trainingEx.getAllFeatures().get(errorFeatureName), knn);
 
-		JOptionPane.showMessageDialog(view,"Error is: " + error);
+		//JOptionPane.showMessageDialog(view,"Error is: " + error);
 
 
-	}*/else if (event.getActionCommand().equals("Save Train Example")) {
+	}else if (event.getActionCommand().equals("Save Train Example")) {
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter("TrainingExamples.txt"));
 			out.write(trainingEx.toString());
@@ -180,10 +185,9 @@ public class KNNController implements ActionListener {
 
 }
 
-/*
+	/**
 	 * Method which prints the training example routine output
 	 * */
-
 	public String ask() {
 		return JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);		 	
 	}
@@ -292,10 +296,10 @@ public class KNNController implements ActionListener {
 	public String path(String path,CompositeFeature current) {
 		CompositeFeature newCurrent = current;
 		if(current.getFName().equals("head")) {
-			path = "Head/"+ path ;  //t.getTrainingExampleName();
+			path = "Head->"+ path ;  //t.getTrainingExampleName();
 			return path;
 		}else {
-			path = current.getFName() +"/"+path;
+			path = current.getFName() +"->" + path;
 			newCurrent = current.getParent();
 			return path(path,newCurrent);
 		}

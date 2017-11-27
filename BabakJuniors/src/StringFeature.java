@@ -88,10 +88,10 @@ public class StringFeature extends Feature{
 	public String getStringID(String path,CompositeFeature current) {
 		CompositeFeature newCurrent = current;
 		if(current.getFName().equals("head")) {
-			path = "Head/"+ path ;  //t.getTrainingExampleName();
+			path = "Head->"+ path ;  //t.getTrainingExampleName();
 			return path;
 		}else {
-			path = current.getFName() +"/"+path;
+			path = current.getFName() +"->"+path;
 			newCurrent = current.getParent();
 			return getStringID(path,newCurrent);
 		}

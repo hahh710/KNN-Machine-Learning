@@ -30,21 +30,33 @@ public class TestingExample extends TrainingExample {
 		distances = new Distance(this);
 		knn=new KNN(0, this);
 	}
+	
 	/**
 	 * Constructor to create copy of training example
 	 * @param testEx
 	 */
-
 	public Example getManager() {
 		return super.getManager();
 	}
+	
+	/**
+	 * Constructor to create copy of training example
+	 * @param testEx
+	 */
 	public Distance getDistances() {
 		return distances;
 	}
+	
+	/**
+	 * Constructor to create copy of training example
+	 * @param testEx
+	 */
 	public KNN getKNN() {
 		return knn;
 	}
-	/**2
+	
+	
+	/**
 	 * 
 	 * PredictFeature
 	 * 
