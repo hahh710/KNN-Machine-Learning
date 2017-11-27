@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class FeatureTest {
 	private CompositeFeature cfHead, cF2;
-	private String ID;
+	//private String ID;
 
 	@Before
 	public void setUp() throws Exception {
