@@ -41,10 +41,12 @@ HOW TO START THIS PROJECT:
 							exit out of the Composite feature and add another composite feature or float or string feature, type in 5 and press ok and the Jlabel above  will notify under 
 							which Composite Feature the user is in,(head means your exited out of every composite feature).(For Users operating Windows machine, Users
 							might need to click the list of example to display/update the feature they have added to the list of examples)
-						5) Create a new Testing Example by clicking on the option TestExample and clicking on Create Testing Example, a option menu will pop up to enter the
+	//tbd				5) To Edit a training feature.....
+						6) To Save all the Training Example on a file , go to the TrainingExample menu item and click Save TrainExample to save it on a file.
+						7) Create a new Testing Example by clicking on the option TestExample and clicking on Create Testing Example, a option menu will pop up to enter the
 							name of the example, if the training example has 2 example then the name should be similar to testing example, but use h3 or h4 etc. Enter the name 
 							and click OK. 
-	//tbd				6)  To Create Features for a particular Testing Example, click on the option TestExample and click on the Add Testing Feature. An option pane will pop up asking
+	//tbd				8)  To Create Features for a particular Testing Example, click on the option TestExample and click on the Add Testing Feature. An option pane will pop up asking
 							the user to enter the index the user needs to add the feature at, if it is the first example then enter 0, if the example is second then enter 1, if
 							third then enter 2 and so on. Once OK is clicked, another option pane will pop up and ask the name of the feature that needs to be added, enter the name
 							and click OK. Once OK is clicked another option pane will pop up asking the type of feature need to be entered. If the type is String, type 1 and click 
@@ -52,12 +54,14 @@ HOW TO START THIS PROJECT:
 							number thats entered another option pane will pop up asking the value of the feature need to be entered. (For Users operating Windows machine, Users
 							might need to click the list of example to display/update the feature they have added to the list of examples)
 							
-	//tbd				7) To predict a feature, the logical requirement is that a single type of feature type should be available in both training and testing example in order to 
+	//tbd				9) To predict a feature, the logical requirement is that a single type of feature type should be available in both training and testing example in order to 
 							predict a value, so that KNN can compare the nearest neighbours to find out which output to be predicted. To simple predict, click on the button Predict
 							and then an option pane will pop up asking the user which feature name to predict, then another option pane will pop up asking the user to enter the 
 							nearest KNN neighbours are there, the range of KNN neighbours will be 1 <= KNN Neighbours <= TrainingExample, Once OK is clicked another option pane will
 							pop up asking the type of feature need to be entered. If the type is String, type 1 and click OK,if float type needs to be entered, then type 2 and 
 							click OK, or otherwise if it is a Coordinates value then type 3 and click OK.
+	//tbd				10) To Edit a training feature.....							
+						11) To Save all the Testing Example on a file , go to the TestingExample menu item and click Save TestExample to save it on a file.
 
 							
 Class Descriptions:	
