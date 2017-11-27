@@ -136,7 +136,7 @@ public class KNNView extends JFrame{
 		
 		testingPanel.add(predict,BorderLayout.SOUTH);
 		
-	pack();
+	
 		this.setVisible(true);
 
 	}
