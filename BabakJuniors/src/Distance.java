@@ -95,14 +95,18 @@ public class Distance {
 						//prompt the user and ask which distance metric will be used for this feature.
 		distances.clear();
 		int index=0;
+		ArrayList<Feature> list= new ArrayList<Feature>();
 		int lookUpTableFlag =0;
 		//prepare map for distances
 		//each feature is a key, with an ar raylist of floats representing the distance between a   
-		for (Feature f: testEx.getFeatures()) {
-			distances.put(f.getFName(), new ArrayList<Float>());
+		for (Feature f: testEx.linearizeFeatures(list)) {
+			distances.put(f.getStringID(), new ArrayList<Float>());
 		}
+		list.clear();
 	//	for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) 
 		for(Map.Entry<String, ArrayList<Float>> entry: distances.entrySet()) {
+			
+			//testEx.linearizeFeatures(list)
 			for(TrainingExample t: testEx.getManager().getTrainingExamplesModel()) {
 				if(lookUpTableFlag==0) {
 					lookUpTable.put(t, index);
