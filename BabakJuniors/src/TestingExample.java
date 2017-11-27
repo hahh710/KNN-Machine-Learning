@@ -1,4 +1,4 @@
-[i'…54321`ZXcv bmport java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**

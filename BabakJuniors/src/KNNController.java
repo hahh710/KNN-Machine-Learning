@@ -124,9 +124,9 @@ public class KNNController implements ActionListener {
 		int prevFeatureName = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to edit the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
 		testingEx = example.getTestingExampleIndex(prevFeatureName);
 
-		CompositeFeature temp = trainingEx.getCompositeFeature();
-		testingEx.setFeatures(editOption(temp));
-		
+		CompositeFeature temp = testingEx.getCompositeFeature();
+		temp = editOption(temp);
+		testingEx.setFeatures(temp);
 
 
 	
