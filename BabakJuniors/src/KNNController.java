@@ -64,7 +64,6 @@ public class KNNController implements ActionListener {
 			 	String nameTrainExample = JOptionPane.showInputDialog(null, "What is name of the Training Example ?", "Training Example's Name ", JOptionPane.QUESTION_MESSAGE);
 			 	trainingEx = new TrainingExample(nameTrainExample);
 			 	featureHead = trainingEx.getCompositeFeature();
-			 	//trainingEx.createExample(nameTrainExample);
 			 	example.addTrainingExample(trainingEx);
 			 	
 
@@ -90,24 +89,13 @@ public class KNNController implements ActionListener {
 		        
 		    int i = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
 		    trainingEx = example.getTrainingExampleIndex(i);
+		    trainingEx.setFeatures(Option(trainingEx.getCompositeFeature()));
 		    
-		    featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
-		 	featureType = JOptionPane.showInputDialog(null, "Choose the option you would like for this feature(0 to exit, 1 for String, 2 for float, 3 for composite feature and 4 to go into a composite feature) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
-		 	//
-		 	///
-		 	/**
-		 	 * if (featureType.equals(String))
-		 	 * 	...addfeature
-		 	 * else if(featureType.equals(Float))
-		 	 * 	...assfeature
-		 	 * else if(feature Type.equals(Composite))
-		 	 * 	...addfeature 
-		 	 * ...jump into composite
-		 	 * 	...
-		 	 */
-		    while(!featureType.equals("0"))  { 
-		    		addTrainFeature(featureName,featureType);
-		    }
+		    
+		 	//featureType = JOptionPane.showInputDialog(null, "Choose the option you would like for this feature(0 to exit, 1 for String, 2 for float, 3 for composite feature and 4 to go into a composite feature) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
+		 
+		    	//addTrainFeature(featureName,featureType);
+		    
 		
 		 
 	}
@@ -229,49 +217,57 @@ public class KNNController implements ActionListener {
 /**
  * Method which prints the training example routine output
  * */
- 
-	public Feature addTrainFeature(String featureName, String featureType) {
-		
-		this.featureName=featureName;
-		this.featureType=featureType;
-		CompositeFeature newCurrent;
-	 	
-	 	
-	    // featureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);
-	 	 //featureType = JOptionPane.showInputDialog(null, "Choose the option you would like for this feature(0 to exit, 1 for String, 2 for float, 3 for complex and 4 to go into a composite feature) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
-	if(featureType.equals("0")) {
-		return null;
+	
+	public String ask() {
+		 return JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);		 	
 	}
 	
-	else if(featureType.equals("1") ) {
-		
-		
-	 		featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);
-	 		
-		 	return trainingEx.addStringFeature(featureName,featureSValue,trainingEx.getCompositeFeature());
-		
-		
-		 	
-	 	}else if(featureType.equals("2")){
-	 		
+	public CompositeFeature Option(CompositeFeature currentComposite) {
+	
+		CompositeFeature newCurrent = currentComposite;
+	 	
+		 featureType = JOptionPane.showInputDialog(null, "Choose the option you would like for this feature(0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
+
+	   
+	
+		 if(featureType.equals("1") ) {
+		 	String name = ask();
+	 		 featureSValue = JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);	
+	 		 StringFeature temp= new StringFeature(name, featureSValue);
+		 	 newCurrent.addFeature(temp);
+	 		 //trainingEx.addStringFeature(featureName,featureSValue,newCurrent);
+		 	 
+	 	}else if(featureType.equals("2")){	
+	 		String name = ask();
 	 		featureFValue = Float.parseFloat(JOptionPane.showInputDialog(null, "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
-	 		return trainingEx.addFloatFeature(featureName,featureFValue,trainingEx.getCompositeFeature());
-	 		
+	 		 FloatFeature temp= new FloatFeature(name, featureFValue);
+		 	 newCurrent.addFeature(temp);
+	 		//trainingEx.addFloatFeature(featureName,featureFValue,newCurrent);
 	 	}else if(featureType.equals("3")){
+	 		String name = ask();
+	 		CompositeFeature temp = new CompositeFeature(name);
+	 		newCurrent.addFeature(temp);
 	 		//trainingEx.addCompositeFeature(featureName,trainingEx.getCompositeFeature());
 	 		//featureFValue = Integer.parseInt(JOptionPane.showInputDialog(null, "Would you like to add another composite feature ?", " Composite Feature ", JOptionPane.QUESTION_MESSAGE));
-	 		
-	 		return trainingEx.addCompositeFeature(featureName,trainingEx.getCompositeFeature());
-	 		
+	 		 //trainingEx.addCompositeFeature(featureName,newCurrent);
+	 	}else if(featureType.equals("4")) {
+	 		String compName = JOptionPane.showInputDialog(null, "What is name of the Composite that you would like to jump inside ?", " Composites Name ", JOptionPane.QUESTION_MESSAGE);	
+	 		newCurrent = jumpIn(compName,newCurrent);
+	 	}else if(featureType.equals("0")) {
+	 		//return newCurrent;
 	 	}
-	
-	else {
-		return addTrainFeature(featureName,featureType);
+		return Option(newCurrent);
 	}
-
-		
-		
-	}
+	public CompositeFeature jumpIn(String compositeName,CompositeFeature currentFeature) {
+		CompositeFeature newCurrent;
+		for(int i=0;i<currentFeature.getSubFeatureSize();i++) {
+			if(currentFeature.getSubFeature(i).getFName().equals(compositeName) && currentFeature.getSubFeature(i) instanceof CompositeFeature) {
+				newCurrent = (CompositeFeature)currentFeature.getSubFeature(i);
+				return newCurrent;
+			}
+		}
+		return null;
+	}	
 
 /**
  * Method which prints the Testing example routine output
