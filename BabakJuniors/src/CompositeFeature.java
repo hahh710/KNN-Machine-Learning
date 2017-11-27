@@ -132,6 +132,19 @@ public class CompositeFeature extends Feature {
 	}
 	
 	public Feature predictFeature(ArrayList<TrainingExample> nn) {
+		int count=0;
+		float sum=0;
+		for(Feature f:getSubFeatures()) {
+			if(f instanceof FloatFeature) {
+				for(TrainingExample n:nn) {
+					sum+= ((FloatFeature)(n.getFeature(f.getStringID("", this)))).getValue();
+					count++;
+				}
+				((FloatFeature) f).setValue(sum/count);
+			}
+			sum=0;
+			count=0;
+		}
 		return this;
 	}
 
