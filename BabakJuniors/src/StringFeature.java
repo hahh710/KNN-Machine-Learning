@@ -21,15 +21,14 @@ public class StringFeature extends Feature{
 	
 	@Override
 	public Float getDistance(Feature f, String metric) {
-		float distance;
 		if(metric.equals("commonletter")){
-			distance = commonLetter(f); 
+			return commonLetter(f); 
 		}else if(metric.equals("sizeofstring")){
-			distance= lengthOfString(f);
-		}else{
-			distance = lexGraphic(f);
+			return lengthOfString(f);
+		}else if(metric.equals("lexGraphic")){
+			return lexGraphic(f);
 		}
-		return distance;
+		return null;
 	}
 
 	public float commonLetter(Feature f){
