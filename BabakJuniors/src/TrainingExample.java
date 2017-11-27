@@ -35,6 +35,7 @@ public class TrainingExample {
 	private CompositeFeature features; 
 	private ArrayList<Feature> linearizedFeatures;
 	private DefaultListModel<String>printFeatures;
+	
 	public TrainingExample() {
 		exampleName=null;
 		manager=null;
