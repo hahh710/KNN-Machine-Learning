@@ -28,9 +28,9 @@ public class CompositeFeature extends Feature {
 		this.parent = parent;
 	}
 	public void addFeature(Feature feature) {
-		if(feature instanceof CompositeFeature) {
-			((CompositeFeature) feature).setParent(this);
-		}
+		//if(feature instanceof CompositeFeature) {
+			feature.setParent(this);
+		//}
 		subFeatures.add(feature);
 		subFeatureNames.add(feature.getFName());
 	}
@@ -76,17 +76,26 @@ public class CompositeFeature extends Feature {
 
 	}
 
-	public String getStringID(String path,CompositeFeature current) {
-		CompositeFeature newCurrent = current;
-		if(current.getFName().equals("head")) {
+	public String getStringID(String path,Feature current) {
+		CompositeFeature newCurrent = null;
+		if(current instanceof CompositeFeature) {
+			newCurrent = (CompositeFeature)current;
+		}
+		else{
+			path = current.getFName();
+			newCurrent = current.getParent();
+			//return getStringID(path,newCurrent);
+		}
+		if(newCurrent.getFName().equals("head")) {
 			path = "Head->"+ path ;  //t.getTrainingExampleName();
 			return path;
-		}else {
-			path = current.getFName() +"->"+path;
-			newCurrent = current.getParent();
-			return getStringID(path,newCurrent);
-		}
+		}else //if(current instanceof StringFeature ||current instanceof FloatFeature) {
+			path = newCurrent.getFName() +"->"+path;
+		newCurrent = newCurrent.getParent();
+		return getStringID(path,newCurrent);
+
 	}
+
 	@Override
 	public Float getDistance(Feature f, String metric) {
 		if(f instanceof CompositeFeature){

@@ -18,6 +18,7 @@ public class StringFeature extends Feature{
 	public void setfValue(String value){
 		fValue=value;
 	}
+
 	
 	@Override
 	public Float getDistance(Feature f, String metric) {
@@ -88,17 +89,26 @@ public class StringFeature extends Feature{
 	public void setParent(CompositeFeature parent) {
 		this.parent = parent;
 	}
-	public String getStringID(String path,CompositeFeature current) {
-		CompositeFeature newCurrent = current;
-		if(current.getFName().equals("head")) {
+	public String getStringID(String path,Feature current) {
+		CompositeFeature newCurrent = null;
+		if(current instanceof CompositeFeature) {
+			newCurrent = (CompositeFeature)current;
+		}
+		else{
+			path = current.getFName();
+			newCurrent = current.getParent();
+			//return getStringID(path,newCurrent);
+		}
+		if(newCurrent.getFName().equals("head")) {
 			path = "Head->"+ path ;  //t.getTrainingExampleName();
 			return path;
-		}else {
-			path = current.getFName() +"->"+path;
-			newCurrent = current.getParent();
+		}else { //if(current instanceof StringFeature ||current instanceof FloatFeature) {
+			path = newCurrent.getFName() +"->"+path;
+			newCurrent = newCurrent.getParent();
 			return getStringID(path,newCurrent);
 		}
 	}
+
 	/**
 	 * Return a feature with predicted value
 	 */

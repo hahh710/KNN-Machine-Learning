@@ -38,7 +38,8 @@ public abstract class Feature {
 	public void setFName(String fName){
 		this.fName = fName;
 	}
-	public abstract String getStringID(String s, CompositeFeature c);
+	public abstract void setParent(CompositeFeature f);
+	public abstract String getStringID(String s,Feature c);
 	public abstract Float getDistance(Feature f, String metric) ;
 	public abstract Float calculateError(Feature f);
 	public abstract ArrayList<Feature> getFeatureValue(ArrayList<Feature> features);
