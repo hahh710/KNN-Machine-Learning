@@ -98,8 +98,9 @@ public class Distance {
 			ArrayList<Feature> list= new ArrayList<Feature>();
 			int lookUpTableFlag =0;
 			//prepare map for distances
-			//each feature is a key, with an ar raylist of floats representing the distance between a   
-			for (Feature f: testEx.linearizeFeatures(list)) {
+			//each feature is a key, with an ar raylist of floats representing the distance between a 
+			//there should be a row for every feature in testex
+			for (Feature f: testEx.linearizeFeatures()) {
 				distances.put(f.getStringID("",f.getParent()), new ArrayList<Float>());
 			}
 			list.clear();

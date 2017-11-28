@@ -93,6 +93,7 @@ public class FloatFeature extends Feature {
 
 
 	public Feature predictFeature(ArrayList<TrainingExample> nn) {
+
 		int count =0;
 		FloatFeature ff= this;
 		Float predicted = (float)0;

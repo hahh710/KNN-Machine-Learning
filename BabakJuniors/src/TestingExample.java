@@ -25,8 +25,10 @@ import java.util.HashMap;
 public class TestingExample extends TrainingExample {
 	private Distance distances;
 	private KNN knn;
+	//private ArrayList<Feature> linearizedFeatures;
 	public TestingExample(String name, Example eM) {
 		super(name, eM);
+		//linearizedFeatures =new ArrayList<Feature>();
 		distances = new Distance(this);
 		knn=new KNN(0, this);
 	}

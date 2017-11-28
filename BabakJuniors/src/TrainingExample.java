@@ -42,17 +42,19 @@ public class TrainingExample {
 		features=null;
 	}
 	
-	public TrainingExample(String name){
+/*	public TrainingExample(String name){
 		//this.manager=manager;
 		printFeatures = new DefaultListModel<String>();
 		features = new CompositeFeature("head");
+		linearizedFeatures =new ArrayList<Feature>();
 		this.exampleName = name; 
-	}
+	}*/
 	
 	public TrainingExample(String name, Example man){
 		this.manager=man;
 		printFeatures = new DefaultListModel<String>();
 		features = new CompositeFeature("head");
+		linearizedFeatures =new ArrayList<Feature>();
 		this.exampleName = name; 
 	}
 	
@@ -71,12 +73,15 @@ public class TrainingExample {
 	
 	public CompositeFeature addStringFeature(String fName,String value,CompositeFeature  currentFeature) {
 		StringFeature sFeature = new StringFeature(fName,value);
+		linearizedFeatures.add(sFeature);
 		currentFeature.addFeature(sFeature);
 		return currentFeature;
 	}
 	//2
 	public CompositeFeature addFloatFeature(String fName,Float value,CompositeFeature currentFeature) {
 		FloatFeature fFeature = new FloatFeature(fName,value);
+		linearizedFeatures.add(fFeature);
+
 		currentFeature.addFeature(fFeature);
 		return currentFeature;
 	}
@@ -84,6 +89,8 @@ public class TrainingExample {
 	//3
 	public CompositeFeature addCompositeFeature(String compositeName,CompositeFeature currentFeature) {
 		CompositeFeature comp = new CompositeFeature(compositeName);
+		linearizedFeatures.add(comp);
+
 		currentFeature.addFeature(comp);
 		return currentFeature;
 	}
@@ -139,14 +146,9 @@ public class TrainingExample {
 		}
 		return fe;
 	}
-	public ArrayList<Feature> linearizeFeatures(ArrayList<Feature> list){
-		for (Feature f: features.getSubFeatures()) {
-			list.add(f);
-			if(f instanceof CompositeFeature) {
-				linearizeFeatures(list);
-			}
-		}
-		return list;
+	public ArrayList<Feature> linearizeFeatures(){
+		
+		return linearizedFeatures;
 	}
 	public CompositeFeature jumpIn(String compositeName,CompositeFeature currentFeature) throws IOException{
 		CompositeFeature newCurrent;

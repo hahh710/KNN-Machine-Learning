@@ -138,7 +138,7 @@ public class KNNController implements ActionListener {
 		String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?"+"\n"+"(If you would like to predict a feature inside a composite type ->) For example t1: Ball(Distance( colour: red,): Type in Ball->Distance->colour to predict the colour in testing", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
 		
 		
-		Feature temp = trainingEx.getFeature(testFeatureName);
+		Feature temp = testingEx.getFeature(testFeatureName);
 		JOptionPane.showMessageDialog(view,"Prediction is: " + testFeatureName);
 		int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
 
@@ -147,8 +147,8 @@ public class KNNController implements ActionListener {
 		//String Fname = trainingEx.getCompositeFeature().getSubFeature(1).getFName();
 		
 		
-
-		for (Feature f: testingEx.linearizeFeatures(new ArrayList<Feature>())) {
+		
+		for (Feature f:testingEx.linearizeFeatures() ) {
 			
 			String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?", "Distance Metric", JOptionPane.QUESTION_MESSAGE);
 			distanceMetrics.put(f.getStringID("", f.getParent()), metricType);
