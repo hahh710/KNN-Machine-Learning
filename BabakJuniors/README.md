@@ -32,7 +32,7 @@ HOW TO START THIS PROJECT:
 							the user to enter the index the user needs to add the feature at, if it is the first example then enter 0, if the example is second then enter 1, if
 							third then enter 2 and so on. Once OK is clicked, an option pane will pop up asking to choose the option that needs to be (0 to exit, 1 for String, 2
 							for float, 3 for composite and 4 to go into a composite feature and 5 to jump out of the current composite) once you select what option and click OK, 
-							once OK is clicked, another pane will pop up depending on what has been clicked. if 1 or 2 has been Name of the feature and it value will be asked, once
+						    another pane will pop up depending on what has been clicked. If 1 or 2 has been Name of the feature and it value will be asked, once
 							Ok is been clicked an option pane will ask again to enter this (0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature and
 							5 to jump out of the current composite), if clicked 3, then name of the composite feature will be asked, once again a pop up window will pop up like this
 							(0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature and 5 to jump out of the current composite) and then if you click 
@@ -67,12 +67,12 @@ HOW TO START THIS PROJECT:
 							predict on the training example, if its the first example then click 0 otherwise click 1 or so on... next another pop up will come asking to specify the name
 							of the feature, for Example, if the training example has a row "T1: Colour=red,Ball(Distance(size:2))" and Testing Example has a row "t1: Colour=red, Ball: (Distance())",
 							if the case is like this and has a composite feature inside a composite feature then to predict the size in Ball and Distance Composite features then you would type 
-							"Ball->Distance->size" but if the case is different than this and has a string or float feature such as : if the training example has a row "T1: Colour=red, distance=2"
+							"Ball->Distance->size" but if the case is different than this and has a string or float feature which is not inside a composite feature such as : if the training example has a row "T1: Colour=red, distance=2"
 							and Testing Example has a row "t1: Colour=red," if this is the case and has only float or String feature then to predict the distance  then you would type "distance" and click Ok,
 							next another option pane will pop up asking the user to enter the nearest KNN neighbours are there, the range of KNN neighbours will be 1 <= KNN Neighbours <= TrainingExample, 
 							Once OK is clicked another option pane will pop up asking the metrics it needs to calculate the average depending on the feature type, if the feature is float then the metrics
-							would be "absoluteDistance" or "SquareDistance"; if the feature is string then the metrics are "commonletter" or "sizeofstring" or "lexGraphic";  if the feature is Composite
-							then the metrics will be "euclidean". Once OK is clicked, the predicted feature will be displayed in the JList.
+							would be "absoluteDistance" or "SquareDistance". If the feature is string then the metrics are "commonletter" or "sizeofstring" or "lexGraphic". If the feature is Composite
+							then the metrics will be "euclidean". Once OK is clicked, the predicted feature will be displayed in a pop up window.
 						10) To Edit a testing feature click on the TestExample Menu option and click on edit feature, a window will pop up asking the index of the option you want to
 							edit the feature at if its the first example then click 0 otherwise click 1 or so on... once you click OK, another pop up will come to ask you the feature
 							name's value that needs to be changed, it also asks you that if the feature is an composite then enter 4 to jump into it and find which feature needed to
