@@ -23,14 +23,14 @@ PURPOSE OF PROJECT: The purpose of this project is to come up with a very simple
 VERSION/DATE: 3.0/27th-November-2017
 
 HOW TO START THIS PROJECT: 
-						1) Click on Run and a JFrame Window will be visible.
-						2) There will be a menubar on top and an empty Jlist for Training Examples and Testing Examples and a predict button. Click on the example menu and click
+						1)	Click on Run and a JFrame Window will be visible.
+						2)	There will be a menubar on top and an empty Jlist for Training Examples and Testing Examples and a predict button. Click on the example menu and click
 							on the Create Example menu option.
-						3) Create a new Training Example by clicking on the option TrainExample and clicking on Create Training Example, a option menu will pop up to enter the
+						3)	Create a new Training Example by clicking on the option TrainExample and clicking on Create Training Example, a option menu will pop up to enter the
 							name of the TrainingExample such as if the example is houses, use h1, h2 or etc. Enter the name and click OK.
-						4) To Create Features for a particular Training Example, click on the option TrainExample and click on the Add Training Feature. An option pane will pop up asking
+						4)	To Create Features for a particular Training Example, click on the option TrainExample and click on the Add Training Feature. An option pane will pop up asking
 							the user to enter the index the user needs to add the feature at, if it is the first example then enter 0, if the example is second then enter 1, if
-							third then enter 2 and so on. Once OK is clicked,An option pane will pop up asking to choose the option that needs to be (0 to exit, 1 for String, 2
+							third then enter 2 and so on. Once OK is clicked, an option pane will pop up asking to choose the option that needs to be (0 to exit, 1 for String, 2
 							for float, 3 for composite and 4 to go into a composite feature and 5 to jump out of the current composite) once you select what option and click OK, 
 							once OK is clicked, another pane will pop up depending on what has been clicked. if 1 or 2 has been Name of the feature and it value will be asked, once
 							Ok is been clicked an option pane will ask again to enter this (0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature and
@@ -41,29 +41,44 @@ HOW TO START THIS PROJECT:
 							exit out of the Composite feature and add another composite feature or float or string feature, type in 5 and press ok and the Jlabel above  will notify under 
 							which Composite Feature the user is in,(head means your exited out of every composite feature).(For Users operating Windows machine, Users
 							might need to click the list of example to display/update the feature they have added to the list of examples)
-	//tbd				5) To Edit a training feature.....
-						6) To Save all the Training Example on a file , go to the TrainingExample menu item and click Save TrainExample to save it on a file.The file will be stored
-						in the project folder.
-						7) Create a new Testing Example by clicking on the option TestExample and clicking on Create Testing Example, a option menu will pop up to enter the
+						5)	To Edit a training feature click on the TrainExample Menu option and click on edit feature, a window will pop up asking the index of the option you want to
+							edit the feature at if its the first example then click 0 otherwise click 1 or so on... once you click OK, another pop up will come to ask you the feature
+							name's value that needs to be changed, it also asks you that if the feature is an composite then enter 4 to jump into it and find which feature needed to
+							be changed. Once OK is clicked, its asks you to enter the value you want to change, once the value is entered and OK is clicked, the value changes.
+						6)	To Save all the Training Example on a file , go to the TrainingExample menu item and click Save TrainExample to save it on a file.The file will be stored
+							in the project folder.
+						7)	Create a new Testing Example by clicking on the option TestExample and clicking on Create Testing Example, a option menu will pop up to enter the
 							name of the example, if the training example has 2 example then the name should be similar to testing example, but use h3 or h4 etc. Enter the name 
 							and click OK. 
-	//tbd				8)  To Create Features for a particular Testing Example, click on the option TestExample and click on the Add Testing Feature. An option pane will pop up asking
+						8)  To Create Features for a particular Testing Example, click on the option TestExample and click on the Add Testing Feature. An option pane will pop up asking
 							the user to enter the index the user needs to add the feature at, if it is the first example then enter 0, if the example is second then enter 1, if
-							third then enter 2 and so on. Once OK is clicked, another option pane will pop up and ask the name of the feature that needs to be added, enter the name
-							and click OK. Once OK is clicked another option pane will pop up asking the type of feature need to be entered. If the type is String, type 1 and click 
-							OK,if float type needs to be entered, then type 2 and click OK, or otherwise if it is a Coordinates value then type 3 and click OK. Depending on the 
-							number thats entered another option pane will pop up asking the value of the feature need to be entered. (For Users operating Windows machine, Users
+							third then enter 2 and so on. Once OK is clicked, An option pane will pop up asking to choose the option that needs to be (0 to exit, 1 for String, 2
+							for float, 3 for composite and 4 to go into a composite feature and 5 to jump out of the current composite) once you select what option and click OK, 
+							once OK is clicked, another pane will pop up depending on what has been clicked. if 1 or 2 has been clicked for Name of the feature and its value will be asked, once
+							Ok is been clicked an option pane will ask again to enter this (0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature and
+							5 to jump out of the current composite), if clicked 3, then name of the composite feature will be asked, once again a pop up window will pop up like this
+							(0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature and 5 to jump out of the current composite) and then if you click 
+							4 then it asks for which composite feature to jump in,once the name is entered and a correct name is entered and OK is clicked you enter the composite feature
+							of the name chosen. Once in the Composite Feature the same pop up window will come asking which option to select from 0-5 inside the composite feature. To
+							exit out of the Composite feature and add another composite feature or float or string feature, type in 5 and press ok and the Jlabel above  will notify under 
+							which Composite Feature the user is in,(head means your exited out of every composite feature).(For Users operating Windows machine, Users
 							might need to click the list of example to display/update the feature they have added to the list of examples)
-							
-	//tbd				9) To predict a feature, the logical requirement is that a single type of feature type should be available in both training and testing example in order to 
-							predict a value, so that KNN can compare the nearest neighbours to find out which output to be predicted. To simple predict, click on the button Predict
-							and then an option pane will pop up asking the user which feature name to predict, then another option pane will pop up asking the user to enter the 
-							nearest KNN neighbours are there, the range of KNN neighbours will be 1 <= KNN Neighbours <= TrainingExample, Once OK is clicked another option pane will
-							pop up asking the type of feature need to be entered. If the type is String, type 1 and click OK,if float type needs to be entered, then type 2 and 
-							click OK, or otherwise if it is a Coordinates value then type 3 and click OK.
-	//tbd				10) To Edit a training feature.....							
+						9)	To predict a feature, only once the testing example have been occupated, once predict is clicked, a pane will pop up asking the user the index they would like to 
+							predict on the training example, if its the first example then click 0 otherwise click 1 or so on... next another pop up will come asking to specify the name
+							of the feature, for Example, if the training example has a row "T1: Colour=red,Ball(Distance(size:2))" and Testing Example has a row "t1: Colour=red, Ball: (Distance())",
+							if the case is like this and has a composite feature inside a composite feature then to predict the size in Ball and Distance Composite features then you would type 
+							"Ball->Distance->size" but if the case is different than this and has a string or float feature such as : if the training example has a row "T1: Colour=red, distance=2"
+							and Testing Example has a row "t1: Colour=red," if this is the case and has only float or String feature then to predict the distance  then you would type "distance" and click Ok,
+							next another option pane will pop up asking the user to enter the nearest KNN neighbours are there, the range of KNN neighbours will be 1 <= KNN Neighbours <= TrainingExample, 
+							Once OK is clicked another option pane will pop up asking the metrics it needs to calculate the average depending on the feature type, if the feature is float then the metrics
+							would be "absoluteDistance" or "SquareDistance"; if the feature is string then the metrics are "commonletter" or "sizeofstring" or "lexGraphic";  if the feature is Composite
+							then the metrics will be "euclidean". Once OK is clicked, the predicted feature will be displayed in the JList.
+						10) To Edit a testing feature click on the TestExample Menu option and click on edit feature, a window will pop up asking the index of the option you want to
+							edit the feature at if its the first example then click 0 otherwise click 1 or so on... once you click OK, another pop up will come to ask you the feature
+							name's value that needs to be changed, it also asks you that if the feature is an composite then enter 4 to jump into it and find which feature needed to
+							be changed. Once OK is clicked, its asks you to enter the value you want to change, once the value is entered and OK is clicked, the value changes.							
 						11) To Save all the Testing Example on a file , go to the TestingExample menu item and click Save TestExample to save it on a file. The file will be stored
-						in the project folder.
+							in the project folder.
 
 							
 Class Descriptions:	
