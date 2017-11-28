@@ -34,6 +34,7 @@ public class TrainingExample {
 	private Example manager;
 	private CompositeFeature features; 
 	private ArrayList<Feature> linearizedFeatures;
+	
 	private DefaultListModel<String>printFeatures;
 	
 	public TrainingExample() {
@@ -55,6 +56,7 @@ public class TrainingExample {
 		printFeatures = new DefaultListModel<String>();
 		features = new CompositeFeature("head");
 		linearizedFeatures =new ArrayList<Feature>();
+		
 		this.exampleName = name; 
 	}
 	

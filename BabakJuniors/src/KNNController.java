@@ -40,6 +40,7 @@ public class KNNController implements ActionListener {
 	private float featureFValue;
 	private CompositeFeature featureHead;
 	private CompositeFeature newCurrent;
+	private ArrayList<Feature> linearizedFeaturestest = new ArrayList<Feature>();
 
 	public KNNController(KNNView view) {
 		this.view = view;
@@ -103,7 +104,7 @@ public class KNNController implements ActionListener {
 			testingEx = example.getTestingExampleIndex(i);
 
 			CompositeFeature temp = testingEx.getCompositeFeature();
-			testingEx.setFeatures(Option(temp));
+			testingEx.setFeatures(OptionTest(temp));
 
 		
 	}else if (event.getActionCommand().equals("Edit Training Feature")) {
@@ -145,9 +146,8 @@ public class KNNController implements ActionListener {
 		
 		
 		//String Fname = trainingEx.getCompositeFeature().getSubFeature(1).getFName();
-		
-		
-		
+		testingEx.setLini(linearizedFeaturestest);
+		//for (Feature f:trainingEx.linearizeFeatures() ) ;
 		for (Feature f:testingEx.linearizeFeatures() ) {
 			
 			String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?", "Distance Metric", JOptionPane.QUESTION_MESSAGE);
@@ -225,6 +225,48 @@ public class KNNController implements ActionListener {
 		}else if(featureType.equals("3")){
 			String name = ask();
 			CompositeFeature temp = new CompositeFeature(name);
+			newCurrent.addFeature(temp);
+		}else if(featureType.equals("4")) {
+			String compName = JOptionPane.showInputDialog(null,path +"\n"+ "What is name of the Composite that you would like to jump inside ?", " Composites Name ", JOptionPane.QUESTION_MESSAGE);	
+			newCurrent = jumpIn(compName,newCurrent);
+		}else if(featureType.equals("5")) {	
+			newCurrent = newCurrent.getParent();
+		}else if(featureType.equals("0")) {
+			newCurrent = getToHead(newCurrent);
+			return newCurrent;
+		}
+		newCurrent=Option(newCurrent);
+		return newCurrent;
+	}
+	public CompositeFeature OptionTest(CompositeFeature currentComposite) {
+
+		newCurrent = currentComposite;
+		String path = "";
+		path = path(path,newCurrent);
+		featureType = JOptionPane.showInputDialog(null,path +"\n"+"Choose the option you would like for this feature(0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature and 5 to jump out of the current composite) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
+
+
+
+		if(featureType.equals("1") ) {
+			String name = ask();
+			featureSValue = JOptionPane.showInputDialog(null,path +"\n"+ "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE);	
+			//path = newCurrent.getStringID(path,newCurrent.getParent());
+			StringFeature temp= new StringFeature(name, featureSValue );
+			linearizedFeaturestest.add(temp);
+			newCurrent.addFeature(temp);
+
+
+		}else if(featureType.equals("2")){	
+			String name = ask();
+			featureFValue = Float.parseFloat(JOptionPane.showInputDialog(null,path +"\n"+ "What is value of the Feature you would like to be added ?", " Feature's Value ", JOptionPane.QUESTION_MESSAGE));
+			FloatFeature temp= new FloatFeature(name, featureFValue);
+			linearizedFeaturestest.add(temp);
+			newCurrent.addFeature(temp);
+
+		}else if(featureType.equals("3")){
+			String name = ask();
+			CompositeFeature temp = new CompositeFeature(name);
+			linearizedFeaturestest.add(temp);
 			newCurrent.addFeature(temp);
 		}else if(featureType.equals("4")) {
 			String compName = JOptionPane.showInputDialog(null,path +"\n"+ "What is name of the Composite that you would like to jump inside ?", " Composites Name ", JOptionPane.QUESTION_MESSAGE);	

@@ -25,11 +25,13 @@ import java.util.HashMap;
 public class TestingExample extends TrainingExample {
 	private Distance distances;
 	private KNN knn;
+	private ArrayList<Feature> linearizedFeaturestest;
 	//private ArrayList<Feature> linearizedFeatures;
 	public TestingExample(String name, Example eM) {
 		super(name, eM);
 		//linearizedFeatures =new ArrayList<Feature>();
 		distances = new Distance(this);
+		linearizedFeaturestest =new ArrayList<Feature>();
 		knn=new KNN(0, this);
 	}
 	
@@ -37,6 +39,29 @@ public class TestingExample extends TrainingExample {
 	 * Constructor to create copy of training example
 	 * @param testEx
 	 */
+	public CompositeFeature addStringFeature(String fName,String value,CompositeFeature  currentFeature) {
+		StringFeature sFeature = new StringFeature(fName,value);
+		linearizedFeaturestest.add(sFeature);
+		currentFeature.addFeature(sFeature);
+		return currentFeature;
+	}
+	//2
+	public CompositeFeature addFloatFeature(String fName,Float value,CompositeFeature currentFeature) {
+		FloatFeature fFeature = new FloatFeature(fName,value);
+		linearizedFeaturestest.add(fFeature);
+
+		currentFeature.addFeature(fFeature);
+		return currentFeature;
+	}
+	//
+	//3
+	public CompositeFeature addCompositeFeature(String compositeName,CompositeFeature currentFeature) {
+		CompositeFeature comp = new CompositeFeature(compositeName);
+		linearizedFeaturestest.add(comp);
+
+		currentFeature.addFeature(comp);
+		return currentFeature;
+	}
 	public Example getManager() {
 		return super.getManager();
 	}
@@ -48,7 +73,9 @@ public class TestingExample extends TrainingExample {
 	public Distance getDistances() {
 		return distances;
 	}
-	
+	public void setLini(ArrayList<Feature> t) {
+		linearizedFeaturestest = t;
+	}
 	/**
 	 * Constructor to create copy of training example
 	 * @param testEx
@@ -57,7 +84,9 @@ public class TestingExample extends TrainingExample {
 		return knn;
 	}
 	
-	
+	public ArrayList<Feature> linearizeFeatures(){
+		return linearizedFeaturestest;
+	}
 	/**
 	 * 
 	 * PredictFeature
@@ -66,6 +95,7 @@ public class TestingExample extends TrainingExample {
 	 * 
 	 *            Returns a feature and predicted value based on parameters
 	 */
+	
 	public Feature predictFeature(Feature f, int k, HashMap<String, String> metrics) {
 		distances.updateDistances(metrics);
 		
