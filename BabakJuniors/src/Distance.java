@@ -117,7 +117,10 @@ public class Distance {
 						lookUpTable.put(t, index);
 						index++;
 					}
-					entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metrics.get(entry.getKey())));
+					if(testEx.getFeature(entry.getKey())!=null && t.getFeature(entry.getKey())!=null)
+						entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metrics.get(entry.getKey())));
+					else
+						entry.getValue().add((Float)null);
 				}
 				lookUpTableFlag++;
 			}
