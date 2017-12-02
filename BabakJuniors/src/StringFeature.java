@@ -115,7 +115,8 @@ public class StringFeature extends Feature{
 	 * Return a feature with predicted value
 	 */
 	public Feature predictFeature(ArrayList<TrainingExample> nn) {
-		return new StringFeature(getFName(),((StringFeature) (nn.get(0).getFeature(getStringID("",getParent())))).getFValue() );
+		//modified
+		return new StringFeature(getFName(),((StringFeature) (nn.get(0).getFeature(getStringID("",this)))).getFValue() );
 	}
 	@Override
 	public String toString() {

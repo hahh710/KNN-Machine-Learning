@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 /**
  * 
  * @author Babak Juniorss
@@ -15,13 +16,14 @@ import java.util.HashMap;
  *        value into the testing example withing the KNN class - exampleManager
  *        Example: instance of Example to get the list of the training example
  *        methods and used for ranking
- * 
+ *        
  * @methods +getDistances: returns the distances +getExample: returns the
  *          exampleManager getK: returns the k value setK: changes the k value
  *          predictFeature: Feature :predicts the feature depending on the type
  *          of the feature and changes the feature in the list of testing
  *          example
  */
+
 public class TestingExample extends TrainingExample {
 	private Distance distances;
 	private KNN knn;
@@ -101,8 +103,8 @@ public class TestingExample extends TrainingExample {
 		
 		knn = new KNN(k, this);
 		knn.determineNearestNeighbors(k, getManager().getTrainingExamplesModel());
-		
-		return f.predictFeature(knn.getNN());
+		Feature testies = f.predictFeature(knn.getNN());
+		return testies;
 	}
 	/**
 	 * Calculate error

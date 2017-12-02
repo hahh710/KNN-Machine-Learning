@@ -151,7 +151,7 @@ public class KNNController implements ActionListener {
 		for (Feature f:testingEx.linearizeFeatures() ) {
 			
 			String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?", "Distance Metric", JOptionPane.QUESTION_MESSAGE);
-			distanceMetrics.put(f.getStringID("", f.getParent()), metricType);
+			distanceMetrics.put(f.getStringID("", f), metricType);
 		}
 
 		

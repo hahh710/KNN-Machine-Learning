@@ -98,8 +98,8 @@ public class FloatFeature extends Feature {
 		FloatFeature ff= this;
 		Float predicted = (float)0;
 		for(TrainingExample n:nn) {
-			if(n.getFeature(ff.getStringID("",ff.getParent())) instanceof FloatFeature) {
-				predicted+=((FloatFeature)(n.getFeature(ff.getStringID("", ff.getParent())))).getValue();
+			if(n.getFeature(ff.getStringID("",ff)) instanceof FloatFeature) {
+				predicted+=((FloatFeature)(n.getFeature(ff.getStringID("", ff)))).getValue();
 				count++;
 			}
 		}
