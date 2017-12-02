@@ -69,7 +69,6 @@ public class Distance {
 		 * then it will divide each distance of that feature by the max
 		 */
 		public void normalizeDistance() {
-			//mi gna super sako
 			normDist.clear();
 			normDist.putAll(distances);
 			float maxDistance=0;
@@ -87,22 +86,28 @@ public class Distance {
 				}
 			}
 		}
+		public void populateDistanceMap(CompositeFeature cf) {
+			for(Feature f:cf.getSubFeatures()) {
+				distances.put(f.getStringID("", f), new ArrayList<Float>());
+				if(f instanceof CompositeFeature) {
+					populateDistanceMap((CompositeFeature)f);
+				}
+			} 
+		}
 		/**updateDistances populates distances dictionary with a key for every feature in testing example, and an array of distances for each training example for each key
-		 * 
+		 * metrics is a list of metric that will be used for calculating distances for each feature
 		 */
 		public void updateDistances(HashMap<String, String> metrics) {
-							//metric supposed to be variable, when the algorithm begins to compare features for all training examples
-							//prompt the user and ask which distance metric will be used for this feature.
+			
 			distances.clear();
-			int index=0;
-			int lookUpTableFlag =0;
+			int index=0; //index for accessing training examples
+			int lookUpTableFlag =0;//this will be triggered when a training example has been puton the map
+			
 			//prepare map for distances
-			//each feature is a key, with an ar raylist of floats representing the distance between a 
-			//there should be a row for every feature in testex
-			for (Feature f: testEx.linearizeFeatures()) {
-				distances.put(f.getStringID("",f.getParent()), new ArrayList<Float>());
-			}
-			//for(int i = 0;i<testEx.)
+			//each feature is a key, with an arraylist of floats representing the distance between a  
+			
+			populateDistanceMap(testEx.getFeatures());
+			
 		//	for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) 
 			for(Map.Entry<String, ArrayList<Float>> entry: distances.entrySet()) {
 				
@@ -120,4 +125,3 @@ public class Distance {
 		}
 
 	}
-
