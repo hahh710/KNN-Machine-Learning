@@ -188,7 +188,10 @@ public class KNNController implements ActionListener {
 
 	} else if (event.getActionCommand().equals("Restart")) {
 		new KNNView();
-	} 
+	} else if (event.getActionCommand().equals("Load")){
+		//load
+	}
+		
 
 }
 
