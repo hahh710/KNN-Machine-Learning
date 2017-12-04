@@ -164,9 +164,22 @@ public class KNNController implements ActionListener {
 		testingEx.setLini(linearizedFeaturestest);
 		//for (Feature f:trainingEx.linearizeFeatures() ) ;
 		for (Feature f:testingEx.linearizeFeatures() ) {
-			
-			String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?", "Distance Metric", JOptionPane.QUESTION_MESSAGE);
-			distanceMetrics.put(f.getStringID("", f), metricType);
+			 if(f instanceof FloatFeature){
+			 		String [] floatMetrics = {"absoluteDistance", "SquareDistance" };
+			 		 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for float feature: ?","Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  floatMetrics, floatMetrics[0]);
+			  		distanceMetrics.put(f.getStringID("", f), metricType);	
+			  } else if(f instanceof StringFeature){
+			  	String [] stringMetrics = {"commonletter", "sizeofstring", "lexGraphic" };
+			  		 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for String feature: ?","Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  stringMetrics, stringMetrics[0]);
+			  		distanceMetrics.put(f.getStringID("", f), metricType);
+			  }else if(f instanceof CompositeFeature){
+			  	String [] compositeMetrics = {"euclidean" };
+			  		 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for Composite feature: ?","Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  compositeMetrics, compositeMetrics[0]);
+			  		distanceMetrics.put(f.getStringID("", f), metricType);
+			  }
+			  
+			//String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?", "Distance Metric", JOptionPane.QUESTION_MESSAGE);
+			//distanceMetrics.put(f.getStringID("", f), metricType);
 		}
 
 		
