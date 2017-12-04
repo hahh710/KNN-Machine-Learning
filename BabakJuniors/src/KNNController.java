@@ -34,7 +34,7 @@ public class KNNController implements ActionListener {
 	private TestingExample testingEx;
 	private TrainingExample trainingEx;
 	private HashMap <String, String> distanceMetrics;
-	private String featureName;
+	private String pridictedPath;
 	private String featureType;
 	private String featureSValue;
 	private float featureFValue;
@@ -136,11 +136,19 @@ public class KNNController implements ActionListener {
 
 
 		distanceMetrics=new HashMap<String, String>();
-		String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?"+"\n"+"(If you would like to predict a feature inside a composite type ->) For example t1: Ball(Distance( colour: red,): Type in Ball->Distance->colour to predict the colour in testing", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
+		/**
+		 * Prompt the user the exact same way as addfeature
+		 * addFeature(Name, null);
+		 */int i = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
+		testingEx = example.getTestingExampleIndex(i);
+
+		CompositeFeature temp1 = testingEx.getCompositeFeature();
+		testingEx.setFeatures(predictOption(temp1));
+		//String testFeatureName = JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?"+"\n"+"(If you would like to predict a feature inside a composite type ->) For example t1: Ball(Distance( colour: red,): Type in Ball->Distance->colour to predict the colour in testing", " Feature's Name to be predicted", JOptionPane.QUESTION_MESSAGE);
+		//String predictfeatureType;
 		
-		
-		Feature temp = testingEx.getFeature(testFeatureName);
-		JOptionPane.showMessageDialog(view,"Prediction is: " + testFeatureName);
+		Feature temp = testingEx.getFeature(pridictedPath);
+		JOptionPane.showMessageDialog(view,"Prediction is: " + pridictedPath);
 		int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
 
 		
@@ -154,6 +162,7 @@ public class KNNController implements ActionListener {
 			distanceMetrics.put(f.getStringID("", f), metricType);
 		}
 
+		  // testingEx.predictFeature(temp, knn, distanceMetrics);
 		
 		JOptionPane.showMessageDialog(view,"Prediction is: " +  testingEx.predictFeature(temp, knn, distanceMetrics).toString());
 
@@ -334,8 +343,47 @@ public class KNNController implements ActionListener {
 		}
 		//return newCurrent;
 	}
+	
+	public CompositeFeature predictOption(CompositeFeature currentComposite) {
+		newCurrent = currentComposite;
+		pridictedPath = "";
+		pridictedPath = path(pridictedPath,newCurrent);
+		featureType = JOptionPane.showInputDialog(null,pridictedPath +"\n"+"Choose the option you would like for this feature(0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature and 5 to jump out of the current composite) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
 
 
+
+		if(featureType.equals("1") ) {
+			String name = ask();
+			StringFeature temp= new StringFeature(name, null );
+			pridictedPath += name;
+			newCurrent.addFeature(temp);
+			
+
+		}else if(featureType.equals("2")){	
+			String name = ask();
+			FloatFeature temp= new FloatFeature(name);
+			pridictedPath += name;
+			newCurrent.addFeature(temp);
+
+		}else if(featureType.equals("3")){
+			String name = ask();
+			CompositeFeature temp = new CompositeFeature(name);
+			pridictedPath += name;
+			newCurrent.addFeature(temp);
+			
+		}else if(featureType.equals("4")) {
+			String compName = JOptionPane.showInputDialog(null,pridictedPath +"\n"+ "What is name of the Composite that you would like to jump inside ?", " Composites Name ", JOptionPane.QUESTION_MESSAGE);	
+			newCurrent = jumpIn(compName,newCurrent);
+			
+		}else if(featureType.equals("5")) {	
+			newCurrent = newCurrent.getParent();
+		}else if(featureType.equals("0")) {
+			newCurrent = getToHead(newCurrent);
+			return newCurrent;
+		}
+		newCurrent=Option(newCurrent);
+		return newCurrent;
+	}
 	public CompositeFeature jumpIn(String compositeName,CompositeFeature currentFeature) {
 		CompositeFeature newCurrent;
 		for(int i=0;i<currentFeature.getSubFeatureSize();i++) {

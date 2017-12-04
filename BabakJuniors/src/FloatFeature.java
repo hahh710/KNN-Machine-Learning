@@ -7,7 +7,13 @@
 import java.util.ArrayList;
 public class FloatFeature extends Feature {
 	private CompositeFeature parent;
-	private float value;
+	private Float value;
+
+	public FloatFeature(String s) {
+		super(s);
+		value=null;
+		parent = null;
+	}
 
 	public FloatFeature(String s, float value) {
 		super(s);
@@ -17,10 +23,12 @@ public class FloatFeature extends Feature {
 
 	public Float getDistance(Feature f, String metric) {
 		if (f instanceof FloatFeature) {
-			if (metric.equals("absoluteDistance")) {
-				return absoluteDistance(f);
-			} else if (metric.equals("SquareDistance")) {
-				return squareDistance(f);
+			if(((FloatFeature) f).getValue()!=null && value!=null) {
+				if (metric.equals("absoluteDistance")) {
+					return Math.abs(absoluteDistance(f));
+				} else if (metric.equals("SquareDistance")) {
+					return Math.abs(squareDistance(f));
+				}
 			}
 		}
 		return null;
@@ -89,7 +97,7 @@ public class FloatFeature extends Feature {
 		return getStringID(path,newCurrent);
 
 	}
-	
+
 
 
 	public Feature predictFeature(ArrayList<TrainingExample> nn) {
@@ -104,6 +112,7 @@ public class FloatFeature extends Feature {
 			}
 		}
 		predicted=predicted/count;
+		value=predicted;
 		return (new FloatFeature(getFName(), predicted));
 	}
 	@Override

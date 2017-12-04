@@ -21,15 +21,17 @@ public class StringFeature extends Feature{
 		fValue=value;
 	}
 
-	
+
 	@Override
 	public Float getDistance(Feature f, String metric) {
-		if(metric.equals("commonletter")){
-			return commonLetter(f); 
-		}else if(metric.equals("sizeofstring")){
-			return lengthOfString(f);
-		}else if(metric.equals("lexGraphic")){
-			return lexGraphic(f);
+		if(((StringFeature)f).getFValue()!=null && fValue!=null) {
+			if(metric.equals("commonletter")){
+				return Math.abs(commonLetter(f)); 
+			}else if(metric.equals("sizeofstring")){
+				return Math.abs(lengthOfString(f));
+			}else if(metric.equals("lexGraphic")){
+				return Math.abs(lexGraphic(f));
+			}
 		}
 		return null;
 	}
@@ -42,32 +44,32 @@ public class StringFeature extends Feature{
 			//if(feature.getFValue().length() >= fValue.length()){
 			//	distance = feature.getFValue().length(); 
 			//}else distance = fValue.length();
-			
+
 			for(int i=0;i < fValue.length();i++){
 				for(int j=0;j< feature.getFValue().length();j++)
 					if(fValue.charAt(i) == feature.getFValue().charAt(j)){
 						count++;
 						i++;
-				}
+					}
 			}
-			
+
 		}
 		return distance / count * 100;
 	}
-	
+
 	public float lengthOfString(Feature f){
 		float distance=0;
 		StringFeature feature = (StringFeature)f;
 		distance = Math.abs(fValue.length() - feature.getFValue().length());
 		return distance;
 	}
-	
+
 	public float lexGraphic(Feature f){
 		StringFeature feature = (StringFeature)f;
 		return fValue.compareToIgnoreCase(feature.getFValue());
-		
+
 	}
-	
+
 	public Float calculateError(Feature f) {
 		if (f instanceof FloatFeature){
 			if(!fValue.equals(f.getFName())){
@@ -76,7 +78,7 @@ public class StringFeature extends Feature{
 				return (float) 0;
 			}
 		}
-			
+
 		// throw exception
 		return (float) 1.1;
 	}
@@ -116,6 +118,7 @@ public class StringFeature extends Feature{
 	 */
 	public Feature predictFeature(ArrayList<TrainingExample> nn) {
 		//modified
+		fValue=((StringFeature) (nn.get(0).getFeature(getStringID("",this)))).getFValue();
 		return new StringFeature(getFName(),((StringFeature) (nn.get(0).getFeature(getStringID("",this)))).getFValue() );
 	}
 	@Override

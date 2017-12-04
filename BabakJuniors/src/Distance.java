@@ -120,7 +120,11 @@ public class Distance {
 					if(testEx.getFeature(entry.getKey())!=null && t.getFeature(entry.getKey())!=null)
 						entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metrics.get(entry.getKey())));
 					else
+<<<<<<< HEAD
+						entry.getValue().add((Float) null);
+=======
 						entry.getValue().add((Float)null);
+>>>>>>> d243a585a9eb207a405b4bd3efdcc5d88fe7be6f
 				}
 				lookUpTableFlag++;
 			}

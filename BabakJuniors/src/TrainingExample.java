@@ -98,6 +98,13 @@ public class TrainingExample {
 	}
 	//case4
 	//
+	/*public Feature getFeatureInTraining(String s) {
+		if(s.equals(features.getFName()+"->")) {
+			return features;
+		}else {
+			return getFeature(s,manager.getTrainingExamples().);
+		}
+	*/
 	public Feature getFeature(String s) {
 		if(s.equals(features.getFName()+"->")) {
 			return features;
@@ -129,7 +136,7 @@ public class TrainingExample {
 		}*/
 	}
 	public Feature getFeature(String s, CompositeFeature features) {
-		Feature fe =features;
+		Feature fe =null;
 		for (Feature f: features.getSubFeatures()) {
 			if (f.getStringID("", f).equals(s)) {
 				fe = f;

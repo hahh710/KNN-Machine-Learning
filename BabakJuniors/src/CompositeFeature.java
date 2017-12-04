@@ -99,9 +99,11 @@ public class CompositeFeature extends Feature {
 	@Override
 	public Float getDistance(Feature f, String metric) {
 		if(f instanceof CompositeFeature){
-			CompositeFeature compf=(CompositeFeature)f;
-			if(metric.equals("euclidean"))
-				return euclideanDistance(compf);
+			if(((CompositeFeature)f).getSubFeatureNames()!=null && subFeatures!=null) {
+				CompositeFeature compf=(CompositeFeature)f;
+				if(metric.equals("euclidean"))
+					return Math.abs(euclideanDistance(compf));
+			}
 		}
 		return null;
 	}
