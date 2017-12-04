@@ -75,7 +75,22 @@ public class CompositeFeature extends Feature {
 
 
 	}
-
+	public boolean checkSameFeatureName(String name){
+		boolean flag = false;
+		for(int i =0;i<subFeatures.size();i++) {
+			if(subFeatures.get(i) instanceof CompositeFeature) {
+				if(subFeatures.get(i).getFName().equals(name)) {
+					return flag = true;
+				}
+				checkSameFeatureName(name);
+			}else {
+				if(subFeatures.get(i).getFName().equals(name)) {
+					return flag = true;
+				}
+			}
+		}
+		return flag;
+	}
 	public String getStringID(String path,Feature current) {
 		CompositeFeature newCurrent = null;
 		if(current instanceof CompositeFeature) {

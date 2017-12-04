@@ -105,6 +105,7 @@ public class TrainingExample {
 			return getFeature(s,manager.getTrainingExamples().);
 		}
 	*/
+	
 	public Feature getFeature(String s) {
 		if(s.equals(features.getFName()+"->")) {
 			return features;

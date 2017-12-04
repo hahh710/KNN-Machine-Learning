@@ -152,6 +152,7 @@ public class Example {
 		//thefeaturejustpredicted.calculateerror(trainEx.getfeaturebeingcalculated);
 		
 	}
+	
 }
 
  

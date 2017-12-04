@@ -30,7 +30,7 @@ public class DistanceTest {
 		exMan.addTrainingExample(t3);
 
 		//Add features to testing example
-		testEx.addFloatFeature(fName, value, currentFeature)
+	//	testEx.addFloatFeature(fName, value, currentFeature);
 		//add features to training example1
 		
 		//add features to training example2
