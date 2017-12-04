@@ -27,7 +27,8 @@ import java.io.Serializable;
  *          example
  */
 
-public class TestingExample extends TrainingExample,Serializable {
+public class TestingExample extends TrainingExample implements Serializable {
+	
 	private Distance distances;
 	private KNN knn;
 	private ArrayList<Feature> linearizedFeaturestest;
