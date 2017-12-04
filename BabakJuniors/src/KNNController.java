@@ -248,14 +248,15 @@ public class KNNController implements ActionListener {
 		return JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);		 	
 	}
 	public String ask(CompositeFeature currentComposite) {
-		String error = "";
-		String name =  JOptionPane.showInputDialog(null, error + "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);	
+		String name =  JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);	
 		if (currentComposite.checkSameFeatureName(name)) {
-			error = "There is same name of Feature Try again."+ "\n";
-			ask(currentComposite);
-		}
+			
+			JOptionPane.showMessageDialog(view,"There is same name of Feature Try again.");
+			return ask(currentComposite);
+		}else {
 		
-		return name;	 	
+			return name;
+		}
 	}
 
 	public CompositeFeature Option(CompositeFeature currentComposite) {
