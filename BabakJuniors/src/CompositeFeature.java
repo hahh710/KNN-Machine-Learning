@@ -2,9 +2,10 @@
  * Composite Feature class Extends Feature Class
  * 
  */
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CompositeFeature extends Feature {
+public class CompositeFeature extends Feature{
 	private CompositeFeature parent;
 	private ArrayList<Feature> subFeatures;
 	private ArrayList<String> subFeatureNames;

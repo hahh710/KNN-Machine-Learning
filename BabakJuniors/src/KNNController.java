@@ -1,9 +1,16 @@
 import java.awt.event.*;
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+
+import java.io.PrintWriter;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,7 +34,7 @@ import javax.swing.*;
  *
  *
  */
-public class KNNController implements ActionListener {
+public class KNNController implements ActionListener,Serializable{
 
 	private KNNView view;
 	private JList<TestingExample> testingExample;
@@ -203,48 +210,50 @@ public class KNNController implements ActionListener {
 
 	}else if (event.getActionCommand().equals("Save Train Example")) {
 		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter("TrainingExamples.txt"));
-			out.write(trainingEx.toString());
+
+			String exportName = JOptionPane.showInputDialog(null, "What is the name of the file that you want to export?", JOptionPane.QUESTION_MESSAGE);
+			String contents = "";
+			exportName = exportName+".txt"; 
+			/*
+			FileOutputStream fos = new FileOutputStream (exportName);
+			BufferedOutputStream bos = new BufferedOutputStream(fos);
+			ObjectOutputStream out = new ObjectOutputStream(bos);
+			*/
+			PrintWriter out = null;
+			out= new PrintWriter(exportName);
+			for(int i = 1;i < example.getTrainingExample().size()+1;i++) {
+				contents = example.getTrainingExampleIndex(i-1).toString();
+				out.println(contents);
+			}
+			
+			//out.writeObject(contents);
 			out.close();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
-		
-		try {
-			FileOutputStream out = new FileOutputStream("objectTrainingExample.txt");
-			ObjectOutputStream oout = new ObjectOutputStream(out);
-			
-				oout.writeObject(trainingEx.toString());
-				out.close();
-			
-			
-		} catch (Exception e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-		}
-	}else if (event.getActionCommand().equals("Save Test Example")) {
-		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter("TestingExamples.txt"));
-			out.write(testingEx.toString());
-			out.close();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
-		
-		
-		try {
-			FileOutputStream out = new FileOutputStream("objectTestingExample.txt");
-			ObjectOutputStream oout = new ObjectOutputStream(out);
-			
-				oout.writeObject(testingEx.toString());
-				out.close();
-			
-			
-		} catch (Exception e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
 		}
 	
+		
+	}else if (event.getActionCommand().equals("Save Test Example")) {
+			try {
+
+				String exportName = JOptionPane.showInputDialog(null, "What is the name of the file that you want to export?", JOptionPane.QUESTION_MESSAGE);
+				String contents = "";
+				exportName = exportName+".txt"; 
+				/*
+				FileOutputStream fos = new FileOutputStream (exportName);
+				BufferedOutputStream bos = new BufferedOutputStream(fos);
+				ObjectOutputStream out = new ObjectOutputStream(bos);
+				*/
+				PrintWriter out = null;
+				out= new PrintWriter(exportName);
+				for(int i = 1;i < example.getTestingExample().size()+1;i++) {
+					contents = example.getTestingExampleIndex(i-1).toString();
+					out.println(contents);
+				}
+				out.close();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 
 	} else if (event.getActionCommand().equals("Restart")) {
 		new KNNView();

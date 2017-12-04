@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 /**
  * @variables
  * -exampleName : String : It holds the name of the TrainingExample.
@@ -29,7 +30,7 @@ import java.io.InputStreamReader;
  */
 
 
-public class TrainingExample {
+public class TrainingExample implements Serializable{
 	private String exampleName;
 	private Example manager;
 	private CompositeFeature features; 

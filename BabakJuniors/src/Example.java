@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
@@ -25,7 +26,11 @@ import javax.swing.DefaultListModel;
 			+ toString() : String
 			+ calculateError( tEx : TrainingExample, f : Feature, k : int) :  float
  */
-public class Example {
+public class Example implements Serializable{
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = -6982460538886781926L;
 	private DefaultListModel<TrainingExample> trainingExamples;
 	private ArrayList<TrainingExample> trainingExamplesModel;
 	private DefaultListModel<TestingExample> testingExamples;

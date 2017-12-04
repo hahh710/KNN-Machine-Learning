@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Serializable;
 
 /**
  * 
@@ -24,7 +27,7 @@ import java.util.HashMap;
  *          example
  */
 
-public class TestingExample extends TrainingExample {
+public class TestingExample extends TrainingExample,Serializable {
 	private Distance distances;
 	private KNN knn;
 	private ArrayList<Feature> linearizedFeaturestest;

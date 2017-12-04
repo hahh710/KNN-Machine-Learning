@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DistanceTest {
+public class DistanceTest implements Serializable {
 	private Map<String,ArrayList<Float>> distances;
 	private Map<String,ArrayList<Float>> normDist;
 	private Map<TrainingExample, Integer> lookUpTable;

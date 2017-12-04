@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -24,7 +25,7 @@ import java.util.ArrayList;
  *
  *
 **/
-public abstract class Feature {
+public abstract class Feature implements Serializable {
 	private String fName;
 	
 	public Feature(String s){
