@@ -87,8 +87,20 @@ public class Distance {
 			}
 		}
 		public void populateDistanceMap(CompositeFeature cf) {
+			boolean smellyflag=false;
 			for(Feature f:cf.getSubFeatures()) {
-				distances.put(f.getStringID("", f), new ArrayList<Float>());
+				smellyflag=false;
+				if(f instanceof FloatFeature)
+					if(((FloatFeature)f).getValue()!=null)
+						smellyflag=true;
+				if(f instanceof StringFeature)
+					if(((StringFeature)f).getFValue()!=null)	
+						smellyflag=true;
+				if(f instanceof CompositeFeature)
+					if(((CompositeFeature)f).getSubFeatures()!=null)	
+						smellyflag=true;		
+				if(smellyflag)
+					distances.put(f.getStringID("", f), new ArrayList<Float>());
 				if(f instanceof CompositeFeature) {
 					populateDistanceMap((CompositeFeature)f);
 				}
@@ -108,10 +120,8 @@ public class Distance {
 			
 			populateDistanceMap(testEx.getFeatures());
 			
-		//	for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) 
 			for(Map.Entry<String, ArrayList<Float>> entry: distances.entrySet()) {
 				
-				//testEx.linearizeFeatures(list)
 				for(TrainingExample t: testEx.getManager().getTrainingExamplesModel()) {
 					if(lookUpTableFlag==0) {
 						lookUpTable.put(t, index);
@@ -119,8 +129,8 @@ public class Distance {
 					}
 					if(testEx.getFeature(entry.getKey())!=null && t.getFeature(entry.getKey())!=null)
 						entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metrics.get(entry.getKey())));
-
-					
+					else
+						entry.getValue().add((Float) null);
 				}
 				lookUpTableFlag++;
 			}
