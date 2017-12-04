@@ -78,6 +78,9 @@ public class TestingExample extends TrainingExample {
 	public void setLini(ArrayList<Feature> t) {
 		linearizedFeaturestest = t;
 	}
+	public CompositeFeature getFeatures() {
+		return super.getFeatures();
+	}
 	/**
 	 * Constructor to create copy of training example
 	 * @param testEx
@@ -85,9 +88,18 @@ public class TestingExample extends TrainingExample {
 	public KNN getKNN() {
 		return knn;
 	}
-	
-	public ArrayList<Feature> linearizeFeatures(){
+	public ArrayList<Feature> getLinearalized(){
 		return linearizedFeaturestest;
+	}
+	public void clearLinear() {
+		linearizedFeaturestest.clear();
+	}
+	public void linearizeFeatures(CompositeFeature cf){
+		for(Feature f: cf.getSubFeatures()) {
+			linearizedFeaturestest.add(f);
+			if(f instanceof CompositeFeature)
+				linearizeFeatures((CompositeFeature)f);
+		}
 	}
 	/**
 	 * 

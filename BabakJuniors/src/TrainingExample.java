@@ -156,10 +156,7 @@ public class TrainingExample {
 		}
 		return fe;
 	}
-	public ArrayList<Feature> linearizeFeatures(){
-		
-		return linearizedFeatures;
-	}
+
 	public CompositeFeature jumpIn(String compositeName,CompositeFeature currentFeature) throws IOException{
 		CompositeFeature newCurrent;
 		for(int i=0;i<features.getSubFeatureSize();i++) {

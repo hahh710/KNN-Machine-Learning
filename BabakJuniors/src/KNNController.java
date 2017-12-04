@@ -163,18 +163,22 @@ public class KNNController implements ActionListener {
 		//String Fname = trainingEx.getCompositeFeature().getSubFeature(1).getFName();
 		testingEx.setLini(linearizedFeaturestest);
 		//for (Feature f:trainingEx.linearizeFeatures() ) ;
-		for (Feature f:testingEx.linearizeFeatures() ) {
+		testingEx.clearLinear();
+		ArrayList<Feature> smell= new ArrayList<Feature>();
+		testingEx.linearizeFeatures(testingEx.getFeatures());
+		smell = testingEx.getLinearalized();
+		for (Feature f:smell ) {
 			 if(f instanceof FloatFeature){
 			 		String [] floatMetrics = {"absoluteDistance", "SquareDistance" };
-			 		 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for float feature: ?","Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  floatMetrics, floatMetrics[0]);
+			 		 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for float feature: "+ f.getFName()," Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  floatMetrics, floatMetrics[0]);
 			  		distanceMetrics.put(f.getStringID("", f), metricType);	
 			  } else if(f instanceof StringFeature){
 			  	String [] stringMetrics = {"commonletter", "sizeofstring", "lexGraphic" };
-			  		 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for String feature: ?","Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  stringMetrics, stringMetrics[0]);
+			  		 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for String feature: "+f.getFName(), "Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  stringMetrics, stringMetrics[0]);
 			  		distanceMetrics.put(f.getStringID("", f), metricType);
 			  }else if(f instanceof CompositeFeature){
 			  	String [] compositeMetrics = {"euclidean" };
-			  		 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for Composite feature: ?","Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  compositeMetrics, compositeMetrics[0]);
+			  		 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for Composite feature: "+f.getFName(),"Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  compositeMetrics, compositeMetrics[0]);
 			  		distanceMetrics.put(f.getStringID("", f), metricType);
 			  }
 			  
