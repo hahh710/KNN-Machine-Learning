@@ -108,7 +108,6 @@ public class KNNController implements ActionListener,Serializable{
 		}else if (event.getActionCommand().equals("Add Testing Feature")) {
 			view.getTestSave().setEnabled(true);
 			view.getFeatureTestEdit().setEnabled(true);
-			view.getCalculateError().setEnabled(true); 
 
 			int i = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to add the feature ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
 			testingEx = example.getTestingExampleIndex(i);
@@ -161,7 +160,7 @@ public class KNNController implements ActionListener,Serializable{
 		
 		
 		Feature temp = testingEx.getFeature(pridictedPath);
-		JOptionPane.showMessageDialog(view,"Prediction is: " + pridictedPath);
+		JOptionPane.showMessageDialog(view,"Path for value to be to predicted is: " + pridictedPath);
 		int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours would you like to use?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
 
 		
@@ -192,21 +191,9 @@ public class KNNController implements ActionListener,Serializable{
 			//String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?", "Distance Metric", JOptionPane.QUESTION_MESSAGE);
 			//distanceMetrics.put(f.getStringID("", f), metricType);
 		}
-
 		
-		JOptionPane.showMessageDialog(view,"Prediction is: " +  testingEx.predictFeature(temp, knn, distanceMetrics).toString());
-
-	}else if (event.getActionCommand().equals("CalculateError")) {
-
-		String errorFeatureName = JOptionPane.showInputDialog(null, "What is the name of the feature you want to calculate the error for?", " Feature's name ", JOptionPane.QUESTION_MESSAGE);
-
-		int prevFeatureName = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to calculate the error ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
-		trainingEx = example.getTestingExampleIndex(prevFeatureName);
-		int knn = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
-		//float error = example.calculateError(trainingEx, trainingEx.getAllFeatures().get(errorFeatureName), knn);
-
-		//JOptionPane.showMessageDialog(view,"Error is: " + error);
-
+		
+		JOptionPane.showMessageDialog(view,"Prediction is: " +  testingEx.predictFeature(temp, knn, distanceMetrics).toString() + "\n" + "Error is:" +testingEx.calculateError(temp, knn, distanceMetrics));
 
 	}else if (event.getActionCommand().equals("Save Train Example")) {
 		try {
@@ -272,6 +259,10 @@ public class KNNController implements ActionListener,Serializable{
 	 * */
 	public String ask() {
 		return JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);		 	
+	}
+	
+	public String predictAsk() {
+		return JOptionPane.showInputDialog(null, "What is name of the Feature you would like to predict?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);		 	
 	}
 	public String ask(CompositeFeature currentComposite) {
 		String name =  JOptionPane.showInputDialog(null, "What is name of the Feature you would like to be added ?", " Feature's Name ", JOptionPane.QUESTION_MESSAGE);	
@@ -422,25 +413,25 @@ public class KNNController implements ActionListener,Serializable{
 		newCurrent = currentComposite;
 		pridictedPath = "";
 		pridictedPath = path(pridictedPath,newCurrent);
-		featureType = JOptionPane.showInputDialog(null,pridictedPath +"\n"+"Choose the option you would like for this feature(0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature and 5 to jump out of the current composite) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
+		featureType = JOptionPane.showInputDialog(null,pridictedPath +"\n"+"Choose the type for the feature you want to predict(0 to exit, 1 for String, 2 for float, 3 for composite and 4 to go into a composite feature and 5 to jump out of the current composite) ?", " Feature's Type ", JOptionPane.QUESTION_MESSAGE);
 
 
 
 		if(featureType.equals("1") ) {
-			String name = ask();
+			String name = predictAsk();
 			StringFeature temp= new StringFeature(name, null );
 			pridictedPath += name;
 			newCurrent.addFeature(temp);
 			
 
 		}else if(featureType.equals("2")){	
-			String name = ask();
+			String name = predictAsk();
 			FloatFeature temp= new FloatFeature(name);
 			pridictedPath += name;
 			newCurrent.addFeature(temp);
 
 		}else if(featureType.equals("3")){
-			String name = ask();
+			String name = predictAsk();
 			CompositeFeature temp = new CompositeFeature(name);
 			pridictedPath += name;
 			newCurrent.addFeature(temp);
