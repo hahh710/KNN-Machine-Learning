@@ -409,7 +409,7 @@ public class KNNController implements ActionListener,Serializable{
 				}else if(featureType.equals(currentComposite.getSubFeature(i).getFName()) && currentComposite.getSubFeature(i) instanceof FloatFeature) {
 					String fname = JOptionPane.showInputDialog(null,path +"\n"+ "What is the feature name of  that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
 					currentComposite.getSubFeature(i).setFName(fname);
-					Float set = Float.parseFloat(JOptionPane.showInputDialog(null,path +"\n"+ "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE));
+					Float set = Float.parseFloat(JOptionPane.showInputDialog(null,path +"\n"+ "What is the value that you would like it change to?", " Value ", JOptionPane.QUESTION_MESSAGE));
 					FloatFeature temp = (FloatFeature)currentComposite.getSubFeature(i);
 					temp.setValue(set);
 					currentComposite.getSubFeatures().set(i, temp);
@@ -418,7 +418,7 @@ public class KNNController implements ActionListener,Serializable{
 					newCurrent = currentComposite;
 					//currentComposite.getSubFeature(i).setFName(set);
 				}else if(featureType.equals(currentComposite.getSubFeature(i).getFName()) && currentComposite.getSubFeature(i) instanceof StringFeature) {
-					String fname = JOptionPane.showInputDialog(null,path +"\n"+ "What is the feature name of  that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
+					String fname = JOptionPane.showInputDialog(null,path +"\n"+ "What is the feature name of that you would like it change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
 					currentComposite.getSubFeature(i).setFName(fname);
 					String set = JOptionPane.showInputDialog(null,path +"\n"+ "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
 					StringFeature temp = (StringFeature)currentComposite.getSubFeature(i);
