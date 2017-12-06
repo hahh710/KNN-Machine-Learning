@@ -83,7 +83,6 @@ public class CompositeFeature extends Feature{
 				if(subFeatures.get(i).getFName().equals(name)) {
 					return flag = true;
 				}
-				checkSameFeatureName(name);
 			}else {
 				if(subFeatures.get(i).getFName().equals(name)) {
 					return flag = true;
