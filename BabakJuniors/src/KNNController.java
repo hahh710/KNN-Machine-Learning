@@ -1,6 +1,8 @@
 import java.awt.event.*;
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -13,6 +15,7 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import javax.swing.*;
 /**
@@ -266,6 +269,41 @@ public class KNNController implements ActionListener,Serializable{
 		new KNNView();
 	} else if (event.getActionCommand().equals("Load Training Example")){
 		//load
+		try {
+			Example example1 = new Example();
+			String importName = JOptionPane.showInputDialog(null, "What is the name of the file that you want to import from?", JOptionPane.QUESTION_MESSAGE);
+			//FileInputStream fis = new FileInputStream(importName);
+			//ObjectInputStream ois = new ObjectInputStream(fis);
+			//TrainingExample result = (TrainingExample) ois.readObject();
+			Scanner read = new Scanner(new File("read.txt"));
+			TrainingExample trainEx;
+			
+	        while(read.hasNextLine()){
+	        	example1.addTrainingExample(trainEx=new TrainingExample(read.useDelimiter(": ").next(),example1));
+	        	featureHead = trainEx.getCompositeFeature();
+	        	String name = read.useDelimiter(": ").next();
+	        	if(read.hasNextFloat()){
+	        		trainEx.addFloatFeature(name, Float.parseFloat(read.useDelimiter(", ").next()), featureHead);
+	        	}else if(read.hasNext()){
+	        		trainEx.addStringFeature(name, read.useDelimiter(", ").next(), featureHead);
+	        	}else if(read.hasNext("(")){
+	        		
+	        	}
+	        	
+	        }
+	        	
+	        
+			
+
+			//example.addTrainingExample(result);
+			//add.addBuddy(result);
+			//ois.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	else if (event.getActionCommand().equals("Load Testing Example")){
 		//load
