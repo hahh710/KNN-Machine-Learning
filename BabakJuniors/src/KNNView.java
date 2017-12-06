@@ -32,7 +32,7 @@ public class KNNView extends JFrame{
 
 	private JPanel trainingPanel, testingPanel ;
 	private JButton predict;
-	private JMenuItem createTrainExample,createTestExample,editTrainFeature,addTrainingFeature,createExample,restart,addTestingFeature,editTestFeature,saveTestExample,saveTrainExample,loadTrainingExample,loadTestingExample;
+	private JMenuItem createTrainExample,calculateError,createTestExample,editTrainFeature,addTrainingFeature,createExample,restart,addTestingFeature,editTestFeature,saveTestExample,saveTrainExample,loadTrainingExample,loadTestingExample,predictAll;
 	private JMenu trainExample,testExample,example;
 
 	
@@ -91,9 +91,18 @@ public class KNNView extends JFrame{
 		saveTestExample.setEnabled(false);
 		saveTestExample.addActionListener(controller);
 		
+		predictAll = new JMenuItem("Predict All");
+		predictAll.setEnabled(false);
+		predictAll.addActionListener(controller);
+		
 		saveTrainExample = new JMenuItem("Save Train Example");
 		saveTrainExample.setEnabled(false);
 		saveTrainExample.addActionListener(controller);
+		
+		
+		calculateError = new JMenuItem("CalculateError");
+		calculateError.setEnabled(false);
+		calculateError.addActionListener(controller);
 		
 		restart = new JMenuItem("Restart");
 		restart.addActionListener(controller);
@@ -143,10 +152,12 @@ public class KNNView extends JFrame{
 		trainExample.add(editTrainFeature);
 		testExample.add(addTestingFeature);
 		testExample.add(editTestFeature);
+		testExample.add(calculateError);
 		trainExample.add(saveTrainExample);
 		testExample.add(saveTestExample);
 		trainExample.add(loadTrainingExample);
 		testExample.add(loadTestingExample);
+		testExample.add(predictAll);
 		
 		testingPanel.add(predict,BorderLayout.SOUTH);
 		

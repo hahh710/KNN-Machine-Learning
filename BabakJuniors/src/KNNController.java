@@ -193,8 +193,28 @@ public class KNNController implements ActionListener,Serializable{
 		}
 		
 		
-		JOptionPane.showMessageDialog(view,"Prediction is: " +  testingEx.predictFeature(temp, knn, distanceMetrics).toString() + "\n" + "Error is:" +testingEx.calculateError(temp, knn, distanceMetrics));
+		JOptionPane.showMessageDialog(view,"Prediction is: " +  testingEx.predictFeature(temp, knn, distanceMetrics).toString());
 
+	}else if (event.getActionCommand().equals("Predict All")) {
+		
+		String errorFeatureName = JOptionPane.showInputDialog(null, "What is the name of the feature you want to calculate the error for?", " Feature's name ", JOptionPane.QUESTION_MESSAGE);
+
+		int prevFeatureName = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to calculate the error ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
+		testingEx = example.getTestingExampleIndex(prevFeatureName);
+		int k = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
+	//	float error = testingEx.calculateError(temp, k, distanceMetrics);
+
+	//	JOptionPane.showMessageDialog(view,"Error is: " + error);
+}else if (event.getActionCommand().equals("CalculateError")) {
+		
+				String errorFeatureName = JOptionPane.showInputDialog(null, "What is the name of the feature you want to calculate the error for?", " Feature's name ", JOptionPane.QUESTION_MESSAGE);
+		
+				int prevFeatureName = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to calculate the error ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
+				testingEx = example.getTestingExampleIndex(prevFeatureName);
+				int k = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
+			//	float error = testingEx.calculateError(temp, k, distanceMetrics);
+		
+			//	JOptionPane.showMessageDialog(view,"Error is: " + error);
 	}else if (event.getActionCommand().equals("Save Train Example")) {
 		try {
 
@@ -379,7 +399,7 @@ public class KNNController implements ActionListener,Serializable{
 		}else {
 			for(int i =0;i<currentComposite.getSubFeatureSize();i++) {
 				if(featureType.equals(currentComposite.getSubFeature(i).getFName()) && currentComposite.getSubFeature(i) instanceof CompositeFeature) {
-					String set = JOptionPane.showInputDialog(null,path +"\n"+ "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
+					String set = JOptionPane.showInputDialog(null,path +"\n"+ "What is the feature name of this composite that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
 					currentComposite.getSubFeature(i).setFName(set);
 
 					//newCurrent=editOption(newCurrent);
@@ -387,6 +407,8 @@ public class KNNController implements ActionListener,Serializable{
 					//break;
 
 				}else if(featureType.equals(currentComposite.getSubFeature(i).getFName()) && currentComposite.getSubFeature(i) instanceof FloatFeature) {
+					String fname = JOptionPane.showInputDialog(null,path +"\n"+ "What is the feature name of  that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
+					currentComposite.getSubFeature(i).setFName(fname);
 					Float set = Float.parseFloat(JOptionPane.showInputDialog(null,path +"\n"+ "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE));
 					FloatFeature temp = (FloatFeature)currentComposite.getSubFeature(i);
 					temp.setValue(set);
@@ -396,6 +418,8 @@ public class KNNController implements ActionListener,Serializable{
 					newCurrent = currentComposite;
 					//currentComposite.getSubFeature(i).setFName(set);
 				}else if(featureType.equals(currentComposite.getSubFeature(i).getFName()) && currentComposite.getSubFeature(i) instanceof StringFeature) {
+					String fname = JOptionPane.showInputDialog(null,path +"\n"+ "What is the feature name of  that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
+					currentComposite.getSubFeature(i).setFName(fname);
 					String set = JOptionPane.showInputDialog(null,path +"\n"+ "What is the value that you would like to change to?", " Value ", JOptionPane.QUESTION_MESSAGE);
 					StringFeature temp = (StringFeature)currentComposite.getSubFeature(i);
 					temp.setfValue(set);
