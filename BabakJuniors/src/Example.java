@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.DefaultListModel;
 
@@ -42,7 +43,7 @@ public class Example implements Serializable{
 		trainingExamples = new DefaultListModel<TrainingExample>();
 		trainingExamplesModel = new ArrayList<TrainingExample>();
 		testingExamples = new DefaultListModel<TestingExample>();
-		
+
 	}
 
 	/**
@@ -125,7 +126,7 @@ public class Example implements Serializable{
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 * this returns each name of example into toString string variable.
-	 
+
 	public String toString(){
 		String toString = "";
 
@@ -138,26 +139,25 @@ public class Example implements Serializable{
 		}
 		return toString;
 	}
-*/
-	/**
-	 * 
-	 * @param trainingExample
-	 *            example used to calculate error, turned into testing example
-	 *            and predicts a feature
-	 * @param Feature: 
-	 *            the feature to be predicted
-	 * @param k:
-	 *            the number
-	 * @return 
 	 */
-	public float calculateError(TrainingExample trainEx, Feature f, int k) {
-		return k;
-			
-		//testytest.predict()
-		//thefeaturejustpredicted.calculateerror(trainEx.getfeaturebeingcalculated);
-		
+	/**
+	 * predictFeatureSet
+	 * 
+	 * @param fID: is the id that represents a feature
+	 * @param k: is the number of neighbors that predict will use
+	 * @param metrics: is a set of metrics each feature will be using for the calculation
+	 * 
+	 * this method will predict the feature for every testing example that does not have a value for the given feature 
+	 */
+	public DefaultListModel<Feature> predictFeatureSet(String fID, int k, HashMap<String, String> metrics) {
+		DefaultListModel <Feature> listOfPredictions = new DefaultListModel<Feature>();
+		for(int i =0; i<testingExamples.getSize();i++) {
+			if(testingExamples.getElementAt(i).getFeature(fID)==null)
+				listOfPredictions.addElement(testingExamples.getElementAt(i).predictFeature(testingExamples.getElementAt(i).getFeature(fID), k, metrics));
+		}
+		return listOfPredictions;
 	}
-	
+	//	public Float calculateError(Feature f, int k, HashMap<String, String> metrics) {
 }
 
- 
+
