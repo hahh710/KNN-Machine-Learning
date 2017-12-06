@@ -48,7 +48,7 @@ public class KNNController implements ActionListener,Serializable{
 	private HashMap <String, String> distanceMetrics;
 	private String featureName;
 	private String featureType;
-	private String featureSValue;
+	private String featureSValue,name;
 	private float featureFValue;
 	private String pridictedPath;
 	private CompositeFeature featureHead;
@@ -269,38 +269,7 @@ public class KNNController implements ActionListener,Serializable{
 		new KNNView();
 	} else if (event.getActionCommand().equals("Load Training Example")){
 		//load
-		try {
-			Example example1 = new Example();
-			String importName = JOptionPane.showInputDialog(null, "What is the name of the file that you want to import from?", JOptionPane.QUESTION_MESSAGE);
-			//FileInputStream fis = new FileInputStream(importName);
-			//ObjectInputStream ois = new ObjectInputStream(fis);
-			//TrainingExample result = (TrainingExample) ois.readObject();
-			Scanner read = new Scanner(new File("read.txt"));
-			TrainingExample trainEx;
-			
-	        while(read.hasNextLine()){
-	        	example1.addTrainingExample(trainEx=new TrainingExample(read.useDelimiter(": ").next(),example1));
-	        	featureHead = trainEx.getCompositeFeature();
-	        	String name = read.useDelimiter(": ").next();
-	        	if(read.hasNextFloat()){
-	        		trainEx.addFloatFeature(name, Float.parseFloat(read.useDelimiter(", ").next()), featureHead);
-	        	}else if(read.hasNext()){
-	        		trainEx.addStringFeature(name, read.useDelimiter(", ").next(), featureHead);
-	        	}else if(read.hasNext("(")){
-	        		
-	        	}
-	        	
-	        }
-	        	
-	        
-			
-
-			//example.addTrainingExample(result);
-			//add.addBuddy(result);
-			//ois.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	
 	}
 	else if (event.getActionCommand().equals("Load Testing Example")){
 		//load
@@ -541,6 +510,46 @@ public class KNNController implements ActionListener,Serializable{
 			newCurrent = current.getParent();
 			return getToHead(newCurrent);
 		}
+	}
+	public void loadTrainExample(String Filename){
+		try {
+			Example example1 = new Example();
+			
+			
+			Scanner read = new Scanner(new File(Filename));
+			TrainingExample trainEx;
+			
+	        while(read.hasNextLine()){
+	        	example1.addTrainingExample(trainEx=new TrainingExample(read.useDelimiter(": ").next(),example1));
+	        	featureHead = trainEx.getCompositeFeature();
+	        	name = read.useDelimiter(": ").next();
+	        	if(read.hasNextFloat()){
+	        		trainEx.addFloatFeature(name, Float.parseFloat(read.useDelimiter(", ").next()), featureHead);
+	        	}else if(read.hasNext()){
+	        		trainEx.addStringFeature(name, read.useDelimiter(", ").next(), featureHead);
+	        	}else if(read.hasNext("(")){
+	        		checkforBracket(read);
+	        		//while(!read.hasNext("),")){
+	        			 //name = read.useDelimiter(": ").next();
+	        		}
+	        	}
+	        
+	        	
+
+			//example.addTrainingExample(result);
+			//add.addBuddy(result);
+			//ois.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public boolean checkforBracket(Scanner read1){
+		Scanner read =read1;
+		
+		if(read.hasNext("(")){
+			return true;
+		}
+		return false;
 	}
 }
 
