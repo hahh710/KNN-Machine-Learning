@@ -300,9 +300,6 @@ public class KNNController implements ActionListener,Serializable{
 			//ois.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 	else if (event.getActionCommand().equals("Load Testing Example")){
