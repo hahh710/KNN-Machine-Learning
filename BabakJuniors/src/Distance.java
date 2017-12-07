@@ -54,11 +54,14 @@ public class Distance {
 		public float findDistance(TestingExample testExam, TrainingExample trainExam) {
 			int index = lookUpTable.get(trainExam);
 			int sum=0;
+			int count=0;
 			for (Map.Entry<String, ArrayList<Float>> entry: normDist.entrySet()) {
-				if(entry.getValue().get(index)!=null)
+				if(entry.getValue().get(index)!=null) {
 					sum+=entry.getValue().get(index);
+					count++;
+				}
 			}
-			return sum;
+			return sum/count;
 		}
 		/**normalizeDistance will normalize all distances for less biased calculations
 		 * 
@@ -129,8 +132,6 @@ public class Distance {
 					}
 					if(testEx.getFeature(entry.getKey())!=null && t.getFeature(entry.getKey())!=null)
 						entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metrics.get(entry.getKey())));
-					else
-						entry.getValue().add((Float) null);
 				}
 				lookUpTableFlag++;
 			}
