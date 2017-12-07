@@ -16,6 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Stack;
 
 import javax.swing.*;
 /**
@@ -512,14 +513,18 @@ public class KNNController implements ActionListener,Serializable{
 		}
 	}
 	public void loadTrainExample(String Filename){
-		try {
+		
 			Example example1 = new Example();
 			
 			
 			Scanner read = new Scanner(new File(Filename));
 			TrainingExample trainEx;
+			String str=read.nextLine();
+			while(read.hasNextLine()){
+				
+			}
 			
-	        while(read.hasNextLine()){
+	      /*  while(read.hasNextLine()){
 	        	example1.addTrainingExample(trainEx=new TrainingExample(read.useDelimiter(": ").next(),example1));
 	        	featureHead = trainEx.getCompositeFeature();
 	        	name = read.useDelimiter(": ").next();
@@ -527,22 +532,58 @@ public class KNNController implements ActionListener,Serializable{
 	        		trainEx.addFloatFeature(name, Float.parseFloat(read.useDelimiter(", ").next()), featureHead);
 	        	}else if(read.hasNext()){
 	        		trainEx.addStringFeature(name, read.useDelimiter(", ").next(), featureHead);
-	        	}else if(read.hasNext("(")){
-	        		checkforBracket(read);
+	        	}else while(read.hasNext("(")){
+	        		while(checkforBracket(read)){
+	        			//options for string and float
+	        			name = read.useDelimiter(": ").next();
+	        			newCurrent = trainEx.getCompositeFeature();
+	        			if(read.hasNextFloat()){
+	        				trainEx.addFloatFeature(name, Float.parseFloat(read.useDelimiter(", ").next()), newCurrent);
+	        			}
+	        			if(read.hasNext(")")){
+	        				break;
+	        			}
 	        		//while(!read.hasNext("),")){
 	        			 //name = read.useDelimiter(": ").next();
 	        		}
+	        		
+	        		if(read.hasNext(")")){
+        				break;
+	        		}
 	        	}
 	        
-	        	
+	        }*/
 
 			//example.addTrainingExample(result);
 			//add.addBuddy(result);
 			//ois.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 	}
+	
+	  public static boolean isParenthesisMatch(String str) {
+    if (str.charAt(0) == '{')
+        return false;
+
+    Stack<Character> stack = new Stack<Character>();
+
+    char c;
+    for(int i=0; i < str.length(); i++) {
+        c = str.charAt(i);
+
+        if(c == '(')
+            stack.push(c);
+        
+        else if(c == ')')
+            if(stack.empty())
+                return false;
+            else if(stack.peek() == '(')
+                stack.pop();
+            else
+                return false;
+    }
+    return stack.empty();
+}
+	 
 	public boolean checkforBracket(Scanner read1){
 		Scanner read =read1;
 		
