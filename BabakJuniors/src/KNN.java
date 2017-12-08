@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  *
  *
  */
-public class KNN {
+public class KNN implements Serializable{
 	private ArrayList<TrainingExample> nearestNeighbors;
 	private int k;
 	private TestingExample testEx;

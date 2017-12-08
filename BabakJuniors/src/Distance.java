@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +27,7 @@ import java.util.Map;
  *+Float getSubjectiveDistance(): Returns a float representing the distance between two strings
  *
  */
-public class Distance {
+public class Distance implements Serializable{
 	//for each feature in test there is a distance between that feature is testing example and each training example
 	private Map<String,ArrayList<Float>> distances;
 	private Map<String,ArrayList<Float>> normDist;
