@@ -44,14 +44,7 @@ public class TrainingExample implements Serializable{
 		features=null;
 	}
 	
-/*	public TrainingExample(String name){
-		//this.manager=manager;
-		printFeatures = new DefaultListModel<String>();
-		features = new CompositeFeature("head");
-		linearizedFeatures =new ArrayList<Feature>();
-		this.exampleName = name; 
-	}*/
-	
+
 	public TrainingExample(String name, Example man){
 		this.manager=man;
 		printFeatures = new DefaultListModel<String>();
@@ -70,6 +63,7 @@ public class TrainingExample implements Serializable{
 	public String getTrainingExampleName(){
 		return exampleName;
 	}
+	
 	public void setTrainingExampleName(String name){
 		exampleName = name;
 	}
@@ -80,6 +74,7 @@ public class TrainingExample implements Serializable{
 		currentFeature.addFeature(sFeature);
 		return currentFeature;
 	}
+	
 	//2
 	public CompositeFeature addFloatFeature(String fName,Float value,CompositeFeature currentFeature) {
 		FloatFeature fFeature = new FloatFeature(fName,value);
@@ -88,7 +83,7 @@ public class TrainingExample implements Serializable{
 		currentFeature.addFeature(fFeature);
 		return currentFeature;
 	}
-	//
+	
 	//3
 	public CompositeFeature addCompositeFeature(String compositeName,CompositeFeature currentFeature) {
 		CompositeFeature comp = new CompositeFeature(compositeName);
@@ -97,46 +92,17 @@ public class TrainingExample implements Serializable{
 		currentFeature.addFeature(comp);
 		return currentFeature;
 	}
-	//case4
-	//
-	/*public Feature getFeatureInTraining(String s) {
-		if(s.equals(features.getFName()+"->")) {
-			return features;
-		}else {
-			return getFeature(s,manager.getTrainingExamples().);
-		}
-	*/
-	
+
+
 	public Feature getFeature(String s) {
 		if(s.equals(features.getFName()+"->")) {
 			return features;
 		}else {
 			return getFeature(s,features);
 		}
-		//
-		/*
-		for(int i =0;i<features.getSubFeatureSize();i++) {
-			if()	
-		
-		}
-		for (Feature f: features.getSubFeatures()) {
-			if (f.getStringID("", this.getFeatures()).equals(s)) {
-				return f;
-			}
-			if(f instanceof CompositeFeature) {
-				CompositeFeature F =(CompositeFeature)f;
-				if(!F.isThereComposite() && F.getStringID("", F).equals(s)) {
-					return f;
-				}
-				f = f.;
-			}
-			if(f instanceof CompositeFeature) {
-				return getFeature(s);
-			}
-			
-			
-		}*/
 	}
+	
+	
 	public Feature getFeature(String s, CompositeFeature features) {
 		Feature fe =null;
 		for (Feature f: features.getSubFeatures()) {
@@ -181,8 +147,14 @@ public class TrainingExample implements Serializable{
 	public Example getManager() {
 		return manager;
 	}
-
-	
+	/*
+	public static ArrayList<String> importt(String str){
+		
+		String[] s = str.split("\\,");
+		TrainingExample b = new TrainingExample(s[0],s[1]);
+		return b;
+	}
+	*/
 	public String toString(){
 		String tostring = exampleName + ": ";
 		tostring=tostring+ features.toString();

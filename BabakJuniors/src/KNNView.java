@@ -29,7 +29,6 @@ public class KNNView extends JFrame{
 	private static final long serialVersionUID = 1L;
 	
 	private KNNController controller;
-
 	private JPanel trainingPanel, testingPanel ;
 	private JButton predict;
 	private JMenuItem createTrainExample,calculateError,createTestExample,editTrainFeature,addTrainingFeature,createExample,restart,addTestingFeature,editTestFeature,saveTestExample,saveTrainExample,loadTrainingExample,loadTestingExample,predictAll;
@@ -140,9 +139,6 @@ public class KNNView extends JFrame{
 		editTestFeature.addActionListener(controller);
 		
 		
-		
-		
-		
 		example.add(createExample);
 		example.add(restart);
 		trainExample.add(createTrainExample);
@@ -156,8 +152,9 @@ public class KNNView extends JFrame{
 		trainExample.add(saveTrainExample);
 		testExample.add(saveTestExample);
 		trainExample.add(loadTrainingExample);
-		testExample.add(loadTestingExample);
 		testExample.add(predictAll);
+		testExample.add(loadTestingExample);
+		
 		
 		testingPanel.add(predict,BorderLayout.SOUTH);
 		

@@ -1,10 +1,12 @@
 import java.awt.event.*;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -16,7 +18,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Stack;
 
 import javax.swing.*;
 /**
@@ -43,6 +44,7 @@ public class KNNController implements ActionListener,Serializable{
 	private KNNView view;
 	private JList<TestingExample> testingExample;
 	private JList <TrainingExample> trainingExample;
+	private ArrayList<TrainingExample> trainEx;
 	private Example example;
 	private TestingExample testingEx;
 	private TrainingExample trainingEx;
@@ -220,60 +222,134 @@ public class KNNController implements ActionListener,Serializable{
 		
 			//	JOptionPane.showMessageDialog(view,"Error is: " + error);
 	}else if (event.getActionCommand().equals("Save Train Example")) {
-		try {
+	//	try {
+			
+			String contents = "";
+			PrintWriter out = null;
+				try {
+					FileOutputStream fos = new FileOutputStream ("TrainingObject.txt");
+					BufferedOutputStream bos = new BufferedOutputStream(fos);
+					ObjectOutputStream outO = new ObjectOutputStream(bos);
+					outO.writeObject((DefaultListModel<TrainingExample>) example.getTrainingExamples());
+					
+					for (int i =0;i<example.getTrainingExample().size();i++) {
+						outO.writeObject(example.getTrainingExampleIndex(i));
+						
+					}
+					outO.close();
+			}catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+				try {
+					out = new PrintWriter("Training.txt");
+					for(int i = 1 ; i < example.getTrainingExample().size() + 1;i++)
+					{
+						contents = example.getTrainingExampleIndex(i-1).toString();
+						out.println(contents);
+					}
+					
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				out.close();
+			/*
 
 			String exportName = JOptionPane.showInputDialog(null, "What is the name of the file that you want to export?", JOptionPane.QUESTION_MESSAGE);
 			String contents = "";
 			exportName = exportName+".txt"; 
-			/*
+
+			
 			FileOutputStream fos = new FileOutputStream (exportName);
 			BufferedOutputStream bos = new BufferedOutputStream(fos);
 			ObjectOutputStream out = new ObjectOutputStream(bos);
-			*/
+			out.writeObject(example.getTrainingExamples());
+			
+			/*
 			PrintWriter out = null;
 			out= new PrintWriter(exportName);
-			for(int i = 1;i < example.getTrainingExample().size()+1;i++) {
-				contents = example.getTrainingExampleIndex(i-1).toString();
+			for(int i = 1;i < example.getTestingExample().size()+1;i++) {
+				contents = example.getTestingExampleIndex(i-1).toString();
 				out.println(contents);
 			}
-			
-			//out.writeObject(contents);
-			out.close();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
+		out.close();
+	}catch(IOException e) {
+		e.printStackTrace();
+	}
+	*/
 	
 		
 	}else if (event.getActionCommand().equals("Save Test Example")) {
+		String contents = "";
+		PrintWriter out = null;
 			try {
-
-				String exportName = JOptionPane.showInputDialog(null, "What is the name of the file that you want to export?", JOptionPane.QUESTION_MESSAGE);
-				String contents = "";
-				exportName = exportName+".txt"; 
-				/*
-				FileOutputStream fos = new FileOutputStream (exportName);
+				FileOutputStream fos = new FileOutputStream ("TestingObject.txt");
 				BufferedOutputStream bos = new BufferedOutputStream(fos);
-				ObjectOutputStream out = new ObjectOutputStream(bos);
-				*/
-				PrintWriter out = null;
-				out= new PrintWriter(exportName);
-				for(int i = 1;i < example.getTestingExample().size()+1;i++) {
+				ObjectOutputStream outO = new ObjectOutputStream(bos);
+				outO.writeObject(example.getTestingExample());
+			}catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			try {
+				out = new PrintWriter("Testing.txt");
+				for(int i = 1 ; i < example.getTrainingExample().size() + 1;i++)
+				{
 					contents = example.getTestingExampleIndex(i-1).toString();
 					out.println(contents);
 				}
 				out.close();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 	} else if (event.getActionCommand().equals("Restart")) {
 		new KNNView();
 	} else if (event.getActionCommand().equals("Load Training Example")){
-		//load
+		String fileName = JOptionPane.showInputDialog(null, "What is the name of the file(.0) that you want to load (except .0)", " Import", JOptionPane.QUESTION_MESSAGE);
+		fileName += ".txt";
+		DefaultListModel<TrainingExample> training = null;
+		try{
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName));
+			training = (DefaultListModel<TrainingExample>) ois.readObject();
+			//System.out.println("Object: " + training);//ois.readObject());
+			
+			//System.out.println("" + ois.readObject());
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		view.getFeatureTrainEdit().setEnabled(true);
+		view.getTrainFeature().setEnabled(true);
+
+		trainingExample = new JList<>(example.getTrainingExample()); 	
+		view.getTrainingPanel().add(trainingExample);
+		example.addTrainingExample((TrainingExample)training.getElementAt(0));
+		//example.setTrainingExamples(training);
 	
 	}
 	else if (event.getActionCommand().equals("Load Testing Example")){
 		//load
+		
+		String fileName = JOptionPane.showInputDialog(null, "What is the name of the file(.0) that you want to load (except .0)", " Import", JOptionPane.QUESTION_MESSAGE);
+		fileName += ".o";
+		DefaultListModel<TrainingExample> testing = null;
+		try{
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName));
+			testing = (DefaultListModel<TrainingExample>) ois.readObject();
+			//System.out.println("Object: " + training);//ois.readObject());
+			
+			//System.out.println("" + ois.readObject());
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
+		example.setTrainingExamples(testing);
+	
 	}
 		
 
@@ -512,19 +588,15 @@ public class KNNController implements ActionListener,Serializable{
 			return getToHead(newCurrent);
 		}
 	}
-/*	public void loadTrainExample(String Filename){
-		
+	public void loadTrainExample(String Filename){
+		try {
 			Example example1 = new Example();
 			
 			
 			Scanner read = new Scanner(new File(Filename));
 			TrainingExample trainEx;
-			String str=read.nextLine();
-			while(read.hasNextLine()){
-				
-			}
 			
-	      /*  while(read.hasNextLine()){
+	        while(read.hasNextLine()){
 	        	example1.addTrainingExample(trainEx=new TrainingExample(read.useDelimiter(": ").next(),example1));
 	        	featureHead = trainEx.getCompositeFeature();
 	        	name = read.useDelimiter(": ").next();
@@ -532,58 +604,22 @@ public class KNNController implements ActionListener,Serializable{
 	        		trainEx.addFloatFeature(name, Float.parseFloat(read.useDelimiter(", ").next()), featureHead);
 	        	}else if(read.hasNext()){
 	        		trainEx.addStringFeature(name, read.useDelimiter(", ").next(), featureHead);
-	        	}else while(read.hasNext("(")){
-	        		while(checkforBracket(read)){
-	        			//options for string and float
-	        			name = read.useDelimiter(": ").next();
-	        			newCurrent = trainEx.getCompositeFeature();
-	        			if(read.hasNextFloat()){
-	        				trainEx.addFloatFeature(name, Float.parseFloat(read.useDelimiter(", ").next()), newCurrent);
-	        			}
-	        			if(read.hasNext(")")){
-	        				break;
-	        			}
+	        	}else if(read.hasNext("(")){
+	        		checkforBracket(read);
 	        		//while(!read.hasNext("),")){
 	        			 //name = read.useDelimiter(": ").next();
 	        		}
-	        		
-	        		if(read.hasNext(")")){
-        				break;
-	        		}
 	        	}
 	        
-	        }*/
+	        	
 
 			//example.addTrainingExample(result);
 			//add.addBuddy(result);
 			//ois.close();
-		
-//	}
-	
-	  public static boolean isParenthesisMatch(String str) {
-    if (str.charAt(0) == '{')
-        return false;
-
-    Stack<Character> stack = new Stack<Character>();
-
-    char c;
-    for(int i=0; i < str.length(); i++) {
-        c = str.charAt(i);
-
-        if(c == '(')
-            stack.push(c);
-        
-        else if(c == ')')
-            if(stack.empty())
-                return false;
-            else if(stack.peek() == '(')
-                stack.pop();
-            else
-                return false;
-    }
-    return stack.empty();
-}
-	 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public boolean checkforBracket(Scanner read1){
 		Scanner read =read1;
 		
@@ -592,5 +628,85 @@ public class KNNController implements ActionListener,Serializable{
 		}
 		return false;
 	}
+	/*
+	public ArrayList<TrainingExample> importAddressBook (String fileName){
+		 // The name of the file to open.
+       String fileName1 = fileName;
+
+       // This will reference one line at a time
+       String line = null;
+
+       try {
+           // FileReader reads text files in the default encoding.
+           FileReader fileReader = 
+               new FileReader(fileName1);
+
+           // Always wrap FileReader in BufferedReader.
+           BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        
+           TrainingExample b=null;
+           int i=0;
+           while((line = bufferedReader.readLine()) != null) {
+           		this.trainingEx.add(TrainingExample.importt(line));
+           }   
+
+           // Always close files.
+           bufferedReader.close(); 
+          // return this.imported_buddyList;
+       }
+       catch(FileNotFoundException ex) {
+           System.out.println(
+               "Unable to open file '" + 
+               fileName1 + "'");                
+       }
+       catch(IOException ex) {
+           System.out.println(
+               "Error reading file '" 
+               + fileName1 + "'");                  
+
+       }
+		return imported_buddyList;
+   
+	}
+	
+	
+	
+	public void printimportedList(){
+		for(int i=0; i<imported_buddyList.size();i++){
+			System.out.println(imported_buddyList.get(i).toString());
+		}
+	}
+	
+public void objectExport(){
+		
+		try {
+			FileOutputStream out = new FileOutputStream("objectout.txt");
+			ObjectOutputStream oout = new ObjectOutputStream(out);
+			for (TrainingExample b : trainEx) {
+				oout.writeObject(b);
+				out.close();
+			}
+			
+		} catch (Exception e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+		}
+	}
+	
+	public TrainingExample objectImport(){
+		TrainingExample bd = null;
+		try{
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("objectout.txt"));
+			bd = (TrainingExample) ois.readObject();
+			System.out.println("Object: " + bd);
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return bd;
+	}
+	*/
+
 }
 

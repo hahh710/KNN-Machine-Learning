@@ -41,9 +41,6 @@ public class StringFeature extends Feature{
 		float count =0;
 		if(f instanceof StringFeature){
 			StringFeature feature = (StringFeature)f;
-			//if(feature.getFValue().length() >= fValue.length()){
-			//	distance = feature.getFValue().length(); 
-			//}else distance = fValue.length();
 
 			for(int i=0;i < fValue.length();i++){
 				for(int j=0;j< feature.getFValue().length();j++)
@@ -101,12 +98,11 @@ public class StringFeature extends Feature{
 		else{
 			path = current.getFName();
 			newCurrent = current.getParent();
-			//return getStringID(path,newCurrent);
 		}
 		if(newCurrent.getFName().equals("head")) {
-			path = "Head->"+ path ;  //t.getTrainingExampleName();
+			path = "Head->"+ path ; 
 			return path;
-		}else { //if(current instanceof StringFeature ||current instanceof FloatFeature) {
+		}else { 
 			path = newCurrent.getFName() +"->"+path;
 			newCurrent = newCurrent.getParent();
 			return getStringID(path,newCurrent);

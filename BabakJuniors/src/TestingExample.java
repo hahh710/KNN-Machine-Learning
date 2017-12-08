@@ -32,10 +32,8 @@ public class TestingExample extends TrainingExample implements Serializable {
 	private Distance distances;
 	private KNN knn;
 	private ArrayList<Feature> linearizedFeaturestest;
-	//private ArrayList<Feature> linearizedFeatures;
 	public TestingExample(String name, Example eM) {
 		super(name, eM);
-		//linearizedFeatures =new ArrayList<Feature>();
 		distances = new Distance(this);
 		linearizedFeaturestest =new ArrayList<Feature>();
 		knn=new KNN(0, this);
@@ -59,7 +57,6 @@ public class TestingExample extends TrainingExample implements Serializable {
 		currentFeature.addFeature(fFeature);
 		return currentFeature;
 	}
-	//
 	//3
 	public CompositeFeature addCompositeFeature(String compositeName,CompositeFeature currentFeature) {
 		CompositeFeature comp = new CompositeFeature(compositeName);
@@ -160,5 +157,13 @@ public class TestingExample extends TrainingExample implements Serializable {
 		}
 		return (float)1.01;//if returning this then an error occured
 	}
+/*	
+public static Example importt(String str){
+		
+		String[] s = str.split("\\$");
+		E b = new BuddyInfo(s[0],s[1],s[2],Integer.valueOf(s[3]));
+		return b;
+	}
+	*/
 
 }

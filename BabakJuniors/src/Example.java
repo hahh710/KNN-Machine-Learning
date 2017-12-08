@@ -28,6 +28,9 @@ import javax.swing.DefaultListModel;
 			+ calculateError( tEx : TrainingExample, f : Feature, k : int) :  float
  */
 public class Example implements Serializable{
+
+	
+
 	/**
 	 * 
 	 */
@@ -74,6 +77,13 @@ public class Example implements Serializable{
 	 */
 	public DefaultListModel<TrainingExample> getTrainingExample() {
 		return trainingExamples;
+	}
+	public void setTestingExamples(DefaultListModel<TestingExample> testingExamples) {
+		this.testingExamples = testingExamples;
+	}
+
+	public void setTrainingExamples(DefaultListModel<TrainingExample> trainingExamples) {
+		this.trainingExamples = trainingExamples;
 	}
 
 	/**
@@ -154,6 +164,8 @@ public class Example implements Serializable{
 		for(int i =0; i<testingExamples.getSize();i++) {
 			if(testingExamples.getElementAt(i).getFeature(fID)==null)
 				listOfPredictions.addElement(testingExamples.getElementAt(i).predictFeature(testingExamples.getElementAt(i).getFeature(fID), k, metrics));
+			else
+				listOfPredictions.addElement(null);
 		}
 		return listOfPredictions;
 	}
