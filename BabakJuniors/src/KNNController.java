@@ -512,7 +512,7 @@ public class KNNController implements ActionListener,Serializable{
 			return getToHead(newCurrent);
 		}
 	}
-	public void loadTrainExample(String Filename){
+/*	public void loadTrainExample(String Filename){
 		
 			Example example1 = new Example();
 			
@@ -558,7 +558,7 @@ public class KNNController implements ActionListener,Serializable{
 			//add.addBuddy(result);
 			//ois.close();
 		
-	}
+//	}
 	
 	  public static boolean isParenthesisMatch(String str) {
     if (str.charAt(0) == '{')
