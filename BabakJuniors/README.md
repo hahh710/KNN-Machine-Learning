@@ -20,7 +20,7 @@ PURPOSE OF PROJECT: The purpose of this project is to come up with a very simple
 					for each feature and for the output, whereas a testing example only has values for the features, but the output is the job of the algorithm to
 					figure out. This will be done by looking at different pattern and correlations between features and outputs in the training examples.
 					
-VERSION/DATE: 3.0/27th-November-2017
+VERSION/DATE: 4.0/8th-December-2017
 
 HOW TO START THIS PROJECT: 
 						1)	Click on Run and a JFrame Window will be visible.
@@ -79,6 +79,9 @@ HOW TO START THIS PROJECT:
 							be changed. Once OK is clicked, its asks you to enter the value you want to change, once the value is entered and OK is clicked, the value changes.							
 						11) To Save all the Testing Example on a file , go to the TestingExample menu item and click Save TestExample to save it on a file. The file will be stored
 							in the project folder.
+						12) To Load all the Training Examples and the Testing examples, Run the KNNview class and click on Example and click on Create new Example, then hover the mouse over the Training Example
+							menubar and click Load Training Example type in the file name name which has to be an .O file, and click on enter. the values will be displayed on the JList. (the .O file should only
+							be under the format of the same type as you save the file, if you save a file, you can upload the same file but cannot upload the .txt file)
 
 							
 Class Descriptions:	
@@ -101,15 +104,9 @@ Class Descriptions:
 					KNNController Class (This class contains the controller part of the MVC pattern which is used to implement GUI machine learning algorithm and the action listeners)
 
 Reason for the version update: 
-								1)Implemented the composite pattern on the feature class on the previous version to support the addition of a feature inside a feature
-								2)The methods in the Feature class had to many instance variables that were not used and set to null, in this we removed the old implementation of feature
-								implemented it according to Composite Pattern so it allows any kind of feature to be added in a certain implementation of a tree.
+								1) Fixed the errors on predicting a feature
+								2) Introduced two new features, Save and Load examples
 								3)The methods in the KNN class were are tightly coupled to the example class, therefore we decoupled the KNN class.
 								4)Refactored redundent methods and applied high cohesion and loose coupling.
-								5) In the previous version the KNN and Distance class had way too many responsibilites, It was used to perform distance calculation however its only responsibility
-								is to get the k nearest neighbour and update the Distances according to nearest neighbors. therefore in this version, respective type feature classes are responsible
-								for Distance calculation.
-								6)In the previous version, the prediction feature only allowed to predict the price of a housing example, now in this version , the predict feature allows
+								6)In the previous versions, the prediction feature only allowed to predict the price of a housing example, now in this version , the predict feature allows
 								the user to predict any kind of feature depending on type the user provides as well as in any kind of the example.
-								7)In the previous version the normalize distance were calculated in such a way that a feature may have more weight when its added together, but in this
-								version the distance are normalized accordingly so that they are displayed between 0 and 1.
