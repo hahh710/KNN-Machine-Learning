@@ -178,8 +178,7 @@ public class KNNController implements ActionListener,Serializable{
 			 testingEx.clearLinear();
 			 ArrayList<Feature> smell= new ArrayList<Feature>();
 			 testingEx.linearizeFeatures(testingEx.getFeatures());
-			 smell = testingEx.getLinearalized();
-			 for (Feature f:smell ) {
+			 for (Feature f:testingEx.getLinearalized() ) {
 				 if(f instanceof FloatFeature){
 					 String [] floatMetrics = {"absoluteDistance", "SquareDistance" };
 					 String metricType = (String) JOptionPane.showInputDialog(null,  "Which distance metric would you like to use for float feature: "+ f.getFName()," Distance Metric", JOptionPane.QUESTION_MESSAGE, null,  floatMetrics, floatMetrics[0]);

@@ -107,7 +107,7 @@ public class TrainingExample implements Serializable{
 		Feature fe =null;
 		for (Feature f: features.getSubFeatures()) {
 			if (f.getStringID("", f).equals(s)) {
-				fe = f;
+				return fe = f;
 			}
 			if(f instanceof CompositeFeature) {
 				CompositeFeature F =(CompositeFeature)f;

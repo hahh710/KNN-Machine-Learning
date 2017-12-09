@@ -139,7 +139,7 @@ public class CompositeFeature extends Feature{
 		}
 		if(theseFloats.size()==thoseFloats.size()){
 			for(int i=0;i<theseFloats.size();i++){
-				value+=Math.pow(theseFloats.get(i),2) - Math.pow(thoseFloats.get(i), 2);
+				value+=Math.abs(Math.pow(theseFloats.get(i),2) - Math.pow(thoseFloats.get(i), 2));
 			}
 			return (float) Math.pow(value, 0.5);
 		}
