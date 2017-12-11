@@ -198,9 +198,9 @@ public class KNNController implements ActionListener,Serializable{
 				 //String metricType = JOptionPane.showInputDialog(null, "Which distance metric would you like to use for feature: ?", "Distance Metric", JOptionPane.QUESTION_MESSAGE);
 				 //distanceMetrics.put(f.getStringID("", f), metricType);
 			 }
-			 int errorKnn = 1;
-			 if(knn != 1) {
-				 errorKnn -= 1; 
+			 int errorKnn = knn -1;
+			 if(knn == 1) {
+				 errorKnn = 1; 
 			 }
 			 JOptionPane.showMessageDialog(view,"Prediction is: " +  testingEx.predictFeature(path, knn, distanceMetrics).toString() + "\n" + "Error is: " + testingEx.calculateError(path, errorKnn, distanceMetrics) + "%");
 
@@ -212,14 +212,6 @@ public class KNNController implements ActionListener,Serializable{
 			testingEx = example.getTestingExampleIndex(prevFeatureName);
 			int k = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
 		
-		}else if (event.getActionCommand().equals("CalculateError")) {
-
-			String errorFeatureName = JOptionPane.showInputDialog(null, "What is the name of the feature you want to calculate the error for?", " Feature's name ", JOptionPane.QUESTION_MESSAGE);
-
-			int prevFeatureName = Integer.parseInt(JOptionPane.showInputDialog(null, "Select the index at which you would like to calculate the error ?", " Feature's Index ", JOptionPane.QUESTION_MESSAGE));
-			testingEx = example.getTestingExampleIndex(prevFeatureName);
-			int k = Integer.parseInt(JOptionPane.showInputDialog(null, "How many K-Nearest-Neighbours are there?", " KNN Value ", JOptionPane.QUESTION_MESSAGE));
-			
 		}else if (event.getActionCommand().equals("Save Train Example")) {
 		
 			String contents = "";
@@ -274,7 +266,7 @@ public class KNNController implements ActionListener,Serializable{
 				e1.printStackTrace();
 			}
 			try {
-				out = new PrintWriter("TestingExample.o");
+				out = new PrintWriter("TestingExample.txt");
 				for(int i = 1 ; i < example.getTestingExample().size() + 1;i++)
 				{
 					contents = example.getTestingExampleIndex(i-1).toString();
