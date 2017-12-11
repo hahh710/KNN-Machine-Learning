@@ -136,8 +136,6 @@ public class Distance implements Serializable{
 				if(testEx.getFeature(entry.getKey())!=null && t.getFeature(entry.getKey())!=null)
 					entry.getValue().add(testEx.getFeature(entry.getKey()).getDistance(t.getFeature(entry.getKey()), metrics.get(entry.getKey())));
 				else {
-					System.out.println(testEx.getFeature(entry.getKey())+" ");
-					System.out.println(t.getFeature(entry.getKey())+ "");
 					entry.getValue().add((Float)null);
 				}
 			}

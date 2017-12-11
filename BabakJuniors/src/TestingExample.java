@@ -116,8 +116,8 @@ public class TestingExample extends TrainingExample implements Serializable {
 		
 		knn = new KNN(k, this);
 		knn.determineNearestNeighbors(k, getManager().getTrainingExamplesModel());
-		Feature testies = f.predictFeature(knn.getNN());
-		return testies;
+		
+		return f.predictFeature(knn.getNN());
 	}
 	/**
 	 * Calculate error
@@ -133,7 +133,7 @@ public class TestingExample extends TrainingExample implements Serializable {
 		Float creal= (float)0;
 		if (f instanceof FloatFeature) {
 			freal=((FloatFeature)f).getValue();
-			return (freal-((FloatFeature)predictFeature( f,  k,  metrics)).getValue())/freal;
+			return Math.abs((freal-((FloatFeature)predictFeature( f,  k,  metrics)).getValue())/freal)*100;
 		}
 		else if(f instanceof StringFeature) {
 			sreal=((StringFeature)f).getFValue();
@@ -148,14 +148,14 @@ public class TestingExample extends TrainingExample implements Serializable {
 					creal=((FloatFeature)feat).getValue();
 					for(Feature featy:((CompositeFeature)predictFeature( f,  k,  metrics)).getSubFeatures()) {
 						if( featy instanceof FloatFeature) {
-							return (creal-((FloatFeature)featy).getValue())/creal;
+							return Math.abs((creal-((FloatFeature)featy).getValue())/creal)*100;
 
 						 }
 					}
 				}
 			}
 		}
-		return (float)1.01;//if returning this then an error occured
+		return Math.abs((float)1.01)*100;//if returning this then an error occured
 	}
 /*	
 public static Example importt(String str){
